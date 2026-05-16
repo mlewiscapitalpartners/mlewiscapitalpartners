@@ -628,36 +628,58 @@
     </div>
   </footer>
 
+  <!-- PAGE TRANSITION OVERLAY -->
+
+  <div class="page-transition" id="pageTransition"></div>
+
   <!-- MOBILE FOOTER NAVIGATION -->
 
   <div class="mobile-footer-nav">
-    <a href="#home" class="mobile-nav-item active">
+    <a href="index.html" class="mobile-nav-item active contact-active">
       <div class="mobile-icon">⌂</div>
       <span>Home</span>
     </a>
 
-    <a href="#about" class="mobile-nav-item">
+    <a href="about.html" class="mobile-nav-item">
       <div class="mobile-icon">◉</div>
       <span>About Us</span>
     </a>
 
-    <a href="#services" class="mobile-nav-item">
+    <a href="services.html" class="mobile-nav-item">
       <div class="mobile-icon">▣</div>
       <span>Services</span>
     </a>
 
-    <a href="#transactions" class="mobile-nav-item">
+    <a href="partners.html" class="mobile-nav-item">
       <div class="mobile-icon">◎</div>
       <span>Partners</span>
     </a>
 
-    <a href="#contact" class="mobile-nav-item contact-active">
+    <a href="contact.html" class="mobile-nav-item">
       <div class="mobile-icon">✉</div>
       <span>Contact</span>
     </a>
   </div>
 
   <style>
+    .page-transition {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #07152d, #0d2348);
+      z-index: 9999;
+      transform: translateY(100%);
+      transition: transform 0.6s ease;
+      pointer-events: none;
+    }
+
+    .page-transition.active {
+      transform: translateY(0);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     .mobile-footer-nav {
       position: fixed;
       bottom: 18px;
@@ -715,6 +737,43 @@
       }
     }
   </style>
+
+  <script>
+  const navItems = document.querySelectorAll('.mobile-nav-item');
+  const transition = document.getElementById('pageTransition');
+
+  navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      navItems.forEach(nav => {
+        nav.classList.remove('contact-active');
+        nav.classList.remove('active');
+      });
+
+      this.classList.add('contact-active');
+      this.classList.add('active');
+
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+
+      transition.classList.add('active');
+
+      setTimeout(() => {
+        if(targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 350);
+
+      setTimeout(() => {
+        transition.classList.remove('active');
+      }, 850);
+    });
+  });
+</script>
 
 </body>
 </html>
