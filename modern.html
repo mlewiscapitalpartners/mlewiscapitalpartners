@@ -164,13 +164,6 @@
       transform: translateX(-4px);
     }
 
-    /* SPACER - This is the key fix! Pushes content below fixed navbar */
-    .navbar-spacer {
-      height: 85px;
-      width: 100%;
-      display: block;
-    }
-
     /* PAGE CONTAINER */
     .page-container {
       position: relative;
@@ -186,22 +179,23 @@
       display: block;
     }
 
-    /* HERO - Now starts AFTER the spacer */
+    /* HERO - Added padding-top to push content below navbar */
     .hero {
-      min-height: calc(100vh - 85px);
+      min-height: 100vh;
       background: linear-gradient(rgba(7,21,45,0.88), rgba(7,21,45,0.88)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
       display: flex;
       align-items: center;
       position: relative;
+      padding-top: 85px;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 800px;
-      padding: 40px 0;
+      padding: 20px 0 40px 0;
     }
 
     .hero-tag {
@@ -239,10 +233,10 @@
       flex-wrap: wrap;
     }
 
-    /* About Hero */
+    /* About Hero - Added padding-top */
     .about-hero {
       background: var(--navy);
-      padding: 80px 0;
+      padding: 85px 0 80px;
       color: white;
       text-align: center;
     }
@@ -268,14 +262,18 @@
       opacity: 0.9;
     }
 
-    /* Division Detail Hero */
+    /* Division Detail Hero - Added padding-top */
     .detail-hero {
       background: var(--navy);
-      padding: 80px 0;
+      padding: 85px 0 80px;
       color: white;
     }
 
-    /* SECTION STYLES */
+    /* SECTION STYLES - First section after hero also needs padding-top removed */
+    .section:first-of-type {
+      padding-top: 80px;
+    }
+
     .section {
       padding: 100px 0;
     }
@@ -600,10 +598,11 @@
       .btn { padding: 10px 16px; font-size: 12px; }
       .leadership-card { padding: 30px; }
       footer { padding: 40px 20px 100px 20px; }
-      .about-hero { padding: 60px 0; }
+      .about-hero { padding: 75px 0 60px; }
       .about-hero .tagline { font-size: 1.3rem; }
       .vision-mission-grid { gap: 25px; }
-      .navbar-spacer { height: 75px; }
+      .hero { padding-top: 75px; }
+      .detail-hero { padding: 75px 0 60px; }
     }
 
     .page-transition {
@@ -718,9 +717,6 @@
   </div>
 </nav>
 
-<!-- VISIBLE SPACER - Pushes all content down below the fixed navbar -->
-<div class="navbar-spacer"></div>
-
 <div class="page-container">
   
   <!-- HOME PAGE -->
@@ -803,7 +799,7 @@
 
   <!-- DIVISIONS LANDING PAGE -->
   <div id="divisions-page" class="page">
-    <section class="section">
+    <section class="section" style="padding-top: 85px;">
       <div class="container">
         <div class="section-title"><span>Specialized Divisions</span><h2>Under M. Lewis Group</h2></div>
         <div class="services-grid">
@@ -840,7 +836,7 @@
 
   <!-- SERVICES PAGE -->
   <div id="services-page" class="page">
-    <section class="section">
+    <section class="section" style="padding-top: 85px;">
       <div class="container">
         <div class="section-title"><span>What We Offer</span><h2>Comprehensive Advisory & Investment Solutions</h2></div>
         <div class="services-grid">
@@ -857,7 +853,7 @@
 
   <!-- CONTACT PAGE -->
   <div id="contact-page" class="page">
-    <section class="section">
+    <section class="section" style="padding-top: 85px;">
       <div class="container">
         <div class="section-title"><span>Get In Touch</span><h2>Connect With M. Lewis Group</h2></div>
         <div class="contact-wrapper">
@@ -870,7 +866,7 @@
 
   <!-- PARTNER PAGE -->
   <div id="partner-page" class="page">
-    <section class="section">
+    <section class="section" style="padding-top: 85px;">
       <div class="container">
         <div class="section-title"><span>Strategic Alliances</span><h2>Partner with Us</h2></div>
         <div class="contact-card"><h3>🤝 Partnership Opportunities</h3><div class="contact-item"><strong>Email</strong><a href="mailto:partners@mlewisgroup.com">partners@mlewisgroup.com</a></div></div>
@@ -880,7 +876,7 @@
 
   <!-- INVEST PAGE -->
   <div id="invest-page" class="page">
-    <section class="section">
+    <section class="section" style="padding-top: 85px;">
       <div class="container">
         <div class="section-title"><span>Capital Deployment</span><h2>Invest with Us</h2></div>
         <div class="contact-card"><h3>💰 Investment Opportunities</h3><div class="contact-item"><strong>Email</strong><a href="mailto:invest@mlewisgroup.com">invest@mlewisgroup.com</a></div></div>
@@ -949,4 +945,4 @@
   updateActive('home');
 </script>
 </body>
-</html>
+                                                                                                                                                                                               </html>
