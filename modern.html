@@ -25,6 +25,7 @@
       --muted: #7d8698;
       --shadow: 0 10px 40px rgba(0,0,0,0.08);
       --radius: 28px;
+      --navbar-height: 85px;
     }
 
     body {
@@ -177,22 +178,23 @@
       display: block;
     }
 
-    /* HERO */
+    /* HERO - FIXED WITH PROPER PADDING TOP TO CLEAR NAVBAR */
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       background: linear-gradient(rgba(7,21,45,0.88), rgba(7,21,45,0.88)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
       display: flex;
       align-items: center;
       position: relative;
+      padding-top: var(--navbar-height);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      padding-top: 120px;
       max-width: 800px;
+      padding: 40px 0;
     }
 
     .hero-tag {
@@ -228,6 +230,42 @@
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+    }
+
+    /* About Hero - Fixed with padding top */
+    .about-hero {
+      background: var(--navy);
+      padding: calc(var(--navbar-height) + 60px) 0 80px;
+      color: white;
+      text-align: center;
+    }
+
+    .about-hero .tagline {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 30px;
+    }
+
+    .about-hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+
+    /* Division Detail Hero - Fixed */
+    .detail-hero {
+      background: var(--navy);
+      padding: calc(var(--navbar-height) + 60px) 0 80px;
+      color: white;
     }
 
     /* SECTION STYLES */
@@ -394,35 +432,7 @@
       color: #5f6677;
     }
 
-    /* About Page Styles */
-    .about-hero {
-      background: var(--navy);
-      padding: 160px 0 80px;
-      color: white;
-      text-align: center;
-    }
-
-    .about-hero .tagline {
-      font-size: 1.8rem;
-      font-family: 'Playfair Display', serif;
-      color: var(--gold);
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .about-hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      margin-bottom: 30px;
-    }
-
-    .about-hero p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      opacity: 0.9;
-    }
-
+    /* Vision & Mission Grid */
     .vision-mission-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -502,25 +512,6 @@
       color: #6b7280;
     }
 
-    /* Division Detail Page Styles */
-    .detail-hero {
-      background: var(--navy);
-      padding: 160px 0 80px;
-      color: white;
-    }
-
-    .detail-hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 20px;
-    }
-
-    .detail-hero .tagline {
-      color: var(--gold);
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
     .detail-section {
       padding: 60px 0;
       border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -551,111 +542,10 @@
       transition: 0.3s ease;
     }
 
-    .detail-card:hover {
-      transform: translateY(-4px);
-    }
-
     .detail-card h3 {
       color: var(--gold);
       margin-bottom: 15px;
       font-size: 1.3rem;
-    }
-
-    /* Focus Category Cards */
-    .focus-category-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 32px;
-      margin-top: 20px;
-    }
-
-    .focus-category-card {
-      background: white;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .focus-category-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .focus-card-header {
-      background: linear-gradient(135deg, var(--navy), var(--navy-light));
-      padding: 24px 28px;
-      color: white;
-    }
-
-    .focus-card-header h3 {
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .focus-card-header .focus-subtitle {
-      color: var(--gold);
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .focus-card-body {
-      padding: 28px;
-    }
-
-    .focus-card-body h4 {
-      color: var(--navy);
-      font-size: 1rem;
-      margin: 18px 0 12px 0;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .country-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .country-badge {
-      background: #e8f0fe;
-      color: var(--navy);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .example-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .example-list li {
-      padding: 6px 0 6px 20px;
-      position: relative;
-      font-size: 0.9rem;
-      color: #4a5568;
-    }
-
-    .example-list li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-    }
-
-    .note-text {
-      background: #fff8e7;
-      padding: 12px 16px;
-      border-radius: 16px;
-      font-size: 0.85rem;
-      color: #b7863f;
-      margin-top: 16px;
-      border-left: 3px solid var(--gold);
     }
 
     .contact-card {
@@ -702,11 +592,11 @@
       .cta-buttons { margin-left: auto; }
       .btn { padding: 10px 16px; font-size: 12px; }
       .leadership-card { padding: 30px; }
-      .focus-category-grid { grid-template-columns: 1fr; }
       footer { padding: 40px 20px 100px 20px; }
-      .about-hero { padding: 140px 0 60px; }
+      .about-hero { padding: calc(var(--navbar-height) + 40px) 0 60px; }
       .about-hero .tagline { font-size: 1.3rem; }
       .vision-mission-grid { gap: 25px; }
+      .hero { min-height: 90vh; }
     }
 
     .page-transition {
@@ -860,7 +750,7 @@
     </section>
   </div>
 
-  <!-- ABOUT PAGE - COMPLETELY UPDATED -->
+  <!-- ABOUT PAGE - UPDATED -->
   <div id="about-page" class="page">
     <div class="about-hero">
       <div class="container">
@@ -903,7 +793,7 @@
 
   <!-- DIVISIONS LANDING PAGE -->
   <div id="divisions-page" class="page">
-    <section class="section" style="padding-top: 140px;">
+    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
       <div class="container">
         <div class="section-title"><span>Specialized Divisions</span><h2>Under M. Lewis Group</h2></div>
         <div class="services-grid">
@@ -927,7 +817,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="detail-section"><h2>Overview</h2><p style="font-size: 1.1rem; line-height: 1.8;">M. Lewis Capital Partners is an Africa-focused boutique investment firm that combines investment banking expertise with private equity capabilities to support SME capital raising, growth equity, and cross-border transactions across African markets. We bridge the gap between African businesses seeking capital and international investors looking for credible, high-potential opportunities on the continent. We specialize in sub-USD 30 million transactions, with particular focus on founder-led businesses, SME expansion financing, and underserved mid-market opportunities.</p></div>
+      <div class="detail-section"><h2>Overview</h2><p style="font-size: 1.1rem; line-height: 1.8;">M. Lewis Capital Partners is an Africa-focused boutique investment firm that combines investment banking expertise with private equity capabilities to support SME capital raising, growth equity, and cross-border transactions across African markets. We bridge the gap between African businesses seeking capital and international investors looking for credible, high-potential opportunities on the continent.</p></div>
       <div class="detail-section"><h2>Advisory Services</h2><div class="detail-grid"><div class="detail-card"><h3>💰 Capital Raising</h3><p>Equity, debt, and structured finance solutions.</p></div><div class="detail-card"><h3>🤝 Investor Introductions</h3><p>Connecting businesses with credible investors.</p></div><div class="detail-card"><h3>📊 Debt Structuring</h3><p>Working capital, project finance, expansion facilities.</p></div><div class="detail-card"><h3>📈 Business Valuation</h3><p>M&A, fundraising, and strategic planning.</p></div></div></div>
       <div class="detail-section"><h2>Connect With Our Team</h2><div class="contact-card"><div class="contact-item"><strong>📧 Email</strong><a href="mailto:capital@mlewisgroup.com">capital@mlewisgroup.com</a></div></div></div>
     </div>
@@ -940,7 +830,7 @@
 
   <!-- SERVICES PAGE -->
   <div id="services-page" class="page">
-    <section class="section" style="padding-top: 140px;">
+    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
       <div class="container">
         <div class="section-title"><span>What We Offer</span><h2>Comprehensive Advisory & Investment Solutions</h2></div>
         <div class="services-grid">
@@ -957,7 +847,7 @@
 
   <!-- CONTACT PAGE -->
   <div id="contact-page" class="page">
-    <section class="section" style="padding-top: 140px;">
+    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
       <div class="container">
         <div class="section-title"><span>Get In Touch</span><h2>Connect With M. Lewis Group</h2></div>
         <div class="contact-wrapper">
@@ -970,7 +860,7 @@
 
   <!-- PARTNER PAGE -->
   <div id="partner-page" class="page">
-    <section class="section" style="padding-top: 140px;">
+    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
       <div class="container">
         <div class="section-title"><span>Strategic Alliances</span><h2>Partner with Us</h2></div>
         <div class="contact-card"><h3>🤝 Partnership Opportunities</h3><div class="contact-item"><strong>Email</strong><a href="mailto:partners@mlewisgroup.com">partners@mlewisgroup.com</a></div></div>
@@ -980,7 +870,7 @@
 
   <!-- INVEST PAGE -->
   <div id="invest-page" class="page">
-    <section class="section" style="padding-top: 140px;">
+    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
       <div class="container">
         <div class="section-title"><span>Capital Deployment</span><h2>Invest with Us</h2></div>
         <div class="contact-card"><h3>💰 Investment Opportunities</h3><div class="contact-item"><strong>Email</strong><a href="mailto:invest@mlewisgroup.com">invest@mlewisgroup.com</a></div></div>
@@ -1049,4 +939,4 @@
   updateActive('home');
 </script>
 </body>
-                                                                                                  </html>
+  </html>
