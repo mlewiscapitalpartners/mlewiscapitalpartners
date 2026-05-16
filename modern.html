@@ -163,7 +163,7 @@
 
     /* HERO SECTION */
     .hero {
-      min-height: 100vh;
+      min-height: 90vh;
       background: linear-gradient(rgba(7,21,45,0.88), rgba(7,21,45,0.88)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
@@ -235,6 +235,14 @@
       padding: 110px 0;
     }
 
+    .section-light {
+      background: white;
+    }
+
+    .section-soft {
+      background: var(--soft);
+    }
+
     .section-title {
       text-align: center;
       margin-bottom: 70px;
@@ -253,6 +261,94 @@
       font-size: clamp(2.3rem, 4vw, 4rem);
       margin-top: 14px;
       color: var(--navy);
+    }
+
+    /* Leadership Card (Home Page) */
+    .leadership-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 50px;
+      box-shadow: var(--shadow);
+      margin: 40px 0;
+      border: 1px solid rgba(0,0,0,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .leadership-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(135deg, #d3a15a, #b7863f);
+    }
+
+    .founder-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .founder-title {
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .leadership-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a5568;
+      margin-bottom: 20px;
+    }
+
+    /* Strategic Expansion Grid */
+    .expansion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .expansion-card {
+      background: white;
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: 0.35s ease;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .expansion-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .expansion-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(197,155,83,0.12);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 32px;
+    }
+
+    .expansion-card h3 {
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .expansion-card p {
+      color: #5f6677;
+      line-height: 1.7;
     }
 
     .services-grid {
@@ -437,6 +533,7 @@
       .values-grid { grid-template-columns: 1fr; }
       .cta-buttons { margin-left: auto; }
       .btn { padding: 10px 16px; font-size: 12px; }
+      .leadership-card { padding: 30px; }
     }
 
     @media(max-width: 550px) {
@@ -445,7 +542,6 @@
       .logo { align-items: center; text-align: center; }
     }
 
-    /* PAGE TRANSITION EFFECT */
     .page-transition {
       position: fixed;
       inset: 0;
@@ -460,7 +556,6 @@
       transform: translateY(0);
     }
 
-    /* MOBILE FOOTER NAVIGATION */
     .mobile-footer-nav {
       position: fixed;
       bottom: 18px;
@@ -506,7 +601,6 @@
       font-size: 20px;
     }
 
-    /* ACTIVE HIGHLIGHT FOR FOOTER BUTTONS */
     .mobile-nav-item.active-footer {
       background: linear-gradient(135deg, #d3a15a, #b7863f);
       color: white;
@@ -569,7 +663,7 @@
 
   <div class="page-container">
     
-    <!-- HOME PAGE -->
+    <!-- HOME PAGE with additional leadership & expansion content -->
     <div id="home-page" class="page active">
       <section class="hero">
         <div class="container">
@@ -580,6 +674,49 @@
             <div class="hero-actions">
               <a class="btn btn-primary" data-page="invest">💰 Invest with Us</a>
               <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership Section - Designed Nicely -->
+      <section class="section section-light">
+        <div class="container">
+          <div class="leadership-card">
+            <div class="founder-name">Mwaba Lewis</div>
+            <div class="founder-title">Founder & Managing Director</div>
+            <p class="leadership-text">
+              Led by Founder & Managing Director, Mwaba Lewis, the Group combines hands-on consulting, investment execution, and strategic leadership to deliver high-impact solutions for corporates, SMEs, startups, development institutions, and public sector partners.
+            </p>
+            <p class="leadership-text">
+              M. Lewis Group also serves as a foundation for strategic expansion into complementary sectors, including education, FinTech, and sustainability solutions — ensuring long-term value creation across Africa.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Strategic Expansion Sectors - Beautiful Grid -->
+      <section class="section section-soft">
+        <div class="container">
+          <div class="section-title">
+            <span>Strategic Expansion</span>
+            <h2>Building Tomorrow's African Economy</h2>
+          </div>
+          <div class="expansion-grid">
+            <div class="expansion-card">
+              <div class="expansion-icon">🎓</div>
+              <h3>Education & EdTech</h3>
+              <p>Investing in scalable learning platforms, vocational training, and education infrastructure that prepares Africa's future workforce.</p>
+            </div>
+            <div class="expansion-card">
+              <div class="expansion-icon">💳</div>
+              <h3>FinTech & Digital Finance</h3>
+              <p>Supporting inclusive payment systems, digital lending, and financial infrastructure to deepen capital access across the continent.</p>
+            </div>
+            <div class="expansion-card">
+              <div class="expansion-icon">♻️</div>
+              <h3>Sustainability Solutions</h3>
+              <p>Renewable energy, circular economy, and carbon offset projects that generate both environmental impact and attractive returns.</p>
             </div>
           </div>
         </div>
@@ -771,7 +908,6 @@
   <div class="page-transition" id="pageTransition"></div>
   <div class="scroll-top" id="scrollTop">↑</div>
 
-  <!-- MOBILE FOOTER NAVIGATION BUTTONS -->
   <div class="mobile-footer-nav">
     <button class="mobile-nav-item" data-page="home"><div class="mobile-icon">⌂</div><span>Home</span></button>
     <button class="mobile-nav-item" data-page="about"><div class="mobile-icon">◉</div><span>About Us</span></button>
@@ -781,7 +917,6 @@
   </div>
 
   <script>
-    // Get all page elements
     const pages = {
       home: document.getElementById('home-page'),
       about: document.getElementById('about-page'),
@@ -800,85 +935,43 @@
 
     let currentPage = 'home';
 
-    // Function to update active state on all navigation elements
     function updateActiveStates(pageId) {
-      // Update footer buttons
       footerButtons.forEach(btn => {
         const btnPage = btn.getAttribute('data-page');
-        if (btnPage === pageId) {
-          btn.classList.add('active-footer');
-        } else {
-          btn.classList.remove('active-footer');
-        }
+        btn.classList.toggle('active-footer', btnPage === pageId);
       });
-
-      // Update desktop nav links
       navLinks.forEach(link => {
         const linkPage = link.getAttribute('data-page');
-        if (linkPage === pageId) {
-          link.classList.add('active-link');
-        } else {
-          link.classList.remove('active-link');
-        }
+        link.classList.toggle('active-link', linkPage === pageId);
       });
     }
 
-    // Page switching function
     function switchPage(pageId) {
       if (currentPage === pageId || !pages[pageId]) return;
-
-      // Start transition animation
       transitionEl.classList.add('active');
-
       setTimeout(() => {
-        // Hide all pages
-        Object.values(pages).forEach(page => {
-          if (page) page.classList.remove('active');
-        });
-        
-        // Show selected page
+        Object.values(pages).forEach(page => { if (page) page.classList.remove('active'); });
         pages[pageId].classList.add('active');
         currentPage = pageId;
-
-        // Update active states on buttons
         updateActiveStates(pageId);
-
-        // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        // End transition
-        setTimeout(() => {
-          transitionEl.classList.remove('active');
-        }, 100);
+        setTimeout(() => { transitionEl.classList.remove('active'); }, 100);
       }, 300);
     }
 
-    // Add click handlers to all navigation triggers
     allTriggers.forEach(trigger => {
       trigger.addEventListener('click', function(e) {
         e.preventDefault();
         const pageId = this.getAttribute('data-page');
-        if (pageId && pages[pageId]) {
-          switchPage(pageId);
-        }
+        if (pageId && pages[pageId]) switchPage(pageId);
       });
     });
 
-    // Scroll to top button
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('visible');
-      } else {
-        scrollTopBtn.classList.remove('visible');
-      }
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
     });
-
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Set initial active state for Home
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     updateActiveStates('home');
   </script>
 </body>
-</html>
+        </html>
