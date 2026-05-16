@@ -25,6 +25,7 @@
       --muted: #7d8698;
       --shadow: 0 10px 40px rgba(0,0,0,0.08);
       --radius: 28px;
+      --navbar-height: 85px;
     }
 
     body {
@@ -179,23 +180,28 @@
       display: block;
     }
 
-    /* HERO - Added padding-top to push content below navbar */
+    /* KEY FIX: Top spacer that pushes content down */
+    .top-spacer {
+      height: var(--navbar-height);
+      width: 100%;
+      display: block;
+    }
+
+    /* HERO - NO padding-top needed anymore */
     .hero {
-      min-height: 100vh;
+      min-height: calc(100vh - var(--navbar-height));
       background: linear-gradient(rgba(7,21,45,0.88), rgba(7,21,45,0.88)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
       display: flex;
       align-items: center;
       position: relative;
-      padding-top: 85px;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 800px;
-      padding: 20px 0 40px 0;
     }
 
     .hero-tag {
@@ -233,10 +239,10 @@
       flex-wrap: wrap;
     }
 
-    /* About Hero - Added padding-top */
+    /* About Hero */
     .about-hero {
       background: var(--navy);
-      padding: 85px 0 80px;
+      padding: 60px 0;
       color: white;
       text-align: center;
     }
@@ -262,18 +268,14 @@
       opacity: 0.9;
     }
 
-    /* Division Detail Hero - Added padding-top */
+    /* Division Detail Hero */
     .detail-hero {
       background: var(--navy);
-      padding: 85px 0 80px;
+      padding: 60px 0;
       color: white;
     }
 
-    /* SECTION STYLES - First section after hero also needs padding-top removed */
-    .section:first-of-type {
-      padding-top: 80px;
-    }
-
+    /* SECTION STYLES */
     .section {
       padding: 100px 0;
     }
@@ -598,11 +600,9 @@
       .btn { padding: 10px 16px; font-size: 12px; }
       .leadership-card { padding: 30px; }
       footer { padding: 40px 20px 100px 20px; }
-      .about-hero { padding: 75px 0 60px; }
       .about-hero .tagline { font-size: 1.3rem; }
       .vision-mission-grid { gap: 25px; }
-      .hero { padding-top: 75px; }
-      .detail-hero { padding: 75px 0 60px; }
+      :root { --navbar-height: 75px; }
     }
 
     .page-transition {
@@ -721,6 +721,9 @@
   
   <!-- HOME PAGE -->
   <div id="home-page" class="page active">
+    <!-- TOP SPACER - This creates visible space before hero content -->
+    <div class="top-spacer"></div>
+    
     <section class="hero">
       <div class="container">
         <div class="hero-content">
@@ -758,6 +761,7 @@
 
   <!-- ABOUT PAGE -->
   <div id="about-page" class="page">
+    <div class="top-spacer"></div>
     <div class="about-hero">
       <div class="container">
         <div class="tagline">“Investing in Africa. Driving impact. Building the future.”</div>
@@ -799,7 +803,8 @@
 
   <!-- DIVISIONS LANDING PAGE -->
   <div id="divisions-page" class="page">
-    <section class="section" style="padding-top: 85px;">
+    <div class="top-spacer"></div>
+    <section class="section">
       <div class="container">
         <div class="section-title"><span>Specialized Divisions</span><h2>Under M. Lewis Group</h2></div>
         <div class="services-grid">
@@ -814,6 +819,7 @@
 
   <!-- M. Lewis Capital Partners DETAIL PAGE -->
   <div id="capital-partners-page" class="page">
+    <div class="top-spacer"></div>
     <div class="detail-hero">
       <div class="container">
         <button class="btn-back" data-back="divisions">← Back to Divisions</button>
@@ -830,13 +836,14 @@
   </div>
 
   <!-- Other Divisions Placeholders -->
-  <div id="afrileap-page" class="page"><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriLeap Capital</h1><div class="tagline">Venture & Impact-Focused Investments</div></div></div></div>
-  <div id="africarbon-page" class="page"><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1><div class="tagline">Carbon Advisory & Carbon Credits</div></div></div></div>
-  <div id="esg-page" class="page"><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>ESG & Strategic Advisory</h1></div></div></div>
+  <div id="afrileap-page" class="page"><div class="top-spacer"></div><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriLeap Capital</h1></div></div></div>
+  <div id="africarbon-page" class="page"><div class="top-spacer"></div><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1></div></div></div>
+  <div id="esg-page" class="page"><div class="top-spacer"></div><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>ESG & Strategic Advisory</h1></div></div></div>
 
   <!-- SERVICES PAGE -->
   <div id="services-page" class="page">
-    <section class="section" style="padding-top: 85px;">
+    <div class="top-spacer"></div>
+    <section class="section">
       <div class="container">
         <div class="section-title"><span>What We Offer</span><h2>Comprehensive Advisory & Investment Solutions</h2></div>
         <div class="services-grid">
@@ -853,7 +860,8 @@
 
   <!-- CONTACT PAGE -->
   <div id="contact-page" class="page">
-    <section class="section" style="padding-top: 85px;">
+    <div class="top-spacer"></div>
+    <section class="section">
       <div class="container">
         <div class="section-title"><span>Get In Touch</span><h2>Connect With M. Lewis Group</h2></div>
         <div class="contact-wrapper">
@@ -866,7 +874,8 @@
 
   <!-- PARTNER PAGE -->
   <div id="partner-page" class="page">
-    <section class="section" style="padding-top: 85px;">
+    <div class="top-spacer"></div>
+    <section class="section">
       <div class="container">
         <div class="section-title"><span>Strategic Alliances</span><h2>Partner with Us</h2></div>
         <div class="contact-card"><h3>🤝 Partnership Opportunities</h3><div class="contact-item"><strong>Email</strong><a href="mailto:partners@mlewisgroup.com">partners@mlewisgroup.com</a></div></div>
@@ -876,7 +885,8 @@
 
   <!-- INVEST PAGE -->
   <div id="invest-page" class="page">
-    <section class="section" style="padding-top: 85px;">
+    <div class="top-spacer"></div>
+    <section class="section">
       <div class="container">
         <div class="section-title"><span>Capital Deployment</span><h2>Invest with Us</h2></div>
         <div class="contact-card"><h3>💰 Investment Opportunities</h3><div class="contact-item"><strong>Email</strong><a href="mailto:invest@mlewisgroup.com">invest@mlewisgroup.com</a></div></div>
@@ -945,4 +955,4 @@
   updateActive('home');
 </script>
 </body>
-                                                                                                                                                                                               </html>
+            </html>
