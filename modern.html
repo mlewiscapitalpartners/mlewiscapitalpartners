@@ -25,7 +25,6 @@
       --muted: #7d8698;
       --shadow: 0 10px 40px rgba(0,0,0,0.08);
       --radius: 28px;
-      --navbar-height: 85px;
     }
 
     body {
@@ -49,6 +48,8 @@
     .navbar {
       position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       width: 100%;
       z-index: 1000;
       background: rgba(255,255,255,0.96);
@@ -178,7 +179,7 @@
       display: block;
     }
 
-    /* HERO - FIXED WITH PROPER PADDING TOP TO CLEAR NAVBAR */
+    /* HERO - FIXED: Added large padding-top to clear fixed navbar */
     .hero {
       min-height: 100vh;
       background: linear-gradient(rgba(7,21,45,0.88), rgba(7,21,45,0.88)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
@@ -187,14 +188,14 @@
       display: flex;
       align-items: center;
       position: relative;
-      padding-top: var(--navbar-height);
+      padding-top: 120px; /* Large padding to clear fixed navbar */
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 800px;
-      padding: 40px 0;
+      padding: 20px 0 40px 0;
     }
 
     .hero-tag {
@@ -232,10 +233,10 @@
       flex-wrap: wrap;
     }
 
-    /* About Hero - Fixed with padding top */
+    /* About Hero - Fixed with large padding top */
     .about-hero {
       background: var(--navy);
-      padding: calc(var(--navbar-height) + 60px) 0 80px;
+      padding: 140px 0 80px; /* Large top padding to clear navbar */
       color: white;
       text-align: center;
     }
@@ -264,7 +265,7 @@
     /* Division Detail Hero - Fixed */
     .detail-hero {
       background: var(--navy);
-      padding: calc(var(--navbar-height) + 60px) 0 80px;
+      padding: 140px 0 80px;
       color: white;
     }
 
@@ -279,6 +280,11 @@
 
     .section-soft {
       background: var(--soft);
+    }
+
+    /* Other pages - add top padding to clear navbar */
+    .page-padded-top {
+      padding-top: 120px;
     }
 
     .section-title {
@@ -593,10 +599,11 @@
       .btn { padding: 10px 16px; font-size: 12px; }
       .leadership-card { padding: 30px; }
       footer { padding: 40px 20px 100px 20px; }
-      .about-hero { padding: calc(var(--navbar-height) + 40px) 0 60px; }
+      .about-hero { padding: 120px 0 60px; }
       .about-hero .tagline { font-size: 1.3rem; }
       .vision-mission-grid { gap: 25px; }
-      .hero { min-height: 90vh; }
+      .hero { padding-top: 100px; min-height: 90vh; }
+      .detail-hero { padding: 120px 0 60px; }
     }
 
     .page-transition {
@@ -750,7 +757,7 @@
     </section>
   </div>
 
-  <!-- ABOUT PAGE - UPDATED -->
+  <!-- ABOUT PAGE -->
   <div id="about-page" class="page">
     <div class="about-hero">
       <div class="container">
@@ -793,7 +800,7 @@
 
   <!-- DIVISIONS LANDING PAGE -->
   <div id="divisions-page" class="page">
-    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
+    <section class="section" style="padding-top: 120px;">
       <div class="container">
         <div class="section-title"><span>Specialized Divisions</span><h2>Under M. Lewis Group</h2></div>
         <div class="services-grid">
@@ -830,7 +837,7 @@
 
   <!-- SERVICES PAGE -->
   <div id="services-page" class="page">
-    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
+    <section class="section" style="padding-top: 120px;">
       <div class="container">
         <div class="section-title"><span>What We Offer</span><h2>Comprehensive Advisory & Investment Solutions</h2></div>
         <div class="services-grid">
@@ -847,7 +854,7 @@
 
   <!-- CONTACT PAGE -->
   <div id="contact-page" class="page">
-    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
+    <section class="section" style="padding-top: 120px;">
       <div class="container">
         <div class="section-title"><span>Get In Touch</span><h2>Connect With M. Lewis Group</h2></div>
         <div class="contact-wrapper">
@@ -860,7 +867,7 @@
 
   <!-- PARTNER PAGE -->
   <div id="partner-page" class="page">
-    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
+    <section class="section" style="padding-top: 120px;">
       <div class="container">
         <div class="section-title"><span>Strategic Alliances</span><h2>Partner with Us</h2></div>
         <div class="contact-card"><h3>🤝 Partnership Opportunities</h3><div class="contact-item"><strong>Email</strong><a href="mailto:partners@mlewisgroup.com">partners@mlewisgroup.com</a></div></div>
@@ -870,7 +877,7 @@
 
   <!-- INVEST PAGE -->
   <div id="invest-page" class="page">
-    <section class="section" style="padding-top: calc(var(--navbar-height) + 60px);">
+    <section class="section" style="padding-top: 120px;">
       <div class="container">
         <div class="section-title"><span>Capital Deployment</span><h2>Invest with Us</h2></div>
         <div class="contact-card"><h3>💰 Investment Opportunities</h3><div class="contact-item"><strong>Email</strong><a href="mailto:invest@mlewisgroup.com">invest@mlewisgroup.com</a></div></div>
@@ -939,4 +946,4 @@
   updateActive('home');
 </script>
 </body>
-</html>
+        </html>
