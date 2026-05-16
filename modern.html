@@ -44,7 +44,6 @@
       margin: auto;
     }
 
-    /* NAVBAR */
     .navbar {
       position: fixed;
       top: 0;
@@ -129,7 +128,6 @@
       background: white;
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       background: linear-gradient(rgba(7,21,45,0.88), rgba(7,21,45,0.88)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
@@ -198,7 +196,6 @@
       flex-wrap: wrap;
     }
 
-    /* SERVICES / PLATFORMS GRID */
     .section {
       padding: 110px 0;
     }
@@ -265,7 +262,6 @@
       color: #5f6677;
     }
 
-    /* ABOUT SECTION (LEADERSHIP & GROUP) */
     .about {
       background: var(--navy);
       color: white;
@@ -278,10 +274,6 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 70px;
       align-items: center;
-    }
-
-    .about-image {
-      position: relative;
     }
 
     .about-image img {
@@ -338,7 +330,6 @@
       font-size: 14px;
     }
 
-    /* CONTACT */
     .contact-wrapper {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
@@ -379,7 +370,6 @@
       font-weight: 600;
     }
 
-    /* FOOTER */
     footer {
       background: #041124;
       color: rgba(255,255,255,0.7);
@@ -388,26 +378,13 @@
       font-size: 14px;
     }
 
-    /* MOBILE ADAPT */
     @media(max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        text-align: center;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
+      .nav-links { display: none; }
+      .hero { text-align: center; }
+      .hero-actions { justify-content: center; }
+      .stats { grid-template-columns: 1fr; }
     }
 
-    /* PAGE TRANSITION OVERLAY (KEPT) */
     .page-transition {
       position: fixed;
       inset: 0;
@@ -426,7 +403,6 @@
       scroll-behavior: smooth;
     }
 
-    /* MOBILE FOOTER NAVIGATION - KEPT ORIGINAL LAYOUT & BUTTONS */
     .mobile-footer-nav {
       position: fixed;
       bottom: 18px;
@@ -475,20 +451,13 @@
       box-shadow: 0 10px 25px rgba(197,155,83,0.35);
     }
 
-    .contact-active:hover {
-      background: linear-gradient(135deg, #d3a15a, #b7863f);
-    }
-
     @media(min-width: 901px) {
-      .mobile-footer-nav {
-        display: none;
-      }
+      .mobile-footer-nav { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION (preserved) -->
   <nav class="navbar">
     <div class="container nav-wrapper">
       <div class="logo">
@@ -497,7 +466,7 @@
       </div>
       <div class="nav-links">
         <a href="#home">Home</a>
-        <a href="#platforms">Platforms</a>
+        <a href="#divisions">Divisions</a>
         <a href="#about">About</a>
         <a href="#ventures">Ventures</a>
         <a href="#contact">Contact</a>
@@ -508,264 +477,127 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION: New headline & body -->
   <section class="hero" id="home">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-tag">
-          Private Equity • Venture Capital • ESG Advisory • Carbon Solutions
-        </div>
-        <h1>
-          Leading Strategic Investment and <span>Innovation Across Africa</span>
-        </h1>
-        <p>
-          M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.
-        </p>
+        <div class="hero-tag">Private Equity • Venture Capital • ESG Advisory • Carbon Solutions</div>
+        <h1>Leading Strategic Investment and <span>Innovation Across Africa</span></h1>
+        <p>M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
-          <a href="#platforms" class="btn btn-outline">Explore Platforms</a>
+          <a href="#divisions" class="btn btn-outline">Explore Divisions</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SPECIALIZED PLATFORMS (replaces services grid with Group platforms) -->
-  <section class="section" id="platforms">
+  <section class="section" id="divisions">
     <div class="container">
       <div class="section-title">
-        <span>Specialized Platforms</span>
-        <h2>Unlocking Growth, Value & Impact</h2>
+        <span>Specialized Divisions</span>
+        <h2>Under M. Lewis Group</h2>
       </div>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon">⚖️</div>
           <h3>M. Lewis Capital Partners, LTD.</h3>
-          <p>
-            Boutique private equity and investment banking for small-to-mid-cap transactions across Africa — tailored deal execution, capital raising, and strategic exits.
-          </p>
+          <p>Boutique private equity and investment banking for small-to-mid-cap transactions across Africa.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">🚀</div>
           <h3>AfriLeap Capital</h3>
-          <p>
-            Venture and impact-focused investments supporting startups and innovative projects, with a focus on scalable solutions and inclusive growth.
-          </p>
+          <p>Venture and impact-focused investments supporting startups and innovative projects.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">🌿</div>
           <h3>AfriCarbon</h3>
-          <p>
-            Carbon advisory and carbon credits solutions serving local projects and international buyers — unlocking climate finance and sustainable value.
-          </p>
+          <p>Carbon advisory and carbon credits solutions serving local projects and international buyers.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">📘</div>
           <h3>ESG & Strategic Advisory</h3>
-          <p>
-            Cross-cutting ESG advisory, sustainability integration, and impact frameworks that enhance resilience and investor confidence.
-          </p>
+          <p>Cross-cutting ESG advisory, sustainability integration, and impact frameworks.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT / LEADERSHIP & GROUP VISION (updated with new content) -->
   <section class="section about" id="about">
     <div class="container">
       <div class="about-wrapper">
         <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop" alt="Mwaba Lewis, Founder & Managing Director">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop" alt="Mwaba Lewis">
         </div>
         <div class="about-content">
           <span>Founder & Leadership</span>
-          <h2>
-            Led by Mwaba Lewis — Hands-on Consulting, Investment Execution
-          </h2>
-          <p>
-            Led by Founder & Managing Director, Mwaba Lewis, the Group combines hands-on consulting, investment execution, and strategic leadership to deliver high-impact solutions for corporates, SMEs, startups, development institutions, and public sector partners.
-          </p>
-          <p>
-            M. Lewis Group also serves as a foundation for strategic expansion into complementary sectors, including education, FinTech, and sustainability solutions — ensuring long-term value creation across Africa.
-          </p>
+          <h2>Led by Mwaba Lewis — Hands-on Consulting, Investment Execution</h2>
+          <p>Led by Founder & Managing Director, Mwaba Lewis, the Group combines hands-on consulting, investment execution, and strategic leadership to deliver high-impact solutions for corporates, SMEs, startups, development institutions, and public sector partners.</p>
+          <p>M. Lewis Group also serves as a foundation for strategic expansion into complementary sectors, including education, FinTech, and sustainability solutions — ensuring long-term value creation across Africa.</p>
           <div class="stats">
-            <div class="stat-box">
-              <h3>+15</h3>
-              <p>Cross-border transactions & advisory</p>
-            </div>
-            <div class="stat-box">
-              <h3>6+</h3>
-              <p>African markets actively engaged</p>
-            </div>
-            <div class="stat-box">
-              <h3>Impact</h3>
-              <p>ESG & carbon finance integration</p>
-            </div>
+            <div class="stat-box"><h3>+15</h3><p>Cross-border transactions</p></div>
+            <div class="stat-box"><h3>6+</h3><p>African markets</p></div>
+            <div class="stat-box"><h3>Impact</h3><p>ESG & carbon finance</p></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VENTURES & STRATEGIC EXPANSION (complementary sectors) -->
   <section class="section" id="ventures">
     <div class="container">
       <div class="section-title">
         <span>Strategic Expansion Sectors</span>
-        <h2>Building Tomorrow’s African Economy</h2>
+        <h2>Building Tomorrow's African Economy</h2>
       </div>
       <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🎓</div>
-          <h3>Education & EdTech</h3>
-          <p>
-            Investing in scalable learning platforms, vocational training, and education infrastructure that prepares Africa’s future workforce.
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💳</div>
-          <h3>FinTech & Digital Finance</h3>
-          <p>
-            Supporting inclusive payment systems, digital lending, and financial infrastructure to deepen capital access across the continent.
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">♻️</div>
-          <h3>Sustainability Solutions</h3>
-          <p>
-            Renewable energy, circular economy, and carbon offset projects that generate both environmental impact and attractive returns.
-          </p>
-        </div>
+        <div class="service-card"><div class="service-icon">🎓</div><h3>Education & EdTech</h3><p>Scalable learning platforms and vocational training.</p></div>
+        <div class="service-card"><div class="service-icon">💳</div><h3>FinTech & Digital Finance</h3><p>Inclusive payment systems and financial infrastructure.</p></div>
+        <div class="service-card"><div class="service-icon">♻️</div><h3>Sustainability Solutions</h3><p>Renewable energy, circular economy, carbon offsets.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- GROUP CAPABILITIES / INVESTMENT PHILOSOPHY  (additional content under Group) -->
-  <section class="section" style="background:#ffffff;">
-    <div class="container">
-      <div class="section-title">
-        <span>How We Create Value</span>
-        <h2>Integrated Investment & Advisory Approach</h2>
-      </div>
-      <div class="about-wrapper">
-        <div>
-          <div class="service-card" style="margin-bottom:24px;">
-            <h3>Private Equity & Investment Banking</h3>
-            <p>
-              Through M. Lewis Capital Partners, we execute small-to-mid-cap transactions, capital raises, and buy-side advisory with a focus on founder-led businesses and institutional partnerships.
-            </p>
-          </div>
-          <div class="service-card">
-            <h3>Venture & Impact Capital (AfriLeap)</h3>
-            <p>
-              We provide early-stage and growth capital to high-potential startups, combining patient capital with operational expertise.
-            </p>
-          </div>
-        </div>
-        <div>
-          <div class="service-card" style="margin-bottom:24px;">
-            <h3>Carbon Advisory & Markets (AfriCarbon)</h3>
-            <p>
-              From project origination to credit monetization, AfriCarbon supports local developers and international buyers in voluntary carbon markets.
-            </p>
-          </div>
-          <div class="service-card">
-            <h3>ESG & Public-Private Solutions</h3>
-            <p>
-              Tailored ESG frameworks, impact reporting, and strategic advice for DFIs, government agencies, and corporations.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION (preserved layout) -->
   <section class="section" id="contact">
     <div class="container">
-      <div class="section-title">
-        <span>Get In Touch</span>
-        <h2>Connect With M. Lewis Group</h2>
-      </div>
+      <div class="section-title"><span>Get In Touch</span><h2>Connect With M. Lewis Group</h2></div>
       <div class="contact-wrapper">
         <div class="contact-card">
           <h3>General Enquiries</h3>
-          <p>
-            For partnership discussions, investment opportunities, or strategic advisory inquiries across our platforms.
-          </p>
-          <div class="contact-item">
-            <strong>Email</strong>
-            <a href="mailto:info@mlewisgroup.com">info@mlewisgroup.com</a>
-          </div>
-          <div class="contact-item">
-            <strong>Office</strong>
-            <p>Lusaka, Zambia</p>
-          </div>
+          <p>For partnership discussions, investment opportunities, or strategic advisory.</p>
+          <div class="contact-item"><strong>Email</strong><a href="mailto:info@mlewisgroup.com">info@mlewisgroup.com</a></div>
+          <div class="contact-item"><strong>Office</strong><p>Lusaka, Zambia</p></div>
         </div>
         <div class="contact-card">
-          <h3>Investment & Platforms</h3>
-          <p>
-            Interested in private equity, venture capital, carbon credits, or ESG advisory? Connect with our specialized teams.
-          </p>
-          <div class="contact-item">
-            <strong>Email</strong>
-            <a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a>
-          </div>
-          <div class="contact-item">
-            <strong>Focus Sectors</strong>
-            <p>FinTech • Education • Sustainability • Infrastructure • Agribusiness</p>
-          </div>
+          <h3>Investment & Divisions</h3>
+          <p>Connect with our specialized divisions: Capital Partners, AfriLeap, AfriCarbon.</p>
+          <div class="contact-item"><strong>Email</strong><a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a></div>
+          <div class="contact-item"><strong>Sectors</strong><p>FinTech • Education • Sustainability • Infrastructure</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      © 2026 M. Lewis Group — Leading Strategic Investment and Innovation Across Africa. Private Equity | Venture Capital | Carbon Advisory
-    </div>
+    <div class="container">© 2026 M. Lewis Group — Leading Strategic Investment and Innovation Across Africa. Private Equity | Venture Capital | Carbon Advisory</div>
   </footer>
 
-  <!-- PAGE TRANSITION OVERLAY (feature preserved) -->
   <div class="page-transition" id="pageTransition"></div>
 
-  <!-- MOBILE FOOTER NAVIGATION (buttons preserved layout) -->
   <div class="mobile-footer-nav">
-    <div class="mobile-nav-item" data-target="home">
-      <div class="mobile-icon">⌂</div>
-      <span>Home</span>
-    </div>
-    <div class="mobile-nav-item" data-target="platforms">
-      <div class="mobile-icon">◉</div>
-      <span>Platforms</span>
-    </div>
-    <div class="mobile-nav-item" data-target="about">
-      <div class="mobile-icon">▣</div>
-      <span>About</span>
-    </div>
-    <div class="mobile-nav-item" data-target="ventures">
-      <div class="mobile-icon">◎</div>
-      <span>Ventures</span>
-    </div>
-    <div class="mobile-nav-item" data-target="contact">
-      <div class="mobile-icon">✉</div>
-      <span>Contact</span>
-    </div>
+    <div class="mobile-nav-item" data-target="home"><div class="mobile-icon">⌂</div><span>Home</span></div>
+    <div class="mobile-nav-item" data-target="divisions"><div class="mobile-icon">◉</div><span>Divisions</span></div>
+    <div class="mobile-nav-item" data-target="about"><div class="mobile-icon">▣</div><span>About</span></div>
+    <div class="mobile-nav-item" data-target="ventures"><div class="mobile-icon">◎</div><span>Ventures</span></div>
+    <div class="mobile-nav-item" data-target="contact"><div class="mobile-icon">✉</div><span>Contact</span></div>
   </div>
 
   <script>
-    // KEEP TRANSITION & MOBILE NAVIGATION BEHAVIOR, but adapted for internal section IDs & smooth scroll
     const navItems = document.querySelectorAll('.mobile-nav-item');
-    const transition = document.getElementById('pageTransition');
+    const transitionEl = document.getElementById('pageTransition');
 
     function scrollToSection(sectionId) {
-      const targetElement = document.getElementById(sectionId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
+      const target = document.getElementById(sectionId);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     navItems.forEach(item => {
@@ -773,31 +605,15 @@
         e.preventDefault();
         const targetId = this.getAttribute('data-target');
         if (!targetId) return;
-
-        // remove active class from all and add to current
-        navItems.forEach(nav => {
-          nav.classList.remove('contact-active');
-          nav.classList.remove('active');
-        });
+        navItems.forEach(nav => nav.classList.remove('contact-active'));
         this.classList.add('contact-active');
-        this.classList.add('active');
-
-        // animate transition
-        transition.classList.add('active');
-
-        setTimeout(() => {
-          scrollToSection(targetId);
-        }, 320);
-
-        setTimeout(() => {
-          transition.classList.remove('active');
-        }, 850);
+        transitionEl.classList.add('active');
+        setTimeout(() => scrollToSection(targetId), 320);
+        setTimeout(() => transitionEl.classList.remove('active'), 850);
       });
     });
 
-    // set default active highlight based on scroll (optional but keeps consistency)
-    const sections = ['home', 'platforms', 'about', 'ventures', 'contact'];
-    const observerOptions = { threshold: 0.4 };
+    const sections = ['home', 'divisions', 'about', 'ventures', 'contact'];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -809,16 +625,9 @@
           }
         }
       });
-    }, observerOptions);
-    sections.forEach(sec => {
-      const el = document.getElementById(sec);
-      if (el) observer.observe(el);
-    });
-
-    // fix: initial active for home
-    const defaultHome = document.querySelector('.mobile-nav-item[data-target="home"]');
-    if(defaultHome) defaultHome.classList.add('contact-active');
+    }, { threshold: 0.4 });
+    sections.forEach(sec => { const el = document.getElementById(sec); if (el) observer.observe(el); });
+    document.querySelector('.mobile-nav-item[data-target="home"]')?.classList.add('contact-active');
   </script>
-
 </body>
-      </html>
+</html>
