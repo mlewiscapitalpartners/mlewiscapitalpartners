@@ -394,7 +394,7 @@
       color: #5f6677;
     }
 
-    /* Division Detail Page Styles - Enhanced Focus Areas */
+    /* Division Detail Page Styles */
     .detail-hero {
       background: var(--navy);
       padding: 160px 0 80px;
@@ -453,7 +453,7 @@
       font-size: 1.3rem;
     }
 
-    /* Enhanced Focus Area Cards */
+    /* Focus Category Cards */
     .focus-category-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -592,12 +592,30 @@
       font-weight: 600;
     }
 
+    /* FOOTER - FIXED TO NOT OVERLAP WITH MOBILE BUTTONS */
     footer {
       background: #041124;
       color: rgba(255,255,255,0.7);
-      padding: 40px 0;
+      padding: 40px 20px;
       text-align: center;
       font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Desktop footer - no extra padding needed */
+    @media(min-width: 901px) {
+      footer {
+        padding: 40px 20px;
+      }
+    }
+
+    /* Mobile footer - add extra bottom padding to clear the fixed navigation buttons */
+    @media(max-width: 900px) {
+      footer {
+        padding: 40px 20px 100px 20px;
+        margin-bottom: 0;
+      }
     }
 
     @media(max-width: 900px) {
@@ -620,37 +638,48 @@
 
     .page-transition.active { transform: translateY(0); }
 
+    /* MOBILE FOOTER NAVIGATION - Fixed at bottom */
     .mobile-footer-nav {
       position: fixed;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(94%, 720px);
-      background: rgba(255,255,255,0.96);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(14px);
-      border-radius: 32px;
-      padding: 14px 10px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 12px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
     }
 
     .mobile-nav-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       color: #1f2940;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 600;
       width: 20%;
-      padding: 12px 8px;
+      padding: 8px 4px;
       border-radius: 22px;
       cursor: pointer;
       background: transparent;
       border: none;
       font-family: inherit;
+      transition: 0.2s ease;
+    }
+
+    .mobile-nav-item:hover {
+      background: rgba(197,155,83,0.1);
+    }
+
+    .mobile-icon {
+      font-size: 20px;
     }
 
     .mobile-nav-item.active-footer {
@@ -658,11 +687,13 @@
       color: white;
     }
 
-    @media(min-width: 901px) { .mobile-footer-nav { display: none; } }
+    @media(min-width: 901px) {
+      .mobile-footer-nav { display: none; }
+    }
 
     .scroll-top {
       position: fixed;
-      bottom: 100px;
+      bottom: 80px;
       right: 20px;
       background: var(--gold);
       color: white;
@@ -676,10 +707,14 @@
       opacity: 0;
       transition: 0.3s;
       z-index: 99;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .scroll-top.visible { opacity: 1; }
-    @media(max-width: 900px) { .scroll-top { bottom: 90px; } }
+
+    @media(max-width: 900px) {
+      .scroll-top { bottom: 80px; }
+    }
   </style>
 </head>
 <body>
@@ -763,7 +798,7 @@
     </section>
   </div>
 
-  <!-- M. Lewis Capital Partners DETAIL PAGE with Enhanced Focus Areas -->
+  <!-- M. Lewis Capital Partners DETAIL PAGE -->
   <div id="capital-partners-page" class="page">
     <div class="detail-hero">
       <div class="container">
@@ -773,17 +808,13 @@
         <p>Combining investment banking expertise with private equity capabilities to support SME capital raising, growth equity, and cross-border transactions across African markets.</p>
       </div>
     </div>
-
     <div class="container">
-      <!-- Overview Section -->
       <div class="detail-section">
         <h2>Overview</h2>
         <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 24px;">M. Lewis Capital Partners is an Africa-focused boutique investment firm that combines investment banking expertise with private equity capabilities to support SME capital raising, growth equity, and cross-border transactions across African markets.</p>
-        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 24px;">We bridge the gap between African businesses seeking capital and international investors looking for credible, high-potential opportunities on the continent. Through deep local intelligence, trusted relationships, and market insight, we help investors navigate Africa's private markets with confidence.</p>
+        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 24px;">We bridge the gap between African businesses seeking capital and international investors looking for credible, high-potential opportunities on the continent.</p>
         <p style="font-size: 1.1rem; line-height: 1.8;">We specialize in sub-USD 30 million transactions, with particular focus on founder-led businesses, SME expansion financing, and underserved mid-market opportunities.</p>
       </div>
-
-      <!-- Advisory Services -->
       <div class="detail-section">
         <h2>Advisory Services</h2>
         <div class="detail-grid">
@@ -795,125 +826,47 @@
           <div class="detail-card"><h3>🌍 Cross-Border Support</h3><p>Facilitating international transactions.</p></div>
         </div>
       </div>
-
-      <!-- ENHANCED FOCUS AREAS SECTION - Expanded beautifully -->
       <div class="detail-section">
         <h2>Our Focus Areas</h2>
         <div class="focus-category-grid">
-          
-          <!-- Mining Services -->
-          <div class="focus-category-card">
-            <div class="focus-card-header"><h3>⛏ Mining Services</h3><div class="focus-subtitle">Equipment • Logistics • Infrastructure</div></div>
-            <div class="focus-card-body">
-              <h4>📍 Key Markets</h4>
-              <div class="country-list"><span class="country-badge">Zambia</span><span class="country-badge">DRC</span><span class="country-badge">Botswana</span><span class="country-badge">Namibia</span></div>
-              <h4>🔧 Investment Opportunities</h4>
-              <ul class="example-list"><li>Equipment leasing</li><li>Drilling services</li><li>Mining logistics</li><li>Processing infrastructure</li><li>Safety solutions</li></ul>
-            </div>
-          </div>
-
-          <!-- SME Financial Services -->
-          <div class="focus-category-card">
-            <div class="focus-card-header"><h3>🏦 SME Financial Services</h3><div class="focus-subtitle">Microfinance • Embedded Finance • Leasing</div></div>
-            <div class="focus-card-body">
-              <h4>📌 Examples</h4>
-              <ul class="example-list"><li>Microfinance institutions</li><li>SME lenders</li><li>Embedded finance platforms</li><li>Equipment leasing</li><li>Insurance distribution</li></ul>
-            </div>
-          </div>
-
-          <!-- Logistics & Supply Chain -->
-          <div class="focus-category-card">
-            <div class="focus-card-header"><h3>🚚 Logistics & Supply Chain</h3><div class="focus-subtitle">Warehousing • Trucking • Cold Chain</div></div>
-            <div class="focus-card-body">
-              <h4>📌 Examples</h4>
-              <ul class="example-list"><li>Warehousing & storage</li><li>Trucking platforms</li><li>Border logistics</li><li>Commodity transport</li><li>Cold-chain logistics</li></ul>
-            </div>
-          </div>
-
-          <!-- Healthcare SMEs -->
-          <div class="focus-category-card">
-            <div class="focus-card-header"><h3>🏥 Healthcare SMEs</h3><div class="focus-subtitle">Diagnostics • Clinics • Medical Logistics</div></div>
-            <div class="focus-card-body">
-              <h4>📌 Examples</h4>
-              <ul class="example-list"><li>Diagnostic laboratories</li><li>Pharmacy chains</li><li>Outpatient clinics</li><li>Medical logistics</li><li>Local manufacturing</li></ul>
-            </div>
-          </div>
-
-          <!-- Mid-Market Renewable Energy -->
-          <div class="focus-category-card">
-            <div class="focus-card-header"><h3>⚡ Mid-Market Renewable Energy</h3><div class="focus-subtitle">Mini-Grids • Commercial Solar • Captive Power</div></div>
-            <div class="focus-card-body">
-              <h4>📌 Especially</h4>
-              <ul class="example-list"><li>Mini-grids</li><li>Commercial solar</li><li>Captive power solutions</li><li>Rural electrification</li><li>Industrial energy solutions</li></ul>
-            </div>
-          </div>
-
-          <!-- Agribusiness & Food Value Chains -->
-          <div class="focus-category-card">
-            <div class="focus-card-header"><h3>🌾 Agribusiness & Food Value Chains</h3><div class="focus-subtitle">Processing • Irrigation • Cold Storage</div></div>
-            <div class="focus-card-body">
-              <div class="note-text">⚠️ Highly attractive but operationally difficult</div>
-              <h4>📌 Examples</h4>
-              <ul class="example-list"><li>Food processing</li><li>Irrigation systems</li><li>Cold storage facilities</li><li>Seed production</li><li>Fertilizer distribution</li><li>Export packaging</li><li>Livestock value chains</li></ul>
-            </div>
-          </div>
-
-          <!-- Cross-Border Founder-Led Businesses -->
-          <div class="focus-category-card">
-            <div class="focus-card-header"><h3>🌍 Cross-Border Founder-Led Businesses</h3><div class="focus-subtitle">A Huge Overlooked Category</div></div>
-            <div class="focus-card-body">
-              <div class="note-text">💡 Unique regional expansion opportunities</div>
-              <h4>📌 Examples</h4>
-              <ul class="example-list"><li>Zambian company expanding into DRC</li><li>Kenyan fintech entering Uganda</li><li>Regional FMCG distributors</li><li>Logistics corridors</li></ul>
-            </div>
-          </div>
+          <div class="focus-category-card"><div class="focus-card-header"><h3>⛏ Mining Services</h3><div class="focus-subtitle">Equipment • Logistics • Infrastructure</div></div><div class="focus-card-body"><h4>📍 Key Markets</h4><div class="country-list"><span class="country-badge">Zambia</span><span class="country-badge">DRC</span><span class="country-badge">Botswana</span><span class="country-badge">Namibia</span></div><h4>🔧 Opportunities</h4><ul class="example-list"><li>Equipment leasing</li><li>Drilling services</li><li>Mining logistics</li><li>Processing infrastructure</li><li>Safety solutions</li></ul></div></div>
+          <div class="focus-category-card"><div class="focus-card-header"><h3>🏦 SME Financial Services</h3><div class="focus-subtitle">Microfinance • Embedded Finance</div></div><div class="focus-card-body"><ul class="example-list"><li>Microfinance institutions</li><li>SME lenders</li><li>Embedded finance platforms</li><li>Equipment leasing</li><li>Insurance distribution</li></ul></div></div>
+          <div class="focus-category-card"><div class="focus-card-header"><h3>🚚 Logistics & Supply Chain</h3><div class="focus-subtitle">Warehousing • Trucking • Cold Chain</div></div><div class="focus-card-body"><ul class="example-list"><li>Warehousing & storage</li><li>Trucking platforms</li><li>Border logistics</li><li>Commodity transport</li><li>Cold-chain logistics</li></ul></div></div>
+          <div class="focus-category-card"><div class="focus-card-header"><h3>🏥 Healthcare SMEs</h3><div class="focus-subtitle">Diagnostics • Clinics • Logistics</div></div><div class="focus-card-body"><ul class="example-list"><li>Diagnostic laboratories</li><li>Pharmacy chains</li><li>Outpatient clinics</li><li>Medical logistics</li><li>Local manufacturing</li></ul></div></div>
+          <div class="focus-category-card"><div class="focus-card-header"><h3>⚡ Renewable Energy</h3><div class="focus-subtitle">Mini-Grids • Commercial Solar</div></div><div class="focus-card-body"><ul class="example-list"><li>Mini-grids</li><li>Commercial solar</li><li>Captive power solutions</li><li>Rural electrification</li><li>Industrial energy solutions</li></ul></div></div>
+          <div class="focus-category-card"><div class="focus-card-header"><h3>🌾 Agribusiness</h3><div class="focus-subtitle">Food Value Chains</div></div><div class="focus-card-body"><div class="note-text">⚠️ Highly attractive but operationally difficult</div><ul class="example-list"><li>Food processing</li><li>Irrigation systems</li><li>Cold storage</li><li>Seed production</li><li>Fertilizer distribution</li><li>Export packaging</li><li>Livestock value chains</li></ul></div></div>
+          <div class="focus-category-card"><div class="focus-card-header"><h3>🌍 Cross-Border Founder-Led</h3><div class="focus-subtitle">A Huge Overlooked Category</div></div><div class="focus-card-body"><div class="note-text">💡 Unique regional expansion opportunities</div><ul class="example-list"><li>Zambian company expanding into DRC</li><li>Kenyan fintech entering Uganda</li><li>Regional FMCG distributors</li><li>Logistics corridors</li></ul></div></div>
         </div>
       </div>
-
-      <!-- Transaction Focus -->
-      <div class="detail-section">
-        <h2>Transaction Focus</h2>
-        <div class="detail-grid">
-          <div class="detail-card"><h3>📌 Sub-USD 30M Transactions</h3><p>Specializing in underserved mid-market opportunities that larger institutions often overlook.</p></div>
-          <div class="detail-card"><h3>🤝 Long-Term Partnerships</h3><p>Building lasting relationships that unlock sustainable growth.</p></div>
-          <div class="detail-card"><h3>🌍 Investor Confidence</h3><p>Deep local intelligence and trusted execution.</p></div>
-        </div>
-      </div>
-
-      <!-- Contact Section -->
-      <div class="detail-section">
-        <h2>Connect With Our Team</h2>
-        <div class="contact-card">
-          <p style="margin-bottom: 24px;">For capital raising, M&A advisory, or investment inquiries, reach out to our investment banking team.</p>
-          <div class="contact-item"><strong>📧 Email</strong><a href="mailto:capital@mlewisgroup.com">capital@mlewisgroup.com</a></div>
-          <div class="contact-item"><strong>📍 Focus Markets</strong><p>Across African markets with deep presence in Southern, East, and West Africa</p></div>
-        </div>
-      </div>
+      <div class="detail-section"><h2>Connect With Our Team</h2><div class="contact-card"><p>For capital raising, M&A advisory, or investment inquiries.</p><div class="contact-item"><strong>📧 Email</strong><a href="mailto:capital@mlewisgroup.com">capital@mlewisgroup.com</a></div></div></div>
     </div>
   </div>
 
   <!-- Other Divisions Placeholders -->
-  <div id="afrileap-page" class="page"><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriLeap Capital</h1><div class="tagline">Venture & Impact-Focused Investments</div></div></div></div>
-  <div id="africarbon-page" class="page"><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1><div class="tagline">Carbon Advisory & Carbon Credits</div></div></div></div>
+  <div id="afrileap-page" class="page"><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriLeap Capital</h1></div></div></div>
+  <div id="africarbon-page" class="page"><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1></div></div></div>
   <div id="esg-page" class="page"><div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>ESG & Strategic Advisory</h1></div></div></div>
-
-  <!-- SERVICES, CONTACT, PARTNER, INVEST PAGES -->
   <div id="services-page" class="page"><section class="section" style="padding-top: 140px;"><div class="container"><div class="section-title"><span>What We Offer</span><h2>Advisory Solutions</h2></div></div></section></div>
   <div id="contact-page" class="page"><section class="section" style="padding-top: 140px;"><div class="container"><div class="section-title"><span>Get In Touch</span><h2>Connect With Us</h2></div></div></section></div>
   <div id="partner-page" class="page"><section class="section" style="padding-top: 140px;"><div class="container"><div class="section-title"><span>Strategic Alliances</span><h2>Partner with Us</h2></div></div></section></div>
   <div id="invest-page" class="page"><section class="section" style="padding-top: 140px;"><div class="container"><div class="section-title"><span>Capital Deployment</span><h2>Invest with Us</h2></div></div></section></div>
 </div>
 
-<footer><div class="container">© 2026 M. Lewis Group — Leading Strategic Investment and Innovation Across Africa.</div></footer>
+<!-- FOOTER - Now fully visible with proper bottom padding on mobile -->
+<footer>
+  <div class="container">© 2026 M. Lewis Group — Leading Strategic Investment and Innovation Across Africa. Private Equity | Venture Capital | Carbon Advisory</div>
+</footer>
+
 <div class="page-transition" id="pageTransition"></div>
 <div class="scroll-top" id="scrollTop">↑</div>
 
+<!-- MOBILE FOOTER NAVIGATION - Fixed at bottom with proper z-index -->
 <div class="mobile-footer-nav">
-  <button class="mobile-nav-item" data-page="home"><span>Home</span></button>
-  <button class="mobile-nav-item" data-page="about"><span>About</span></button>
-  <button class="mobile-nav-item" data-page="divisions"><span>Divisions</span></button>
-  <button class="mobile-nav-item" data-page="services"><span>Services</span></button>
-  <button class="mobile-nav-item" data-page="contact"><span>Contact</span></button>
+  <button class="mobile-nav-item" data-page="home"><span class="mobile-icon">⌂</span><span>Home</span></button>
+  <button class="mobile-nav-item" data-page="about"><span class="mobile-icon">◉</span><span>About</span></button>
+  <button class="mobile-nav-item" data-page="divisions"><span class="mobile-icon">▣</span><span>Divisions</span></button>
+  <button class="mobile-nav-item" data-page="services"><span class="mobile-icon">◎</span><span>Services</span></button>
+  <button class="mobile-nav-item" data-page="contact"><span class="mobile-icon">✉</span><span>Contact</span></button>
 </div>
 
 <script>
