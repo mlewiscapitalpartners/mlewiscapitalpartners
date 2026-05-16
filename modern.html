@@ -101,6 +101,11 @@
       color: var(--gold);
     }
 
+    .nav-links a.active-link {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
     .cta-buttons {
       display: flex;
       gap: 12px;
@@ -141,7 +146,7 @@
       transform: translateY(-2px);
     }
 
-    /* PAGE CONTAINER - FIXED */
+    /* PAGE CONTAINER */
     .page-container {
       position: relative;
       min-height: 100vh;
@@ -501,7 +506,8 @@
       font-size: 20px;
     }
 
-    .contact-active {
+    /* ACTIVE HIGHLIGHT FOR FOOTER BUTTONS */
+    .mobile-nav-item.active-footer {
       background: linear-gradient(135deg, #d3a15a, #b7863f);
       color: white;
       box-shadow: 0 10px 25px rgba(197,155,83,0.35);
@@ -548,11 +554,11 @@
         <span>Strategic Investment & Private Capital Platform</span>
       </div>
       <div class="nav-links">
-        <a data-page="home">Home</a>
-        <a data-page="about">About Us</a>
-        <a data-page="divisions">Divisions</a>
-        <a data-page="services">Services</a>
-        <a data-page="contact">Contact</a>
+        <a data-page="home" class="nav-link">Home</a>
+        <a data-page="about" class="nav-link">About Us</a>
+        <a data-page="divisions" class="nav-link">Divisions</a>
+        <a data-page="services" class="nav-link">Services</a>
+        <a data-page="contact" class="nav-link">Contact</a>
       </div>
       <div class="cta-buttons">
         <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
@@ -765,6 +771,7 @@
   <div class="page-transition" id="pageTransition"></div>
   <div class="scroll-top" id="scrollTop">↑</div>
 
+  <!-- MOBILE FOOTER NAVIGATION BUTTONS -->
   <div class="mobile-footer-nav">
     <button class="mobile-nav-item" data-page="home"><div class="mobile-icon">⌂</div><span>Home</span></button>
     <button class="mobile-nav-item" data-page="about"><div class="mobile-icon">◉</div><span>About Us</span></button>
@@ -774,6 +781,7 @@
   </div>
 
   <script>
+    // Get all page elements
     const pages = {
       home: document.getElementById('home-page'),
       about: document.getElementById('about-page'),
@@ -786,40 +794,66 @@
 
     const transitionEl = document.getElementById('pageTransition');
     const footerButtons = document.querySelectorAll('.mobile-nav-item');
+    const navLinks = document.querySelectorAll('.nav-link');
     const allTriggers = document.querySelectorAll('[data-page]');
     const scrollTopBtn = document.getElementById('scrollTop');
 
     let currentPage = 'home';
 
+    // Function to update active state on all navigation elements
+    function updateActiveStates(pageId) {
+      // Update footer buttons
+      footerButtons.forEach(btn => {
+        const btnPage = btn.getAttribute('data-page');
+        if (btnPage === pageId) {
+          btn.classList.add('active-footer');
+        } else {
+          btn.classList.remove('active-footer');
+        }
+      });
+
+      // Update desktop nav links
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('data-page');
+        if (linkPage === pageId) {
+          link.classList.add('active-link');
+        } else {
+          link.classList.remove('active-link');
+        }
+      });
+    }
+
+    // Page switching function
     function switchPage(pageId) {
       if (currentPage === pageId || !pages[pageId]) return;
 
+      // Start transition animation
       transitionEl.classList.add('active');
 
       setTimeout(() => {
+        // Hide all pages
         Object.values(pages).forEach(page => {
           if (page) page.classList.remove('active');
         });
+        
+        // Show selected page
         pages[pageId].classList.add('active');
         currentPage = pageId;
 
-        footerButtons.forEach(btn => {
-          const btnPage = btn.getAttribute('data-page');
-          if (btnPage === pageId) {
-            btn.classList.add('contact-active');
-          } else {
-            btn.classList.remove('contact-active');
-          }
-        });
+        // Update active states on buttons
+        updateActiveStates(pageId);
 
+        // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
+        // End transition
         setTimeout(() => {
           transitionEl.classList.remove('active');
         }, 100);
       }, 300);
     }
 
+    // Add click handlers to all navigation triggers
     allTriggers.forEach(trigger => {
       trigger.addEventListener('click', function(e) {
         e.preventDefault();
@@ -830,6 +864,7 @@
       });
     });
 
+    // Scroll to top button
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         scrollTopBtn.classList.add('visible');
@@ -842,7 +877,8 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    document.querySelector('.mobile-nav-item[data-page="home"]')?.classList.add('contact-active');
+    // Set initial active state for Home
+    updateActiveStates('home');
   </script>
 </body>
-                </html>
+</html>
