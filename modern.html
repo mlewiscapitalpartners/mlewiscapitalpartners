@@ -154,6 +154,7 @@
       transition: 0.3s ease;
       margin-bottom: 32px;
       border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
     }
 
     .btn-back:hover {
@@ -178,13 +179,24 @@
 
     /* HERO */
     .hero {
-      min-height: 85vh;
+      min-height: 90vh;
       background: linear-gradient(rgba(7,21,45,0.88), rgba(7,21,45,0.88)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
       display: flex;
       align-items: center;
       position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(197,155,83,0.08);
+      top: -200px;
+      right: -200px;
     }
 
     .hero-content {
@@ -223,9 +235,23 @@
       margin-bottom: 38px;
     }
 
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
     /* SECTION STYLES */
     .section {
       padding: 100px 0;
+    }
+
+    .section-light {
+      background: white;
+    }
+
+    .section-soft {
+      background: var(--soft);
     }
 
     .section-title {
@@ -248,6 +274,95 @@
       color: var(--navy);
     }
 
+    /* Leadership Card */
+    .leadership-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 50px;
+      box-shadow: var(--shadow);
+      margin: 40px 0;
+      border: 1px solid rgba(0,0,0,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .leadership-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(135deg, #d3a15a, #b7863f);
+    }
+
+    .founder-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .founder-title {
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .leadership-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a5568;
+      margin-bottom: 20px;
+    }
+
+    /* Expansion Grid */
+    .expansion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .expansion-card {
+      background: white;
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: 0.35s ease;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .expansion-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .expansion-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(197,155,83,0.12);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 32px;
+    }
+
+    .expansion-card h3 {
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .expansion-card p {
+      color: #5f6677;
+      line-height: 1.7;
+    }
+
+    /* Services Grid */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -367,6 +482,13 @@
       margin-top: 20px;
     }
 
+    .contact-card {
+      background: white;
+      padding: 42px;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
     .contact-item {
       margin-top: 20px;
     }
@@ -391,19 +513,10 @@
     }
 
     @media(max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-      .cta-buttons {
-        margin-left: auto;
-      }
-      .btn {
-        padding: 10px 16px;
-        font-size: 12px;
-      }
-      .detail-section {
-        padding: 40px 0;
-      }
+      .nav-links { display: none; }
+      .cta-buttons { margin-left: auto; }
+      .btn { padding: 10px 16px; font-size: 12px; }
+      .leadership-card { padding: 30px; }
     }
 
     .page-transition {
@@ -416,9 +529,7 @@
       pointer-events: none;
     }
 
-    .page-transition.active {
-      transform: translateY(0);
-    }
+    .page-transition.active { transform: translateY(0); }
 
     .mobile-footer-nav {
       position: fixed;
@@ -458,11 +569,7 @@
       color: white;
     }
 
-    @media(min-width: 901px) {
-      .mobile-footer-nav {
-        display: none;
-      }
-    }
+    @media(min-width: 901px) { .mobile-footer-nav { display: none; } }
 
     .scroll-top {
       position: fixed;
@@ -482,15 +589,8 @@
       z-index: 99;
     }
 
-    .scroll-top.visible {
-      opacity: 1;
-    }
-
-    @media(max-width: 900px) {
-      .scroll-top {
-        bottom: 90px;
-      }
-    }
+    .scroll-top.visible { opacity: 1; }
+    @media(max-width: 900px) { .scroll-top { bottom: 90px; } }
   </style>
 </head>
 <body>
@@ -517,8 +617,9 @@
 
 <div class="page-container">
   
-  <!-- HOME PAGE -->
+  <!-- HOME PAGE - COMPLETE with Hero + Leadership + Expansion -->
   <div id="home-page" class="page active">
+    <!-- Hero Section -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
@@ -528,6 +629,49 @@
           <div class="hero-actions">
             <a class="btn btn-primary" data-page="invest">💰 Invest with Us</a>
             <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section section-light">
+      <div class="container">
+        <div class="leadership-card">
+          <div class="founder-name">Mwaba Lewis</div>
+          <div class="founder-title">Founder & Managing Director</div>
+          <p class="leadership-text">
+            Led by Founder & Managing Director, Mwaba Lewis, the Group combines hands-on consulting, investment execution, and strategic leadership to deliver high-impact solutions for corporates, SMEs, startups, development institutions, and public sector partners.
+          </p>
+          <p class="leadership-text">
+            M. Lewis Group also serves as a foundation for strategic expansion into complementary sectors, including education, FinTech, and sustainability solutions — ensuring long-term value creation across Africa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategic Expansion Sectors -->
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-title">
+          <span>Strategic Expansion</span>
+          <h2>Building Tomorrow's African Economy</h2>
+        </div>
+        <div class="expansion-grid">
+          <div class="expansion-card">
+            <div class="expansion-icon">🎓</div>
+            <h3>Education & EdTech</h3>
+            <p>Investing in scalable learning platforms, vocational training, and education infrastructure that prepares Africa's future workforce.</p>
+          </div>
+          <div class="expansion-card">
+            <div class="expansion-icon">💳</div>
+            <h3>FinTech & Digital Finance</h3>
+            <p>Supporting inclusive payment systems, digital lending, and financial infrastructure to deepen capital access across the continent.</p>
+          </div>
+          <div class="expansion-card">
+            <div class="expansion-icon">♻️</div>
+            <h3>Sustainability Solutions</h3>
+            <p>Renewable energy, circular economy, and carbon offset projects that generate both environmental impact and attractive returns.</p>
           </div>
         </div>
       </div>
@@ -584,7 +728,7 @@
     </section>
   </div>
 
-  <!-- M. Lewis Capital Partners DETAIL PAGE - Full content -->
+  <!-- M. Lewis Capital Partners DETAIL PAGE - Full detailed content -->
   <div id="capital-partners-page" class="page">
     <div class="detail-hero">
       <div class="container">
@@ -596,7 +740,6 @@
     </div>
 
     <div class="container">
-      <!-- Overview Section -->
       <div class="detail-section">
         <h2>Overview</h2>
         <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 24px;">M. Lewis Capital Partners is an Africa-focused boutique investment firm that combines investment banking expertise with private equity capabilities to support SME capital raising, growth equity, and cross-border transactions across African markets.</p>
@@ -604,7 +747,6 @@
         <p style="font-size: 1.1rem; line-height: 1.8;">We specialize in sub-USD 30 million transactions, with particular focus on founder-led businesses, SME expansion financing, and underserved mid-market opportunities across sectors including mining services, logistics and supply chain infrastructure, SME financial services, agribusiness, renewable energy, and infrastructure.</p>
       </div>
 
-      <!-- Advisory Services -->
       <div class="detail-section">
         <h2>Advisory Services</h2>
         <div class="detail-grid">
@@ -617,7 +759,6 @@
         </div>
       </div>
 
-      <!-- Focus Areas -->
       <div class="detail-section">
         <h2>Our Focus Areas</h2>
         <div class="focus-grid">
@@ -633,83 +774,40 @@
         </div>
       </div>
 
-      <!-- Specialization Note -->
       <div class="detail-section">
         <h2>Transaction Focus</h2>
         <div class="detail-grid">
-          <div class="detail-card">
-            <h3>📌 Sub-USD 30M Transactions</h3>
-            <p>Specializing in underserved mid-market opportunities that larger institutions often overlook.</p>
-          </div>
-          <div class="detail-card">
-            <h3>🤝 Long-Term Partnerships</h3>
-            <p>Committed to building lasting relationships that unlock sustainable growth and investment opportunities across Africa.</p>
-          </div>
-          <div class="detail-card">
-            <h3>🌍 Investor Confidence</h3>
-            <p>Helping international partners navigate Africa's private markets with deep local intelligence and trusted execution.</p>
-          </div>
+          <div class="detail-card"><h3>📌 Sub-USD 30M Transactions</h3><p>Specializing in underserved mid-market opportunities that larger institutions often overlook.</p></div>
+          <div class="detail-card"><h3>🤝 Long-Term Partnerships</h3><p>Committed to building lasting relationships that unlock sustainable growth and investment opportunities across Africa.</p></div>
+          <div class="detail-card"><h3>🌍 Investor Confidence</h3><p>Helping international partners navigate Africa's private markets with deep local intelligence and trusted execution.</p></div>
         </div>
       </div>
 
-      <!-- Contact Section -->
       <div class="detail-section">
         <h2>Connect With Our Team</h2>
-        <div class="contact-card" style="background: white; padding: 40px; border-radius: 28px; box-shadow: var(--shadow);">
+        <div class="contact-card">
           <p style="margin-bottom: 24px; font-size: 1.05rem;">For capital raising, M&A advisory, or investment inquiries, reach out to our investment banking team.</p>
-          <div class="contact-item"><strong>📧 Email</strong><a href="mailto:capital@mlewisgroup.com" style="color: var(--gold); font-weight: 600;">capital@mlewisgroup.com</a></div>
+          <div class="contact-item"><strong>📧 Email</strong><a href="mailto:capital@mlewisgroup.com">capital@mlewisgroup.com</a></div>
           <div class="contact-item"><strong>📍 Focus Markets</strong><p>Across African markets with deep presence in Southern, East, and West Africa</p></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- AfriLeap Capital Detail (Placeholder) -->
+  <!-- Other Divisions (Placeholders) -->
   <div id="afrileap-page" class="page">
-    <div class="detail-hero">
-      <div class="container">
-        <button class="btn-back" data-back="divisions">← Back to Divisions</button>
-        <h1>AfriLeap Capital</h1>
-        <div class="tagline">Venture & Impact-Focused Investments</div>
-        <p>Supporting startups and innovative projects across fintech, agritech, and digital infrastructure with patient capital.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="detail-section"><h2>Investment Focus</h2><div class="detail-grid"><div class="detail-card"><h3>📱 FinTech</h3><p>Payments, lending, and digital banking solutions.</p></div><div class="detail-card"><h3>🌾 Agritech</h3><p>Supply chain and farming productivity platforms.</p></div><div class="detail-card"><h3>🏗 Digital Infrastructure</h3><p>Connectivity and cloud services.</p></div></div></div>
-      <div class="detail-section"><h2>Contact</h2><div class="contact-item"><strong>Email</strong><a href="mailto:ventures@mlewisgroup.com">ventures@mlewisgroup.com</a></div></div>
-    </div>
+    <div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriLeap Capital</h1><div class="tagline">Venture & Impact-Focused Investments</div><p>Supporting startups and innovative projects across fintech, agritech, and digital infrastructure.</p></div></div>
+    <div class="container"><div class="detail-section"><h2>Contact</h2><div class="contact-item"><strong>Email</strong><a href="mailto:ventures@mlewisgroup.com">ventures@mlewisgroup.com</a></div></div></div>
   </div>
 
-  <!-- AfriCarbon Detail (Placeholder) -->
   <div id="africarbon-page" class="page">
-    <div class="detail-hero">
-      <div class="container">
-        <button class="btn-back" data-back="divisions">← Back to Divisions</button>
-        <h1>AfriCarbon</h1>
-        <div class="tagline">Carbon Advisory & Carbon Credits</div>
-        <p>Connecting local African carbon projects with international buyers.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="detail-section"><h2>Services</h2><div class="detail-grid"><div class="detail-card"><h3>🌳 Project Origination</h3></div><div class="detail-card"><h3>✅ Verification</h3></div><div class="detail-card"><h3>💵 Credit Monetization</h3></div></div></div>
-      <div class="detail-section"><h2>Contact</h2><div class="contact-item"><strong>Email</strong><a href="mailto:carbon@mlewisgroup.com">carbon@mlewisgroup.com</a></div></div>
-    </div>
+    <div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1><div class="tagline">Carbon Advisory & Carbon Credits</div><p>Connecting local African carbon projects with international buyers.</p></div></div>
+    <div class="container"><div class="detail-section"><h2>Contact</h2><div class="contact-item"><strong>Email</strong><a href="mailto:carbon@mlewisgroup.com">carbon@mlewisgroup.com</a></div></div></div>
   </div>
 
-  <!-- ESG Detail (Placeholder) -->
   <div id="esg-page" class="page">
-    <div class="detail-hero">
-      <div class="container">
-        <button class="btn-back" data-back="divisions">← Back to Divisions</button>
-        <h1>ESG & Strategic Advisory</h1>
-        <div class="tagline">Sustainability Integration & Impact Frameworks</div>
-        <p>Helping organizations embed ESG principles into operations and reporting.</p>
-      </div>
-    </div>
-    <div class="container">
-      <div class="detail-section"><h2>Services</h2><div class="detail-grid"><div class="detail-card"><h3>📋 ESG Framework Design</h3></div><div class="detail-card"><h3>📊 Impact Measurement</h3></div><div class="detail-card"><h3>🏆 ESG Due Diligence</h3></div></div></div>
-      <div class="detail-section"><h2>Contact</h2><div class="contact-item"><strong>Email</strong><a href="mailto:esg@mlewisgroup.com">esg@mlewisgroup.com</a></div></div>
-    </div>
+    <div class="detail-hero"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>ESG & Strategic Advisory</h1><div class="tagline">Sustainability Integration & Impact Frameworks</div><p>Helping organizations embed ESG principles into operations and reporting.</p></div></div>
+    <div class="container"><div class="detail-section"><h2>Contact</h2><div class="contact-item"><strong>Email</strong><a href="mailto:esg@mlewisgroup.com">esg@mlewisgroup.com</a></div></div></div>
   </div>
 
   <!-- SERVICES PAGE -->
@@ -807,7 +905,7 @@
     });
   }
 
-  function switchPage(pageId, addToHistory = true) {
+  function switchPage(pageId) {
     if (currentPage === pageId || !pages[pageId]) return;
     
     transitionEl.classList.add('active');
@@ -827,9 +925,7 @@
     card.addEventListener('click', function(e) {
       e.stopPropagation();
       const divisionId = this.getAttribute('data-division');
-      if (divisionId && pages[divisionId]) {
-        switchPage(divisionId, true);
-      }
+      if (divisionId && pages[divisionId]) switchPage(divisionId);
     });
   });
 
@@ -837,9 +933,7 @@
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       const targetPage = this.getAttribute('data-back');
-      if (targetPage && pages[targetPage]) {
-        switchPage(targetPage, false);
-      }
+      if (targetPage && pages[targetPage]) switchPage(targetPage);
     });
   });
 
@@ -847,9 +941,7 @@
     trigger.addEventListener('click', function(e) {
       e.preventDefault();
       const pageId = this.getAttribute('data-page');
-      if (pageId && pages[pageId]) {
-        switchPage(pageId, true);
-      }
+      if (pageId && pages[pageId]) switchPage(pageId);
     });
   });
 
@@ -861,4 +953,4 @@
   updateActiveStates('home');
 </script>
 </body>
-  </html>
+      </html>
