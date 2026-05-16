@@ -141,22 +141,19 @@
       transform: translateY(-2px);
     }
 
-    /* PAGE CONTAINER */
+    /* PAGE CONTAINER - FIXED */
     .page-container {
       position: relative;
       min-height: 100vh;
     }
 
     .page {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      display: none;
       position: relative;
     }
 
     .page.active {
-      opacity: 1;
-      visibility: visible;
+      display: block;
     }
 
     /* HERO SECTION */
@@ -255,7 +252,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
     }
 
@@ -295,7 +292,7 @@
       color: #5f6677;
     }
 
-    .about {
+    .about-bg {
       background: var(--navy);
       color: white;
       position: relative;
@@ -514,7 +511,6 @@
       .mobile-footer-nav { display: none; }
     }
 
-    /* Scroll to top button */
     .scroll-top {
       position: fixed;
       bottom: 100px;
@@ -539,16 +535,7 @@
     }
 
     @media(max-width: 900px) {
-      .scroll-top {
-        bottom: 90px;
-      }
-    }
-
-    /* CTA highlight for split buttons */
-    .btn-cta-highlight {
-      background: linear-gradient(135deg, #d3a15a, #b7863f);
-      color: white;
-      box-shadow: 0 10px 20px rgba(197,155,83,0.25);
+      .scroll-top { bottom: 90px; }
     }
   </style>
 </head>
@@ -568,13 +555,14 @@
         <a data-page="contact">Contact</a>
       </div>
       <div class="cta-buttons">
-        <a class="btn btn-outline" data-page="contact-partner">🤝 Partner with Us</a>
-        <a class="btn btn-primary" data-page="contact-invest">💰 Invest with Us</a>
+        <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
+        <a class="btn btn-primary" data-page="invest">💰 Invest with Us</a>
       </div>
     </div>
   </nav>
 
   <div class="page-container">
+    
     <!-- HOME PAGE -->
     <div id="home-page" class="page active">
       <section class="hero">
@@ -584,17 +572,17 @@
             <h1>Leading Strategic Investment and <span>Innovation Across Africa</span></h1>
             <p>M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" data-page="contact-invest">💰 Invest with Us</a>
-              <a class="btn btn-outline" data-page="contact-partner">🤝 Partner with Us</a>
+              <a class="btn btn-primary" data-page="invest">💰 Invest with Us</a>
+              <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
             </div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- ABOUT US PAGE - Detailed Vision, Mission, Values -->
+    <!-- ABOUT PAGE -->
     <div id="about-page" class="page">
-      <section class="section about" style="background: var(--navy); padding-top: 140px;">
+      <section style="background: var(--navy); padding-top: 140px;">
         <div class="container">
           <div class="about-wrapper">
             <div class="about-image">
@@ -638,13 +626,13 @@
               <div class="service-card">
                 <h3>Mwaba Lewis</h3>
                 <p><strong>Founder & Managing Director</strong></p>
-                <p style="margin-top: 16px;">With over 15 years of experience in investment banking, private equity, and corporate finance across African markets, Mwaba leads the Group's strategic vision and transaction execution. He combines deep local market intelligence with global investment perspectives.</p>
+                <p style="margin-top: 16px;">With over 15 years of experience in investment banking, private equity, and corporate finance across African markets, Mwaba leads the Group's strategic vision and transaction execution.</p>
               </div>
             </div>
             <div>
               <div class="service-card">
                 <h3>Our Team</h3>
-                <p>M. Lewis Group comprises seasoned investment professionals, sector specialists, and advisory experts dedicated to unlocking Africa's potential. Our cross-functional team brings experience from top-tier financial institutions, development finance, and operational leadership.</p>
+                <p>M. Lewis Group comprises seasoned investment professionals, sector specialists, and advisory experts dedicated to unlocking Africa's potential.</p>
               </div>
             </div>
           </div>
@@ -690,7 +678,7 @@
       </section>
     </div>
 
-    <!-- CONTACT PAGE - General Contact -->
+    <!-- CONTACT PAGE -->
     <div id="contact-page" class="page">
       <section class="section" style="padding-top: 140px;">
         <div class="container">
@@ -711,15 +699,14 @@
               <p>Reach our specialized teams: Capital Partners, AfriLeap, AfriCarbon.</p>
               <div class="contact-item"><strong>Email</strong><a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a></div>
               <div class="contact-item"><strong>Sectors</strong><p>FinTech • Education • Sustainability • Infrastructure • Agribusiness • Energy</p></div>
-              <div class="contact-item"><strong>Follow Us</strong><p>LinkedIn | Twitter</p></div>
             </div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- PARTNER WITH US - Dedicated Page -->
-    <div id="contact-partner-page" class="page">
+    <!-- PARTNER PAGE -->
+    <div id="partner-page" class="page">
       <section class="section" style="padding-top: 140px;">
         <div class="container">
           <div class="section-title">
@@ -744,8 +731,8 @@
       </section>
     </div>
 
-    <!-- INVEST WITH US - Dedicated Page -->
-    <div id="contact-invest-page" class="page">
+    <!-- INVEST PAGE -->
+    <div id="invest-page" class="page">
       <section class="section" style="padding-top: 140px;">
         <div class="container">
           <div class="section-title">
@@ -778,7 +765,6 @@
   <div class="page-transition" id="pageTransition"></div>
   <div class="scroll-top" id="scrollTop">↑</div>
 
-  <!-- MOBILE FOOTER NAVIGATION BUTTONS -->
   <div class="mobile-footer-nav">
     <button class="mobile-nav-item" data-page="home"><div class="mobile-icon">⌂</div><span>Home</span></button>
     <button class="mobile-nav-item" data-page="about"><div class="mobile-icon">◉</div><span>About Us</span></button>
@@ -788,27 +774,25 @@
   </div>
 
   <script>
-    // Complete page flip system with split CTA buttons
     const pages = {
       home: document.getElementById('home-page'),
       about: document.getElementById('about-page'),
       divisions: document.getElementById('divisions-page'),
       services: document.getElementById('services-page'),
       contact: document.getElementById('contact-page'),
-      'contact-partner': document.getElementById('contact-partner-page'),
-      'contact-invest': document.getElementById('contact-invest-page')
+      partner: document.getElementById('partner-page'),
+      invest: document.getElementById('invest-page')
     };
 
     const transitionEl = document.getElementById('pageTransition');
     const footerButtons = document.querySelectorAll('.mobile-nav-item');
-    const allNavTriggers = document.querySelectorAll('[data-page]');
+    const allTriggers = document.querySelectorAll('[data-page]');
     const scrollTopBtn = document.getElementById('scrollTop');
 
     let currentPage = 'home';
 
     function switchPage(pageId) {
-      if (currentPage === pageId) return;
-      if (!pages[pageId]) return;
+      if (currentPage === pageId || !pages[pageId]) return;
 
       transitionEl.classList.add('active');
 
@@ -819,10 +803,9 @@
         pages[pageId].classList.add('active');
         currentPage = pageId;
 
-        // Update mobile footer active state (only for main 5 pages)
         footerButtons.forEach(btn => {
           const btnPage = btn.getAttribute('data-page');
-          if (btnPage === pageId || (pageId === 'contact-partner' && btnPage === 'contact') || (pageId === 'contact-invest' && btnPage === 'contact')) {
+          if (btnPage === pageId) {
             btn.classList.add('contact-active');
           } else {
             btn.classList.remove('contact-active');
@@ -837,7 +820,7 @@
       }, 300);
     }
 
-    allNavTriggers.forEach(trigger => {
+    allTriggers.forEach(trigger => {
       trigger.addEventListener('click', function(e) {
         e.preventDefault();
         const pageId = this.getAttribute('data-page');
@@ -862,4 +845,4 @@
     document.querySelector('.mobile-nav-item[data-page="home"]')?.classList.add('contact-active');
   </script>
 </body>
-    </html>
+                </html>
