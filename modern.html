@@ -60,6 +60,8 @@
       align-items: center;
       justify-content: space-between;
       padding: 18px 0;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .logo {
@@ -101,11 +103,12 @@
 
     .cta-buttons {
       display: flex;
-      gap: 14px;
+      gap: 12px;
+      align-items: center;
     }
 
     .btn {
-      padding: 14px 24px;
+      padding: 12px 22px;
       border-radius: 999px;
       font-weight: 600;
       transition: 0.3s ease;
@@ -113,6 +116,8 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      font-size: 14px;
+      white-space: nowrap;
     }
 
     .btn-primary {
@@ -131,7 +136,12 @@
       background: white;
     }
 
-    /* PAGE CONTAINER - THE KEY FEATURE */
+    .btn-outline:hover {
+      background: rgba(197,155,83,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* PAGE CONTAINER */
     .page-container {
       position: relative;
       min-height: 100vh;
@@ -423,6 +433,14 @@
       .hero-actions { justify-content: center; }
       .stats { grid-template-columns: 1fr; }
       .values-grid { grid-template-columns: 1fr; }
+      .cta-buttons { margin-left: auto; }
+      .btn { padding: 10px 16px; font-size: 12px; }
+    }
+
+    @media(max-width: 550px) {
+      .nav-wrapper { flex-direction: column; align-items: center; }
+      .cta-buttons { margin-left: 0; }
+      .logo { align-items: center; text-align: center; }
     }
 
     /* PAGE TRANSITION EFFECT */
@@ -475,6 +493,7 @@
       cursor: pointer;
       background: transparent;
       border: none;
+      font-family: inherit;
     }
 
     .mobile-nav-item:hover {
@@ -524,6 +543,13 @@
         bottom: 90px;
       }
     }
+
+    /* CTA highlight for split buttons */
+    .btn-cta-highlight {
+      background: linear-gradient(135deg, #d3a15a, #b7863f);
+      color: white;
+      box-shadow: 0 10px 20px rgba(197,155,83,0.25);
+    }
   </style>
 </head>
 <body>
@@ -542,7 +568,8 @@
         <a data-page="contact">Contact</a>
       </div>
       <div class="cta-buttons">
-        <a class="btn btn-primary" data-page="contact">Partner With Us</a>
+        <a class="btn btn-outline" data-page="contact-partner">🤝 Partner with Us</a>
+        <a class="btn btn-primary" data-page="contact-invest">💰 Invest with Us</a>
       </div>
     </div>
   </nav>
@@ -557,8 +584,8 @@
             <h1>Leading Strategic Investment and <span>Innovation Across Africa</span></h1>
             <p>M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" data-page="contact">Schedule Consultation</a>
-              <a class="btn btn-outline" data-page="divisions">Explore Divisions</a>
+              <a class="btn btn-primary" data-page="contact-invest">💰 Invest with Us</a>
+              <a class="btn btn-outline" data-page="contact-partner">🤝 Partner with Us</a>
             </div>
           </div>
         </div>
@@ -593,7 +620,7 @@
             <div class="value-card"><h4>Integrity</h4><p>Uncompromising ethical standards in every transaction and relationship.</p></div>
             <div class="value-card"><h4>Excellence</h4><p>Delivering world-class advisory and investment execution.</p></div>
             <div class="value-card"><h4>Impact</h4><p>Creating measurable economic and social value across Africa.</p></div>
-            <div class="value-card"><h4>Partnership</h4><p>Building long-term relationships based on trust and mutual success.</div>
+            <div class="value-card"><h4>Partnership</h4><p>Building long-term relationships based on trust and mutual success.</p></div>
             <div class="value-card"><h4>Innovation</h4><p>Embracing creative solutions to complex African market challenges.</p></div>
             <div class="value-card"><h4>Sustainability</h4><p>Integrating ESG principles into everything we do.</p></div>
           </div>
@@ -643,7 +670,7 @@
       </section>
     </div>
 
-    <!-- SERVICES PAGE - Detailed Services -->
+    <!-- SERVICES PAGE -->
     <div id="services-page" class="page">
       <section class="section" style="padding-top: 140px;">
         <div class="container">
@@ -663,7 +690,7 @@
       </section>
     </div>
 
-    <!-- CONTACT PAGE -->
+    <!-- CONTACT PAGE - General Contact -->
     <div id="contact-page" class="page">
       <section class="section" style="padding-top: 140px;">
         <div class="container">
@@ -680,11 +707,63 @@
               <div class="contact-item"><strong>Phone</strong><p>+260 123 456 789</p></div>
             </div>
             <div class="contact-card">
-              <h3>Investment & Divisions</h3>
-              <p>Connect with our specialized divisions: Capital Partners, AfriLeap, AfriCarbon.</p>
+              <h3>Connect With Divisions</h3>
+              <p>Reach our specialized teams: Capital Partners, AfriLeap, AfriCarbon.</p>
               <div class="contact-item"><strong>Email</strong><a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a></div>
               <div class="contact-item"><strong>Sectors</strong><p>FinTech • Education • Sustainability • Infrastructure • Agribusiness • Energy</p></div>
-              <div class="contact-item"><strong>Follow Us</strong><p>LinkedIn | Twitter | Website</p></div>
+              <div class="contact-item"><strong>Follow Us</strong><p>LinkedIn | Twitter</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PARTNER WITH US - Dedicated Page -->
+    <div id="contact-partner-page" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="container">
+          <div class="section-title">
+            <span>Strategic Alliances</span>
+            <h2>Partner with M. Lewis Group</h2>
+          </div>
+          <div class="contact-wrapper">
+            <div class="contact-card">
+              <h3>🤝 Partnership Opportunities</h3>
+              <p>We collaborate with development finance institutions, family offices, advisory firms, and strategic partners who share our vision for African growth.</p>
+              <div class="contact-item"><strong>Partnership Email</strong><a href="mailto:partners@mlewisgroup.com">partners@mlewisgroup.com</a></div>
+              <div class="contact-item"><strong>Collaboration Areas</strong><p>Co-investment • Deal referral • Advisory networks • ESG initiatives</p></div>
+            </div>
+            <div class="contact-card">
+              <h3>Become a Strategic Partner</h3>
+              <p>Join our ecosystem of trusted partners to unlock cross-border opportunities and create shared value across African markets.</p>
+              <div class="contact-item"><strong>Apply</strong><a href="mailto:partner-apply@mlewisgroup.com">partner-apply@mlewisgroup.com</a></div>
+              <div class="contact-item"><strong>What We Look For</strong><p>Alignment with our values • Deep market expertise • Long-term commitment</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- INVEST WITH US - Dedicated Page -->
+    <div id="contact-invest-page" class="page">
+      <section class="section" style="padding-top: 140px;">
+        <div class="container">
+          <div class="section-title">
+            <span>Capital Deployment</span>
+            <h2>Invest with M. Lewis Group</h2>
+          </div>
+          <div class="contact-wrapper">
+            <div class="contact-card">
+              <h3>💰 Investment Opportunities</h3>
+              <p>Access curated private equity, venture capital, and project finance opportunities across high-growth African sectors.</p>
+              <div class="contact-item"><strong>Investor Relations</strong><a href="mailto:invest@mlewisgroup.com">invest@mlewisgroup.com</a></div>
+              <div class="contact-item"><strong>Current Focus</strong><p>FinTech • Clean Energy • Agribusiness • Digital Infrastructure</p></div>
+            </div>
+            <div class="contact-card">
+              <h3>Why Invest With Us</h3>
+              <p>• Deep on-ground due diligence<br>• Proven deal execution track record<br>• Active portfolio support & ESG integration<br>• Co-investment opportunities</p>
+              <div class="contact-item"><strong>Minimum Ticket Size</strong><p>$500k - $10M+ (flexible structures)</p></div>
+              <div class="contact-item"><strong>Schedule a Call</strong><a href="mailto:invest-meeting@mlewisgroup.com">invest-meeting@mlewisgroup.com</a></div>
             </div>
           </div>
         </div>
@@ -697,8 +776,6 @@
   </footer>
 
   <div class="page-transition" id="pageTransition"></div>
-
-  <!-- Scroll to top button -->
   <div class="scroll-top" id="scrollTop">↑</div>
 
   <!-- MOBILE FOOTER NAVIGATION BUTTONS -->
@@ -711,71 +788,55 @@
   </div>
 
   <script>
-    // PAGE FLIP BEHAVIOR - Complete page switching with transition
+    // Complete page flip system with split CTA buttons
     const pages = {
       home: document.getElementById('home-page'),
       about: document.getElementById('about-page'),
       divisions: document.getElementById('divisions-page'),
       services: document.getElementById('services-page'),
-      contact: document.getElementById('contact-page')
+      contact: document.getElementById('contact-page'),
+      'contact-partner': document.getElementById('contact-partner-page'),
+      'contact-invest': document.getElementById('contact-invest-page')
     };
 
     const transitionEl = document.getElementById('pageTransition');
     const footerButtons = document.querySelectorAll('.mobile-nav-item');
-    const navLinks = document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline');
+    const allNavTriggers = document.querySelectorAll('[data-page]');
     const scrollTopBtn = document.getElementById('scrollTop');
 
     let currentPage = 'home';
 
     function switchPage(pageId) {
       if (currentPage === pageId) return;
+      if (!pages[pageId]) return;
 
-      // Start transition animation
       transitionEl.classList.add('active');
 
       setTimeout(() => {
-        // Hide all pages
         Object.values(pages).forEach(page => {
           if (page) page.classList.remove('active');
         });
-
-        // Show selected page
-        if (pages[pageId]) {
-          pages[pageId].classList.add('active');
-        }
-
+        pages[pageId].classList.add('active');
         currentPage = pageId;
 
-        // Update active state on mobile footer buttons
+        // Update mobile footer active state (only for main 5 pages)
         footerButtons.forEach(btn => {
-          if (btn.getAttribute('data-page') === pageId) {
+          const btnPage = btn.getAttribute('data-page');
+          if (btnPage === pageId || (pageId === 'contact-partner' && btnPage === 'contact') || (pageId === 'contact-invest' && btnPage === 'contact')) {
             btn.classList.add('contact-active');
           } else {
             btn.classList.remove('contact-active');
           }
         });
 
-        // Update active state on desktop nav links (optional visual feedback)
-        navLinks.forEach(link => {
-          if (link.getAttribute('data-page') === pageId) {
-            link.style.color = 'var(--gold)';
-          } else if (link.getAttribute('data-page')) {
-            link.style.color = '';
-          }
-        });
-
-        // Scroll to top when page changes
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // End transition
         setTimeout(() => {
           transitionEl.classList.remove('active');
         }, 100);
       }, 300);
     }
 
-    // Add click handlers to all navigation elements
-    const allNavTriggers = [...footerButtons, ...navLinks];
     allNavTriggers.forEach(trigger => {
       trigger.addEventListener('click', function(e) {
         e.preventDefault();
@@ -786,7 +847,6 @@
       });
     });
 
-    // Scroll to top button visibility and functionality
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         scrollTopBtn.classList.add('visible');
@@ -799,9 +859,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Set initial active state on home button
-    const homeButton = document.querySelector('.mobile-nav-item[data-page="home"]');
-    if (homeButton) homeButton.classList.add('contact-active');
+    document.querySelector('.mobile-nav-item[data-page="home"]')?.classList.add('contact-active');
   </script>
 </body>
-</html>
+    </html>
