@@ -182,7 +182,29 @@
       width: 100%;
     }
 
-    /* HERO SECTION */
+    /* TAGLINE SECTION - VISIBLE BELOW NAVBAR */
+    .tagline-section {
+      background: white;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .tagline-section .service-tags {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .tagline-section .service-tags span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    /* HERO SECTION WITH VIDEO */
     .hero-section {
       position: relative;
       width: 100%;
@@ -230,34 +252,24 @@
       text-align: center;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      padding: 12px 20px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.95);
-      margin-bottom: 28px;
-      backdrop-filter: blur(8px);
+    .hero-quote {
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 20px;
       font-weight: 500;
     }
 
     .hero-content h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 6vw, 5rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
       color: white;
-      margin-bottom: 26px;
-      letter-spacing: -2px;
+      margin-bottom: 30px;
+      line-height: 1.2;
     }
 
     .hero-content h1 span {
       color: var(--gold);
-    }
-
-    .hero-content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 38px;
     }
 
     .hero-actions {
@@ -693,6 +705,8 @@
       .navbar-spacer { height: 75px; }
       .hero-section { height: 90vh; }
       .focus-category-grid { grid-template-columns: 1fr; }
+      .tagline-section .service-tags { gap: 15px; }
+      .tagline-section .service-tags span { font-size: 10px; }
     }
 
     .page-transition {
@@ -798,6 +812,22 @@
   <div id="home-page" class="page active">
     <div class="navbar-spacer"></div>
     
+    <!-- TAGLINE SECTION - VISIBLE RIGHT BELOW NAVBAR -->
+    <div class="tagline-section">
+      <div class="container">
+        <div class="service-tags">
+          <span>Private Equity</span>
+          <span>•</span>
+          <span>Venture Capital</span>
+          <span>•</span>
+          <span>ESG Advisory</span>
+          <span>•</span>
+          <span>Carbon Solutions</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- HERO SECTION WITH VIDEO - ONLY THE QUOTE -->
     <div class="hero-section">
       <div class="video-carousel">
         <video id="video1" autoplay muted playsinline style="opacity: 1;">
@@ -815,9 +845,8 @@
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <div class="hero-tag">Private Equity • Venture Capital • ESG Advisory • Carbon Solutions</div>
-        <h1>Leading Strategic Investment and <span>Innovation Across Africa</span></h1>
-        <p>M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.</p>
+        <div class="hero-quote">“Investing in Africa. Driving impact. Building the future.”</div>
+        <h1>That's what <span>M. Lewis Group</span> is doing. That's our goal.</h1>
         <div class="hero-actions">
           <a class="btn btn-primary" data-page="invest">💰 Invest with Us</a>
           <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
@@ -831,6 +860,7 @@
       </div>
     </div>
 
+    <!-- Leadership Section -->
     <section class="section section-light">
       <div class="container">
         <div class="leadership-card">
@@ -895,7 +925,7 @@
     </div></div></section>
   </div>
 
-  <!-- M. Lewis Capital Partners DETAIL PAGE WITH ALL FOCUS AREAS -->
+  <!-- M. Lewis Capital Partners DETAIL PAGE -->
   <div id="capital-partners-page" class="page">
     <div class="navbar-spacer"></div>
     <div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>M. Lewis Capital Partners, LTD.</h1><p style="margin-top: 15px;">Boutique Private Equity & Investment Banking | Africa-Focused</p></div></div>
@@ -911,12 +941,12 @@
       <div class="detail-section" style="padding: 40px 0; border-top: 1px solid rgba(0,0,0,0.08);">
         <h2>Advisory Services</h2>
         <div class="detail-grid">
-          <div class="detail-card"><h3>💰 Capital Raising</h3><p>Equity, debt, and structured finance solutions for growth-stage and established businesses.</p></div>
-          <div class="detail-card"><h3>🤝 Investor Introductions</h3><p>Connecting African businesses with credible international investors and strategic partners.</p></div>
-          <div class="detail-card"><h3>📊 Debt Structuring</h3><p>Tailored debt solutions including working capital, project finance, and expansion facilities.</p></div>
-          <div class="detail-card"><h3>📈 Business Valuation</h3><p>Comprehensive valuation services for M&A, fundraising, and strategic planning.</p></div>
-          <div class="detail-card"><h3>🏛 Privatization Advisory</h3><p>Expert guidance on state-owned enterprise divestitures and public-private partnerships.</p></div>
-          <div class="detail-card"><h3>🌍 Cross-Border Support</h3><p>Facilitating international transactions and helping investors navigate African markets with confidence.</p></div>
+          <div class="detail-card"><h3>💰 Capital Raising</h3><p>Equity, debt, and structured finance solutions.</p></div>
+          <div class="detail-card"><h3>🤝 Investor Introductions</h3><p>Connecting businesses with credible investors.</p></div>
+          <div class="detail-card"><h3>📊 Debt Structuring</h3><p>Working capital, project finance, expansion facilities.</p></div>
+          <div class="detail-card"><h3>📈 Business Valuation</h3><p>M&A, fundraising, and strategic planning.</p></div>
+          <div class="detail-card"><h3>🏛 Privatization Advisory</h3><p>State-owned enterprise divestitures.</p></div>
+          <div class="detail-card"><h3>🌍 Cross-Border Support</h3><p>Facilitating international transactions.</p></div>
         </div>
       </div>
 
@@ -924,27 +954,12 @@
         <h2>Our Focus Areas</h2>
         <div class="focus-category-grid">
           <div class="focus-category-card"><div class="focus-card-header"><h3>⛏ Mining Services</h3><div class="focus-subtitle">Equipment • Logistics • Infrastructure</div></div><div class="focus-card-body"><h4>📍 Key Markets</h4><div class="country-list"><span class="country-badge">Zambia</span><span class="country-badge">DRC</span><span class="country-badge">Botswana</span><span class="country-badge">Namibia</span></div><h4>🔧 Opportunities</h4><ul class="example-list"><li>Equipment leasing</li><li>Drilling services</li><li>Mining logistics</li><li>Processing infrastructure</li><li>Safety solutions</li></ul></div></div>
-          
           <div class="focus-category-card"><div class="focus-card-header"><h3>🏦 SME Financial Services</h3><div class="focus-subtitle">Microfinance • Embedded Finance • Leasing</div></div><div class="focus-card-body"><ul class="example-list"><li>Microfinance institutions</li><li>SME lenders</li><li>Embedded finance platforms</li><li>Equipment leasing</li><li>Insurance distribution</li></ul></div></div>
-          
           <div class="focus-category-card"><div class="focus-card-header"><h3>🚚 Logistics & Supply Chain</h3><div class="focus-subtitle">Warehousing • Trucking • Cold Chain</div></div><div class="focus-card-body"><ul class="example-list"><li>Warehousing & storage</li><li>Trucking platforms</li><li>Border logistics</li><li>Commodity transport</li><li>Cold-chain logistics</li></ul></div></div>
-          
           <div class="focus-category-card"><div class="focus-card-header"><h3>🏥 Healthcare SMEs</h3><div class="focus-subtitle">Diagnostics • Clinics • Medical Logistics</div></div><div class="focus-card-body"><ul class="example-list"><li>Diagnostic laboratories</li><li>Pharmacy chains</li><li>Outpatient clinics</li><li>Medical logistics</li><li>Local manufacturing</li></ul></div></div>
-          
           <div class="focus-category-card"><div class="focus-card-header"><h3>⚡ Mid-Market Renewable Energy</h3><div class="focus-subtitle">Mini-Grids • Commercial Solar • Captive Power</div></div><div class="focus-card-body"><ul class="example-list"><li>Mini-grids</li><li>Commercial solar</li><li>Captive power solutions</li><li>Rural electrification</li><li>Industrial energy solutions</li></ul></div></div>
-          
           <div class="focus-category-card"><div class="focus-card-header"><h3>🌾 Agribusiness & Food Value Chains</h3><div class="focus-subtitle">Processing • Irrigation • Cold Storage</div></div><div class="focus-card-body"><div class="note-text">⚠️ Highly attractive but operationally difficult</div><ul class="example-list"><li>Food processing</li><li>Irrigation systems</li><li>Cold storage facilities</li><li>Seed production</li><li>Fertilizer distribution</li><li>Export packaging</li><li>Livestock value chains</li></ul></div></div>
-          
           <div class="focus-category-card"><div class="focus-card-header"><h3>🌍 Cross-Border Founder-Led Businesses</h3><div class="focus-subtitle">A Huge Overlooked Category</div></div><div class="focus-card-body"><div class="note-text">💡 Unique regional expansion opportunities</div><ul class="example-list"><li>Zambian company expanding into DRC</li><li>Kenyan fintech entering Uganda</li><li>Regional FMCG distributors</li><li>Logistics corridors</li></ul></div></div>
-        </div>
-      </div>
-
-      <div class="detail-section" style="padding: 40px 0; border-top: 1px solid rgba(0,0,0,0.08);">
-        <h2>Transaction Focus</h2>
-        <div class="detail-grid">
-          <div class="detail-card"><h3>📌 Sub-USD 30M Transactions</h3><p>Specializing in underserved mid-market opportunities that larger institutions often overlook.</p></div>
-          <div class="detail-card"><h3>🤝 Long-Term Partnerships</h3><p>Committed to building lasting relationships that unlock sustainable growth and investment opportunities across Africa.</p></div>
-          <div class="detail-card"><h3>🌍 Investor Confidence</h3><p>Helping international partners navigate Africa's private markets with deep local intelligence and trusted execution.</p></div>
         </div>
       </div>
 
@@ -953,21 +968,21 @@
   </div>
 
   <!-- OTHER DIVISION PLACEHOLDERS -->
-  <div id="afrileap-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriLeap Capital</h1><p>Venture & Impact-Focused Investments</p></div></div></div>
-  <div id="africarbon-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1><p>Carbon Advisory & Carbon Credits</p></div></div></div>
-  <div id="esg-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>ESG & Strategic Advisory</h1><p>Sustainability Integration & Impact Frameworks</p></div></div></div>
+  <div id="afrileap-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriLeap Capital</h1></div></div></div>
+  <div id="africarbon-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1></div></div></div>
+  <div id="esg-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>ESG Advisory</h1></div></div></div>
 
   <!-- SERVICES PAGE -->
   <div id="services-page" class="page">
     <div class="navbar-spacer"></div>
     <div class="page-header"><div class="container"><h1>Our Services</h1></div></div>
     <section class="section"><div class="container"><div class="services-grid">
-      <div class="service-card"><div class="service-icon">💼</div><h3>Capital Raising</h3><p>Debt, equity, and mezzanine financing solutions for growth-stage and established businesses.</p></div>
-      <div class="service-card"><div class="service-icon">📊</div><h3>M&A Advisory</h3><p>Buy-side and sell-side advisory, due diligence, valuation, and transaction structuring.</p></div>
-      <div class="service-card"><div class="service-icon">📈</div><h3>Growth Equity</h3><p>Patient capital for scalable businesses seeking expansion across African markets.</p></div>
-      <div class="service-card"><div class="service-icon">🌍</div><h3>Cross-Border Advisory</h3><p>Facilitating international transactions and investor connectivity across African markets.</p></div>
-      <div class="service-card"><div class="service-icon">🏗</div><h3>Project Finance</h3><p>Structuring and arranging financing for infrastructure, energy, and industrial projects.</p></div>
-      <div class="service-card"><div class="service-icon">♻️</div><h3>ESG Integration</h3><p>Developing sustainability frameworks, impact measurement, and reporting standards.</p></div>
+      <div class="service-card"><div class="service-icon">💼</div><h3>Capital Raising</h3><p>Debt, equity, and mezzanine financing solutions.</p></div>
+      <div class="service-card"><div class="service-icon">📊</div><h3>M&A Advisory</h3><p>Buy-side and sell-side advisory, due diligence, valuation.</p></div>
+      <div class="service-card"><div class="service-icon">📈</div><h3>Growth Equity</h3><p>Patient capital for scalable businesses.</p></div>
+      <div class="service-card"><div class="service-icon">🌍</div><h3>Cross-Border Advisory</h3><p>Facilitating international transactions.</p></div>
+      <div class="service-card"><div class="service-icon">🏗</div><h3>Project Finance</h3><p>Infrastructure, energy, and industrial projects.</p></div>
+      <div class="service-card"><div class="service-icon">♻️</div><h3>ESG Integration</h3><p>Sustainability frameworks and impact measurement.</p></div>
     </div></div></section>
   </div>
 
@@ -976,14 +991,14 @@
     <div class="navbar-spacer"></div>
     <div class="page-header"><div class="container"><h1>Contact Us</h1></div></div>
     <section class="section"><div class="container"><div class="contact-wrapper">
-      <div class="contact-card"><h3>General Enquiries</h3><p>For partnership discussions, investment opportunities, or strategic advisory inquiries.</p><div class="contact-item"><strong>Email</strong><a href="mailto:info@mlewisgroup.com">info@mlewisgroup.com</a></div><div class="contact-item"><strong>Office</strong><p>Lusaka, Zambia</p></div></div>
-      <div class="contact-card"><h3>Connect With Divisions</h3><p>Reach our specialized teams: Capital Partners, AfriLeap, AfriCarbon.</p><div class="contact-item"><strong>Email</strong><a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a></div><div class="contact-item"><strong>Sectors</strong><p>FinTech • Education • Sustainability • Infrastructure • Agribusiness • Energy</p></div></div>
+      <div class="contact-card"><h3>General Enquiries</h3><div class="contact-item"><strong>Email</strong><a href="mailto:info@mlewisgroup.com">info@mlewisgroup.com</a></div><div class="contact-item"><strong>Office</strong><p>Lusaka, Zambia</p></div></div>
+      <div class="contact-card"><h3>Connect With Divisions</h3><div class="contact-item"><strong>Email</strong><a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a></div></div>
     </div></div></section>
   </div>
 
   <!-- PARTNER & INVEST PAGES -->
-  <div id="partner-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Partner With Us</h1><p>Strategic Alliances & Collaboration Opportunities</p></div></div></div>
-  <div id="invest-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Invest With Us</h1><p>Capital Deployment & Investment Opportunities</p></div></div></div>
+  <div id="partner-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Partner With Us</h1></div></div></div>
+  <div id="invest-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Invest With Us</h1></div></div></div>
 </div>
 
 <footer>
@@ -1062,4 +1077,4 @@
   updateActive('home');
 </script>
 </body>
-  </html>
+            </html>
