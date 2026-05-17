@@ -68,18 +68,33 @@
       margin: auto;
     }
 
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .logo .m {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 2px;
+    }
+
     .logo h2 {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 800;
       color: var(--navy);
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
+      line-height: 1;
     }
 
     .logo span {
-      font-size: 12px;
+      font-size: 10px;
       color: var(--muted);
       letter-spacing: 1.4px;
       text-transform: uppercase;
+      margin-top: 4px;
     }
 
     .nav-links {
@@ -140,6 +155,11 @@
       background: white;
     }
 
+    .btn-outline:hover {
+      background: rgba(197,155,83,0.08);
+      transform: translateY(-2px);
+    }
+
     .btn-back {
       background: rgba(255,255,255,0.12);
       color: white;
@@ -182,7 +202,7 @@
       width: 100%;
     }
 
-    /* TAGLINE SECTION - VISIBLE BELOW NAVBAR */
+    /* TAGLINE SECTION */
     .tagline-section {
       background: white;
       padding: 20px 0;
@@ -204,7 +224,7 @@
       letter-spacing: 1px;
     }
 
-    /* HERO SECTION WITH VIDEO */
+    /* HERO SECTION */
     .hero-section {
       position: relative;
       width: 100%;
@@ -252,25 +272,24 @@
       text-align: center;
     }
 
-    /* THREE LINES - BOLD, NO QUOTES */
     .hero-line {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 800;
       color: white;
       line-height: 1.2;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .hero-line:last-of-type {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .hero-subtitle {
       font-size: 1rem;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       color: var(--gold);
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       font-weight: 500;
     }
 
@@ -337,6 +356,15 @@
       font-size: clamp(2rem, 3.5vw, 3rem);
       margin-top: 14px;
       color: var(--navy);
+    }
+
+    .description-text {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a5568;
     }
 
     .leadership-card {
@@ -455,7 +483,6 @@
       color: #5f6677;
     }
 
-    /* Focus Areas Grid */
     .focus-category-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -504,10 +531,6 @@
       font-size: 1rem;
       margin: 18px 0 12px 0;
       font-weight: 700;
-    }
-
-    .focus-card-body h4:first-of-type {
-      margin-top: 0;
     }
 
     .country-list {
@@ -709,7 +732,8 @@
       .focus-category-grid { grid-template-columns: 1fr; }
       .tagline-section .service-tags { gap: 15px; }
       .tagline-section .service-tags span { font-size: 10px; }
-      .hero-line { font-size: 2rem; margin-bottom: 15px; }
+      .hero-line { font-size: 2rem; margin-bottom: 10px; }
+      .hero-subtitle { font-size: 0.85rem; margin-bottom: 25px; }
     }
 
     .page-transition {
@@ -792,7 +816,8 @@
 <nav class="navbar">
   <div class="nav-wrapper">
     <div class="logo">
-      <h2>M. Lewis Group</h2>
+      <div class="m">M</div>
+      <h2>LEWIS GROUP</h2>
       <span>Strategic Investment & Private Capital Platform</span>
     </div>
     <div class="nav-links">
@@ -815,7 +840,7 @@
   <div id="home-page" class="page active">
     <div class="navbar-spacer"></div>
     
-    <!-- TAGLINE SECTION - VISIBLE RIGHT BELOW NAVBAR -->
+    <!-- TAGLINE SECTION -->
     <div class="tagline-section">
       <div class="container">
         <div class="service-tags">
@@ -830,7 +855,7 @@
       </div>
     </div>
     
-    <!-- HERO SECTION WITH VIDEO - THREE LINES IN BOLD, NO QUOTES -->
+    <!-- HERO SECTION - EXACTLY AS IN YOUR IMAGE -->
     <div class="hero-section">
       <div class="video-carousel">
         <video id="video1" autoplay muted playsinline style="opacity: 1;">
@@ -865,7 +890,14 @@
       </div>
     </div>
 
-    <!-- Leadership Section -->
+    <!-- DESCRIPTION TEXT - RESTORED (was missing) -->
+    <div class="container">
+      <div class="description-text">
+        M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.
+      </div>
+    </div>
+
+    <!-- LEADERSHIP SECTION -->
     <section class="section section-light">
       <div class="container">
         <div class="leadership-card">
@@ -877,6 +909,7 @@
       </div>
     </section>
     
+    <!-- STRATEGIC EXPANSION SECTION -->
     <section class="section section-soft">
       <div class="container">
         <div class="section-title"><span>Strategic Expansion</span><h2>Building Tomorrow's African Economy</h2></div>
@@ -894,7 +927,7 @@
     <div class="navbar-spacer"></div>
     <div class="about-hero">
       <div class="container">
-        <div class="tagline">Investing in Africa. Driving impact. Building the future.</div>
+        <div class="tagline">“Investing in Africa. Driving impact. Building the future.”</div>
         <h1>About M. Lewis Group</h1>
         <p>M. Lewis Group is an Africa-focused investment platform and umbrella brand, uniting private equity, venture capital, and complementary sectors to unlock growth and impact across the continent. Our core divisions — M. Lewis Capital Partners and AfriLeap Capital — are supported by strategic initiatives in FinTech, ESG, real estate, and professional services to deliver end-to-end investment expertise.</p>
       </div>
@@ -930,7 +963,7 @@
     </div></div></section>
   </div>
 
-  <!-- M. Lewis Capital Partners DETAIL PAGE -->
+  <!-- M. LEWIS CAPITAL PARTNERS DETAIL -->
   <div id="capital-partners-page" class="page">
     <div class="navbar-spacer"></div>
     <div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>M. Lewis Capital Partners, LTD.</h1><p style="margin-top: 15px;">Boutique Private Equity & Investment Banking | Africa-Focused</p></div></div>
@@ -972,7 +1005,7 @@
     </div>
   </div>
 
-  <!-- OTHER DIVISION PLACEHOLDERS -->
+  <!-- OTHER DIVISION PAGES -->
   <div id="afrileap-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriLeap Capital</h1></div></div></div>
   <div id="africarbon-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1></div></div></div>
   <div id="esg-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>ESG Advisory</h1></div></div></div>
@@ -982,12 +1015,12 @@
     <div class="navbar-spacer"></div>
     <div class="page-header"><div class="container"><h1>Our Services</h1></div></div>
     <section class="section"><div class="container"><div class="services-grid">
-      <div class="service-card"><div class="service-icon">💼</div><h3>Capital Raising</h3><p>Debt, equity, and mezzanine financing solutions.</p></div>
-      <div class="service-card"><div class="service-icon">📊</div><h3>M&A Advisory</h3><p>Buy-side and sell-side advisory, due diligence, valuation.</p></div>
-      <div class="service-card"><div class="service-icon">📈</div><h3>Growth Equity</h3><p>Patient capital for scalable businesses.</p></div>
-      <div class="service-card"><div class="service-icon">🌍</div><h3>Cross-Border Advisory</h3><p>Facilitating international transactions.</p></div>
-      <div class="service-card"><div class="service-icon">🏗</div><h3>Project Finance</h3><p>Infrastructure, energy, and industrial projects.</p></div>
-      <div class="service-card"><div class="service-icon">♻️</div><h3>ESG Integration</h3><p>Sustainability frameworks and impact measurement.</p></div>
+      <div class="service-card"><div class="service-icon">💼</div><h3>Capital Raising</h3><p>Debt, equity, and mezzanine financing solutions for growth-stage and established businesses.</p></div>
+      <div class="service-card"><div class="service-icon">📊</div><h3>M&A Advisory</h3><p>Buy-side and sell-side advisory, due diligence, valuation, and transaction structuring.</p></div>
+      <div class="service-card"><div class="service-icon">📈</div><h3>Growth Equity</h3><p>Patient capital for scalable businesses seeking expansion across African markets.</p></div>
+      <div class="service-card"><div class="service-icon">🌍</div><h3>Cross-Border Advisory</h3><p>Facilitating international transactions and investor connectivity across African markets.</p></div>
+      <div class="service-card"><div class="service-icon">🏗</div><h3>Project Finance</h3><p>Structuring and arranging financing for infrastructure, energy, and industrial projects.</p></div>
+      <div class="service-card"><div class="service-icon">♻️</div><h3>ESG Integration</h3><p>Developing sustainability frameworks, impact measurement, and reporting standards.</p></div>
     </div></div></section>
   </div>
 
@@ -996,8 +1029,8 @@
     <div class="navbar-spacer"></div>
     <div class="page-header"><div class="container"><h1>Contact Us</h1></div></div>
     <section class="section"><div class="container"><div class="contact-wrapper">
-      <div class="contact-card"><h3>General Enquiries</h3><div class="contact-item"><strong>Email</strong><a href="mailto:info@mlewisgroup.com">info@mlewisgroup.com</a></div><div class="contact-item"><strong>Office</strong><p>Lusaka, Zambia</p></div></div>
-      <div class="contact-card"><h3>Connect With Divisions</h3><div class="contact-item"><strong>Email</strong><a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a></div></div>
+      <div class="contact-card"><h3>General Enquiries</h3><p>For partnership discussions, investment opportunities, or strategic advisory inquiries.</p><div class="contact-item"><strong>Email</strong><a href="mailto:info@mlewisgroup.com">info@mlewisgroup.com</a></div><div class="contact-item"><strong>Office</strong><p>Lusaka, Zambia</p></div></div>
+      <div class="contact-card"><h3>Connect With Divisions</h3><p>Reach our specialized teams: Capital Partners, AfriLeap, AfriCarbon.</p><div class="contact-item"><strong>Email</strong><a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a></div><div class="contact-item"><strong>Sectors</strong><p>FinTech • Education • Sustainability • Infrastructure • Agribusiness • Energy</p></div></div>
     </div></div></section>
   </div>
 
@@ -1082,4 +1115,4 @@
   updateActive('home');
 </script>
 </body>
-    </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </html>
