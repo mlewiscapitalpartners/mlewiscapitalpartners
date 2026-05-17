@@ -31,6 +31,7 @@
       font-family: 'Inter', sans-serif;
       background: var(--soft);
       color: var(--text);
+      overflow-x: hidden;
     }
 
     a {
@@ -99,6 +100,11 @@
       color: var(--gold);
     }
 
+    .nav-links a.active-link {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
     .cta-buttons {
       display: flex;
       gap: 12px;
@@ -132,6 +138,11 @@
       border: 1px solid rgba(197,155,83,0.4);
       color: var(--navy);
       background: white;
+    }
+
+    .btn-outline:hover {
+      background: rgba(197,155,83,0.08);
+      transform: translateY(-2px);
     }
 
     .btn-back {
@@ -170,19 +181,27 @@
       display: block;
     }
 
-    /* SPACER - PUSHES EVERYTHING BELOW THE NAVBAR */
+    /* SPACER - PUSHES CONTENT BELOW NAVBAR */
     .navbar-spacer {
       height: 85px;
       width: 100%;
     }
 
-    /* VIDEO CAROUSEL - VIDEOS ONLY, NO TEXT INSIDE */
-    .video-carousel {
+    /* HERO SECTION - VIDEO BACKGROUND WITH TEXT OVERLAY */
+    .hero-section {
       position: relative;
       width: 100%;
-      height: 80vh;
+      height: 100vh;
       overflow: hidden;
-      background: #000;
+    }
+
+    /* VIDEO CAROUSEL - BACKGROUND VIDEOS */
+    .video-carousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .video-carousel video {
@@ -195,15 +214,76 @@
       transition: opacity 1.2s ease;
     }
 
+    /* DARK OVERLAY FOR TEXT READABILITY */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(7,21,45,0.55), rgba(7,21,45,0.75));
+      z-index: 2;
+    }
+
+    /* TEXT CONTENT - ON TOP OF VIDEOS */
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      width: 100%;
+      max-width: 800px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+      font-weight: 500;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: white;
+      margin-bottom: 26px;
+      letter-spacing: -2px;
+    }
+
+    .hero-content h1 span {
+      color: var(--gold);
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 38px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     /* Carousel Dots */
     .carousel-dots {
       position: absolute;
-      bottom: 20px;
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 12px;
-      z-index: 10;
+      z-index: 3;
     }
 
     .dot {
@@ -219,50 +299,6 @@
       background: var(--gold);
       width: 24px;
       border-radius: 20px;
-    }
-
-    /* TEXT CONTENT - SEPARATE SECTION AFTER VIDEOS */
-    .hero-text {
-      padding: 80px 0;
-      text-align: center;
-      background: white;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      padding: 12px 20px;
-      border-radius: 999px;
-      background: rgba(197,155,83,0.12);
-      color: var(--navy);
-      margin-bottom: 28px;
-      font-weight: 500;
-    }
-
-    .hero-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 6vw, 5rem);
-      color: var(--navy);
-      margin-bottom: 26px;
-      letter-spacing: -2px;
-    }
-
-    .hero-text h1 span {
-      color: var(--gold);
-    }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #4a5568;
-      max-width: 800px;
-      margin: 0 auto 38px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
     }
 
     /* About Hero */
@@ -524,7 +560,7 @@
       .leadership-card { padding: 30px; }
       footer { padding: 40px 20px 100px 20px; }
       .navbar-spacer { height: 75px; }
-      .video-carousel { height: 50vh; }
+      .hero-section { height: 90vh; }
     }
 
     .page-transition {
@@ -631,32 +667,29 @@
     <!-- SPACER - PUSHES EVERYTHING BELOW NAVBAR -->
     <div class="navbar-spacer"></div>
     
-    <!-- VIDEO SECTION - VIDEOS ONLY, NO TEXT -->
-    <div class="video-carousel">
-      <video id="video1" autoplay muted playsinline style="opacity: 1;">
-        <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide1.mp4" type="video/mp4">
-      </video>
-      <video id="video2" muted playsinline style="opacity: 0;">
-        <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide2.mp4" type="video/mp4">
-      </video>
-      <video id="video3" muted playsinline style="opacity: 0;">
-        <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide3.mp4" type="video/mp4">
-      </video>
-      <video id="video4" muted playsinline style="opacity: 0;">
-        <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide4.mp4" type="video/mp4">
-      </video>
-      
-      <div class="carousel-dots">
-        <div class="dot active" data-slide="0"></div>
-        <div class="dot" data-slide="1"></div>
-        <div class="dot" data-slide="2"></div>
-        <div class="dot" data-slide="3"></div>
+    <!-- HERO SECTION - VIDEO BACKGROUND WITH TEXT OVERLAY -->
+    <div class="hero-section">
+      <!-- VIDEO CAROUSEL (BACKGROUND) -->
+      <div class="video-carousel">
+        <video id="video1" autoplay muted playsinline style="opacity: 1;">
+          <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide1.mp4" type="video/mp4">
+        </video>
+        <video id="video2" muted playsinline style="opacity: 0;">
+          <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide2.mp4" type="video/mp4">
+        </video>
+        <video id="video3" muted playsinline style="opacity: 0;">
+          <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide3.mp4" type="video/mp4">
+        </video>
+        <video id="video4" muted playsinline style="opacity: 0;">
+          <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide4.mp4" type="video/mp4">
+        </video>
       </div>
-    </div>
-
-    <!-- TEXT CONTENT - SEPARATE SECTION AFTER VIDEOS -->
-    <div class="hero-text">
-      <div class="container">
+      
+      <!-- DARK OVERLAY -->
+      <div class="hero-overlay"></div>
+      
+      <!-- TEXT CONTENT ON TOP OF VIDEOS -->
+      <div class="hero-content">
         <div class="hero-tag">Private Equity • Venture Capital • ESG Advisory • Carbon Solutions</div>
         <h1>Leading Strategic Investment and <span>Innovation Across Africa</span></h1>
         <p>M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.</p>
@@ -664,6 +697,14 @@
           <a class="btn btn-primary" data-page="invest">💰 Invest with Us</a>
           <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
         </div>
+      </div>
+      
+      <!-- CAROUSEL DOTS -->
+      <div class="carousel-dots">
+        <div class="dot active" data-slide="0"></div>
+        <div class="dot" data-slide="1"></div>
+        <div class="dot" data-slide="2"></div>
+        <div class="dot" data-slide="3"></div>
       </div>
     </div>
 
@@ -849,4 +890,4 @@
   updateActive('home');
 </script>
 </body>
-    </html>
+  </html>
