@@ -898,37 +898,43 @@
 <section class="exist-section">
   <div class="container">
     <div class="exist-card">
+      
+      <!-- Left Side: Content -->
       <div class="exist-content">
         <h2 class="exist-headline">M. Lewis Group exists to bridge the gap between African businesses seeking capital and international investors seeking credible opportunities.</h2>
         
-        <div class="challenges-list">
-          <div class="challenge-item">
+        <!-- Mini Challenge Cards -->
+        <div class="challenges-grid">
+          <div class="challenge-mini-card">
             <span class="challenge-number">01</span>
-            <span class="challenge-text">African SMEs struggle to access institutional capital</span>
+            <p class="challenge-text">African SMEs struggle to access institutional capital</p>
           </div>
-          <div class="challenge-item">
+          <div class="challenge-mini-card">
             <span class="challenge-number">02</span>
-            <span class="challenge-text">International investors lack trusted local partners</span>
+            <p class="challenge-text">International investors lack trusted local partners</p>
           </div>
-          <div class="challenge-item">
+          <div class="challenge-mini-card">
             <span class="challenge-number">03</span>
-            <span class="challenge-text">Underserved mid-market transactions below USD 30M</span>
+            <p class="challenge-text">Underserved mid-market transactions below USD 30M</p>
           </div>
-          <div class="challenge-item">
+          <div class="challenge-mini-card">
             <span class="challenge-number">04</span>
-            <span class="challenge-text">Limited cross-border advisory expertise</span>
+            <p class="challenge-text">Limited cross-border advisory expertise</p>
           </div>
-          <div class="challenge-item">
+          <div class="challenge-mini-card">
             <span class="challenge-number">05</span>
-            <span class="challenge-text">Founder-led businesses overlooked by large funds</span>
+            <p class="challenge-text">Founder-led businesses overlooked by large funds</p>
           </div>
         </div>
         
         <p class="exist-description">M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.</p>
       </div>
+      
+      <!-- Right Side: Image -->
       <div class="exist-image">
         <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/exist.png" alt="African business professionals">
       </div>
+      
     </div>
   </div>
 </section>
@@ -949,7 +955,7 @@
     border-radius: 28px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 0.9fr;
     gap: 0;
     box-shadow: 0 10px 40px rgba(0,0,0,0.08);
   }
@@ -961,90 +967,118 @@
   .exist-headline {
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
-    line-height: 1.3;
+    line-height: 1.35;
     color: #07152d;
-    margin-bottom: 32px;
+    margin-bottom: 35px;
     font-weight: 700;
+    background: linear-gradient(135deg, #07152d 0%, #0d2348 100%);
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   }
 
-  .challenges-list {
-    margin-bottom: 32px;
-  }
-
-  .challenge-item {
-    display: flex;
-    align-items: baseline;
+  /* Mini Challenge Cards Grid */
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    margin-bottom: 20px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 35px;
   }
 
-  .challenge-item:last-child {
-    border-bottom: none;
+  .challenge-mini-card {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 20px 18px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .challenge-mini-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-color: rgba(197,155,83,0.2);
   }
 
   .challenge-number {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #c59b53;
-    min-width: 45px;
+    display: inline-block;
+    margin-bottom: 10px;
     letter-spacing: 1px;
+    background: rgba(197,155,83,0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
   }
 
   .challenge-text {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.45;
     color: #1f2937;
     font-weight: 500;
+    margin: 0;
   }
 
   .exist-description {
     font-size: 0.95rem;
     line-height: 1.7;
     color: #4a5568;
-    margin-top: 16px;
-    padding-top: 16px;
+    margin-top: 10px;
+    padding: 20px 0 0 0;
     border-top: 1px solid rgba(0,0,0,0.08);
   }
 
   .exist-image {
     position: relative;
-    min-height: 350px;
     background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
   }
 
   .exist-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .exist-card {
       grid-template-columns: 1fr;
     }
     .exist-content {
-      padding: 40px 30px;
+      padding: 35px 25px;
     }
     .exist-headline {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      padding: 20px;
     }
-    .challenge-number {
-      font-size: 1rem;
-      min-width: 38px;
+    .challenges-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
-    .challenge-text {
-      font-size: 0.9rem;
+    .challenge-mini-card {
+      padding: 15px;
+    }
+    .exist-image {
+      padding: 30px;
+    }
+    .exist-image img {
+      max-width: 280px;
     }
     .exist-section {
       padding: 50px 0;
     }
   }
-</style>
-
+    </style>
+    
     <section class="section section-light">
       <div class="container">
         <div class="leadership-card">
