@@ -252,24 +252,26 @@
       text-align: center;
     }
 
-    .hero-quote {
-      font-size: 1.2rem;
-      letter-spacing: 3px;
-      color: var(--gold);
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
-    .hero-content h1 {
+    /* THREE LINES - BOLD, NO QUOTES */
+    .hero-line {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
       color: white;
-      margin-bottom: 30px;
       line-height: 1.2;
+      margin-bottom: 20px;
     }
 
-    .hero-content h1 span {
+    .hero-line:last-of-type {
+      margin-bottom: 40px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      letter-spacing: 3px;
       color: var(--gold);
+      margin-bottom: 30px;
+      font-weight: 500;
     }
 
     .hero-actions {
@@ -707,6 +709,7 @@
       .focus-category-grid { grid-template-columns: 1fr; }
       .tagline-section .service-tags { gap: 15px; }
       .tagline-section .service-tags span { font-size: 10px; }
+      .hero-line { font-size: 2rem; margin-bottom: 15px; }
     }
 
     .page-transition {
@@ -827,7 +830,7 @@
       </div>
     </div>
     
-    <!-- HERO SECTION WITH VIDEO - ONLY THE QUOTE -->
+    <!-- HERO SECTION WITH VIDEO - THREE LINES IN BOLD, NO QUOTES -->
     <div class="hero-section">
       <div class="video-carousel">
         <video id="video1" autoplay muted playsinline style="opacity: 1;">
@@ -845,11 +848,13 @@
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <div class="hero-quote">“Investing in Africa. Driving impact. Building the future.”</div>
-        <h1>That's what <span>M. Lewis Group</span> is doing. That's our goal.</h1>
+        <div class="hero-line">Investing in Africa.</div>
+        <div class="hero-line">Driving impact.</div>
+        <div class="hero-line">Building the future.</div>
+        <div class="hero-subtitle">Africa-focused investments. Global standards.</div>
         <div class="hero-actions">
-          <a class="btn btn-primary" data-page="invest">💰 Invest with Us</a>
-          <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
+          <a class="btn btn-primary" data-page="divisions">Explore Our Platforms</a>
+          <a class="btn btn-outline" data-page="partner">Partner With Us</a>
         </div>
       </div>
       <div class="carousel-dots">
@@ -889,7 +894,7 @@
     <div class="navbar-spacer"></div>
     <div class="about-hero">
       <div class="container">
-        <div class="tagline">“Investing in Africa. Driving impact. Building the future.”</div>
+        <div class="tagline">Investing in Africa. Driving impact. Building the future.</div>
         <h1>About M. Lewis Group</h1>
         <p>M. Lewis Group is an Africa-focused investment platform and umbrella brand, uniting private equity, venture capital, and complementary sectors to unlock growth and impact across the continent. Our core divisions — M. Lewis Capital Partners and AfriLeap Capital — are supported by strategic initiatives in FinTech, ESG, real estate, and professional services to deliver end-to-end investment expertise.</p>
       </div>
@@ -1077,4 +1082,4 @@
   updateActive('home');
 </script>
 </body>
-            </html>
+    </html>
