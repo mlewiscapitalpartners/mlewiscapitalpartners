@@ -930,7 +930,7 @@
         <p class="exist-description">M. Lewis Group is an Africa-focused investment and private capital platform, uniting private equity, venture capital, ESG advisory, and complementary sectors to unlock growth, value, and impact across the continent.</p>
       </div>
       
-      <!-- Right Side: Image -->
+      <!-- Right Side: Image - Full height, fitted to card -->
       <div class="exist-image">
         <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/exist.png" alt="African business professionals">
       </div>
@@ -955,7 +955,7 @@
     border-radius: 28px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 0.9fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0;
     box-shadow: 0 10px 40px rgba(0,0,0,0.08);
   }
@@ -975,7 +975,6 @@
     padding: 30px;
     border-radius: 20px;
     color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   }
 
   /* Mini Challenge Cards Grid */
@@ -992,7 +991,6 @@
     padding: 20px 18px;
     transition: all 0.3s ease;
     border: 1px solid rgba(0,0,0,0.04);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
 
   .challenge-mini-card:hover {
@@ -1031,22 +1029,24 @@
     border-top: 1px solid rgba(0,0,0,0.08);
   }
 
+  /* Image fills entire right side of card */
   .exist-image {
     position: relative;
-    background: #e5e7eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
+    background: #07152d;
+    overflow: hidden;
+    min-height: 100%;
   }
 
   .exist-image img {
     width: 100%;
-    max-width: 320px;
-    height: auto;
-    object-fit: contain;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   @media (max-width: 900px) {
@@ -1068,16 +1068,20 @@
       padding: 15px;
     }
     .exist-image {
-      padding: 30px;
+      min-height: 280px;
+      position: relative;
     }
     .exist-image img {
-      max-width: 280px;
+      position: relative;
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
     }
     .exist-section {
       padding: 50px 0;
     }
   }
-    </style>
+</style>
     
     <section class="section section-light">
       <div class="container">
