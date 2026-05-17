@@ -1601,15 +1601,9 @@
   const totalCards = 6;
   
   function updateCardsPerView() {
-    if (window.innerWidth <= 600) {
-      cardsPerView = 1;
-    } else if (window.innerWidth <= 900) {
-      cardsPerView = 2;
-    } else {
-      cardsPerView = 3;
-    }
-    updateCarousel();
-    updateDots();
+  cardsPerView = 1;  // Always show 1 card
+  updateCarousel();
+  updateDots();
   }
   
   function updateCarousel() {
