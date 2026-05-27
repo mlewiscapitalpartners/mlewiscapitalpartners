@@ -1034,6 +1034,21 @@
 .report-card, .insight-card {
   overflow: hidden;
 }
+    /* Image preview styles */
+#reportImagePreview, #insightImagePreview {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#reportPreviewImg, #insightPreviewImg {
+  max-width: 100%;
+  max-height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+}
   </style>
 </head>
 <body>
@@ -2420,16 +2435,19 @@
   </div>
 </div>
 
-<!-- PUBLISH NEW REPORT MODAL (with image upload) -->
+<!-- PUBLISH NEW REPORT MODAL (with file upload) -->
 <div id="publishModal" class="modal">
   <div class="modal-content">
     <span class="modal-close">&times;</span>
     <h3>Publish New Report</h3>
     <form id="reportForm">
       <div class="form-group">
-        <label>Report Image URL</label>
-        <input type="url" id="reportImageUrl" placeholder="https://raw.githubusercontent.com/.../image.jpg" required>
-        <small style="color: #8a9bb5;">Upload image to GitHub and paste the raw URL here</small>
+        <label>Report Image</label>
+        <input type="file" id="reportImageFile" accept="image/*" required>
+        <div id="reportImagePreview" style="margin-top: 10px; display: none;">
+          <img id="reportPreviewImg" style="max-width: 100%; max-height: 120px; border-radius: 12px;">
+        </div>
+        <small style="color: #8a9bb5;">Select an image from your device (JPG, PNG, GIF)</small>
       </div>
       <div class="form-group">
         <label>Report Title</label>
@@ -2456,16 +2474,19 @@
   </div>
 </div>
 
-<!-- PUBLISH NEW INSIGHT MODAL (with image upload) -->
+<!-- PUBLISH NEW INSIGHT MODAL (with file upload) -->
 <div id="publishInsightModal" class="modal">
   <div class="modal-content">
     <span class="modal-close-insight">&times;</span>
     <h3>Publish New Insight</h3>
     <form id="insightForm">
       <div class="form-group">
-        <label>Insight Image URL</label>
-        <input type="url" id="insightImageUrl" placeholder="https://raw.githubusercontent.com/.../image.jpg" required>
-        <small style="color: #8a9bb5;">Upload image to GitHub and paste the raw URL here</small>
+        <label>Insight Image</label>
+        <input type="file" id="insightImageFile" accept="image/*" required>
+        <div id="insightImagePreview" style="margin-top: 10px; display: none;">
+          <img id="insightPreviewImg" style="max-width: 100%; max-height: 120px; border-radius: 12px;">
+        </div>
+        <small style="color: #8a9bb5;">Select an image from your device (JPG, PNG, GIF)</small>
       </div>
       <div class="form-group">
         <label>Insight Category</label>
@@ -2848,151 +2869,211 @@
   }
   
   // ==============================================
-  // PUBLISH NEW REPORT (WITH IMAGE)
-  // ==============================================
-  const reportModal = document.getElementById('publishModal');
-  const newReportBtn = document.getElementById('newReportBtn');
-  const reportModalClose = document.querySelector('.modal-close');
-  const reportForm = document.getElementById('reportForm');
-  const reportsGrid = document.getElementById('reportsGrid');
-  
-  if (newReportBtn) {
-    newReportBtn.addEventListener('click', () => {
-      if (reportModal) reportModal.style.display = 'flex';
-    });
-  }
-  
-  if (reportModalClose) {
-    reportModalClose.addEventListener('click', () => {
-      if (reportModal) reportModal.style.display = 'none';
-    });
-  }
-  
-  if (reportForm) {
-    reportForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const imageUrl = document.getElementById('reportImageUrl')?.value || '';
-      const title = document.getElementById('reportTitle')?.value || '';
-      const summary = document.getElementById('reportSummary')?.value || '';
-      const date = document.getElementById('reportDate')?.value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-      const readTime = document.getElementById('reportReadTime')?.value || '5 min read';
-      const link = document.getElementById('reportLink')?.value || '#';
-      
-      if (!imageUrl || !title || !summary) {
-        showToast('Please fill in image URL, title, and summary.');
-        return;
-      }
-      
-      const newReport = document.createElement('div');
-      newReport.className = 'report-card';
-      newReport.setAttribute('data-report-id', Date.now());
-      newReport.innerHTML = `
-        <div class="report-image">
-          <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}">
-        </div>
-        <h3>${escapeHtml(title)}</h3>
-        <p>${escapeHtml(summary)}</p>
-        <div class="report-meta">
-          <span class="report-date">${escapeHtml(date)}</span>
-          <span class="report-read-time">${escapeHtml(readTime)}</span>
-        </div>
-        <div class="report-actions">
-          <a href="${link}" class="report-link" target="_blank">Download PDF →</a>
-          <button class="share-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
-        </div>
-      `;
-      
-      const shareBtn = newReport.querySelector('.share-btn');
-      if (shareBtn) {
-        shareBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const t = shareBtn.getAttribute('data-title');
-          const s = shareBtn.getAttribute('data-summary');
-          showShareOptions(t, s);
-        });
-      }
-      
-      if (reportsGrid) {
-        reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
-      }
-      
-      showToast('Report published successfully!');
-      reportForm.reset();
-      if (reportModal) reportModal.style.display = 'none';
-    });
-  }
-  
-  // ==============================================
-  // PUBLISH NEW INSIGHT (WITH IMAGE)
-  // ==============================================
-  const insightModal = document.getElementById('publishInsightModal');
-  const newInsightBtn = document.getElementById('newInsightBtn');
-  const insightModalClose = document.querySelector('.modal-close-insight');
-  const insightForm = document.getElementById('insightForm');
-  const insightsGrid = document.getElementById('insightsGrid');
-  
-  if (newInsightBtn) {
-    newInsightBtn.addEventListener('click', () => {
-      if (insightModal) insightModal.style.display = 'flex';
-    });
-  }
-  
-  if (insightModalClose) {
-    insightModalClose.addEventListener('click', () => {
-      if (insightModal) insightModal.style.display = 'none';
-    });
-  }
-  
-  if (insightForm) {
-    insightForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const imageUrl = document.getElementById('insightImageUrl')?.value || '';
-      const category = document.getElementById('insightCategory')?.value || 'Articles';
-      const title = document.getElementById('insightTitle')?.value || '';
-      const summary = document.getElementById('insightSummary')?.value || '';
-      const link = document.getElementById('insightLink')?.value || '#';
-      
-      if (!imageUrl || !title || !summary) {
-        showToast('Please fill in image URL, title, and summary.');
-        return;
-      }
-      
-      const newInsight = document.createElement('div');
-      newInsight.className = 'insight-card';
-      newInsight.setAttribute('data-insight-id', Date.now());
-      newInsight.innerHTML = `
-        <div class="insight-image">
-          <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}">
-        </div>
-        <span class="insight-category">${escapeHtml(category)}</span>
-        <h4>${escapeHtml(title)}</h4>
-        <p>${escapeHtml(summary)}</p>
-        <div class="insight-actions">
-          <a href="${link}" target="_blank">Read More →</a>
-          <button class="share-insight-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
-        </div>
-      `;
-      
-      const shareBtn = newInsight.querySelector('.share-insight-btn');
-      if (shareBtn) {
-        shareBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const t = shareBtn.getAttribute('data-title');
-          const s = shareBtn.getAttribute('data-summary');
-          showShareOptions(t, s);
-        });
-      }
-      
-      if (insightsGrid) {
-        insightsGrid.insertBefore(newInsight, insightsGrid.firstChild);
-      }
-      
-      showToast('Insight published successfully!');
-      insightForm.reset();
-      if (insightModal) insightModal.style.display = 'none';
-    });
+// PUBLISH NEW REPORT (WITH IMAGE UPLOAD - BASE64)
+// ==============================================
+const reportModal = document.getElementById('publishModal');
+const newReportBtn = document.getElementById('newReportBtn');
+const reportModalClose = document.querySelector('.modal-close');
+const reportForm = document.getElementById('reportForm');
+const reportsGrid = document.getElementById('reportsGrid');
+let currentReportImageBase64 = '';
+
+// Preview image when selected
+const reportImageFile = document.getElementById('reportImageFile');
+const reportImagePreview = document.getElementById('reportImagePreview');
+const reportPreviewImg = document.getElementById('reportPreviewImg');
+
+if (reportImageFile) {
+  reportImageFile.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        currentReportImageBase64 = event.target.result;
+        reportPreviewImg.src = currentReportImageBase64;
+        reportImagePreview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+}
+
+if (newReportBtn) {
+  newReportBtn.addEventListener('click', () => {
+    if (reportModal) reportModal.style.display = 'flex';
+  });
+}
+
+if (reportModalClose) {
+  reportModalClose.addEventListener('click', () => {
+    if (reportModal) reportModal.style.display = 'none';
+    reportForm?.reset();
+    reportImagePreview.style.display = 'none';
+    currentReportImageBase64 = '';
+  });
+}
+
+if (reportForm) {
+  reportForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    if (!currentReportImageBase64) {
+      showToast('Please select an image.');
+      return;
+    }
+    
+    const title = document.getElementById('reportTitle')?.value || '';
+    const summary = document.getElementById('reportSummary')?.value || '';
+    const date = document.getElementById('reportDate')?.value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    const readTime = document.getElementById('reportReadTime')?.value || '5 min read';
+    const link = document.getElementById('reportLink')?.value || '#';
+    
+    if (!title || !summary) {
+      showToast('Please fill in title and summary.');
+      return;
+    }
+    
+    const newReport = document.createElement('div');
+    newReport.className = 'report-card';
+    newReport.setAttribute('data-report-id', Date.now());
+    newReport.innerHTML = `
+      <div class="report-image">
+        <img src="${currentReportImageBase64}" alt="${escapeHtml(title)}">
+      </div>
+      <h3>${escapeHtml(title)}</h3>
+      <p>${escapeHtml(summary)}</p>
+      <div class="report-meta">
+        <span class="report-date">${escapeHtml(date)}</span>
+        <span class="report-read-time">${escapeHtml(readTime)}</span>
+      </div>
+      <div class="report-actions">
+        <a href="${link}" class="report-link" target="_blank">Download PDF →</a>
+        <button class="share-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
+      </div>
+    `;
+    
+    const shareBtn = newReport.querySelector('.share-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const t = shareBtn.getAttribute('data-title');
+        const s = shareBtn.getAttribute('data-summary');
+        showShareOptions(t, s);
+      });
+    }
+    
+    if (reportsGrid) {
+      reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
+    }
+    
+    showToast('Report published successfully!');
+    reportForm.reset();
+    reportImagePreview.style.display = 'none';
+    currentReportImageBase64 = '';
+    if (reportModal) reportModal.style.display = 'none';
+  });
+}
+
+// ==============================================
+// PUBLISH NEW INSIGHT (WITH IMAGE UPLOAD - BASE64)
+// ==============================================
+const insightModal = document.getElementById('publishInsightModal');
+const newInsightBtn = document.getElementById('newInsightBtn');
+const insightModalClose = document.querySelector('.modal-close-insight');
+const insightForm = document.getElementById('insightForm');
+const insightsGrid = document.getElementById('insightsGrid');
+let currentInsightImageBase64 = '';
+
+// Preview image when selected
+const insightImageFile = document.getElementById('insightImageFile');
+const insightImagePreview = document.getElementById('insightImagePreview');
+const insightPreviewImg = document.getElementById('insightPreviewImg');
+
+if (insightImageFile) {
+  insightImageFile.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        currentInsightImageBase64 = event.target.result;
+        insightPreviewImg.src = currentInsightImageBase64;
+        insightImagePreview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+}
+
+if (newInsightBtn) {
+  newInsightBtn.addEventListener('click', () => {
+    if (insightModal) insightModal.style.display = 'flex';
+  });
+}
+
+if (insightModalClose) {
+  insightModalClose.addEventListener('click', () => {
+    if (insightModal) insightModal.style.display = 'none';
+    insightForm?.reset();
+    insightImagePreview.style.display = 'none';
+    currentInsightImageBase64 = '';
+  });
+}
+
+if (insightForm) {
+  insightForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    if (!currentInsightImageBase64) {
+      showToast('Please select an image.');
+      return;
+    }
+    
+    const category = document.getElementById('insightCategory')?.value || 'Articles';
+    const title = document.getElementById('insightTitle')?.value || '';
+    const summary = document.getElementById('insightSummary')?.value || '';
+    const link = document.getElementById('insightLink')?.value || '#';
+    
+    if (!title || !summary) {
+      showToast('Please fill in title and summary.');
+      return;
+    }
+    
+    const newInsight = document.createElement('div');
+    newInsight.className = 'insight-card';
+    newInsight.setAttribute('data-insight-id', Date.now());
+    newInsight.innerHTML = `
+      <div class="insight-image">
+        <img src="${currentInsightImageBase64}" alt="${escapeHtml(title)}">
+      </div>
+      <span class="insight-category">${escapeHtml(category)}</span>
+      <h4>${escapeHtml(title)}</h4>
+      <p>${escapeHtml(summary)}</p>
+      <div class="insight-actions">
+        <a href="${link}" target="_blank">Read More →</a>
+        <button class="share-insight-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
+      </div>
+    `;
+    
+    const shareBtn = newInsight.querySelector('.share-insight-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const t = shareBtn.getAttribute('data-title');
+        const s = shareBtn.getAttribute('data-summary');
+        showShareOptions(t, s);
+      });
+    }
+    
+    if (insightsGrid) {
+      insightsGrid.insertBefore(newInsight, insightsGrid.firstChild);
+    }
+    
+    showToast('Insight published successfully!');
+    insightForm.reset();
+    insightImagePreview.style.display = 'none';
+    currentInsightImageBase64 = '';
+    if (insightModal) insightModal.style.display = 'none';
+  });
   }
   
   // ==============================================
