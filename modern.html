@@ -2626,6 +2626,59 @@
   updateActive('home');
   
   // ==============================================
+  // ADMIN PASSWORD PROTECTION FOR REPORTS
+  // ==============================================
+  // CHANGE THIS PASSWORD TO YOUR SECRET PASSWORD
+  const ADMIN_PASSWORD = 'Lewis@6634;
+  
+  const adminLoginBtn = document.getElementById('adminLoginBtn');
+  const passwordModal = document.getElementById('passwordModal');
+  const verifyPasswordBtn = document.getElementById('verifyPasswordBtn');
+  const adminPanel = document.getElementById('adminPanel');
+  const pwdError = document.getElementById('pwdError');
+  const modalClosePwd = document.querySelector('.modal-close-pwd');
+  
+  // Open password modal when Admin button is clicked
+  if (adminLoginBtn) {
+    adminLoginBtn.addEventListener('click', () => {
+      if (passwordModal) passwordModal.style.display = 'flex';
+    });
+  }
+  
+  // Close password modal
+  if (modalClosePwd) {
+    modalClosePwd.addEventListener('click', () => {
+      if (passwordModal) passwordModal.style.display = 'none';
+      if (pwdError) pwdError.style.display = 'none';
+    });
+  }
+  
+  // Verify password
+  if (verifyPasswordBtn) {
+    verifyPasswordBtn.addEventListener('click', () => {
+      const enteredPassword = document.getElementById('adminPassword').value;
+      if (enteredPassword === ADMIN_PASSWORD) {
+        if (adminPanel) adminPanel.style.display = 'block';
+        if (passwordModal) passwordModal.style.display = 'none';
+        if (adminLoginBtn) adminLoginBtn.style.display = 'none';
+        showToast('Admin access granted');
+      } else {
+        if (pwdError) pwdError.style.display = 'block';
+      }
+    });
+  }
+  
+  // Allow Enter key in password field
+  const adminPasswordInput = document.getElementById('adminPassword');
+  if (adminPasswordInput) {
+    adminPasswordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        verifyPasswordBtn.click();
+      }
+    });
+  }
+  
+  // ==============================================
   // PUBLISH NEW REPORT FUNCTIONALITY
   // ==============================================
   const modal = document.getElementById('publishModal');
@@ -2633,28 +2686,32 @@
   const modalClose = document.querySelector('.modal-close');
   const reportForm = document.getElementById('reportForm');
   const reportsGrid = document.getElementById('reportsGrid');
-
+  
   // Open modal
   if (newReportBtn) {
     newReportBtn.addEventListener('click', () => {
       if (modal) modal.style.display = 'flex';
     });
   }
-
+  
   // Close modal
   if (modalClose) {
     modalClose.addEventListener('click', () => {
       if (modal) modal.style.display = 'none';
     });
   }
-
-  // Close modal when clicking outside
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
+  
+  // Helper function to escape HTML
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    });
+  }
+  
   // Publish new report
   if (reportForm) {
     reportForm.addEventListener('submit', (e) => {
@@ -2677,7 +2734,7 @@
       newReport.className = 'report-card';
       newReport.setAttribute('data-report-id', Date.now());
       newReport.innerHTML = `
-        <div class="report-icon">${icon}</div>
+        <div class="report-icon">${escapeHtml(icon)}</div>
         <h3>${escapeHtml(title)}</h3>
         <p>${escapeHtml(summary)}</p>
         <div class="report-meta">
@@ -2712,17 +2769,6 @@
     });
   }
   
-  // Helper function to escape HTML
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
-  }
-  
   // ==============================================
   // SOCIAL SHARING FUNCTIONS
   // ==============================================
@@ -2731,18 +2777,18 @@
     const text = encodeURIComponent(`${title}: ${summary.substring(0, 200)}`);
     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&summary=${text}`, '_blank', 'width=600,height=500');
   }
-
+  
   function shareToTwitter(title, summary) {
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent(`${title} - ${summary.substring(0, 200)}`);
     window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=600,height=500');
   }
-
+  
   function shareToFacebook(title, summary) {
     const url = encodeURIComponent(window.location.href);
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=500');
   }
-
+  
   function shareToEmail(title, summary) {
     const subject = encodeURIComponent(`M. Lewis Group: ${title}`);
     const body = encodeURIComponent(`Check out this report:\n\n${title}\n${summary}\n\n${window.location.href}`);
@@ -2762,7 +2808,6 @@
   // Attach share functionality to existing buttons
   function attachShareToButtons() {
     document.querySelectorAll('.share-btn').forEach(btn => {
-      // Remove old listeners to avoid duplicates
       btn.removeEventListener('click', btn._listener);
       const handler = (e) => {
         e.stopPropagation();
@@ -2792,150 +2837,8 @@
   }
   
   // ==============================================
-// ADMIN PASSWORD PROTECTION FOR REPORTS
-// ==============================================
-// CHANGE THIS PASSWORD TO YOUR SECRET PASSWORD
-const ADMIN_PASSWORD = 'Admin2026!';  // ← Change this to your desired password
-
-const adminLoginBtn = document.getElementById('adminLoginBtn');
-const passwordModal = document.getElementById('passwordModal');
-const verifyPasswordBtn = document.getElementById('verifyPasswordBtn');
-const adminPanel = document.getElementById('adminPanel');
-const pwdError = document.getElementById('pwdError');
-const modalClosePwd = document.querySelector('.modal-close-pwd');
-
-// Open password modal when Admin button is clicked
-if (adminLoginBtn) {
-  adminLoginBtn.addEventListener('click', () => {
-    if (passwordModal) passwordModal.style.display = 'flex';
-  });
-}
-
-// Close password modal
-if (modalClosePwd) {
-  modalClosePwd.addEventListener('click', () => {
-    if (passwordModal) passwordModal.style.display = 'none';
-    if (pwdError) pwdError.style.display = 'none';
-  });
-}
-
-// Verify password
-if (verifyPasswordBtn) {
-  verifyPasswordBtn.addEventListener('click', () => {
-    const enteredPassword = document.getElementById('adminPassword').value;
-    if (enteredPassword === ADMIN_PASSWORD) {
-      // Correct password - show admin panel
-      if (adminPanel) adminPanel.style.display = 'block';
-      if (passwordModal) passwordModal.style.display = 'none';
-      if (adminLoginBtn) adminLoginBtn.style.display = 'none'; // Hide login button after success
-      showToast('Admin access granted');
-    } else {
-      if (pwdError) pwdError.style.display = 'block';
-    }
-  });
-}
-
-// Also allow Enter key in password field
-const adminPasswordInput = document.getElementById('adminPassword');
-if (adminPasswordInput) {
-  adminPasswordInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      verifyPasswordBtn.click();
-    }
-  });
-}
-
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
-  if (e.target === passwordModal) {
-    passwordModal.style.display = 'none';
-    if (pwdError) pwdError.style.display = 'none';
-  }
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
-});
-
-// ==============================================
-// PUBLISH NEW REPORT (Only accessible after admin login)
-// ==============================================
-const modal = document.getElementById('publishModal');
-const newReportBtn = document.getElementById('newReportBtn');
-const modalClose = document.querySelector('.modal-close');
-const reportForm = document.getElementById('reportForm');
-const reportsGrid = document.getElementById('reportsGrid');
-
-// Open modal
-if (newReportBtn) {
-  newReportBtn.addEventListener('click', () => {
-    if (modal) modal.style.display = 'flex';
-  });
-}
-
-// Close modal
-if (modalClose) {
-  modalClose.addEventListener('click', () => {
-    if (modal) modal.style.display = 'none';
-  });
-}
-
-// Publish new report
-if (reportForm) {
-  reportForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const icon = document.getElementById('reportIcon').value || '📄';
-    const title = document.getElementById('reportTitle').value;
-    const summary = document.getElementById('reportSummary').value;
-    const date = document.getElementById('reportDate').value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-    const readTime = document.getElementById('reportReadTime').value || '5 min read';
-    const link = document.getElementById('reportLink').value || '#';
-    
-    if (!title || !summary) {
-      showToast('Please fill in title and summary.');
-      return;
-    }
-    
-    // Create new report card
-    const newReport = document.createElement('div');
-    newReport.className = 'report-card';
-    newReport.setAttribute('data-report-id', Date.now());
-    newReport.innerHTML = `
-      <div class="report-icon">${escapeHtml(icon)}</div>
-      <h3>${escapeHtml(title)}</h3>
-      <p>${escapeHtml(summary)}</p>
-      <div class="report-meta">
-        <span class="report-date">${escapeHtml(date)}</span>
-        <span class="report-read-time">${escapeHtml(readTime)}</span>
-      </div>
-      <div class="report-actions">
-        <a href="${link}" class="report-link" target="_blank">Download PDF →</a>
-        <button class="share-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
-      </div>
-    `;
-    
-    // Add share functionality to the new button
-    const shareBtn = newReport.querySelector('.share-btn');
-    if (shareBtn) {
-      shareBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const t = shareBtn.getAttribute('data-title');
-        const s = shareBtn.getAttribute('data-summary');
-        showShareOptions(t, s);
-      });
-    }
-    
-    // Add to grid at the beginning
-    if (reportsGrid) {
-      reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
-    }
-    
-    showToast('Report published successfully!');
-    reportForm.reset();
-    if (modal) modal.style.display = 'none';
-  });
-}
-  // Toast notification
+  // TOAST NOTIFICATION
+  // ==============================================
   function showToast(message) {
     let toast = document.querySelector('.toast');
     if (!toast) {
@@ -2950,7 +2853,9 @@ if (reportForm) {
     }, 2000);
   }
   
-  // Newsletter subscription
+  // ==============================================
+  // NEWSLETTER SUBSCRIPTION
+  // ==============================================
   const subscribeBtn = document.getElementById('subscribeBtn');
   if (subscribeBtn) {
     subscribeBtn.addEventListener('click', () => {
@@ -2967,7 +2872,9 @@ if (reportForm) {
     });
   }
   
-  // Initialize share buttons
+  // ==============================================
+  // INITIALIZE SHARE BUTTONS
+  // ==============================================
   attachShareToButtons();
   
   // Handle dynamically added share buttons (for new reports)
@@ -2977,6 +2884,19 @@ if (reportForm) {
     });
     observer.observe(reportsGrid, { childList: true, subtree: true });
   }
-</script>
+  
+  // ==============================================
+  // CLOSE MODALS WHEN CLICKING OUTSIDE
+  // ==============================================
+  window.addEventListener('click', (e) => {
+    if (e.target === passwordModal) {
+      passwordModal.style.display = 'none';
+      if (pwdError) pwdError.style.display = 'none';
+    }
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+ </script>
 </body>
   </html>
