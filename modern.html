@@ -2223,9 +2223,16 @@
   
   <div class="container">
     
-    <!-- PUBLISH NEW REPORT BUTTON (Admin only - can be hidden) -->
+    <!-- ADMIN PANEL - Hidden by default, appears after password -->
+    <div id="adminPanel" style="display: none;">
+      <div style="text-align: right; margin-bottom: 20px;">
+        <button id="newReportBtn" class="btn btn-outline" style="font-size: 0.8rem;">+ Publish New Report</button>
+      </div>
+    </div>
+    
+    <!-- Admin Login Button (visible to everyone) -->
     <div style="text-align: right; margin-bottom: 20px;">
-      <button id="newReportBtn" class="btn btn-outline" style="font-size: 0.8rem;">+ Publish New Report</button>
+      <button id="adminLoginBtn" class="btn btn-outline" style="font-size: 0.8rem; border-color: #c59b53; color: #c59b53;">🔒 Admin</button>
     </div>
     
     <!-- Featured Reports Section -->
@@ -2250,11 +2257,11 @@
         
         <!-- Report 2 -->
         <div class="report-card" data-report-id="2">
-          <div class="report-icon"></div>
+          <div class="report-icon">🌍</div>
           <h3>Sub-Saharan SME Investment Outlook</h3>
           <p>Annual outlook on SME financing gaps, sector opportunities, and emerging investment themes across key African markets.</p>
           <div class="report-meta">
-            <span class="report-date">May 2026</span>
+            <span class="report-date">February 2026</span>
             <span class="report-read-time">10 min read</span>
           </div>
           <div class="report-actions">
@@ -2265,7 +2272,7 @@
         
         <!-- Report 3 -->
         <div class="report-card" data-report-id="3">
-          <div class="report-icon"></div>
+          <div class="report-icon">🚀</div>
           <h3>Founder Capital Readiness Framework</h3>
           <p>A practical guide for entrepreneurs preparing for institutional capital, including due diligence checklists and investor expectations.</p>
           <div class="report-meta">
@@ -2391,7 +2398,21 @@
       <button type="submit" class="btn btn-primary">Publish Report</button>
     </form>
   </div>
- </div>
+</div>
+
+<!-- ADMIN PASSWORD MODAL -->
+<div id="passwordModal" class="modal">
+  <div class="modal-content" style="max-width: 350px;">
+    <span class="modal-close-pwd">&times;</span>
+    <h3>Admin Access</h3>
+    <p>Enter password to publish reports.</p>
+    <div class="form-group">
+      <input type="password" id="adminPassword" placeholder="Enter password" style="width: 100%;">
+    </div>
+    <button id="verifyPasswordBtn" class="btn btn-primary">Verify</button>
+    <p id="pwdError" style="color: red; margin-top: 10px; display: none;">Incorrect password</p>
+  </div>
+</div>
   
   <!-- PARTNER & INVEST PAGES -->
   <div id="partner-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Partner With Us</h1><p style="margin-top: 15px;">Strategic Alliances & Collaboration Opportunities</p></div><div class="container" style="padding: 40px 0;"><div class="contact-card"><div class="contact-item"><strong>Email</strong><a href="mailto:partners@mlewisgroup.com">partners@mlewisgroup.com</a></div></div></div></div></div>
@@ -2770,6 +2791,150 @@
     });
   }
   
+  // ==============================================
+// ADMIN PASSWORD PROTECTION FOR REPORTS
+// ==============================================
+// CHANGE THIS PASSWORD TO YOUR SECRET PASSWORD
+const ADMIN_PASSWORD = 'Admin2026!';  // ← Change this to your desired password
+
+const adminLoginBtn = document.getElementById('adminLoginBtn');
+const passwordModal = document.getElementById('passwordModal');
+const verifyPasswordBtn = document.getElementById('verifyPasswordBtn');
+const adminPanel = document.getElementById('adminPanel');
+const pwdError = document.getElementById('pwdError');
+const modalClosePwd = document.querySelector('.modal-close-pwd');
+
+// Open password modal when Admin button is clicked
+if (adminLoginBtn) {
+  adminLoginBtn.addEventListener('click', () => {
+    if (passwordModal) passwordModal.style.display = 'flex';
+  });
+}
+
+// Close password modal
+if (modalClosePwd) {
+  modalClosePwd.addEventListener('click', () => {
+    if (passwordModal) passwordModal.style.display = 'none';
+    if (pwdError) pwdError.style.display = 'none';
+  });
+}
+
+// Verify password
+if (verifyPasswordBtn) {
+  verifyPasswordBtn.addEventListener('click', () => {
+    const enteredPassword = document.getElementById('adminPassword').value;
+    if (enteredPassword === ADMIN_PASSWORD) {
+      // Correct password - show admin panel
+      if (adminPanel) adminPanel.style.display = 'block';
+      if (passwordModal) passwordModal.style.display = 'none';
+      if (adminLoginBtn) adminLoginBtn.style.display = 'none'; // Hide login button after success
+      showToast('Admin access granted');
+    } else {
+      if (pwdError) pwdError.style.display = 'block';
+    }
+  });
+}
+
+// Also allow Enter key in password field
+const adminPasswordInput = document.getElementById('adminPassword');
+if (adminPasswordInput) {
+  adminPasswordInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      verifyPasswordBtn.click();
+    }
+  });
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+  if (e.target === passwordModal) {
+    passwordModal.style.display = 'none';
+    if (pwdError) pwdError.style.display = 'none';
+  }
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+// ==============================================
+// PUBLISH NEW REPORT (Only accessible after admin login)
+// ==============================================
+const modal = document.getElementById('publishModal');
+const newReportBtn = document.getElementById('newReportBtn');
+const modalClose = document.querySelector('.modal-close');
+const reportForm = document.getElementById('reportForm');
+const reportsGrid = document.getElementById('reportsGrid');
+
+// Open modal
+if (newReportBtn) {
+  newReportBtn.addEventListener('click', () => {
+    if (modal) modal.style.display = 'flex';
+  });
+}
+
+// Close modal
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    if (modal) modal.style.display = 'none';
+  });
+}
+
+// Publish new report
+if (reportForm) {
+  reportForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const icon = document.getElementById('reportIcon').value || '📄';
+    const title = document.getElementById('reportTitle').value;
+    const summary = document.getElementById('reportSummary').value;
+    const date = document.getElementById('reportDate').value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    const readTime = document.getElementById('reportReadTime').value || '5 min read';
+    const link = document.getElementById('reportLink').value || '#';
+    
+    if (!title || !summary) {
+      showToast('Please fill in title and summary.');
+      return;
+    }
+    
+    // Create new report card
+    const newReport = document.createElement('div');
+    newReport.className = 'report-card';
+    newReport.setAttribute('data-report-id', Date.now());
+    newReport.innerHTML = `
+      <div class="report-icon">${escapeHtml(icon)}</div>
+      <h3>${escapeHtml(title)}</h3>
+      <p>${escapeHtml(summary)}</p>
+      <div class="report-meta">
+        <span class="report-date">${escapeHtml(date)}</span>
+        <span class="report-read-time">${escapeHtml(readTime)}</span>
+      </div>
+      <div class="report-actions">
+        <a href="${link}" class="report-link" target="_blank">Download PDF →</a>
+        <button class="share-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
+      </div>
+    `;
+    
+    // Add share functionality to the new button
+    const shareBtn = newReport.querySelector('.share-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const t = shareBtn.getAttribute('data-title');
+        const s = shareBtn.getAttribute('data-summary');
+        showShareOptions(t, s);
+      });
+    }
+    
+    // Add to grid at the beginning
+    if (reportsGrid) {
+      reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
+    }
+    
+    showToast('Report published successfully!');
+    reportForm.reset();
+    if (modal) modal.style.display = 'none';
+  });
+}
   // Toast notification
   function showToast(message) {
     let toast = document.querySelector('.toast');
