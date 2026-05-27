@@ -1000,6 +1000,40 @@
   85% { opacity: 1; transform: translateX(-50%) translateY(0); }
   100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
 }
+    /* Report Card Image */
+.report-image {
+  width: 100%;
+  height: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.report-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Insight Card Image */
+.insight-image {
+  width: 100%;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.insight-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Adjust card padding for images */
+.report-card, .insight-card {
+  overflow: hidden;
+}
   </style>
 </head>
 <body>
@@ -2225,12 +2259,13 @@
     
     <!-- ADMIN PANEL - Hidden by default, appears after password -->
     <div id="adminPanel" style="display: none;">
-      <div style="text-align: right; margin-bottom: 20px;">
-        <button id="newReportBtn" class="btn btn-outline" style="font-size: 0.8rem;">+ Publish New Report</button>
+      <div style="display: flex; justify-content: flex-end; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+        <button id="newReportBtn" class="btn btn-outline" style="font-size: 0.8rem;">📄 + Publish New Report</button>
+        <button id="newInsightBtn" class="btn btn-outline" style="font-size: 0.8rem; border-color: #c59b53; color: #c59b53;">💡 + Publish New Insight</button>
       </div>
     </div>
     
-    <!-- Admin Login Button (visible to everyone) -->
+    <!-- Admin Login Button -->
     <div style="text-align: right; margin-bottom: 20px;">
       <button id="adminLoginBtn" class="btn btn-outline" style="font-size: 0.8rem; border-color: #c59b53; color: #c59b53;">🔒 Admin</button>
     </div>
@@ -2242,7 +2277,9 @@
         
         <!-- Report 1 -->
         <div class="report-card" data-report-id="1">
-          <div class="report-icon">📊</div>
+          <div class="report-image">
+            <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/report1.jpg" alt="Africa Growth Capital Report">
+          </div>
           <h3>Africa Growth Capital Report</h3>
           <p>Comprehensive analysis of private capital flows, growth equity trends, and investment opportunities across Sub-Saharan Africa.</p>
           <div class="report-meta">
@@ -2257,7 +2294,9 @@
         
         <!-- Report 2 -->
         <div class="report-card" data-report-id="2">
-          <div class="report-icon">🌍</div>
+          <div class="report-image">
+            <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/report2.jpg" alt="Sub-Saharan SME Investment Outlook">
+          </div>
           <h3>Sub-Saharan SME Investment Outlook</h3>
           <p>Annual outlook on SME financing gaps, sector opportunities, and emerging investment themes across key African markets.</p>
           <div class="report-meta">
@@ -2272,7 +2311,9 @@
         
         <!-- Report 3 -->
         <div class="report-card" data-report-id="3">
-          <div class="report-icon">🚀</div>
+          <div class="report-image">
+            <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/report3.jpg" alt="Founder Capital Readiness Framework">
+          </div>
           <h3>Founder Capital Readiness Framework</h3>
           <p>A practical guide for entrepreneurs preparing for institutional capital, including due diligence checklists and investor expectations.</p>
           <div class="report-meta">
@@ -2287,7 +2328,9 @@
         
         <!-- Report 4 -->
         <div class="report-card" data-report-id="4">
-          <div class="report-icon">💡</div>
+          <div class="report-image">
+            <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/report4.jpg" alt="Emerging Opportunities in African Private Markets">
+          </div>
           <h3>Emerging Opportunities in African Private Markets</h3>
           <p>Identifying high-growth sectors, underserved segments, and strategic entry points for investors in African private markets.</p>
           <div class="report-meta">
@@ -2309,6 +2352,9 @@
       <div class="insights-grid" id="insightsGrid">
         
         <div class="insight-card">
+          <div class="insight-image">
+            <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/insight1.jpg" alt="SME Financing">
+          </div>
           <span class="insight-category">Articles</span>
           <h4>The State of SME Financing in Africa</h4>
           <p>Exploring the working capital gap and innovative financing solutions for African SMEs.</p>
@@ -2319,6 +2365,9 @@
         </div>
         
         <div class="insight-card">
+          <div class="insight-image">
+            <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/insight2.jpg" alt="African Private Markets">
+          </div>
           <span class="insight-category">Market Commentary</span>
           <h4>Q1 2026: African Private Markets Review</h4>
           <p>Key trends, deal activity, and investor sentiment across the continent.</p>
@@ -2329,6 +2378,9 @@
         </div>
         
         <div class="insight-card">
+          <div class="insight-image">
+            <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/insight3.jpg" alt="Cross-Border Investments">
+          </div>
           <span class="insight-category">Investor Insights</span>
           <h4>Navigating Cross-Border Investments in Africa</h4>
           <p>Legal frameworks, risk considerations, and entry strategies for international investors.</p>
@@ -2339,6 +2391,9 @@
         </div>
         
         <div class="insight-card">
+          <div class="insight-image">
+            <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/insight4.jpg" alt="M&A Activity">
+          </div>
           <span class="insight-category">Africa Deal Trends</span>
           <h4>Mid-Market M&A Activity: 2025-2026</h4>
           <p>Analysis of transaction volumes, sector hotspots, and emerging deal structures.</p>
@@ -2365,15 +2420,16 @@
   </div>
 </div>
 
-<!-- PUBLISH NEW REPORT MODAL (Hidden by default) -->
+<!-- PUBLISH NEW REPORT MODAL (with image upload) -->
 <div id="publishModal" class="modal">
   <div class="modal-content">
     <span class="modal-close">&times;</span>
     <h3>Publish New Report</h3>
     <form id="reportForm">
       <div class="form-group">
-        <label>Report Icon (emoji)</label>
-        <input type="text" id="reportIcon" placeholder="e.g., 📊" value="📄">
+        <label>Report Image URL</label>
+        <input type="url" id="reportImageUrl" placeholder="https://raw.githubusercontent.com/.../image.jpg" required>
+        <small style="color: #8a9bb5;">Upload image to GitHub and paste the raw URL here</small>
       </div>
       <div class="form-group">
         <label>Report Title</label>
@@ -2400,12 +2456,49 @@
   </div>
 </div>
 
+<!-- PUBLISH NEW INSIGHT MODAL (with image upload) -->
+<div id="publishInsightModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close-insight">&times;</span>
+    <h3>Publish New Insight</h3>
+    <form id="insightForm">
+      <div class="form-group">
+        <label>Insight Image URL</label>
+        <input type="url" id="insightImageUrl" placeholder="https://raw.githubusercontent.com/.../image.jpg" required>
+        <small style="color: #8a9bb5;">Upload image to GitHub and paste the raw URL here</small>
+      </div>
+      <div class="form-group">
+        <label>Insight Category</label>
+        <select id="insightCategory" required>
+          <option value="Articles">Articles</option>
+          <option value="Market Commentary">Market Commentary</option>
+          <option value="Investor Insights">Investor Insights</option>
+          <option value="Africa Deal Trends">Africa Deal Trends</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Insight Title</label>
+        <input type="text" id="insightTitle" required>
+      </div>
+      <div class="form-group">
+        <label>Summary / Preview</label>
+        <textarea id="insightSummary" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Read More Link (optional)</label>
+        <input type="url" id="insightLink" placeholder="https://...">
+      </div>
+      <button type="submit" class="btn btn-primary">Publish Insight</button>
+    </form>
+  </div>
+</div>
+
 <!-- ADMIN PASSWORD MODAL -->
 <div id="passwordModal" class="modal">
   <div class="modal-content" style="max-width: 350px;">
     <span class="modal-close-pwd">&times;</span>
     <h3>Admin Access</h3>
-    <p>Enter password to publish reports.</p>
+    <p>Enter password to publish reports or insights.</p>
     <div class="form-group">
       <input type="password" id="adminPassword" placeholder="Enter password" style="width: 100%;">
     </div>
@@ -2413,7 +2506,7 @@
     <p id="pwdError" style="color: red; margin-top: 10px; display: none;">Incorrect password</p>
   </div>
 </div>
-  
+    
   <!-- PARTNER & INVEST PAGES -->
   <div id="partner-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Partner With Us</h1><p style="margin-top: 15px;">Strategic Alliances & Collaboration Opportunities</p></div><div class="container" style="padding: 40px 0;"><div class="contact-card"><div class="contact-item"><strong>Email</strong><a href="mailto:partners@mlewisgroup.com">partners@mlewisgroup.com</a></div></div></div></div></div>
   <div id="invest-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Invest With Us</h1><p style="margin-top: 15px;">Capital Deployment & Investment Opportunities</p></div><div class="container" style="padding: 40px 0;"><div class="contact-card"><div class="contact-item"><strong>Email</strong><a href="mailto:invest@mlewisgroup.com">invest@mlewisgroup.com</a></div></div></div></div></div>
@@ -2677,6 +2770,153 @@
     });
   }
   
+  // ==============================================
+// PUBLISH NEW REPORT WITH IMAGE
+// ==============================================
+const modal = document.getElementById('publishModal');
+const newReportBtn = document.getElementById('newReportBtn');
+const modalClose = document.querySelector('.modal-close');
+const reportForm = document.getElementById('reportForm');
+const reportsGrid = document.getElementById('reportsGrid');
+
+if (newReportBtn) {
+  newReportBtn.addEventListener('click', () => {
+    if (modal) modal.style.display = 'flex';
+  });
+}
+
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    if (modal) modal.style.display = 'none';
+  });
+}
+
+if (reportForm) {
+  reportForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const imageUrl = document.getElementById('reportImageUrl')?.value || '';
+    const title = document.getElementById('reportTitle')?.value || '';
+    const summary = document.getElementById('reportSummary')?.value || '';
+    const date = document.getElementById('reportDate')?.value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    const readTime = document.getElementById('reportReadTime')?.value || '5 min read';
+    const link = document.getElementById('reportLink')?.value || '#';
+    
+    if (!imageUrl || !title || !summary) {
+      showToast('Please fill in image URL, title, and summary.');
+      return;
+    }
+    
+    const newReport = document.createElement('div');
+    newReport.className = 'report-card';
+    newReport.setAttribute('data-report-id', Date.now());
+    newReport.innerHTML = `
+      <div class="report-image">
+        <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}">
+      </div>
+      <h3>${escapeHtml(title)}</h3>
+      <p>${escapeHtml(summary)}</p>
+      <div class="report-meta">
+        <span class="report-date">${escapeHtml(date)}</span>
+        <span class="report-read-time">${escapeHtml(readTime)}</span>
+      </div>
+      <div class="report-actions">
+        <a href="${link}" class="report-link" target="_blank">Download PDF →</a>
+        <button class="share-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
+      </div>
+    `;
+    
+    const shareBtn = newReport.querySelector('.share-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const t = shareBtn.getAttribute('data-title');
+        const s = shareBtn.getAttribute('data-summary');
+        showShareOptions(t, s);
+      });
+    }
+    
+    if (reportsGrid) {
+      reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
+    }
+    
+    showToast('Report published successfully!');
+    reportForm.reset();
+    if (modal) modal.style.display = 'none';
+  });
+}
+
+// ==============================================
+// PUBLISH NEW INSIGHT WITH IMAGE
+// ==============================================
+const insightModal = document.getElementById('publishInsightModal');
+const newInsightBtn = document.getElementById('newInsightBtn');
+const insightModalClose = document.querySelector('.modal-close-insight');
+const insightForm = document.getElementById('insightForm');
+const insightsGrid = document.getElementById('insightsGrid');
+
+if (newInsightBtn) {
+  newInsightBtn.addEventListener('click', () => {
+    if (insightModal) insightModal.style.display = 'flex';
+  });
+}
+
+if (insightModalClose) {
+  insightModalClose.addEventListener('click', () => {
+    if (insightModal) insightModal.style.display = 'none';
+  });
+}
+
+if (insightForm) {
+  insightForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const imageUrl = document.getElementById('insightImageUrl')?.value || '';
+    const category = document.getElementById('insightCategory')?.value || 'Articles';
+    const title = document.getElementById('insightTitle')?.value || '';
+    const summary = document.getElementById('insightSummary')?.value || '';
+    const link = document.getElementById('insightLink')?.value || '#';
+    
+    if (!imageUrl || !title || !summary) {
+      showToast('Please fill in image URL, title, and summary.');
+      return;
+    }
+    
+    const newInsight = document.createElement('div');
+    newInsight.className = 'insight-card';
+    newInsight.setAttribute('data-insight-id', Date.now());
+    newInsight.innerHTML = `
+      <div class="insight-image">
+        <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}">
+      </div>
+      <span class="insight-category">${escapeHtml(category)}</span>
+      <h4>${escapeHtml(title)}</h4>
+      <p>${escapeHtml(summary)}</p>
+      <div class="insight-actions">
+        <a href="${link}" target="_blank">Read More →</a>
+        <button class="share-insight-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
+      </div>
+    `;
+    
+    const shareBtn = newInsight.querySelector('.share-insight-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const t = shareBtn.getAttribute('data-title');
+        const s = shareBtn.getAttribute('data-summary');
+        showShareOptions(t, s);
+      });
+    }
+    
+    if (insightsGrid) {
+      insightsGrid.insertBefore(newInsight, insightsGrid.firstChild);
+    }
+    
+    showToast('Insight published successfully!');
+    insightForm.reset();
+    if (insightModal) insightModal.style.display = 'none';
+  });
+  }
   // ==============================================
   // PUBLISH NEW REPORT FUNCTIONALITY
   // ==============================================
