@@ -2723,209 +2723,8 @@
   updateActive('home');
   
   // ==============================================
-  // ADMIN PASSWORD PROTECTION FOR REPORTS
+  // HELPER FUNCTIONS
   // ==============================================
-  const ADMIN_PASSWORD = 'Admin2026!';
-  
-  const adminLoginBtn = document.getElementById('adminLoginBtn');
-  const passwordModal = document.getElementById('passwordModal');
-  const verifyPasswordBtn = document.getElementById('verifyPasswordBtn');
-  const adminPanel = document.getElementById('adminPanel');
-  const pwdError = document.getElementById('pwdError');
-  const modalClosePwd = document.querySelector('.modal-close-pwd');
-  
-  if (adminLoginBtn) {
-    adminLoginBtn.addEventListener('click', () => {
-      if (passwordModal) passwordModal.style.display = 'flex';
-    });
-  }
-  
-  if (modalClosePwd) {
-    modalClosePwd.addEventListener('click', () => {
-      if (passwordModal) passwordModal.style.display = 'none';
-      if (pwdError) pwdError.style.display = 'none';
-    });
-  }
-  
-  if (verifyPasswordBtn) {
-    verifyPasswordBtn.addEventListener('click', () => {
-      const enteredPassword = document.getElementById('adminPassword')?.value || '';
-      if (enteredPassword === ADMIN_PASSWORD) {
-        if (adminPanel) adminPanel.style.display = 'block';
-        if (passwordModal) passwordModal.style.display = 'none';
-        if (adminLoginBtn) adminLoginBtn.style.display = 'none';
-        showToast('Admin access granted');
-      } else {
-        if (pwdError) pwdError.style.display = 'block';
-      }
-    });
-  }
-  
-  const adminPasswordInput = document.getElementById('adminPassword');
-  if (adminPasswordInput) {
-    adminPasswordInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' && verifyPasswordBtn) {
-        verifyPasswordBtn.click();
-      }
-    });
-  }
-  
-  // ==============================================
-// PUBLISH NEW REPORT WITH IMAGE
-// ==============================================
-const modal = document.getElementById('publishModal');
-const newReportBtn = document.getElementById('newReportBtn');
-const modalClose = document.querySelector('.modal-close');
-const reportForm = document.getElementById('reportForm');
-const reportsGrid = document.getElementById('reportsGrid');
-
-if (newReportBtn) {
-  newReportBtn.addEventListener('click', () => {
-    if (modal) modal.style.display = 'flex';
-  });
-}
-
-if (modalClose) {
-  modalClose.addEventListener('click', () => {
-    if (modal) modal.style.display = 'none';
-  });
-}
-
-if (reportForm) {
-  reportForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const imageUrl = document.getElementById('reportImageUrl')?.value || '';
-    const title = document.getElementById('reportTitle')?.value || '';
-    const summary = document.getElementById('reportSummary')?.value || '';
-    const date = document.getElementById('reportDate')?.value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-    const readTime = document.getElementById('reportReadTime')?.value || '5 min read';
-    const link = document.getElementById('reportLink')?.value || '#';
-    
-    if (!imageUrl || !title || !summary) {
-      showToast('Please fill in image URL, title, and summary.');
-      return;
-    }
-    
-    const newReport = document.createElement('div');
-    newReport.className = 'report-card';
-    newReport.setAttribute('data-report-id', Date.now());
-    newReport.innerHTML = `
-      <div class="report-image">
-        <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}">
-      </div>
-      <h3>${escapeHtml(title)}</h3>
-      <p>${escapeHtml(summary)}</p>
-      <div class="report-meta">
-        <span class="report-date">${escapeHtml(date)}</span>
-        <span class="report-read-time">${escapeHtml(readTime)}</span>
-      </div>
-      <div class="report-actions">
-        <a href="${link}" class="report-link" target="_blank">Download PDF →</a>
-        <button class="share-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
-      </div>
-    `;
-    
-    const shareBtn = newReport.querySelector('.share-btn');
-    if (shareBtn) {
-      shareBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const t = shareBtn.getAttribute('data-title');
-        const s = shareBtn.getAttribute('data-summary');
-        showShareOptions(t, s);
-      });
-    }
-    
-    if (reportsGrid) {
-      reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
-    }
-    
-    showToast('Report published successfully!');
-    reportForm.reset();
-    if (modal) modal.style.display = 'none';
-  });
-}
-
-// ==============================================
-// PUBLISH NEW INSIGHT WITH IMAGE
-// ==============================================
-const insightModal = document.getElementById('publishInsightModal');
-const newInsightBtn = document.getElementById('newInsightBtn');
-const insightModalClose = document.querySelector('.modal-close-insight');
-const insightForm = document.getElementById('insightForm');
-const insightsGrid = document.getElementById('insightsGrid');
-
-if (newInsightBtn) {
-  newInsightBtn.addEventListener('click', () => {
-    if (insightModal) insightModal.style.display = 'flex';
-  });
-}
-
-if (insightModalClose) {
-  insightModalClose.addEventListener('click', () => {
-    if (insightModal) insightModal.style.display = 'none';
-  });
-}
-
-if (insightForm) {
-  insightForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const imageUrl = document.getElementById('insightImageUrl')?.value || '';
-    const category = document.getElementById('insightCategory')?.value || 'Articles';
-    const title = document.getElementById('insightTitle')?.value || '';
-    const summary = document.getElementById('insightSummary')?.value || '';
-    const link = document.getElementById('insightLink')?.value || '#';
-    
-    if (!imageUrl || !title || !summary) {
-      showToast('Please fill in image URL, title, and summary.');
-      return;
-    }
-    
-    const newInsight = document.createElement('div');
-    newInsight.className = 'insight-card';
-    newInsight.setAttribute('data-insight-id', Date.now());
-    newInsight.innerHTML = `
-      <div class="insight-image">
-        <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}">
-      </div>
-      <span class="insight-category">${escapeHtml(category)}</span>
-      <h4>${escapeHtml(title)}</h4>
-      <p>${escapeHtml(summary)}</p>
-      <div class="insight-actions">
-        <a href="${link}" target="_blank">Read More →</a>
-        <button class="share-insight-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
-      </div>
-    `;
-    
-    const shareBtn = newInsight.querySelector('.share-insight-btn');
-    if (shareBtn) {
-      shareBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const t = shareBtn.getAttribute('data-title');
-        const s = shareBtn.getAttribute('data-summary');
-        showShareOptions(t, s);
-      });
-    }
-    
-    if (insightsGrid) {
-      insightsGrid.insertBefore(newInsight, insightsGrid.firstChild);
-    }
-    
-    showToast('Insight published successfully!');
-    insightForm.reset();
-    if (insightModal) insightModal.style.display = 'none';
-  });
-  }
-  // ==============================================
-  // PUBLISH NEW REPORT FUNCTIONALITY
-  // ==============================================
-  const modal = document.getElementById('publishModal');
-  const newReportBtn = document.getElementById('newReportBtn');
-  const modalClose = document.querySelector('.modal-close');
-  const reportForm = document.getElementById('reportForm');
-  const reportsGrid = document.getElementById('reportsGrid');
-  
   function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>]/g, function(m) {
@@ -2936,69 +2735,18 @@ if (insightForm) {
     });
   }
   
-  if (newReportBtn) {
-    newReportBtn.addEventListener('click', () => {
-      if (modal) modal.style.display = 'flex';
-    });
-  }
-  
-  if (modalClose) {
-    modalClose.addEventListener('click', () => {
-      if (modal) modal.style.display = 'none';
-    });
-  }
-  
-  if (reportForm) {
-    reportForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const icon = document.getElementById('reportIcon')?.value || '📄';
-      const title = document.getElementById('reportTitle')?.value || '';
-      const summary = document.getElementById('reportSummary')?.value || '';
-      const date = document.getElementById('reportDate')?.value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-      const readTime = document.getElementById('reportReadTime')?.value || '5 min read';
-      const link = document.getElementById('reportLink')?.value || '#';
-      
-      if (!title || !summary) {
-        showToast('Please fill in title and summary.');
-        return;
-      }
-      
-      const newReport = document.createElement('div');
-      newReport.className = 'report-card';
-      newReport.setAttribute('data-report-id', Date.now());
-      newReport.innerHTML = `
-        <div class="report-icon">${escapeHtml(icon)}</div>
-        <h3>${escapeHtml(title)}</h3>
-        <p>${escapeHtml(summary)}</p>
-        <div class="report-meta">
-          <span class="report-date">${escapeHtml(date)}</span>
-          <span class="report-read-time">${escapeHtml(readTime)}</span>
-        </div>
-        <div class="report-actions">
-          <a href="${link}" class="report-link" target="_blank">Download PDF →</a>
-          <button class="share-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
-        </div>
-      `;
-      
-      const shareBtn = newReport.querySelector('.share-btn');
-      if (shareBtn) {
-        shareBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const t = shareBtn.getAttribute('data-title');
-          const s = shareBtn.getAttribute('data-summary');
-          showShareOptions(t, s);
-        });
-      }
-      
-      if (reportsGrid) {
-        reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
-      }
-      
-      showToast('Report published successfully!');
-      reportForm.reset();
-      if (modal) modal.style.display = 'none';
-    });
+  function showToast(message) {
+    let toast = document.querySelector('.toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.style.display = 'block';
+    setTimeout(() => {
+      toast.style.display = 'none';
+    }, 2000);
   }
   
   // ==============================================
@@ -3052,20 +2800,199 @@ if (insightForm) {
   }
   
   // ==============================================
-  // TOAST NOTIFICATION
+  // ADMIN PASSWORD PROTECTION
   // ==============================================
-  function showToast(message) {
-    let toast = document.querySelector('.toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'toast';
-      document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    toast.style.display = 'block';
-    setTimeout(() => {
-      toast.style.display = 'none';
-    }, 2000);
+  const ADMIN_PASSWORD = 'Admin2026!';
+  
+  const adminLoginBtn = document.getElementById('adminLoginBtn');
+  const passwordModal = document.getElementById('passwordModal');
+  const verifyPasswordBtn = document.getElementById('verifyPasswordBtn');
+  const adminPanel = document.getElementById('adminPanel');
+  const pwdError = document.getElementById('pwdError');
+  const modalClosePwd = document.querySelector('.modal-close-pwd');
+  
+  if (adminLoginBtn) {
+    adminLoginBtn.addEventListener('click', () => {
+      if (passwordModal) passwordModal.style.display = 'flex';
+    });
+  }
+  
+  if (modalClosePwd) {
+    modalClosePwd.addEventListener('click', () => {
+      if (passwordModal) passwordModal.style.display = 'none';
+      if (pwdError) pwdError.style.display = 'none';
+    });
+  }
+  
+  if (verifyPasswordBtn) {
+    verifyPasswordBtn.addEventListener('click', () => {
+      const enteredPassword = document.getElementById('adminPassword')?.value || '';
+      if (enteredPassword === ADMIN_PASSWORD) {
+        if (adminPanel) adminPanel.style.display = 'block';
+        if (passwordModal) passwordModal.style.display = 'none';
+        if (adminLoginBtn) adminLoginBtn.style.display = 'none';
+        showToast('Admin access granted');
+      } else {
+        if (pwdError) pwdError.style.display = 'block';
+      }
+    });
+  }
+  
+  const adminPasswordInput = document.getElementById('adminPassword');
+  if (adminPasswordInput) {
+    adminPasswordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && verifyPasswordBtn) {
+        verifyPasswordBtn.click();
+      }
+    });
+  }
+  
+  // ==============================================
+  // PUBLISH NEW REPORT (WITH IMAGE)
+  // ==============================================
+  const reportModal = document.getElementById('publishModal');
+  const newReportBtn = document.getElementById('newReportBtn');
+  const reportModalClose = document.querySelector('.modal-close');
+  const reportForm = document.getElementById('reportForm');
+  const reportsGrid = document.getElementById('reportsGrid');
+  
+  if (newReportBtn) {
+    newReportBtn.addEventListener('click', () => {
+      if (reportModal) reportModal.style.display = 'flex';
+    });
+  }
+  
+  if (reportModalClose) {
+    reportModalClose.addEventListener('click', () => {
+      if (reportModal) reportModal.style.display = 'none';
+    });
+  }
+  
+  if (reportForm) {
+    reportForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const imageUrl = document.getElementById('reportImageUrl')?.value || '';
+      const title = document.getElementById('reportTitle')?.value || '';
+      const summary = document.getElementById('reportSummary')?.value || '';
+      const date = document.getElementById('reportDate')?.value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      const readTime = document.getElementById('reportReadTime')?.value || '5 min read';
+      const link = document.getElementById('reportLink')?.value || '#';
+      
+      if (!imageUrl || !title || !summary) {
+        showToast('Please fill in image URL, title, and summary.');
+        return;
+      }
+      
+      const newReport = document.createElement('div');
+      newReport.className = 'report-card';
+      newReport.setAttribute('data-report-id', Date.now());
+      newReport.innerHTML = `
+        <div class="report-image">
+          <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}">
+        </div>
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(summary)}</p>
+        <div class="report-meta">
+          <span class="report-date">${escapeHtml(date)}</span>
+          <span class="report-read-time">${escapeHtml(readTime)}</span>
+        </div>
+        <div class="report-actions">
+          <a href="${link}" class="report-link" target="_blank">Download PDF →</a>
+          <button class="share-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
+        </div>
+      `;
+      
+      const shareBtn = newReport.querySelector('.share-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const t = shareBtn.getAttribute('data-title');
+          const s = shareBtn.getAttribute('data-summary');
+          showShareOptions(t, s);
+        });
+      }
+      
+      if (reportsGrid) {
+        reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
+      }
+      
+      showToast('Report published successfully!');
+      reportForm.reset();
+      if (reportModal) reportModal.style.display = 'none';
+    });
+  }
+  
+  // ==============================================
+  // PUBLISH NEW INSIGHT (WITH IMAGE)
+  // ==============================================
+  const insightModal = document.getElementById('publishInsightModal');
+  const newInsightBtn = document.getElementById('newInsightBtn');
+  const insightModalClose = document.querySelector('.modal-close-insight');
+  const insightForm = document.getElementById('insightForm');
+  const insightsGrid = document.getElementById('insightsGrid');
+  
+  if (newInsightBtn) {
+    newInsightBtn.addEventListener('click', () => {
+      if (insightModal) insightModal.style.display = 'flex';
+    });
+  }
+  
+  if (insightModalClose) {
+    insightModalClose.addEventListener('click', () => {
+      if (insightModal) insightModal.style.display = 'none';
+    });
+  }
+  
+  if (insightForm) {
+    insightForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const imageUrl = document.getElementById('insightImageUrl')?.value || '';
+      const category = document.getElementById('insightCategory')?.value || 'Articles';
+      const title = document.getElementById('insightTitle')?.value || '';
+      const summary = document.getElementById('insightSummary')?.value || '';
+      const link = document.getElementById('insightLink')?.value || '#';
+      
+      if (!imageUrl || !title || !summary) {
+        showToast('Please fill in image URL, title, and summary.');
+        return;
+      }
+      
+      const newInsight = document.createElement('div');
+      newInsight.className = 'insight-card';
+      newInsight.setAttribute('data-insight-id', Date.now());
+      newInsight.innerHTML = `
+        <div class="insight-image">
+          <img src="${escapeHtml(imageUrl)}" alt="${escapeHtml(title)}">
+        </div>
+        <span class="insight-category">${escapeHtml(category)}</span>
+        <h4>${escapeHtml(title)}</h4>
+        <p>${escapeHtml(summary)}</p>
+        <div class="insight-actions">
+          <a href="${link}" target="_blank">Read More →</a>
+          <button class="share-insight-btn" data-title="${escapeHtml(title)}" data-summary="${escapeHtml(summary)}">📤 Share</button>
+        </div>
+      `;
+      
+      const shareBtn = newInsight.querySelector('.share-insight-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const t = shareBtn.getAttribute('data-title');
+          const s = shareBtn.getAttribute('data-summary');
+          showShareOptions(t, s);
+        });
+      }
+      
+      if (insightsGrid) {
+        insightsGrid.insertBefore(newInsight, insightsGrid.firstChild);
+      }
+      
+      showToast('Insight published successfully!');
+      insightForm.reset();
+      if (insightModal) insightModal.style.display = 'none';
+    });
   }
   
   // ==============================================
@@ -3093,10 +3020,17 @@ if (insightForm) {
   attachShareToButtons();
   
   if (reportsGrid) {
-    const observer = new MutationObserver(() => {
+    const reportObserver = new MutationObserver(() => {
       attachShareToButtons();
     });
-    observer.observe(reportsGrid, { childList: true, subtree: true });
+    reportObserver.observe(reportsGrid, { childList: true, subtree: true });
+  }
+  
+  if (insightsGrid) {
+    const insightObserver = new MutationObserver(() => {
+      attachShareToButtons();
+    });
+    insightObserver.observe(insightsGrid, { childList: true, subtree: true });
   }
   
   // ==============================================
@@ -3107,8 +3041,11 @@ if (insightForm) {
       if (passwordModal) passwordModal.style.display = 'none';
       if (pwdError) pwdError.style.display = 'none';
     }
-    if (e.target === modal) {
-      if (modal) modal.style.display = 'none';
+    if (e.target === reportModal) {
+      if (reportModal) reportModal.style.display = 'none';
+    }
+    if (e.target === insightModal) {
+      if (insightModal) insightModal.style.display = 'none';
     }
   });
 </script>
