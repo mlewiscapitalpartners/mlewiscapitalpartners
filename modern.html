@@ -1277,6 +1277,102 @@
     display: inline-block;
   }
     }
+    /* Dashboard Styles */
+.dashboard-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #4a5568;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  color: #c59b53;
+  border-bottom: 2px solid #c59b53;
+}
+
+.dashboard-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.dashboard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dashboard-item:hover {
+  background: #f8f9fa;
+}
+
+.dashboard-item-info {
+  flex: 1;
+}
+
+.dashboard-item-info strong {
+  display: block;
+  color: #07152d;
+  margin-bottom: 5px;
+}
+
+.dashboard-item-info span {
+  font-size: 0.8rem;
+  color: #8a9bb5;
+}
+
+.dashboard-item-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.dashboard-edit-btn {
+  background: #c59b53;
+  color: white;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.dashboard-edit-btn:hover {
+  background: #b7863f;
+}
+
+.dashboard-delete-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.dashboard-delete-btn:hover {
+  background: #b91c1c;
+}
+
+.dashboard-loading {
+  text-align: center;
+  padding: 40px;
+  color: #8a9bb5;
+  }
   </style>
 </head>
 <body>
@@ -2666,13 +2762,14 @@ Our focus is on early-stage venture development across high-growth African marke
   
   <div class="container">
     
-    <!-- ADMIN PANEL - Hidden by default, appears after password -->
-    <div id="adminPanel" style="display: none;">
-      <div style="display: flex; justify-content: flex-end; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
-        <button id="newReportBtn" class="btn btn-outline" style="font-size: 0.8rem;">📄 + Publish New Report</button>
-        <button id="newInsightBtn" class="btn btn-outline" style="font-size: 0.8rem; border-color: #c59b53; color: #c59b53;">💡 + Publish New Insight</button>
-      </div>
-    </div>
+    <!-- ADMIN PANEL - Hidden by default -->
+<div id="adminPanel" style="display: none;">
+  <div style="display: flex; justify-content: flex-end; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+    <button id="adminDashboardBtn" class="btn btn-primary" style="background: #07152d;">📋 Admin Dashboard</button>
+    <button id="newReportBtn" class="btn btn-outline" style="font-size: 0.8rem;">📄 + Publish New Report</button>
+    <button id="newInsightBtn" class="btn btn-outline" style="font-size: 0.8rem;">💡 + Publish New Insight</button>
+  </div>
+</div>
     
     <!-- Admin Login Button -->
     <div style="text-align: right; margin-bottom: 20px;">
@@ -2917,7 +3014,120 @@ Our focus is on early-stage venture development across high-growth African marke
   </div>
 </div>
 
-<!-- ADMIN PASSWORD MODAL -->
+<!-- ADMIN DASHBOARD MODAL -->
+<div id="adminDashboardModal" class="modal">
+  <div class="modal-content" style="max-width: 900px;">
+    <span class="modal-close-dashboard">&times;</span>
+    <h3>Admin Dashboard</h3>
+    <p style="margin-bottom: 20px;">Manage published reports and insights</p>
+    
+    <!-- Tabs -->
+    <div class="dashboard-tabs">
+      <button class="tab-btn active" data-tab="reports">Reports</button>
+      <button class="tab-btn" data-tab="insights">Insights</button>
+    </div>
+    
+    <!-- Reports List -->
+    <div id="dashboardReports" class="dashboard-list">
+      <div class="dashboard-loading">Loading reports...</div>
+    </div>
+    
+    <!-- Insights List -->
+    <div id="dashboardInsights" class="dashboard-list" style="display: none;">
+      <div class="dashboard-loading">Loading insights...</div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT REPORT MODAL -->
+<div id="editReportModal" class="modal">
+  <div class="modal-content" style="max-width: 700px;">
+    <span class="modal-close-edit">&times;</span>
+    <h3>Edit Report</h3>
+    <form id="editReportForm">
+      <input type="hidden" id="editReportId">
+      <div class="form-group">
+        <label>Report Image</label>
+        <input type="file" id="editReportImageFile" accept="image/*">
+        <div id="editReportImagePreview" style="margin-top: 10px; display: none;">
+          <img id="editReportPreviewImg" style="max-width: 100%; max-height: 120px; border-radius: 12px;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Report Title</label>
+        <div id="editReportTitleEditor" style="height: 100px;"></div>
+        <input type="hidden" id="editReportTitle">
+      </div>
+      <div class="form-group">
+        <label>Report Summary</label>
+        <div id="editReportSummaryEditor" style="height: 150px;"></div>
+        <input type="hidden" id="editReportSummary">
+      </div>
+      <div class="form-group">
+        <label>Month / Year</label>
+        <input type="text" id="editReportDate">
+      </div>
+      <div class="form-group">
+        <label>Read Time</label>
+        <input type="text" id="editReportReadTime">
+      </div>
+      <div class="form-group">
+        <label>PDF Link</label>
+        <input type="url" id="editReportLink">
+      </div>
+      <div class="form-group" style="display: flex; gap: 10px;">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <button type="button" id="deleteReportBtn" class="btn btn-outline" style="border-color: #dc2626; color: #dc2626;">Delete Report</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- EDIT INSIGHT MODAL -->
+<div id="editInsightModal" class="modal">
+  <div class="modal-content" style="max-width: 700px;">
+    <span class="modal-close-edit-insight">&times;</span>
+    <h3>Edit Insight</h3>
+    <form id="editInsightForm">
+      <input type="hidden" id="editInsightId">
+      <div class="form-group">
+        <label>Insight Image</label>
+        <input type="file" id="editInsightImageFile" accept="image/*">
+        <div id="editInsightImagePreview" style="margin-top: 10px; display: none;">
+          <img id="editInsightPreviewImg" style="max-width: 100%; max-height: 120px; border-radius: 12px;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <select id="editInsightCategory">
+          <option value="Articles">Articles</option>
+          <option value="Market Commentary">Market Commentary</option>
+          <option value="Investor Insights">Investor Insights</option>
+          <option value="Africa Deal Trends">Africa Deal Trends</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Insight Title</label>
+        <div id="editInsightTitleEditor" style="height: 100px;"></div>
+        <input type="hidden" id="editInsightTitle">
+      </div>
+      <div class="form-group">
+        <label>Insight Summary</label>
+        <div id="editInsightSummaryEditor" style="height: 150px;"></div>
+        <input type="hidden" id="editInsightSummary">
+      </div>
+      <div class="form-group">
+        <label>Read More Link</label>
+        <input type="url" id="editInsightLink">
+      </div>
+      <div class="form-group" style="display: flex; gap: 10px;">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <button type="button" id="deleteInsightBtn" class="btn btn-outline" style="border-color: #dc2626; color: #dc2626;">Delete Insight</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <!-- ADMIN PASSWORD MODAL -->
 <div id="passwordModal" class="modal">
   <div class="modal-content" style="max-width: 350px;">
     <span class="modal-close-pwd">&times;</span>
@@ -3651,6 +3861,480 @@ Our focus is on early-stage venture development across high-growth African marke
   
   // Initialize Quill editors on page load
   initQuillEditors();
+  // ==============================================
+// STORAGE KEYS FOR PERSISTENCE
+// ==============================================
+const STORAGE_REPORTS = 'mlewis_reports';
+const STORAGE_INSIGHTS = 'mlewis_insights';
+
+// Load saved data from localStorage
+function loadSavedReports() {
+  const saved = localStorage.getItem(STORAGE_REPORTS);
+  if (saved) {
+    const reports = JSON.parse(saved);
+    reports.forEach(report => {
+      addReportToGrid(report, false);
+    });
+  }
+}
+
+function loadSavedInsights() {
+  const saved = localStorage.getItem(STORAGE_INSIGHTS);
+  if (saved) {
+    const insights = JSON.parse(saved);
+    insights.forEach(insight => {
+      addInsightToGrid(insight, false);
+    });
+  }
+}
+
+// Save reports to localStorage
+function saveReports() {
+  const reportElements = document.querySelectorAll('#reportsGrid .report-card');
+  const reports = [];
+  reportElements.forEach(el => {
+    reports.push({
+      id: el.getAttribute('data-report-id'),
+      image: el.querySelector('.report-image img')?.src || '',
+      title: el.querySelector('.report-title')?.innerHTML || '',
+      summary: el.querySelector('.report-summary')?.innerHTML || '',
+      date: el.querySelector('.report-date')?.innerText || '',
+      readTime: el.querySelector('.report-read-time')?.innerText || '',
+      link: el.querySelector('.report-link')?.getAttribute('href') || '#'
+    });
+  });
+  localStorage.setItem(STORAGE_REPORTS, JSON.stringify(reports));
+}
+
+// Save insights to localStorage
+function saveInsights() {
+  const insightElements = document.querySelectorAll('#insightsGrid .insight-card');
+  const insights = [];
+  insightElements.forEach(el => {
+    insights.push({
+      id: el.getAttribute('data-insight-id'),
+      image: el.querySelector('.insight-image img')?.src || '',
+      category: el.querySelector('.insight-category')?.innerText || '',
+      title: el.querySelector('.insight-title')?.innerHTML || '',
+      summary: el.querySelector('.insight-summary')?.innerHTML || '',
+      link: el.querySelector('.insight-actions a')?.getAttribute('href') || '#'
+    });
+  });
+  localStorage.setItem(STORAGE_INSIGHTS, JSON.stringify(insights));
+}
+
+// Add report to grid (without saving to storage again)
+function addReportToGrid(reportData, saveToStorage = true) {
+  const reportsGrid = document.getElementById('reportsGrid');
+  if (!reportsGrid) return;
+  
+  const newReport = document.createElement('div');
+  newReport.className = 'report-card';
+  newReport.setAttribute('data-report-id', reportData.id || Date.now().toString());
+  newReport.innerHTML = `
+    <div class="report-image">
+      <img src="${reportData.image}" alt="Report image">
+    </div>
+    <div class="report-title">${reportData.title}</div>
+    <div class="report-summary">${reportData.summary}</div>
+    <div class="report-meta">
+      <span class="report-date">${escapeHtml(reportData.date)}</span>
+      <span class="report-read-time">${escapeHtml(reportData.readTime)}</span>
+    </div>
+    <div class="report-actions">
+      <a href="${reportData.link}" class="report-link" target="_blank">Download PDF →</a>
+      <button class="share-btn" data-title="${escapeHtml(stripHtml(reportData.title))}" data-summary="${escapeHtml(stripHtml(reportData.summary).substring(0, 200))}">📤 Share</button>
+    </div>
+  `;
+  
+  const shareBtn = newReport.querySelector('.share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showShareOptions(shareBtn.getAttribute('data-title'), shareBtn.getAttribute('data-summary'));
+    });
+  }
+  
+  reportsGrid.insertBefore(newReport, reportsGrid.firstChild);
+  if (saveToStorage) saveReports();
+}
+
+// Add insight to grid
+function addInsightToGrid(insightData, saveToStorage = true) {
+  const insightsGrid = document.getElementById('insightsGrid');
+  if (!insightsGrid) return;
+  
+  const newInsight = document.createElement('div');
+  newInsight.className = 'insight-card';
+  newInsight.setAttribute('data-insight-id', insightData.id || Date.now().toString());
+  newInsight.innerHTML = `
+    <div class="insight-image">
+      <img src="${insightData.image}" alt="Insight image">
+    </div>
+    <span class="insight-category">${escapeHtml(insightData.category)}</span>
+    <div class="insight-title">${insightData.title}</div>
+    <div class="insight-summary">${insightData.summary}</div>
+    <div class="insight-actions">
+      <a href="${insightData.link}" target="_blank">Read More →</a>
+      <button class="share-insight-btn" data-title="${escapeHtml(stripHtml(insightData.title))}" data-summary="${escapeHtml(stripHtml(insightData.summary).substring(0, 200))}">📤 Share</button>
+    </div>
+  `;
+  
+  const shareBtn = newInsight.querySelector('.share-insight-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showShareOptions(shareBtn.getAttribute('data-title'), shareBtn.getAttribute('data-summary'));
+    });
+  }
+  
+  insightsGrid.insertBefore(newInsight, insightsGrid.firstChild);
+  if (saveToStorage) saveInsights();
+}
+
+// ==============================================
+// ADMIN DASHBOARD FUNCTIONS
+// ==============================================
+const adminDashboardModal = document.getElementById('adminDashboardModal');
+const adminDashboardBtn = document.getElementById('adminDashboardBtn');
+const dashboardReports = document.getElementById('dashboardReports');
+const dashboardInsights = document.getElementById('dashboardInsights');
+let currentEditQuills = {};
+
+function refreshDashboard() {
+  // Refresh Reports list
+  const reportCards = document.querySelectorAll('#reportsGrid .report-card');
+  dashboardReports.innerHTML = '';
+  reportCards.forEach(card => {
+    const id = card.getAttribute('data-report-id');
+    const title = card.querySelector('.report-title')?.innerHTML || 'Untitled';
+    const date = card.querySelector('.report-date')?.innerText || '';
+    
+    const item = document.createElement('div');
+    item.className = 'dashboard-item';
+    item.innerHTML = `
+      <div class="dashboard-item-info">
+        <strong>${stripHtml(title).substring(0, 50)}</strong>
+        <span>${date}</span>
+      </div>
+      <div class="dashboard-item-actions">
+        <button class="dashboard-edit-btn" data-id="${id}" data-type="report">Edit</button>
+        <button class="dashboard-delete-btn" data-id="${id}" data-type="report">Delete</button>
+      </div>
+    `;
+    dashboardReports.appendChild(item);
+  });
+  
+  // Refresh Insights list
+  const insightCards = document.querySelectorAll('#insightsGrid .insight-card');
+  dashboardInsights.innerHTML = '';
+  insightCards.forEach(card => {
+    const id = card.getAttribute('data-insight-id');
+    const title = card.querySelector('.insight-title')?.innerHTML || 'Untitled';
+    const category = card.querySelector('.insight-category')?.innerText || '';
+    
+    const item = document.createElement('div');
+    item.className = 'dashboard-item';
+    item.innerHTML = `
+      <div class="dashboard-item-info">
+        <strong>${stripHtml(title).substring(0, 50)}</strong>
+        <span>${category}</span>
+      </div>
+      <div class="dashboard-item-actions">
+        <button class="dashboard-edit-btn" data-id="${id}" data-type="insight">Edit</button>
+        <button class="dashboard-delete-btn" data-id="${id}" data-type="insight">Delete</button>
+      </div>
+    `;
+    dashboardInsights.appendChild(item);
+  });
+  
+  // Add event listeners to edit/delete buttons
+  document.querySelectorAll('.dashboard-edit-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      const type = btn.getAttribute('data-type');
+      openEditModal(id, type);
+    });
+  });
+  
+  document.querySelectorAll('.dashboard-delete-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      const type = btn.getAttribute('data-type');
+      if (confirm('Are you sure you want to delete this item?')) {
+        deleteItem(id, type);
+      }
+    });
+  });
+}
+
+function openEditModal(id, type) {
+  if (type === 'report') {
+    const reportCard = document.querySelector(`#reportsGrid .report-card[data-report-id="${id}"]`);
+    if (reportCard) {
+      const editModal = document.getElementById('editReportModal');
+      document.getElementById('editReportId').value = id;
+      document.getElementById('editReportDate').value = reportCard.querySelector('.report-date')?.innerText || '';
+      document.getElementById('editReportReadTime').value = reportCard.querySelector('.report-read-time')?.innerText || '';
+      document.getElementById('editReportLink').value = reportCard.querySelector('.report-link')?.getAttribute('href') || '';
+      
+      // Initialize Quill editors for edit modal
+      if (window.editReportTitleQuill) {
+        window.editReportTitleQuill.root.innerHTML = reportCard.querySelector('.report-title')?.innerHTML || '';
+      }
+      if (window.editReportSummaryQuill) {
+        window.editReportSummaryQuill.root.innerHTML = reportCard.querySelector('.report-summary')?.innerHTML || '';
+      }
+      
+      editModal.style.display = 'flex';
+    }
+  } else if (type === 'insight') {
+    const insightCard = document.querySelector(`#insightsGrid .insight-card[data-insight-id="${id}"]`);
+    if (insightCard) {
+      const editModal = document.getElementById('editInsightModal');
+      document.getElementById('editInsightId').value = id;
+      document.getElementById('editInsightCategory').value = insightCard.querySelector('.insight-category')?.innerText || 'Articles';
+      document.getElementById('editInsightLink').value = insightCard.querySelector('.insight-actions a')?.getAttribute('href') || '';
+      
+      if (window.editInsightTitleQuill) {
+        window.editInsightTitleQuill.root.innerHTML = insightCard.querySelector('.insight-title')?.innerHTML || '';
+      }
+      if (window.editInsightSummaryQuill) {
+        window.editInsightSummaryQuill.root.innerHTML = insightCard.querySelector('.insight-summary')?.innerHTML || '';
+      }
+      
+      editModal.style.display = 'flex';
+    }
+  }
+}
+
+function deleteItem(id, type) {
+  if (type === 'report') {
+    const reportCard = document.querySelector(`#reportsGrid .report-card[data-report-id="${id}"]`);
+    if (reportCard) reportCard.remove();
+    saveReports();
+  } else if (type === 'insight') {
+    const insightCard = document.querySelector(`#insightsGrid .insight-card[data-insight-id="${id}"]`);
+    if (insightCard) insightCard.remove();
+    saveInsights();
+  }
+  refreshDashboard();
+  showToast('Deleted successfully');
+}
+
+// Dashboard tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.getAttribute('data-tab');
+    document.getElementById('dashboardReports').style.display = tab === 'reports' ? 'block' : 'none';
+    document.getElementById('dashboardInsights').style.display = tab === 'insights' ? 'block' : 'none';
+    refreshDashboard();
+  });
+});
+
+// Open dashboard
+if (adminDashboardBtn) {
+  adminDashboardBtn.addEventListener('click', () => {
+    refreshDashboard();
+    adminDashboardModal.style.display = 'flex';
+  });
+}
+
+// Close dashboard modal
+document.querySelector('.modal-close-dashboard')?.addEventListener('click', () => {
+  adminDashboardModal.style.display = 'none';
+});
+
+// Initialize Quill editors for edit modals
+function initEditQuills() {
+  if (document.getElementById('editReportTitleEditor') && !window.editReportTitleQuill) {
+    window.editReportTitleQuill = new Quill('#editReportTitleEditor', { theme: 'snow', modules: { toolbar: [['bold', 'italic', 'underline'], [{ 'align': [] }], [{ 'size': ['small', false, 'large', 'huge'] }]] } });
+    window.editReportTitleQuill.on('text-change', function() { document.getElementById('editReportTitle').value = window.editReportTitleQuill.root.innerHTML; });
+  }
+  if (document.getElementById('editReportSummaryEditor') && !window.editReportSummaryQuill) {
+    window.editReportSummaryQuill = new Quill('#editReportSummaryEditor', { theme: 'snow', modules: { toolbar: [['bold', 'italic', 'underline'], [{ 'align': [] }], [{ 'size': ['small', false, 'large', 'huge'] }], ['clean']] } });
+    window.editReportSummaryQuill.on('text-change', function() { document.getElementById('editReportSummary').value = window.editReportSummaryQuill.root.innerHTML; });
+  }
+  if (document.getElementById('editInsightTitleEditor') && !window.editInsightTitleQuill) {
+    window.editInsightTitleQuill = new Quill('#editInsightTitleEditor', { theme: 'snow', modules: { toolbar: [['bold', 'italic', 'underline'], [{ 'align': [] }], [{ 'size': ['small', false, 'large', 'huge'] }]] } });
+    window.editInsightTitleQuill.on('text-change', function() { document.getElementById('editInsightTitle').value = window.editInsightTitleQuill.root.innerHTML; });
+  }
+  if (document.getElementById('editInsightSummaryEditor') && !window.editInsightSummaryQuill) {
+    window.editInsightSummaryQuill = new Quill('#editInsightSummaryEditor', { theme: 'snow', modules: { toolbar: [['bold', 'italic', 'underline'], [{ 'align': [] }], [{ 'size': ['small', false, 'large', 'huge'] }], ['clean']] } });
+    window.editInsightSummaryQuill.on('text-change', function() { document.getElementById('editInsightSummary').value = window.editInsightSummaryQuill.root.innerHTML; });
+  }
+}
+
+// Save edited report
+document.getElementById('editReportForm')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const id = document.getElementById('editReportId').value;
+  const reportCard = document.querySelector(`#reportsGrid .report-card[data-report-id="${id}"]`);
+  if (reportCard) {
+    if (reportCard.querySelector('.report-title')) reportCard.querySelector('.report-title').innerHTML = document.getElementById('editReportTitle').value;
+    if (reportCard.querySelector('.report-summary')) reportCard.querySelector('.report-summary').innerHTML = document.getElementById('editReportSummary').value;
+    if (reportCard.querySelector('.report-date')) reportCard.querySelector('.report-date').innerText = document.getElementById('editReportDate').value;
+    if (reportCard.querySelector('.report-read-time')) reportCard.querySelector('.report-read-time').innerText = document.getElementById('editReportReadTime').value;
+    if (reportCard.querySelector('.report-link')) reportCard.querySelector('.report-link').setAttribute('href', document.getElementById('editReportLink').value);
+    
+    // Handle image update
+    const editImageFile = document.getElementById('editReportImageFile').files[0];
+    if (editImageFile) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        if (reportCard.querySelector('.report-image img')) {
+          reportCard.querySelector('.report-image img').src = event.target.result;
+        }
+        saveReports();
+      };
+      reader.readAsDataURL(editImageFile);
+    } else {
+      saveReports();
+    }
+    
+    // Update share button attributes
+    const shareBtn = reportCard.querySelector('.share-btn');
+    if (shareBtn) {
+      shareBtn.setAttribute('data-title', stripHtml(document.getElementById('editReportTitle').value));
+      shareBtn.setAttribute('data-summary', stripHtml(document.getElementById('editReportSummary').value).substring(0, 200));
+    }
+  }
+  document.getElementById('editReportModal').style.display = 'none';
+  showToast('Report updated successfully');
+  refreshDashboard();
+});
+
+// Delete report from edit modal
+document.getElementById('deleteReportBtn')?.addEventListener('click', () => {
+  const id = document.getElementById('editReportId').value;
+  if (confirm('Delete this report permanently?')) {
+    deleteItem(id, 'report');
+    document.getElementById('editReportModal').style.display = 'none';
+  }
+});
+
+// Save edited insight
+document.getElementById('editInsightForm')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const id = document.getElementById('editInsightId').value;
+  const insightCard = document.querySelector(`#insightsGrid .insight-card[data-insight-id="${id}"]`);
+  if (insightCard) {
+    if (insightCard.querySelector('.insight-category')) insightCard.querySelector('.insight-category').innerText = document.getElementById('editInsightCategory').value;
+    if (insightCard.querySelector('.insight-title')) insightCard.querySelector('.insight-title').innerHTML = document.getElementById('editInsightTitle').value;
+    if (insightCard.querySelector('.insight-summary')) insightCard.querySelector('.insight-summary').innerHTML = document.getElementById('editInsightSummary').value;
+    if (insightCard.querySelector('.insight-actions a')) insightCard.querySelector('.insight-actions a').setAttribute('href', document.getElementById('editInsightLink').value);
+    
+    const editImageFile = document.getElementById('editInsightImageFile').files[0];
+    if (editImageFile) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        if (insightCard.querySelector('.insight-image img')) {
+          insightCard.querySelector('.insight-image img').src = event.target.result;
+        }
+        saveInsights();
+      };
+      reader.readAsDataURL(editImageFile);
+    } else {
+      saveInsights();
+    }
+    
+    const shareBtn = insightCard.querySelector('.share-insight-btn');
+    if (shareBtn) {
+      shareBtn.setAttribute('data-title', stripHtml(document.getElementById('editInsightTitle').value));
+      shareBtn.setAttribute('data-summary', stripHtml(document.getElementById('editInsightSummary').value).substring(0, 200));
+    }
+  }
+  document.getElementById('editInsightModal').style.display = 'none';
+  showToast('Insight updated successfully');
+  refreshDashboard();
+});
+
+// Delete insight from edit modal
+document.getElementById('deleteInsightBtn')?.addEventListener('click', () => {
+  const id = document.getElementById('editInsightId').value;
+  if (confirm('Delete this insight permanently?')) {
+    deleteItem(id, 'insight');
+    document.getElementById('editInsightModal').style.display = 'none';
+  }
+});
+
+// Close edit modals
+document.querySelector('.modal-close-edit')?.addEventListener('click', () => {
+  document.getElementById('editReportModal').style.display = 'none';
+});
+document.querySelector('.modal-close-edit-insight')?.addEventListener('click', () => {
+  document.getElementById('editInsightModal').style.display = 'none';
+});
+
+// Initialize edit Quill editors
+initEditQuills();
+
+// Load saved data on page load
+loadSavedReports();
+loadSavedInsights();
+
+// Update existing publish functions to save to storage
+const originalReportSubmit = reportForm?.onsubmit;
+if (reportForm) {
+  reportForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const imageBase64 = currentReportImageBase64;
+    const titleHtml = document.getElementById('reportTitle')?.value || '';
+    const summaryHtml = document.getElementById('reportSummary')?.value || '';
+    const date = document.getElementById('reportDate')?.value || new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    const readTime = document.getElementById('reportReadTime')?.value || '5 min read';
+    const link = document.getElementById('reportLink')?.value || '#';
+    
+    addReportToGrid({
+      id: Date.now().toString(),
+      image: imageBase64,
+      title: titleHtml,
+      summary: summaryHtml,
+      date: date,
+      readTime: readTime,
+      link: link
+    });
+    
+    showToast('Report published successfully!');
+    reportForm.reset();
+    if (reportImagePreview) reportImagePreview.style.display = 'none';
+    if (reportTitleQuill) reportTitleQuill.root.innerHTML = '';
+    if (reportSummaryQuill) reportSummaryQuill.root.innerHTML = '';
+    currentReportImageBase64 = '';
+    if (reportModal) reportModal.style.display = 'none';
+  });
+}
+
+const originalInsightSubmit = insightForm?.onsubmit;
+if (insightForm) {
+  insightForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const imageBase64 = currentInsightImageBase64;
+    const category = document.getElementById('insightCategory')?.value || 'Articles';
+    const titleHtml = document.getElementById('insightTitle')?.value || '';
+    const summaryHtml = document.getElementById('insightSummary')?.value || '';
+    const link = document.getElementById('insightLink')?.value || '#';
+    
+    addInsightToGrid({
+      id: Date.now().toString(),
+      image: imageBase64,
+      category: category,
+      title: titleHtml,
+      summary: summaryHtml,
+      link: link
+    });
+    
+    showToast('Insight published successfully!');
+    insightForm.reset();
+    if (insightImagePreview) insightImagePreview.style.display = 'none';
+    if (insightTitleQuill) insightTitleQuill.root.innerHTML = '';
+    if (insightSummaryQuill) insightSummaryQuill.root.innerHTML = '';
+    currentInsightImageBase64 = '';
+    if (insightModal) insightModal.style.display = 'none';
+  });
+}
  </script>
 </body>
   </html>
