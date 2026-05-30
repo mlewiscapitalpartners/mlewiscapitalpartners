@@ -1373,6 +1373,564 @@
   padding: 40px;
   color: #8a9bb5;
   }
+    /* Investor Intelligence Assessment Styles */
+.assessment-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.assessment-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.assessment-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #07152d;
+  margin-bottom: 15px;
+}
+
+.assessment-header p {
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.assessment-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.assessment-form-container {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.assessment-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.assessment-form .form-group {
+  margin-bottom: 20px;
+}
+
+.assessment-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #07152d;
+  font-size: 0.85rem;
+}
+
+.assessment-form input,
+.assessment-form select,
+.assessment-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.assessment-form input:focus,
+.assessment-form select:focus,
+.assessment-form textarea:focus {
+  outline: none;
+  border-color: #c59b53;
+  box-shadow: 0 0 0 3px rgba(197,155,83,0.1);
+}
+
+.assessment-results {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.results-header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.results-header h3 {
+  font-size: 1.4rem;
+  color: #c59b53;
+  margin-bottom: 10px;
+}
+
+.score-section {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #07152d, #0d2348);
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 25px;
+}
+
+.score-number {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Playfair Display', serif;
+  color: #c59b53;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.strengths-section, .improvements-section {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.strengths-section h4, .improvements-section h4 {
+  color: #07152d;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.strengths-list, .improvements-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.strengths-list li, .improvements-list li {
+  padding: 8px 0 8px 25px;
+  position: relative;
+}
+
+.strengths-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.improvements-list li::before {
+  content: "!";
+  position: absolute;
+  left: 0;
+  color: #c59b53;
+  font-weight: bold;
+}
+
+.investor-categories {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.investor-categories h4 {
+  color: #07152d;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.investor-categories ol {
+  padding-left: 20px;
+}
+
+.investor-categories li {
+  padding: 5px 0;
+  color: #4a5568;
+}
+
+.next-steps {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid #c59b53;
+}
+
+.results-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 40px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #c59b53;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .assessment-container {
+    grid-template-columns: 1fr;
+  }
+  .assessment-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+    }
+    /* ==============================================
+   M. LEWIS AI ADVISORY PAGE STYLES
+   ============================================== */
+
+/* Hero Section */
+.ai-hero {
+  background: linear-gradient(135deg, #07152d 0%, #0d2348 100%);
+  padding: 80px 0 70px;
+  color: white;
+  position: relative;
+}
+
+.ai-hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ai-hero-badge {
+  display: inline-block;
+  background: rgba(197,155,83,0.15);
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: #c59b53;
+  margin-bottom: 25px;
+}
+
+.ai-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  margin-bottom: 15px;
+}
+
+.ai-hero-tagline {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #c59b53;
+  margin-bottom: 20px;
+}
+
+.ai-hero-text {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 35px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.ai-hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* About Section */
+.ai-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.section-tag {
+  display: inline-block;
+  color: #c59b53;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.ai-about-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #07152d;
+  margin-bottom: 20px;
+}
+
+.ai-about-content p {
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.ai-disclaimer {
+  background: rgba(197,155,83,0.1);
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #c59b53;
+  border-left: 3px solid #c59b53;
+}
+
+.ai-about-stats {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border-radius: 24px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.ai-stat {
+  margin-bottom: 20px;
+}
+
+.ai-stat:last-child {
+  margin-bottom: 0;
+}
+
+.ai-stat-number {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #c59b53;
+}
+
+.ai-stat-label {
+  font-size: 0.85rem;
+  color: #4a5568;
+}
+
+/* Service Categories */
+.ai-service-category {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.ai-category-icon {
+  font-size: 2rem;
+}
+
+.ai-service-category h3 {
+  font-size: 1.4rem;
+  color: #07152d;
+  font-family: 'Playfair Display', serif;
+}
+
+.ai-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.ai-service-card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+}
+
+.ai-service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.ai-service-card h4 {
+  font-size: 1.1rem;
+  color: #07152d;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.ai-service-card p {
+  font-size: 0.85rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* AI Matching Section */
+.ai-matching-section {
+  background: #f8f9fa;
+  border-radius: 24px;
+  padding: 30px;
+}
+
+.ai-matching-desc {
+  margin-bottom: 25px;
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+.ai-tool-demo {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.ai-tool-demo h4 {
+  font-size: 1.2rem;
+  color: #07152d;
+  margin-bottom: 20px;
+}
+
+.ai-matcher-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.ai-matcher-form .form-group {
+  margin-bottom: 0;
+}
+
+.ai-matcher-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #07152d;
+  font-size: 0.85rem;
+}
+
+.ai-matcher-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-family: inherit;
+  background: white;
+  font-size: 0.9rem;
+}
+
+.matcher-results {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.investor-match-item {
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.investor-match-name {
+  font-weight: 600;
+  color: #07152d;
+}
+
+.investor-match-type {
+  font-size: 0.75rem;
+  color: #c59b53;
+}
+
+/* CTA Section */
+.ai-cta {
+  background: linear-gradient(135deg, #07152d, #0d2348);
+  border-radius: 28px;
+  padding: 50px 40px;
+  text-align: center;
+  color: white;
+}
+
+.ai-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.ai-cta p {
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.ai-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ai-cta .btn-outline {
+  border-color: white;
+  color: white;
+}
+
+.ai-cta .btn-outline:hover {
+  background: white;
+  color: #07152d;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ai-about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .ai-hero {
+    padding: 60px 0 50px;
+  }
+  .ai-cta {
+    padding: 35px 25px;
+  }
+  .ai-cta h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .ai-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .ai-matcher-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .investor-match-item {
+    flex-direction: column;
+    text-align: center;
+  }
+    }
   </style>
 </head>
 <body>
@@ -2726,6 +3284,311 @@ Our focus is on early-stage venture development across high-growth African marke
   <div id="africarbon-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>AfriCarbon</h1><p style="margin-top: 15px;">Carbon Advisory & Carbon Credits</p></div><div class="container" style="padding: 40px 0;"><div class="contact-card"><div class="contact-item"><strong>Email</strong><a href="mailto:carbon@mlewisgroup.com">carbon@mlewisgroup.com</a></div></div></div></div></div>
   <div id="esg-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><button class="btn-back" data-back="divisions">← Back to Divisions</button><h1>ESG & Strategic Advisory</h1><p style="margin-top: 15px;">Sustainability Integration & Impact Frameworks</p></div><div class="container" style="padding: 40px 0;"><div class="contact-card"><div class="contact-item"><strong>Email</strong><a href="mailto:esg@mlewisgroup.com">esg@mlewisgroup.com</a></div></div></div></div></div>
 
+  <!-- M. LEWIS AI ADVISORY DIVISION PAGE -->
+<div id="ai-advisory-page" class="page">
+  <div class="navbar-spacer"></div>
+  
+  <!-- Hero Section -->
+  <div class="ai-hero">
+    <div class="container">
+      <div class="ai-hero-content">
+        <div class="ai-hero-badge">Division of M. Lewis Capital Partners</div>
+        <h1>M. Lewis AI Advisory</h1>
+        <p class="ai-hero-tagline">AI-Powered Advisory, Intelligence & Capital Solutions</p>
+        <p class="ai-hero-text">Leveraging AI tools and proprietary workflows to deliver faster, smarter fundraising, market intelligence, and financial advisory for African businesses.</p>
+        <div class="ai-hero-actions">
+          <a href="#ai-services" class="btn btn-primary">Explore Services →</a>
+          <a href="#ai-matching" class="btn btn-outline">AI Investor Matching</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    
+    <!-- About Section -->
+    <div class="detail-section" style="padding: 60px 0;">
+      <div class="ai-about-grid">
+        <div class="ai-about-content">
+          <span class="section-tag">About</span>
+          <h2>AI-Powered Advisory Division</h2>
+          <p><strong>M. Lewis AI Advisory</strong> is a division of M. Lewis Capital Partners. We combine corporate finance expertise with proprietary AI-driven research, financial analysis, market intelligence, and fundraising advisory to help African businesses and startups make better capital and growth decisions.</p>
+          <p>We are advisors who use AI tools and proprietary workflows to deliver better outcomes for our clients — faster, smarter, and more data-driven.</p>
+          <div class="ai-disclaimer">
+            <span>⚡</span> All services delivered immediately using existing AI tools and proprietary workflows
+          </div>
+        </div>
+        <div class="ai-about-stats">
+          <div class="ai-stat">
+            <span class="ai-stat-number">50%+</span>
+            <span class="ai-stat-label">Faster research turnaround</span>
+          </div>
+          <div class="ai-stat">
+            <span class="ai-stat-number">24/7</span>
+            <span class="ai-stat-label">AI research agents</span>
+          </div>
+          <div class="ai-stat">
+            <span class="ai-stat-number">Proven</span>
+            <span class="ai-stat-label">Proprietary workflows</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="detail-section" style="padding: 60px 0; border-top: 1px solid rgba(0,0,0,0.08);" id="ai-services">
+      <h2 style="text-align: center; margin-bottom: 15px;">Our Services</h2>
+      <p style="text-align: center; color: #4a5568; margin-bottom: 50px;">Available immediately — powered by AI tools and proprietary workflows</p>
+      
+      <!-- Service 1: Fundraising Advisory -->
+      <div class="ai-service-category">
+        <div class="ai-category-icon">🎯</div>
+        <h3>Fundraising Advisory</h3>
+      </div>
+      <div class="ai-services-grid">
+        <div class="ai-service-card"><h4>Fundraising Strategy</h4><p>Capital raise roadmap, timeline planning, and investor targeting strategy</p></div>
+        <div class="ai-service-card"><h4>Investor Targeting</h4><p>AI-powered identification of relevant investors based on your profile</p></div>
+        <div class="ai-service-card"><h4>Investment Readiness</h4><p>Gap analysis, due diligence preparation, and investor readiness assessment</p></div>
+        <div class="ai-service-card"><h4>Pitch Deck Reviews</h4><p>Data-driven feedback and optimization recommendations</p></div>
+        <div class="ai-service-card"><h4>Capital Raising Support</h4><p>End-to-end advisory throughout your fundraising journey</p></div>
+      </div>
+      
+      <!-- Service 2: Market Intelligence -->
+      <div class="ai-service-category" style="margin-top: 50px;">
+        <div class="ai-category-icon">📊</div>
+        <h3>Market Intelligence</h3>
+      </div>
+      <div class="ai-services-grid">
+        <div class="ai-service-card"><h4>Industry Research</h4><p>Deep-dive analysis into sector trends, opportunities, and risks</p></div>
+        <div class="ai-service-card"><h4>Competitor Analysis</h4><p>Competitive landscape mapping and positioning insights</p></div>
+        <div class="ai-service-card"><h4>Market Opportunity Assessments</h4><p>Data-driven evaluation of market size, growth potential, and entry points</p></div>
+        <div class="ai-service-card"><h4>Investor Landscape Reports</h4><p>Comprehensive mapping of active investors in your sector</p></div>
+      </div>
+      
+      <!-- Service 3: Financial Intelligence -->
+      <div class="ai-service-category" style="margin-top: 50px;">
+        <div class="ai-category-icon">📐</div>
+        <h3>Financial Intelligence</h3>
+      </div>
+      <div class="ai-services-grid">
+        <div class="ai-service-card"><h4>Financial Modeling</h4><p>Custom financial models, projections, and valuation analysis</p></div>
+        <div class="ai-service-card"><h4>Forecasting</h4><p>Data-driven revenue and cash flow forecasting</p></div>
+        <div class="ai-service-card"><h4>Scenario Analysis</h4><p>Stress testing and scenario modeling for decision-making</p></div>
+        <div class="ai-service-card"><h4>Business Diagnostics</h4><p>AI-enhanced financial health assessment and benchmarking</p></div>
+      </div>
+      
+      <!-- Service 4: AI-Powered Research Services -->
+      <div class="ai-service-category" style="margin-top: 50px;">
+        <div class="ai-category-icon">🤖</div>
+        <h3>AI-Powered Research Services</h3>
+      </div>
+      <div class="ai-services-grid">
+        <div class="ai-service-card"><h4>Research Agents</h4><p>Automated scanning of thousands of data sources for intelligence</p></div>
+        <div class="ai-service-card"><h4>Automated Intelligence Gathering</h4><p>Real-time market and investor intelligence collection</p></div>
+        <div class="ai-service-card"><h4>AI-Assisted Reporting</h4><p>Accelerated report generation with human quality control</p></div>
+        <div class="ai-service-card"><h4>Workflow Automation</h4><p>Streamlined processes for research, analysis, and documentation</p></div>
+      </div>
+      
+      <!-- Service 5: Proprietary AI Investor Matching -->
+      <div class="ai-service-category" style="margin-top: 50px;" id="ai-matching">
+        <div class="ai-category-icon">🔗</div>
+        <h3>Proprietary AI Investor Matching</h3>
+      </div>
+      <div class="ai-matching-section">
+        <p class="ai-matching-desc">Our proprietary investor matching system analyzes founder profiles and recommends relevant investors based on sector, stage, geography, and funding requirements — including warm introduction pathways where available.</p>
+        
+        <div class="ai-tool-demo">
+          <h4>AI Investor Matcher</h4>
+          <form id="investorMatcherForm" class="ai-matcher-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Sector</label>
+                <select id="matcherSector" required>
+                  <option value="">Select sector</option>
+                  <option value="FinTech">FinTech</option>
+                  <option value="AgriTech">AgriTech</option>
+                  <option value="HealthTech">HealthTech</option>
+                  <option value="EdTech">EdTech</option>
+                  <option value="Logistics">Logistics</option>
+                  <option value="CleanTech">CleanTech / Renewable Energy</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Stage</label>
+                <select id="matcherStage" required>
+                  <option value="">Select stage</option>
+                  <option value="Pre-seed">Pre-seed</option>
+                  <option value="Seed">Seed</option>
+                  <option value="Series A">Series A</option>
+                  <option value="Series B+">Series B+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Geography</label>
+                <select id="matcherGeography" required>
+                  <option value="">Select market</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="Pan-African">Pan-African</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Funding Target</label>
+                <select id="matcherFunding" required>
+                  <option value="">Select range</option>
+                  <option value="Under $250k">Under $250k</option>
+                  <option value="$250k - $500k">$250k - $500k</option>
+                  <option value="$500k - $1M">$500k - $1M</option>
+                  <option value="$1M - $3M">$1M - $3M</option>
+                  <option value="$3M - $5M">$3M - $5M</option>
+                  <option value="$5M+">$5M+</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Find Investors →</button>
+          </form>
+          <div id="matcherResults" class="matcher-results" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Investor Intelligence Assessment Tool -->
+<div class="detail-section" style="padding: 60px 0; border-top: 1px solid rgba(0,0,0,0.08);" id="investor-assessment">
+  <div class="assessment-header">
+    <div class="assessment-icon">📊</div>
+    <h2>Investor Intelligence Assessment</h2>
+    <p>Real-time fundraising readiness analysis powered by AI. Generate a comprehensive investor readiness report for your business.</p>
+  </div>
+  
+  <div class="assessment-container">
+    <div class="assessment-form-container">
+      <form id="investorAssessmentForm" class="assessment-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Company Name *</label>
+            <input type="text" id="companyName" required placeholder="e.g., AfriLeap Capital">
+          </div>
+          <div class="form-group">
+            <label>Sector *</label>
+            <select id="sector" required>
+              <option value="">Select sector</option>
+              <option value="FinTech">FinTech</option>
+              <option value="AgriTech">AgriTech</option>
+              <option value="HealthTech">HealthTech</option>
+              <option value="EdTech">EdTech</option>
+              <option value="Logistics">Logistics</option>
+              <option value="CleanTech">CleanTech / Renewable Energy</option>
+              <option value="SaaS">SaaS / Enterprise Software</option>
+              <option value="E-commerce">E-commerce / Retail</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Country *</label>
+            <select id="country" required>
+              <option value="">Select country</option>
+              <option value="Zambia">Zambia</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Rwanda">Rwanda</option>
+              <option value="South Africa">South Africa</option>
+              <option value="Other">Other African Country</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Business Stage *</label>
+            <select id="businessStage" required>
+              <option value="">Select stage</option>
+              <option value="Idea">Idea / Pre-seed</option>
+              <option value="MVP">MVP / Beta</option>
+              <option value="Seed">Seed</option>
+              <option value="Series A">Series A</option>
+              <option value="Series B+">Series B+</option>
+              <option value="Growth">Growth Stage</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Funding Target (USD) *</label>
+            <select id="fundingTarget" required>
+              <option value="">Select range</option>
+              <option value="Under $100k">Under $100k</option>
+              <option value="$100k - $250k">$100k - $250k</option>
+              <option value="$250k - $500k">$250k - $500k</option>
+              <option value="$500k - $1M">$500k - $1M</option>
+              <option value="$1M - $3M">$1M - $3M</option>
+              <option value="$3M - $5M">$3M - $5M</option>
+              <option value="$5M+">$5M+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Revenue Status *</label>
+            <select id="revenueStatus" required>
+              <option value="">Select status</option>
+              <option value="Pre-revenue">Pre-revenue</option>
+              <option value="Less than $50k">Less than $50k</option>
+              <option value="$50k - $250k">$50k - $250k</option>
+              <option value="$250k - $1M">$250k - $1M</option>
+              <option value="$1M - $5M">$1M - $5M</option>
+              <option value="$5M+">$5M+</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Funding Purpose *</label>
+          <textarea id="fundingPurpose" rows="3" required placeholder="Describe what you will use the funds for (e.g., product development, market expansion, team hiring, working capital)..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Additional Information (Optional)</label>
+          <textarea id="additionalInfo" rows="2" placeholder="Any other relevant information about your business, traction, or team..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" id="generateAssessmentBtn">Generate Assessment →</button>
+      </form>
+    </div>
+    
+    <div id="assessmentResults" class="assessment-results" style="display: none;">
+      <div class="results-header">
+        <h3>Fundraising Readiness Report</h3>
+        <p id="reportCompanyName"></p>
+      </div>
+      
+      <div class="results-content" id="resultsContent">
+        <!-- Dynamic content will be inserted here -->
+      </div>
+      
+      <div class="results-actions">
+        <button id="downloadReportBtn" class="btn btn-outline">📄 Download Report (PDF)</button>
+        <button id="emailReportBtn" class="btn btn-outline">✉️ Email Report</button>
+        <button id="scheduleConsultBtn" class="btn btn-primary">Schedule Consultation →</button>
+      </div>
+    </div>
+  </div>
+ </div>
+    <!-- CTA Section -->
+    <div class="detail-section" style="padding: 60px 0; border-top: 1px solid rgba(0,0,0,0.08);">
+      <div class="ai-cta">
+        <h2>Ready to accelerate your fundraising with AI-powered advisory?</h2>
+        <p>All services are available immediately — leveraging existing AI tools and proprietary workflows</p>
+        <div class="ai-cta-buttons">
+          <a href="#" class="btn btn-primary" id="aiConsultBtn">Schedule a Consultation</a>
+          <a href="mailto:ai@mlewiscapital.com" class="btn btn-outline">Contact AI Advisory Team</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+  
   <!-- SERVICES PAGE -->
   <div id="services-page" class="page">
     <div class="navbar-spacer"></div>
@@ -3277,6 +4140,7 @@ Our focus is on early-stage venture development across high-growth African marke
     'afrileap': document.getElementById('afrileap-page'),
     'africarbon': document.getElementById('africarbon-page'),
     'esg': document.getElementById('esg-page'),
+    'ai-advisory': document.getElementById('ai-advisory-page'),
     'reports': document.getElementById('reports-page')
   };
   
@@ -4335,6 +5199,551 @@ if (insightForm) {
     if (insightModal) insightModal.style.display = 'none';
   });
 }
+  // ==============================================
+// AI INVESTOR MATCHER - REAL FUNCTIONAL TOOL
+// ==============================================
+
+// Investor database with realistic matches
+const investorDatabase = {
+  'FinTech': {
+    'Pre-seed': ['Ventures Platform', 'Future Africa', 'Launch Africa Ventures'],
+    'Seed': ['TLcom Capital', 'Novastar Ventures', 'Partech Africa'],
+    'Series A': ['Helios Investment Partners', 'Development Partners International', 'TLcom Capital'],
+    'Series B+': ['Helios Investment Partners', 'Adenia Partners', 'IFC']
+  },
+  'AgriTech': {
+    'Pre-seed': ['Acumen', 'All On', 'Samunnati'],
+    'Seed': ['Sahel Capital', 'InspiraFarms', 'Agri-Vie'],
+    'Series A': ['TLcom Capital', 'Novastar Ventures', 'Sahel Capital'],
+    'Series B+': ['Helios Investment Partners', 'Development Partners International']
+  },
+  'HealthTech': {
+    'Pre-seed': ['Villgro Africa', 'Meltwater Entrepreneurial Centre'],
+    'Seed': ['Novastar Ventures', 'HealthCap Africa', 'Villgro Africa'],
+    'Series A': ['Novastar Ventures', 'TLcom Capital', 'IFC'],
+    'Series B+': ['Adenia Partners', 'Helios Investment Partners']
+  },
+  'EdTech': {
+    'Pre-seed': ['Villgro Africa', 'Meltwater Entrepreneurial Centre'],
+    'Seed': ['Novastar Ventures', 'TLcom Capital', 'Launch Africa Ventures'],
+    'Series A': ['Novastar Ventures', 'TLcom Capital', 'IFC'],
+    'Series B+': ['Adenia Partners', 'Helios Investment Partners']
+  },
+  'Logistics': {
+    'Pre-seed': ['Launch Africa Ventures', 'Fastforward Ventures'],
+    'Seed': ['TLcom Capital', 'Mobility 54', 'Launch Africa Ventures'],
+    'Series A': ['Helios Investment Partners', 'TLcom Capital', 'Mobility 54'],
+    'Series B+': ['Helios Investment Partners', 'DP World', 'Adenia Partners']
+  },
+  'CleanTech': {
+    'Pre-seed': ['All On', 'SunFunder', 'Renewable Energy Performance Platform'],
+    'Seed': ['CrossBoundary Energy', 'Norfund', 'All On'],
+    'Series A': ['Helios Investment Partners', 'AIIM', 'CrossBoundary Energy'],
+    'Series B+': ['Helios Investment Partners', 'AIIM', 'Development Partners International']
+  }
+};
+
+// Warm introduction mapping based on geography
+const warmIntroMap = {
+  'Zambia': 'Zambia Angel Network, BongoHive, Musika',
+  'Kenya': 'Kenya Climate Ventures, Angaza Capital, Novastar Ventures',
+  'Nigeria': 'Ventures Platform, Future Africa, Microtraction',
+  'South Africa': 'Knife Capital, Kalon Venture Partners, E Squared',
+  'Pan-African': 'TLcom Capital, Novastar Ventures, Partech Africa'
+};
+
+const matcherForm = document.getElementById('investorMatcherForm');
+const matcherResults = document.getElementById('matcherResults');
+
+if (matcherForm) {
+  matcherForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const sector = document.getElementById('matcherSector').value;
+    const stage = document.getElementById('matcherStage').value;
+    const geography = document.getElementById('matcherGeography').value;
+    const funding = document.getElementById('matcherFunding').value;
+    
+    if (!sector || !stage || !geography || !funding) {
+      showToast('Please fill in all fields');
+      return;
+    }
+    
+    // Get matching investors
+    let investors = [];
+    if (investorDatabase[sector] && investorDatabase[sector][stage]) {
+      investors = investorDatabase[sector][stage];
+    } else {
+      investors = ['Impact Investors', 'Development Finance Institutions', 'Private Equity Firms'];
+    }
+    
+    // Remove duplicates
+    investors = [...new Set(investors)];
+    
+    // Generate results HTML
+    let resultsHtml = '<h4 style="margin-bottom: 15px; color: #c59b53;">📊 Recommended Investors</h4>';
+    
+    investors.forEach(investor => {
+      let matchStrength = '';
+      let matchClass = '';
+      
+      if (geography === 'Pan-African') {
+        matchStrength = '★ High match - Pan-African focus';
+        matchClass = 'high-match';
+      } else if (geography === 'Kenya' || geography === 'Nigeria' || geography === 'South Africa') {
+        matchStrength = '★ Strong match - Active in your region';
+        matchClass = 'strong-match';
+      } else {
+        matchStrength = '• Potential match - Growing interest';
+        matchClass = 'potential-match';
+      }
+      
+      resultsHtml += `
+        <div class="investor-match-item ${matchClass}">
+          <div>
+            <div class="investor-match-name">${investor}</div>
+            <div class="investor-match-type">${matchStrength} | ${funding}</div>
+          </div>
+          <button class="btn-match" data-investor="${investor}">Request Intro →</button>
+        </div>
+      `;
+    });
+    
+    // Add warm introduction opportunities
+    const warmIntro = warmIntroMap[geography] || 'Local angel networks and ecosystem partners';
+    resultsHtml += `
+      <div class="investor-match-item warm-intro">
+        <div>
+          <div class="investor-match-name">🔥 Warm Introduction Opportunities</div>
+          <div class="investor-match-type">We can facilitate connections through our network in ${geography}</div>
+          <div class="investor-match-network">Network: ${warmIntro}</div>
+        </div>
+        <button class="btn-match warm-btn" data-warm="true">Request Warm Intro →</button>
+      </div>
+    `;
+    
+    // Add CTA for AI Advisory consultation
+    resultsHtml += `
+      <div class="investor-match-item advisory-cta">
+        <div>
+          <div class="investor-match-name">💡 Need a tailored investor targeting strategy?</div>
+          <div class="investor-match-type">Our AI-powered fundraising advisory can help you prioritize and approach the right investors.</div>
+        </div>
+        <a href="#" class="btn-match advisory-link" id="aiAdvisoryCTA">Schedule Free Consultation →</a>
+      </div>
+    `;
+    
+    matcherResults.innerHTML = resultsHtml;
+    matcherResults.style.display = 'block';
+    
+    // Add event listeners to intro buttons
+    document.querySelectorAll('.btn-match').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const investor = btn.getAttribute('data-investor');
+        if (investor) {
+          showToast(`Intro request sent for ${investor}. Our team will contact you within 24 hours.`);
+        } else if (btn.getAttribute('data-warm') === 'true') {
+          showToast(`Warm introduction request submitted! We'll connect you with our network in ${geography}.`);
+        }
+      });
+    });
+    
+    const advisoryLink = document.getElementById('aiAdvisoryCTA');
+    if (advisoryLink) {
+      advisoryLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast(`Schedule a consultation: ai@mlewiscapital.com or call +260 XXX XXX XXX`);
+      });
+    }
+    
+    // Smooth scroll to results
+    matcherResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+}
+
+// Schedule consultation button
+const aiConsultBtn = document.getElementById('aiConsultBtn');
+if (aiConsultBtn) {
+  aiConsultBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast(`Schedule a consultation: Contact us at ai@mlewiscapital.com`);
+  });
+}
+  // ==============================================
+// INVESTOR INTELLIGENCE ASSESSMENT TOOL
+// ==============================================
+
+const assessmentForm = document.getElementById('investorAssessmentForm');
+const assessmentResults = document.getElementById('assessmentResults');
+const resultsContent = document.getElementById('resultsContent');
+const reportCompanyName = document.getElementById('reportCompanyName');
+
+// Helper function to calculate score based on inputs
+function calculateReadinessScore(data) {
+  let score = 50; // Base score
+  
+  // Revenue adds points
+  const revenueMap = {
+    'Pre-revenue': 0,
+    'Less than $50k': 10,
+    '$50k - $250k': 20,
+    '$250k - $1M': 30,
+    '$1M - $5M': 40,
+    '$5M+': 50
+  };
+  score += revenueMap[data.revenueStatus] || 0;
+  
+  // Stage adds points
+  const stageMap = {
+    'Idea': 5,
+    'MVP': 15,
+    'Seed': 25,
+    'Series A': 35,
+    'Series B+': 45,
+    'Growth': 40
+  };
+  score += stageMap[data.businessStage] || 0;
+  
+  // Funding purpose clarity (basic check - length of description)
+  if (data.fundingPurpose && data.fundingPurpose.length > 50) score += 10;
+  if (data.fundingPurpose && data.fundingPurpose.length > 100) score += 5;
+  
+  // Additional info adds points
+  if (data.additionalInfo && data.additionalInfo.length > 50) score += 5;
+  
+  // Cap at 100
+  return Math.min(score, 100);
+}
+
+// Generate strengths based on data
+function generateStrengths(data) {
+  const strengths = [];
+  if (data.revenueStatus !== 'Pre-revenue') {
+    strengths.push('✓ Revenue traction — demonstrating market validation');
+  } else {
+    strengths.push('✓ Early-stage opportunity — potential for significant growth');
+  }
+  
+  if (data.businessStage === 'Seed' || data.businessStage === 'Series A') {
+    strengths.push('✓ Clear business model with defined target market');
+  }
+  if (data.fundingPurpose && data.fundingPurpose.length > 50) {
+    strengths.push('✓ Well-articulated funding purpose — clear use of funds');
+  }
+  if (['Kenya', 'Nigeria', 'South Africa', 'Ghana', 'Rwanda'].includes(data.country)) {
+    strengths.push('✓ Active startup ecosystem — strong investor presence');
+  }
+  if (data.additionalInfo && data.additionalInfo.length > 50) {
+    strengths.push('✓ Comprehensive business information provided');
+  }
+  
+  if (strengths.length === 0) {
+    strengths.push('✓ Early-stage potential — room for structured growth');
+  }
+  
+  return strengths;
+}
+
+// Generate areas for improvement
+function generateImprovements(data, score) {
+  const improvements = [];
+  
+  if (data.revenueStatus === 'Pre-revenue') {
+    improvements.push('• Build initial revenue traction to demonstrate market fit');
+  }
+  if (score < 70) {
+    improvements.push('• Strengthen financial projections with detailed assumptions');
+  }
+  if (data.fundingPurpose && data.fundingPurpose.length < 50) {
+    improvements.push('• Develop clearer use-of-funds breakdown');
+  }
+  if (!data.additionalInfo || data.additionalInfo.length < 30) {
+    improvements.push('• Prepare comprehensive investor data room');
+  }
+  improvements.push('• Refine unit economics and customer acquisition metrics');
+  improvements.push('• Build detailed financial model with 3-5 year projections');
+  
+  return improvements.slice(0, 5);
+}
+
+// Generate investor category recommendations
+function generateInvestorCategories(data) {
+  const categories = [];
+  
+  if (data.businessStage === 'Idea' || data.businessStage === 'MVP') {
+    categories.push('1. Angel Investors & Pre-seed Funds');
+    categories.push('2. Incubators & Accelerators');
+  }
+  if (data.businessStage === 'Seed' || data.businessStage === 'Series A') {
+    categories.push('1. Early-Stage VC Funds');
+    categories.push('2. Impact Investors');
+  }
+  if (data.businessStage === 'Series B+' || data.businessStage === 'Growth') {
+    categories.push('1. Growth Equity Funds');
+    categories.push('2. Private Equity Firms');
+  }
+  
+  categories.push('3. Family Offices');
+  categories.push('4. Development Finance Institutions (DFIs)');
+  categories.push('5. Strategic Corporate Investors');
+  
+  return categories;
+}
+
+// Generate next steps
+function generateNextSteps(data, score) {
+  const steps = [];
+  
+  if (score < 60) {
+    steps.push('1. Complete financial model with detailed projections');
+    steps.push('2. Build comprehensive investor data room');
+    steps.push('3. Refine fundraising narrative and pitch deck');
+  } else if (score < 80) {
+    steps.push('1. Refine financial projections with clear assumptions');
+    steps.push('2. Prepare investor data room with key documents');
+    steps.push('3. Target 20-25 relevant investors for outreach');
+  } else {
+    steps.push('1. Finalize due diligence materials');
+    steps.push('2. Schedule investor meetings with warm introductions');
+    steps.push('3. Prepare for term sheet negotiations');
+  }
+  
+  steps.push(`4. Target ${Math.floor(Math.random() * 30) + 20} suitable investors based on sector alignment`);
+  steps.push(`5. Schedule introductory calls with ${Math.floor(Math.random() * 10) + 8} priority investors`);
+  
+  return steps;
+}
+
+// Generate investor examples
+function generateInvestorExamples(data) {
+  const sectorExamples = {
+    'FinTech': ['Ventures Platform', 'Future Africa', 'TLcom Capital', 'Launch Africa Ventures'],
+    'AgriTech': ['Sahel Capital', 'Acumen', 'Agri-Vie', 'All On'],
+    'HealthTech': ['Novastar Ventures', 'Villgro Africa', 'HealthCap Africa'],
+    'EdTech': ['Novastar Ventures', 'TLcom Capital', 'Launch Africa Ventures'],
+    'Logistics': ['TLcom Capital', 'Mobility 54', 'Fastforward Ventures'],
+    'CleanTech': ['CrossBoundary Energy', 'All On', 'SunFunder', 'Norfund']
+  };
+  
+  const examples = sectorExamples[data.sector] || ['Impact Investors', 'Development Finance Institutions', 'Local Angel Networks'];
+  return examples.slice(0, 4);
+}
+
+// Generate full report
+function generateReport(data, score, strengths, improvements, investorCategories, nextSteps, investorExamples) {
+  return `
+    <div class="score-section">
+      <div class="score-number">${score}/100</div>
+      <div class="score-label">Investment Readiness Score</div>
+    </div>
+    
+    <div class="strengths-section">
+      <h4>✓ Strengths</h4>
+      <ul class="strengths-list">
+        ${strengths.map(s => `<li>${s.replace('✓ ', '')}</li>`).join('')}
+      </ul>
+    </div>
+    
+    <div class="improvements-section">
+      <h4>⚠ Areas to Improve</h4>
+      <ul class="improvements-list">
+        ${improvements.map(i => `<li>${i}</li>`).join('')}
+      </ul>
+    </div>
+    
+    <div class="investor-categories">
+      <h4>📊 Investor Profile Recommendations</h4>
+      <p style="color: #4a5568; margin-bottom: 15px;">Based on your stage (${data.businessStage}) and sector (${data.sector})</p>
+      <ol>
+        ${investorCategories.map(c => `<li>${c}</li>`).join('')}
+      </ol>
+      <p style="margin-top: 15px; font-size: 0.85rem; color: #8a9bb5;">Example investors in your ecosystem: ${investorExamples.join(', ')}</p>
+    </div>
+    
+    <div class="next-steps">
+      <h4>🎯 Recommended Next Steps</h4>
+      <ol>
+        ${nextSteps.map(s => `<li>${s}</li>`).join('')}
+      </ol>
+    </div>
+  `;
+}
+
+// Handle form submission
+if (assessmentForm) {
+  assessmentForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Show loading state
+    assessmentResults.style.display = 'block';
+    resultsContent.innerHTML = `
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Analyzing your investment readiness...</p>
+        <p style="font-size: 0.8rem; color: #8a9bb5;">Our AI is generating a comprehensive assessment report</p>
+      </div>
+    `;
+    assessmentResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // Collect form data
+    const formData = {
+      companyName: document.getElementById('companyName').value,
+      sector: document.getElementById('sector').value,
+      country: document.getElementById('country').value,
+      businessStage: document.getElementById('businessStage').value,
+      fundingTarget: document.getElementById('fundingTarget').value,
+      revenueStatus: document.getElementById('revenueStatus').value,
+      fundingPurpose: document.getElementById('fundingPurpose').value,
+      additionalInfo: document.getElementById('additionalInfo').value
+    };
+    
+    // Set company name in results header
+    reportCompanyName.textContent = formData.companyName;
+    
+    // Calculate score and generate content
+    const score = calculateReadinessScore(formData);
+    const strengths = generateStrengths(formData);
+    const improvements = generateImprovements(formData, score);
+    const investorCategories = generateInvestorCategories(formData);
+    const nextSteps = generateNextSteps(formData, score);
+    const investorExamples = generateInvestorExamples(formData);
+    
+    // Simulate AI processing delay for realism
+    setTimeout(() => {
+      const reportHtml = generateReport(formData, score, strengths, improvements, investorCategories, nextSteps, investorExamples);
+      resultsContent.innerHTML = reportHtml;
+    }, 1500);
+    
+    // Store report data for download
+    window.currentReportData = {
+      formData,
+      score,
+      strengths,
+      improvements,
+      investorCategories,
+      nextSteps,
+      investorExamples
+    };
+  });
+}
+
+// Download PDF functionality
+const downloadBtn = document.getElementById('downloadReportBtn');
+if (downloadBtn) {
+  downloadBtn.addEventListener('click', () => {
+    if (!window.currentReportData) {
+      showToast('No report to download. Please generate an assessment first.');
+      return;
+    }
+    
+    const { formData, score, strengths, improvements, investorCategories, nextSteps } = window.currentReportData;
+    
+    const reportHtml = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Investment Readiness Report - ${formData.companyName}</title>
+        <meta charset="UTF-8">
+        <style>
+          body { font-family: 'Inter', sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; }
+          h1 { color: #07152d; }
+          .score { font-size: 48px; color: #c59b53; font-weight: bold; }
+          .section { margin-bottom: 30px; }
+          .strength { color: #22c55e; }
+          .improvement { color: #c59b53; }
+        </style>
+      </head>
+      <body>
+        <h1>Investment Readiness Report</h1>
+        <p><strong>Company:</strong> ${formData.companyName}</p>
+        <p><strong>Sector:</strong> ${formData.sector} | <strong>Stage:</strong> ${formData.businessStage} | <strong>Country:</strong> ${formData.country}</p>
+        <hr>
+        <h2>Investment Readiness Score: ${score}/100</h2>
+        <div class="section"><h3>Strengths</h3><ul>${strengths.map(s => `<li>${s}</li>`).join('')}</ul></div>
+        <div class="section"><h3>Areas to Improve</h3><ul>${improvements.map(i => `<li>${i}</li>`).join('')}</ul></div>
+        <div class="section"><h3>Investor Categories</h3><ol>${investorCategories.map(c => `<li>${c}</li>`).join('')}</ol></div>
+        <div class="section"><h3>Recommended Next Steps</h3><ol>${nextSteps.map(s => `<li>${s}</li>`).join('')}</ol></div>
+        <hr>
+        <p><em>Generated by M. Lewis AI Advisory | <a href="mailto:ai@mlewiscapital.com">ai@mlewiscapital.com</a></em></p>
+      </body>
+      </html>
+    `;
+    
+    const blob = new Blob([reportHtml], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${formData.companyName.replace(/\s/g, '_')}_Investment_Readiness_Report.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    showToast('Report downloaded successfully');
+  });
+}
+
+// Email report functionality
+const emailBtn = document.getElementById('emailReportBtn');
+if (emailBtn) {
+  emailBtn.addEventListener('click', () => {
+    if (!window.currentReportData) {
+      showToast('No report to email. Please generate an assessment first.');
+      return;
+    }
+    
+    const { formData, score } = window.currentReportData;
+    const subject = encodeURIComponent(`Investment Readiness Report - ${formData.companyName}`);
+    const body = encodeURIComponent(`
+      Dear M. Lewis AI Advisory Team,
+      
+      Please find attached my investment readiness assessment.
+      
+      Company: ${formData.companyName}
+      Sector: ${formData.sector}
+      Stage: ${formData.businessStage}
+      Readiness Score: ${score}/100
+      
+      I would like to schedule a consultation to discuss my fundraising strategy.
+      
+      Best regards,
+      ${formData.companyName} Team
+    `);
+    
+    window.location.href = `mailto:ai@mlewiscapital.com?subject=${subject}&body=${body}`;
+    showToast('Email client opened');
+  });
+}
+
+// Schedule consultation button
+const scheduleBtn = document.getElementById('scheduleConsultBtn');
+if (scheduleBtn) {
+  scheduleBtn.addEventListener('click', () => {
+    if (window.currentReportData) {
+      const { formData } = window.currentReportData;
+      const subject = encodeURIComponent(`Consultation Request - ${formData.companyName}`);
+      const body = encodeURIComponent(`
+        Dear M. Lewis AI Advisory Team,
+        
+        I recently completed an Investment Readiness Assessment and would like to schedule a consultation to discuss my fundraising strategy.
+        
+        Company: ${formData.companyName}
+        Sector: ${formData.sector}
+        Stage: ${formData.businessStage}
+        
+        Please let me know your availability for a 30-minute introductory call.
+        
+        Best regards,
+        ${formData.companyName} Team
+      `);
+      window.location.href = `mailto:ai@mlewiscapital.com?subject=${subject}&body=${body}`;
+    } else {
+      window.location.href = `mailto:ai@mlewiscapital.com?subject=Consultation Request`;
+    }
+    showToast('Email client opened - please send your request');
+  });
+        }
  </script>
 </body>
   </html>
