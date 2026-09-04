@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>M. Lewis Group | Boutique Finance & Investments | Africa</title>
+  <title>M. Lewis Group | Strategic Advisory & Private Capital Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
   <style>
     * {
       margin: 0;
@@ -45,6 +44,7 @@
       margin: auto;
     }
 
+    /* NAVBAR */
     .navbar {
       position: fixed;
       top: 0;
@@ -72,6 +72,13 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+    }
+
+    .logo .m {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 2px;
     }
 
     .logo h2 {
@@ -106,6 +113,11 @@
 
     .nav-links a:hover {
       color: var(--gold);
+    }
+
+    .nav-links a.active-link {
+      color: var(--gold);
+      font-weight: 700;
     }
 
     .cta-buttons {
@@ -149,8 +161,8 @@
     }
 
     .btn-back {
-      background: rgba(0,0,0,0.05);
-      color: #07152d;
+      background: rgba(255,255,255,0.12);
+      color: white;
       padding: 10px 22px;
       border-radius: 999px;
       font-size: 14px;
@@ -160,15 +172,16 @@
       gap: 8px;
       transition: 0.3s ease;
       margin-bottom: 32px;
-      border: 1px solid rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
       cursor: pointer;
     }
 
     .btn-back:hover {
+      background: rgba(255,255,255,0.25);
       transform: translateX(-4px);
-      background: rgba(0,0,0,0.1);
     }
 
+    /* PAGE CONTAINER */
     .page-container {
       position: relative;
       min-height: 100vh;
@@ -183,11 +196,13 @@
       display: block;
     }
 
+    /* SPACER */
     .navbar-spacer {
       height: 85px;
       width: 100%;
     }
 
+    /* HERO SECTION */
     .hero-section {
       position: relative;
       width: 100%;
@@ -298,154 +313,205 @@
       border-radius: 20px;
     }
 
-    .section {
-      padding: 100px 0;
+    /* DETAIL SECTION */
+    .detail-section {
+      padding: 60px 0;
     }
 
-    .section-light {
-      background: white;
+    .detail-section.alt-bg {
+      background: #f8f9fa;
     }
 
-    .section-soft {
-      background: var(--soft);
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-title span {
-      color: var(--gold);
+    .section-tag {
+      display: inline-block;
+      color: #c59b53;
       text-transform: uppercase;
       letter-spacing: 2px;
       font-size: 13px;
       font-weight: 700;
+      margin-bottom: 15px;
     }
 
-    .section-title h2 {
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      margin-top: 14px;
-      color: var(--navy);
+      font-size: 2rem;
+      color: #07152d;
+      margin-bottom: 15px;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 28px;
+    .section-header p {
+      color: #4a5568;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .service-card {
+    /* Capability Cards */
+    .capability-card {
       background: white;
-      padding: 50px 44px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: 0.35s ease;
-      cursor: pointer;
+      padding: 35px 30px;
+      border-radius: 24px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
     }
 
-    .service-card:hover {
-      transform: translateY(-8px);
+    .capability-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
 
-    .service-icon {
-      width: 68px;
-      height: 68px;
-      border-radius: 20px;
-      background: rgba(197,155,83,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      font-size: 28px;
+    .capability-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
     }
 
-    .service-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 12px;
+    .capability-card h3 {
+      font-size: 1.3rem;
+      color: #07152d;
+      margin-bottom: 15px;
     }
 
-    .service-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 18px;
-      color: var(--navy);
+    .capability-card p {
+      color: #4a5568;
+      line-height: 1.6;
     }
 
-    .service-card p {
-      line-height: 1.8;
-      color: #5f6677;
-    }
-
-    .division-website {
-      display: inline-block;
-      margin-top: 15px;
-      font-size: 0.8rem;
-      font-weight: 600;
+    /* Entity Links */
+    .entity-link {
       color: #c59b53;
-      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
       transition: color 0.3s ease;
     }
 
-    .division-website:hover {
+    .entity-link:hover {
       color: #b7863f;
       text-decoration: underline;
     }
 
-    .page-header {
-      background: var(--navy);
-      padding: 60px 0;
-      color: white;
-      text-align: center;
-    }
-
-    .contact-card {
-      background: white;
-      padding: 42px;
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-item {
-      margin-top: 20px;
-    }
-
-    .contact-item strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--navy);
-    }
-
-    .contact-item a {
-      color: var(--gold);
-      font-weight: 600;
-    }
-
-    .contact-wrapper {
+    /* Partner Grid */
+    .partner-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 34px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
     }
 
-    footer {
-      background: #041124;
-      color: rgba(255,255,255,0.7);
-      padding: 40px 20px;
+    .partner-card {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
       text-align: center;
-      font-size: 14px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    @media(max-width: 900px) {
-      .nav-links { display: none; }
-      .cta-buttons { margin-left: auto; }
-      .btn { padding: 10px 16px; font-size: 12px; }
-      footer { padding: 40px 20px 100px 20px; }
-      .navbar-spacer { height: 75px; }
-      .hero-section { height: 90vh; }
-      .hero-headline { font-size: 1.8rem; }
-      .hero-subheadline { font-size: 0.9rem; }
+    .partner-card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .partner-card h4 {
+      color: #07152d;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .partner-card p {
+      color: #4a5568;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    /* Action Tags */
+    .action-tags {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .action-tag {
+      background: white;
+      padding: 12px 25px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #07152d;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Closing CTA */
+    .closing-cta {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .closing-cta .big-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .closing-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #07152d;
+      margin-bottom: 20px;
+    }
+
+    .closing-cta p {
+      color: #4a5568;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .closing-cta .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-section {
+        height: 90vh;
+      }
+      .hero-headline {
+        font-size: 1.8rem;
+      }
+      .hero-subheadline {
+        font-size: 0.9rem;
+      }
+      .navbar-spacer {
+        height: 75px;
+      }
+      .capability-card {
+        padding: 25px 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .partner-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .action-tags {
+        gap: 10px;
+      }
+      .action-tag {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+      .detail-section {
+        padding: 40px 0;
+      }
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
     }
 
     .page-transition {
@@ -458,7 +524,9 @@
       pointer-events: none;
     }
 
-    .page-transition.active { transform: translateY(0); }
+    .page-transition.active {
+      transform: translateY(0);
+    }
 
     .mobile-footer-nav {
       position: fixed;
@@ -498,8 +566,10 @@
       color: white;
     }
 
-    @media(min-width: 901px) {
-      .mobile-footer-nav { display: none; }
+    @media (min-width: 901px) {
+      .mobile-footer-nav {
+        display: none;
+      }
     }
 
     .scroll-top {
@@ -520,376 +590,25 @@
       z-index: 99;
     }
 
-    .scroll-top.visible { opacity: 1; }
-
-    .leadership-card {
-      background: white;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin: 40px 0;
+    .scroll-top.visible {
+      opacity: 1;
     }
 
-    .modern-leadership {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .leadership-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 0;
-      min-height: 450px;
-    }
-
-    .leadership-image {
-      background: linear-gradient(135deg, #07152d, #0d2348);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-    }
-
-    .profile-image-wrapper {
-      text-align: center;
-    }
-
-    .profile-image-wrapper img {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(197,155,83,0.3);
-    }
-
-    .linkedin-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.1);
-      padding: 10px 20px;
-      border-radius: 40px;
-      color: white;
-      text-decoration: none;
-      font-size: 0.85rem;
-      margin-top: 20px;
-    }
-
-    .leadership-content {
-      padding: 50px 40px;
-      background: white;
-    }
-
-    .leadership-badge {
-      display: inline-block;
-      background: rgba(197,155,83,0.12);
-      color: #c59b53;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 30px;
-      margin-bottom: 20px;
-    }
-
-    .leadership-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #07152d;
-      margin-bottom: 15px;
-    }
-
-    .leadership-divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #c59b53, transparent);
-      margin-bottom: 25px;
-    }
-
-    .leadership-text {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #4a5568;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .leadership-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 900px) {
+      .scroll-top {
+        bottom: 80px;
       }
-      .leadership-content {
-        text-align: center;
-      }
-      .leadership-divider {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    .pre-footer-section {
-      background: #07152d;
-      color: rgba(255,255,255,0.8);
-      padding: 60px 0 40px;
-    }
-
-    .pre-footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .pre-footer-item h4 {
-      color: #c59b53;
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .pre-footer-item a {
-      display: block;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.85rem;
-      margin-bottom: 12px;
-      cursor: pointer;
-    }
-
-    .pre-footer-item a:hover {
-      color: #c59b53;
-    }
-
-    .pre-footer-bottom {
-      text-align: center;
-      padding-top: 30px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.8rem;
-    }
-
-    @media (max-width: 700px) {
-      .pre-footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 40px;
-      border-radius: 28px;
-      max-width: 500px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-
-    .modal-close {
-      float: right;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #07152d;
-    }
-
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      font-family: inherit;
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #07152d;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 40px;
-      z-index: 2001;
-      display: none;
-      animation: fadeInOut 2s ease;
-    }
-
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-      15% { opacity: 1; transform: translateX(-50%) translateY(0); }
-      85% { opacity: 1; transform: translateX(-50%) translateY(0); }
-      100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-    }
-
-    .reports-grid, .insights-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .report-card, .insight-card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .report-image, .insight-image {
-      width: 100%;
-      height: 160px;
-      overflow: hidden;
-    }
-
-    .report-image img, .insight-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .report-meta {
-      padding: 0 20px;
-      display: flex;
-      gap: 15px;
-      font-size: 0.7rem;
-      color: #8a9bb5;
-    }
-
-    .report-actions, .insight-actions {
-      padding: 15px 20px 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .share-btn, .share-insight-btn {
-      background: none;
-      border: 1px solid #c59b53;
-      border-radius: 20px;
-      padding: 5px 12px;
-      font-size: 0.7rem;
-      color: #c59b53;
-      cursor: pointer;
-    }
-
-    .newsletter-box {
-      background: linear-gradient(135deg, #f8f9fa, #ffffff);
-      border-radius: 28px;
-      padding: 40px;
-      text-align: center;
-    }
-
-    .newsletter-form {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .newsletter-form input {
-      padding: 12px 20px;
-      border-radius: 40px;
-      border: 1px solid #ddd;
-      width: 280px;
-    }
-
-    .dashboard-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 25px;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .tab-btn {
-      background: none;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-
-    .tab-btn.active {
-      color: #c59b53;
-      border-bottom: 2px solid #c59b53;
-    }
-
-    .dashboard-list {
-      max-height: 400px;
-      overflow-y: auto;
-    }
-
-    .dashboard-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 15px;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .service-carousel-card {
-      flex: 0 0 calc(85.333% - 16px);
-      min-width: calc(85.333% - 16px);
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      aspect-ratio: 16 / 24;
-      cursor: pointer;
-    }
-
-    .carousel-btn {
-      background: linear-gradient(135deg, #07152d, #0d2348);
-      border: none;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      gap: 24px;
-    }
-
-    .dot-service {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #cbd5e0;
-      cursor: pointer;
-    }
-
-    .dot-service.active {
-      background: #c59b53;
-      width: 24px;
-      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
+
+<nav class="navbar">
   <div class="nav-wrapper">
     <div class="logo">
-      <h2>M. LEWIS GROUP</h2>
-      <span>Boutique Finance & Investments | Africa</span>
+      <div class="m">M</div>
+      <h2>LEWIS GROUP</h2>
+      <span>Strategic Advisory & Private Capital Platform</span>
     </div>
     <div class="nav-links">
       <a data-page="home">Home</a>
@@ -906,308 +625,260 @@
 </nav>
 
 <div class="page-container">
-  
-<!-- HOME PAGE -->
-<div id="home-page" class="page active">
-  <div class="navbar-spacer"></div>
-  
-  <div class="hero-section">
-    <div class="video-carousel">
-      <video id="video1" autoplay muted playsinline style="opacity: 1;">
-        <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide1.mp4" type="video/mp4">
-      </video>
-      <video id="video2" muted playsinline style="opacity: 0;">
-        <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide2.mp4" type="video/mp4">
-      </video>
-      <video id="video3" muted playsinline style="opacity: 0;">
-        <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide3.mp4" type="video/mp4">
-      </video>
-      <video id="video4" muted playsinline style="opacity: 0;">
-        <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide4.mp4" type="video/mp4">
-      </video>
+
+  <!-- HOME PAGE - FULLY UPDATED -->
+  <div id="home-page" class="page active">
+    <div class="navbar-spacer"></div>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+      <div class="video-carousel">
+        <video id="video1" autoplay muted playsinline style="opacity: 1;">
+          <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide1.mp4" type="video/mp4">
+        </video>
+        <video id="video2" muted playsinline style="opacity: 0;">
+          <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide2.mp4" type="video/mp4">
+        </video>
+        <video id="video3" muted playsinline style="opacity: 0;">
+          <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide3.mp4" type="video/mp4">
+        </video>
+        <video id="video4" muted playsinline style="opacity: 0;">
+          <source src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/slide4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div id="slide1-text" class="slide-text active-slide-text">
+          <div class="hero-headline">
+            M. LEWIS GROUP<br>
+            <span class="gold">Strategic Advisory.</span><br>
+            <span class="gold">Private Capital.</span><br>
+            <span class="gold">Long-Term Partnership.</span>
+          </div>
+        </div>
+        <div id="slide2-text" class="slide-text">
+          <div class="hero-headline">
+            Building, financing & scaling<br>
+            <span class="gold">Africa's next economy.</span>
+          </div>
+        </div>
+        <div id="slide3-text" class="slide-text">
+          <div class="hero-headline">
+            We advise. We build.<br>
+            We <span class="gold">finance</span>.<br>
+            We <span class="gold">invest</span>.
+          </div>
+          <div class="hero-subheadline">
+            Bringing together advice, relationships and capital under one platform.
+          </div>
+        </div>
+        <div id="slide4-text" class="slide-text">
+          <div class="hero-headline">
+            <span class="gold">Partners</span> for the journey<br>
+            from opportunity to<br>
+            <span class="gold">execution.</span>
+          </div>
+          <div class="hero-subheadline">
+            Strategic advisory, venture advisory, corporate finance, and access to private capital.
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" data-page="divisions">Explore Our Capabilities</a>
+          <a class="btn btn-outline" data-page="partner">Partner With Us</a>
+        </div>
+      </div>
+
+      <div class="carousel-dots">
+        <div class="dot active" data-slide="0"></div>
+        <div class="dot" data-slide="1"></div>
+        <div class="dot" data-slide="2"></div>
+        <div class="dot" data-slide="3"></div>
+      </div>
     </div>
-    <div class="hero-overlay"></div>
-    
-    <div class="hero-content">
-      <div id="slide1-text" class="slide-text active-slide-text">
-        <div class="hero-headline">
-          Boutique Finance.<br>
-          African Scale.<br>
-          <span class="gold">Sub-$30M Transactions</span>
+
+    <!-- INTRODUCTION / WHO WE ARE -->
+    <div class="detail-section">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <span class="section-tag">Who We Are</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #07152d; margin: 20px 0 25px;">Strategic Advisory. Private Capital. Long-Term Partnership.</h2>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">M. LEWIS GROUP is a strategic advisory and private capital platform focused on building, financing and scaling the businesses that will shape Africa's next economy.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">We work with entrepreneurs, companies, investors and institutions at critical moments of growth, transformation and investment.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">Our platform combines strategic advisory, venture advisory, corporate finance and access to private capital—giving clients more than advice through our three legal entities: <a href="#" class="entity-link" data-page="basiwel">Basiwel Ventures</a>, <a href="#" class="entity-link" data-page="afrileap">AfriLeap Capital</a>, and <a href="#" class="entity-link" data-page="capital-partners">M. Lewis Capital Partners</a> that serve entrepreneurs, privately held businesses, mid-market companies, established corporates, shareholders and investors across selected sectors of the Zambian and African economy.</p>
         </div>
-        <div class="hero-subheadline">Media • Technology • Energy • FinTech • Local Services</div>
-      </div>
-      <div id="slide2-text" class="slide-text">
-        <div class="hero-headline">
-          Investment Banking • Private Equity<br>
-          <span class="gold">Real Estate • Financial Education</span>
-        </div>
-      </div>
-      <div id="slide3-text" class="slide-text">
-        <div class="hero-headline">
-          Investing in <span class="gold">Africa's Future</span>
-        </div>
-        <div class="hero-subheadline">Client-led. Digitally-enabled. Africa-first.</div>
-      </div>
-      <div id="slide4-text" class="slide-text">
-        <div class="hero-headline">
-          Unlocking <span class="gold">Africa's Potential</span>
-        </div>
-        <div class="hero-subheadline">Based in Lusaka, serving the continent.</div>
-      </div>
-      
-      <div class="hero-actions">
-        <a class="btn btn-primary" data-page="divisions">Explore Our Divisions</a>
-        <a class="btn btn-outline" data-page="partner">Partner With Us</a>
       </div>
     </div>
-    
-    <div class="carousel-dots">
-      <div class="dot active" data-slide="0"></div>
-      <div class="dot" data-slide="1"></div>
-      <div class="dot" data-slide="2"></div>
-      <div class="dot" data-slide="3"></div>
+
+    <!-- OUR FOUR CAPABILITIES -->
+    <div class="detail-section alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Capabilities</span>
+          <h2>Our Four Capabilities</h2>
+          <p>Advice, relationships and capital—working together</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+          <div class="capability-card">
+            <div class="icon">📊</div>
+            <h3>Strategic Advisory</h3>
+            <p>We help leaders make better decisions, navigate complexity and create long-term enterprise value. From growth strategy and market expansion to transformation, restructuring and strategic partnerships, we work alongside management and boards on the decisions that matter most.</p>
+          </div>
+
+          <div class="capability-card">
+            <div class="icon">🚀</div>
+            <h3>Venture Advisory</h3>
+            <p>We work with ambitious founders and emerging businesses to build stronger, more scalable and investment-ready companies. We support strategy, commercialisation, governance, financial modelling, investor readiness, fundraising and growth.</p>
+          </div>
+
+          <div class="capability-card">
+            <div class="icon">📈</div>
+            <h3>Corporate Finance Advisory</h3>
+            <p>We advise businesses and shareholders on the transactions that shape value. Our capabilities include capital raising, mergers and acquisitions, valuation, financial structuring, restructuring, transaction preparation and strategic finance.</p>
+          </div>
+
+          <div class="capability-card">
+            <div class="icon">🤝</div>
+            <h3>Capital Partners</h3>
+            <p>We connect exceptional businesses and investment opportunities with appropriate sources of capital. Through our investor relationships, venture capabilities and private-capital platform, we seek to facilitate and, where appropriate, participate in transactions that create long-term value.</p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- OUR APPROACH -->
+    <div class="detail-section">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <span class="section-tag">Our Approach</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #07152d; margin: 20px 0 25px;">Strategy, Capital & Execution — Working Together</h2>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">We believe the best outcomes are created when strategy, capital and execution work together.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">That is why our role does not necessarily end when the advice is delivered.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">We can help a business understand where it is going, prepare for the journey, structure the capital required to get there and connect it with the partners capable of accelerating its growth.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; font-weight: 500;">Where appropriate, we invest alongside the entrepreneurs and businesses we support.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO WE WORK WITH -->
+    <div class="detail-section alt-bg">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Who We Work With</span>
+          <h2>Partners Across the Ecosystem</h2>
+          <p>We partner with leaders and organizations at every stage</p>
+        </div>
+
+        <div class="partner-grid">
+          <div class="partner-card">
+            <div class="icon">🧑‍💼</div>
+            <h4>Entrepreneurs & Founders</h4>
+            <p>Building high-growth businesses</p>
+          </div>
+          <div class="partner-card">
+            <div class="icon">🏢</div>
+            <h4>Established Companies</h4>
+            <p>Seeking growth or strategic transformation</p>
+          </div>
+          <div class="partner-card">
+            <div class="icon">📊</div>
+            <h4>Shareholders</h4>
+            <p>Considering acquisitions, exits or succession</p>
+          </div>
+          <div class="partner-card">
+            <div class="icon">💰</div>
+            <h4>Investors</h4>
+            <p>Seeking differentiated opportunities in Southern Africa</p>
+          </div>
+          <div class="partner-card">
+            <div class="icon">🏛️</div>
+            <h4>Institutions</h4>
+            <p>Seeking strategic and investment expertise</p>
+          </div>
+          <div class="partner-card">
+            <div class="icon">🌍</div>
+            <h4>International Capital</h4>
+            <p>Seeking access to African opportunities</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVESTMENT PERSPECTIVE -->
+    <div class="detail-section">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <span class="section-tag">Our Investment Perspective</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #07152d; margin: 20px 0 25px;">Strengthening the Productive Economy</h2>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">We focus on businesses that strengthen the productive economy.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">We are particularly interested in opportunities that improve financial inclusion, increase productivity, strengthen supply chains, expand essential infrastructure and modernise commerce across Africa.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">We believe strong economies are built by strong businesses.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; font-weight: 500;">Our objective is therefore not simply to finance businesses, but to help build enduring enterprises capable of creating employment, innovation, economic value and competitive advantage.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUILT FOR THE LONG TERM -->
+    <div class="detail-section alt-bg">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <span class="section-tag">Built for the Long Term</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #07152d; margin: 20px 0 25px;">Partners Across Every Stage</h2>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">M. LEWIS GROUP is designed to partner with businesses across their lifecycle—from early-stage opportunity and strategic development to growth capital, acquisitions and long-term ownership.</p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 30px;">We bring together advice, relationships and capital under one platform.</p>
+          <div class="action-tags">
+            <span class="action-tag">We advise.</span>
+            <span class="action-tag">We build.</span>
+            <span class="action-tag">We finance.</span>
+            <span class="action-tag">We invest.</span>
+          </div>
+          <div style="background: linear-gradient(135deg, #07152d, #0d2348); border-radius: 24px; padding: 40px; color: white;">
+            <div style="font-size: 1.2rem; font-weight: 500; margin-bottom: 10px;">M. LEWIS GROUP</div>
+            <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.6;">Building the businesses that power Africa's next economy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING CTA -->
+    <div class="detail-section">
+      <div class="container">
+        <div class="closing-cta">
+          <div class="big-icon">🤝</div>
+          <h2>Partner With Us</h2>
+          <p>We work with entrepreneurs, companies, investors and institutions at critical moments of growth, transformation and investment.</p>
+          <div class="btn-group">
+            <a href="#" class="btn btn-primary" data-page="partner">Partner With Us →</a>
+            <a href="#" class="btn btn-outline" data-page="contact">Contact Our Team →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- EXIST SECTION -->
-  <section style="padding: 80px 0; background: #f5f4f1;">
-    <div class="container">
-      <div style="background: white; border-radius: 28px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 0; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
-        <div style="padding: 50px 40px;">
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; line-height: 1.35; background: linear-gradient(135deg, #07152d 0%, #0d2348 100%); padding: 30px; border-radius: 20px; color: white; margin-bottom: 35px;">M. Lewis Group exists to bridge the gap between African businesses seeking capital and international investors seeking credible opportunities.</h2>
-          
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 35px;">
-            <div style="background: #f8f9fa; border-radius: 16px; padding: 20px;"><span style="color: #c59b53; font-weight: 700;">01</span><p style="margin-top: 10px; font-weight: 500;">African SMEs struggle to access institutional capital</p></div>
-            <div style="background: #f8f9fa; border-radius: 16px; padding: 20px;"><span style="color: #c59b53; font-weight: 700;">02</span><p style="margin-top: 10px; font-weight: 500;">International investors lack trusted local partners</p></div>
-            <div style="background: #f8f9fa; border-radius: 16px; padding: 20px;"><span style="color: #c59b53; font-weight: 700;">03</span><p style="margin-top: 10px; font-weight: 500;">Underserved mid-market transactions below USD 30M</p></div>
-            <div style="background: #f8f9fa; border-radius: 16px; padding: 20px;"><span style="color: #c59b53; font-weight: 700;">04</span><p style="margin-top: 10px; font-weight: 500;">Founder-led businesses overlooked by large funds</p></div>
-          </div>
-          
-          <div style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 20px;">
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #07152d;">Building Bankable Enterprises in Southern Africa.</h3>
-            <p style="color: #4a5568; margin-top: 12px;">M. Lewis Group is a boutique finance and investments brand bridging regional opportunity with global capital. Focus on sub-$30M transactions across Media, Technology, Energy, FinTech, and Local Services.</p>
-          </div>
-        </div>
-        <div style="position: relative; background: #07152d;">
-          <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/exist.png" alt="African business" style="width: 100%; height: 100%; object-fit: cover;">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(7,21,45,0.9); padding: 25px; display: flex; gap: 15px; justify-content: center;">
-            <a href="#" class="btn btn-primary" data-page="divisions" style="padding: 10px 20px;">Explore Our Platforms →</a>
-            <a href="#" class="btn btn-outline" data-page="partner" style="padding: 10px 20px; border-color: #c59b53; color: #c59b53;">Partner With Us →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOAL SECTION -->
-  <section style="padding: 80px 0; background: #f5f4f1;">
-    <div class="container">
-      <div style="background: white; border-radius: 28px; overflow: hidden; display: grid; grid-template-columns: 1fr 0.6fr; gap: 0;">
-        <div style="padding: 50px 40px;">
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; background: linear-gradient(135deg, #07152d, #0d2348); padding: 30px; border-radius: 20px; color: white; margin-bottom: 35px;">Our Goal: Africa's most trusted boutique finance partner for underserved mid-market transactions.</h2>
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 35px;">
-            <div style="background: linear-gradient(135deg, #07152d, #0d2348); border-radius: 16px; padding: 20px; text-align: center; color: white;"><span style="font-size: 1.5rem; font-weight: 800; color: #c59b53;">$50M+</span><p style="margin-top: 5px;">Target capital deployed by 2030</p></div>
-            <div style="background: linear-gradient(135deg, #07152d, #0d2348); border-radius: 16px; padding: 20px; text-align: center; color: white;"><span style="font-size: 1.5rem; font-weight: 800; color: #c59b53;">50+</span><p style="margin-top: 5px;">Businesses supported</p></div>
-          </div>
-          <p style="border-top: 1px solid rgba(0,0,0,0.08); padding-top: 20px;">We are building Africa's future by empowering local businesses, connecting global capital, and driving sustainable growth across the continent.</p>
-        </div>
-        <div style="background: linear-gradient(135deg, #07152d, #0d2348);"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES CAROUSEL -->
-  <section style="padding: 80px 0; background: #f5f4f1;">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #07152d;">Our Solutions</h2>
-        <p>Directly addressing the gaps in Africa's private markets</p>
-      </div>
-      <div style="display: flex; align-items: center; gap: 15px;">
-        <button class="carousel-btn prev-btn" style="width: 45px; height: 45px; border-radius: 50%;">←</button>
-        <div style="flex: 1; overflow: hidden;">
-          <div class="carousel-track" style="display: flex; gap: 24px;">
-            <div class="service-carousel-card" data-page="services">
-              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(7,21,45,0.85), rgba(7,21,45,0.75));"></div>
-              <div style="position: relative; z-index: 2; padding: 25px; color: white; height: 100%; display: flex; flex-direction: column;">
-                <div style="font-size: 1.8rem;">💰</div>
-                <h3>Capital Raising</h3>
-                <p>Structuring tailored financing solutions for sub-$30M transactions.</p>
-              </div>
-            </div>
-            <div class="service-carousel-card" data-page="services">
-              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(7,21,45,0.85), rgba(7,21,45,0.75));"></div>
-              <div style="position: relative; z-index: 2; padding: 25px; color: white;">
-                <div style="font-size: 1.8rem;">📊</div>
-                <h3>M&A Advisory</h3>
-                <p>Buy-side and sell-side advisory for mid-market African businesses.</p>
-              </div>
-            </div>
-            <div class="service-carousel-card" data-page="services">
-              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(7,21,45,0.85), rgba(7,21,45,0.75));"></div>
-              <div style="position: relative; z-index: 2; padding: 25px; color: white;">
-                <div style="font-size: 1.8rem;">📈</div>
-                <h3>Growth Equity</h3>
-                <p>Patient capital for scalable businesses ($250k-$10M).</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-btn next-btn" style="width: 45px; height: 45px; border-radius: 50%;">→</button>
-      </div>
-      <div class="carousel-dots-services" style="display: flex; justify-content: center; gap: 12px; margin-top: 30px;"></div>
-    </div>
-  </section>
-
-  <!-- LEADERSHIP SECTION -->
-  <section class="section section-light">
-    <div class="container">
-      <div class="leadership-card modern-leadership">
-        <div class="leadership-grid">
-          <div class="leadership-image">
-            <div class="profile-image-wrapper">
-              <img src="https://raw.githubusercontent.com/mlewiscapitalpartners/mlewiscapitalpartners/main/cropped-1713948169242.jpg" alt="Mwaba Lewis">
-              <a href="https://www.linkedin.com/in/mwaba-lewis-77a738134" target="_blank" class="linkedin-btn">🔗 Connect on LinkedIn</a>
-            </div>
-          </div>
-          <div class="leadership-content">
-            <div class="leadership-badge">Founder & Managing Director</div>
-            <h2 class="leadership-name">Mwaba Lewis</h2>
-            <div class="leadership-divider"></div>
-            <p class="leadership-text">Led by Founder & Managing Director, Mwaba Lewis, the Group combines boutique investment banking, private equity, real estate investment, and financial education to deliver high-impact solutions across Africa.</p>
-            <p class="leadership-text">Headquartered in Lusaka, Zambia, with a pan-African focus on Media, Technology, Energy, FinTech, and Local Services.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-<!-- ABOUT PAGE -->
-<div id="about-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div style="background: var(--navy); padding: 60px 0; color: white; text-align: center;">
-    <div class="container">
-      <div style="font-size: 1.8rem; font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 20px;">Boutique Finance. African Scale.</div>
-      <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 30px;">About M. Lewis Group</h1>
-      <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">M. Lewis Group is an Africa-focused, client-led, digitally-enabled finance and investments brand headquartered in Lusaka, Zambia. We operate four divisions: Boutique Investment Banking, Private Equity & Venture Capital, Real Estate Investment, and Financial Inclusion & Education. Our focus is on sub-$30M transactions across Media, Technology, Energy, FinTech, and Local Services.</p>
-    </div>
-  </div>
-  <section class="section">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-        <div style="background: white; padding: 40px; border-radius: 28px; text-align: center;"><div style="font-size: 3rem;">👁️</div><h3 style="color: var(--gold); font-size: 1.8rem; margin: 20px 0;">Our Vision</h3><p>To be the premier African boutique finance partner driving sustainable growth, innovation, and prosperity across the continent.</p></div>
-        <div style="background: white; padding: 40px; border-radius: 28px; text-align: center;"><div style="font-size: 3rem;">🎯</div><h3 style="color: var(--gold); font-size: 1.8rem; margin: 20px 0;">Our Mission</h3><p>To unlock Africa's potential by providing tailored investment solutions, expert advisory, patient capital, and accessible financial education.</p></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- DIVISIONS PAGE -->
-<div id="divisions-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div class="page-header"><div class="container"><h1>Our Divisions</h1><p style="margin-top: 15px;">Four integrated capabilities. One boutique brand.</p></div></div>
-  <section class="section">
-    <div class="container">
-      <div class="services-grid">
-        <div class="service-card" data-division="investment-banking"><div class="service-icon">🏦</div><h3>M. Lewis Investment Banking</h3><p>Boutique corporate finance advisory for sub-$30M M&A, capital raising, and restructuring. Focus on Media, Technology, Energy, FinTech, and Local Services.</p><a href="#" data-page="investment-banking" class="division-website">Learn More →</a></div>
-        <div class="service-card" data-division="pe-vc"><div class="service-icon">📈</div><h3>M. Lewis Capital Partners</h3><p>Private equity and venture capital investing $250k–$10M into high-growth African businesses. Board seats, operational support, and exit preparation.</p><a href="#" data-page="pe-vc" class="division-website">Learn More →</a></div>
-        <div class="service-card" data-division="real-estate"><div class="service-icon">🏢</div><h3>M. Lewis Real Estate</h3><p>Income-producing property investment: logistics warehousing, Grade A offices, affordable housing, student accommodation. Assets: $500k–$5M.</p><a href="#" data-page="real-estate" class="division-website">Learn More →</a></div>
-        <div class="service-card" data-division="education"><div class="service-icon">🎓</div><h3>M. Lewis Institute</h3><p>Financial inclusion and professional education. Courses in corporate finance, private investing, SME literacy, and SADC cross-border investment.</p><a href="#" data-page="education" class="division-website">Learn More →</a></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- INVESTMENT BANKING PAGE -->
-<div id="investment-banking-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div class="container" style="margin-top: 20px;"><button class="btn-back" data-back="divisions">← Back to Divisions</button></div>
-  <div class="page-header" style="padding: 60px 0;"><div class="container"><div style="text-align: center;"><div style="display: inline-block; background: rgba(197,155,83,0.15); padding: 8px 20px; border-radius: 40px;"><span style="color: #c59b53;">BOUTIQUE INVESTMENT BANKING</span></div><h1 style="font-size: 2.5rem; margin-top: 20px;">M. Lewis Investment Banking</h1><p style="font-size: 1.2rem; color: #c59b53; margin-top: 15px;">Sub-$30M M&A • Capital Raising • Restructuring</p></div></div></div>
-  <div class="container"><div style="padding: 60px 0;"><p>M. Lewis Investment Banking provides boutique corporate finance advisory for mid-market African businesses. We focus on transactions below $30 million, where personalized attention and local knowledge matter most. Target sectors: Media & Content, Technology & Software, Energy & Power, FinTech & Financial Inclusion, and Local Services Businesses.</p></div></div>
-</div>
-
-<!-- PE/VC PAGE -->
-<div id="pe-vc-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div class="container" style="margin-top: 20px;"><button class="btn-back" data-back="divisions">← Back to Divisions</button></div>
-  <div class="page-header" style="padding: 60px 0;"><div class="container"><div style="text-align: center;"><div style="display: inline-block; background: rgba(197,155,83,0.15); padding: 8px 20px; border-radius: 40px;"><span style="color: #c59b53;">PRIVATE EQUITY & VENTURE CAPITAL</span></div><h1 style="font-size: 2.5rem; margin-top: 20px;">M. Lewis Capital Partners</h1><p style="font-size: 1.2rem; color: #c59b53; margin-top: 15px;">Patient capital for Africa's high-growth businesses</p></div></div></div>
-  <div class="container"><div style="padding: 60px 0;"><p>M. Lewis Capital Partners invests $250,000 to $10 million in growth-stage and early-stage businesses across Africa. Focus sectors: Media & Content, Technology & Software, Energy & Power, FinTech & Financial Inclusion, and Local Services. We take board seats, provide operational support, and prepare companies for exit within 5-7 years.</p></div></div>
-</div>
-
-<!-- REAL ESTATE PAGE -->
-<div id="real-estate-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div class="container" style="margin-top: 20px;"><button class="btn-back" data-back="divisions">← Back to Divisions</button></div>
-  <div class="page-header" style="padding: 60px 0;"><div class="container"><div style="text-align: center;"><div style="display: inline-block; background: rgba(197,155,83,0.15); padding: 8px 20px; border-radius: 40px;"><span style="color: #c59b53;">REAL ESTATE INVESTMENT</span></div><h1 style="font-size: 2.5rem; margin-top: 20px;">M. Lewis Real Estate</h1><p style="font-size: 1.2rem; color: #c59b53; margin-top: 15px;">Income-producing property for Africa's growing economy</p></div></div></div>
-  <div class="container"><div style="padding: 60px 0;"><p>M. Lewis Real Estate acquires, develops, and manages income-producing properties valued at $500,000 to $5 million. Focus: logistics warehousing, Grade A offices for tech and media companies, affordable housing, and student accommodation. Target net yields: 10-14%, total IRR: 15-20%.</p></div></div>
-</div>
-
-<!-- EDUCATION PAGE -->
-<div id="education-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div class="container" style="margin-top: 20px;"><button class="btn-back" data-back="divisions">← Back to Divisions</button></div>
-  <div class="page-header" style="padding: 60px 0;"><div class="container"><div style="text-align: center;"><div style="display: inline-block; background: rgba(197,155,83,0.15); padding: 8px 20px; border-radius: 40px;"><span style="color: #c59b53;">FINANCIAL INCLUSION & EDUCATION</span></div><h1 style="font-size: 2.5rem; margin-top: 20px;">M. Lewis Institute</h1><p style="font-size: 1.2rem; color: #c59b53; margin-top: 15px;">Practical finance education for African professionals</p></div></div></div>
-  <div class="container"><div style="padding: 60px 0;"><p>M. Lewis Institute provides practical, accessible financial training to corporate professionals, SME owners, and retail learners. Courses include Finance for Non-Finance Managers, SME Financial Literacy, Introduction to Investing, and Certificate in SADC Cross-Border Investment. Revenue subsidises free community workshops in Lusaka.</p></div></div>
-</div>
-
-<!-- SERVICES PAGE -->
-<div id="services-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div class="page-header"><div class="container"><h1>Our Services</h1></div></div>
-  <section class="section"><div class="container"><div class="services-grid">
-    <div class="service-card"><div class="service-icon">💼</div><h3>Capital Raising</h3><p>Debt, equity, and mezzanine financing for sub-$30M growth-stage businesses.</p></div>
-    <div class="service-card"><div class="service-icon">📊</div><h3>M&A Advisory</h3><p>Buy-side and sell-side advisory, due diligence, valuation, and transaction structuring.</p></div>
-    <div class="service-card"><div class="service-icon">📈</div><h3>Growth Equity</h3><p>Patient capital for scalable businesses ($250k-$10M).</p></div>
-    <div class="service-card"><div class="service-icon">🌍</div><h3>Cross-Border Advisory</h3><p>Facilitating international transactions and investor connectivity.</p></div>
-    <div class="service-card"><div class="service-icon">🏢</div><h3>Real Estate Investment</h3><p>Income-producing property acquisition and management.</p></div>
-    <div class="service-card"><div class="service-icon">🎓</div><h3>Financial Education</h3><p>Practical courses in corporate finance and private investing.</p></div>
-  </div></div></section>
-</div>
-
-<!-- CONTACT PAGE -->
-<div id="contact-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div class="page-header"><div class="container"><h1>Contact Us</h1></div></div>
-  <section class="section"><div class="container"><div class="contact-wrapper">
-    <div class="contact-card"><h3>General Enquiries</h3><div class="contact-item"><strong>Email</strong><a href="mailto:info@mlewisgroup.com">info@mlewisgroup.com</a></div><div class="contact-item"><strong>Office</strong><p>Lusaka, Zambia</p></div></div>
-    <div class="contact-card"><h3>Connect With Divisions</h3><div class="contact-item"><strong>Email</strong><a href="mailto:partnerships@mlewisgroup.com">partnerships@mlewisgroup.com</a></div><div class="contact-item"><strong>Sectors</strong><p>Media • Technology • Energy • FinTech • Local Services</p></div></div>
-  </div></div></section>
-</div>
-
-<!-- REPORTS PAGE -->
-<div id="reports-page" class="page">
-  <div class="navbar-spacer"></div>
-  <div class="page-header"><div class="container"><h1>Reports & Insights</h1><p>Data-driven intelligence on African private markets</p></div></div>
-  <div class="container">
-    <div style="text-align: right; margin-bottom: 20px;"><button id="adminLoginBtn" class="btn btn-outline" style="font-size: 0.8rem;">🔒 Admin</button></div>
-    <div id="adminPanel" style="display: none;"><div style="display: flex; justify-content: flex-end; gap: 15px; margin-bottom: 20px;"><button id="adminDashboardBtn" class="btn btn-primary">📋 Admin Dashboard</button><button id="newReportBtn" class="btn btn-outline">📄 + Publish Report</button><button id="newInsightBtn" class="btn btn-outline">💡 + Publish Insight</button></div></div>
-    <div style="padding: 40px 0;"><h2>Featured Reports</h2><div class="reports-grid" id="reportsGrid"></div></div>
-    <div style="padding: 40px 0;"><h2>Quick Insights</h2><div class="insights-grid" id="insightsGrid"></div></div>
-    <div style="padding: 40px 0;"><div class="newsletter-box"><h3>Stay Informed</h3><div class="newsletter-form"><input type="email" id="newsletterEmail" placeholder="Enter your email"><button id="subscribeBtn" class="btn btn-primary">Subscribe</button></div></div></div>
-  </div>
-</div>
-
-<!-- PARTNER & INVEST PAGES -->
-<div id="partner-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Partner With Us</h1></div><div class="container" style="padding: 40px 0;"><div class="contact-card"><div class="contact-item"><strong>Email</strong><a href="mailto:partners@mlewisgroup.com">partners@mlewisgroup.com</a></div></div></div></div></div>
-<div id="invest-page" class="page"><div class="navbar-spacer"></div><div class="page-header"><div class="container"><h1>Invest With Us</h1></div><div class="container" style="padding: 40px 0;"><div class="contact-card"><div class="contact-item"><strong>Email</strong><a href="mailto:invest@mlewisgroup.com">invest@mlewisgroup.com</a></div></div></div></div></div>
+  <!-- OTHER PAGES (Placeholders) -->
+  <div id="about-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>About Us</h1></div></div>
+  <div id="divisions-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>Our Divisions</h1></div></div>
+  <div id="services-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>Our Services</h1></div></div>
+  <div id="contact-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>Contact Us</h1></div></div>
+  <div id="partner-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>Partner With Us</h1></div></div>
+  <div id="invest-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>Invest With Us</h1></div></div>
+  <div id="capital-partners-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>M. Lewis Capital Partners</h1></div></div>
+  <div id="afrileap-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>AfriLeap Capital</h1></div></div>
+  <div id="africarbon-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>AfriCarbon</h1></div></div>
+  <div id="esg-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>ESG Advisory</h1></div></div>
+  <div id="reports-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>Reports & Insights</h1></div></div>
+  <div id="ai-advisory-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>AI Advisory</h1></div></div>
+  <div id="basiwel-page" class="page"><div class="navbar-spacer"></div><div style="padding: 60px 0; text-align: center;"><h1>Basiwel Ventures</h1></div></div>
 
 </div>
 
-<!-- PRE-FOOTER -->
-<div class="pre-footer-section">
-  <div class="container">
-    <div class="pre-footer-grid">
-      <div class="pre-footer-item"><h4>M. Lewis Group</h4><a data-page="about">About Us</a><a data-page="divisions">Our Divisions</a><a data-page="contact">Contact</a></div>
-      <div class="pre-footer-item"><h4>Services</h4><a data-page="services">Capital Raising</a><a data-page="services">M&A Advisory</a><a data-page="services">Growth Equity</a></div>
-      <div class="pre-footer-item"><h4>Industries</h4><a data-page="investment-banking">Media & Content</a><a data-page="investment-banking">Technology & Software</a><a data-page="investment-banking">Energy & Power</a><a data-page="investment-banking">FinTech</a><a data-page="investment-banking">Local Services</a></div>
-      <div class="pre-footer-item"><h4>Insights</h4><a data-page="reports">Reports</a><a data-page="reports">Articles</a><a data-page="reports">Market Commentary</a></div>
-    </div>
-    <div class="pre-footer-bottom"><p>© 2026 M. Lewis Group — Boutique Finance & Investments. Africa-focused. Client-led. Digitally-enabled.</p></div>
-  </div>
-</div>
-
-<footer><div class="container">© 2026 M. Lewis Group — Investment Banking | Private Equity | Real Estate | Financial Education</div></footer>
+<footer>
+  <div class="container">© 2026 M. Lewis Group — Building the businesses that power Africa's next economy.</div>
+</footer>
 
 <div class="page-transition" id="pageTransition"></div>
 <div class="scroll-top" id="scrollTop">↑</div>
@@ -1218,153 +889,138 @@
   <button class="mobile-nav-item" data-page="divisions"><span>▣</span><span>Divisions</span></button>
   <button class="mobile-nav-item" data-page="services"><span>◎</span><span>Services</span></button>
   <button class="mobile-nav-item" data-page="contact"><span>✉</span><span>Contact</span></button>
-  </div>
-  <script>
-  // VIDEO CAROUSEL
+</div>
+
+<script>
+  // Video Carousel with dynamic text switching
   let currentSlide = 0;
   const videos = [video1, video2, video3, video4];
-  const slideTexts = [document.getElementById('slide1-text'), document.getElementById('slide2-text'), document.getElementById('slide3-text'), document.getElementById('slide4-text')];
+  const slideTexts = [
+    document.getElementById('slide1-text'),
+    document.getElementById('slide2-text'),
+    document.getElementById('slide3-text'),
+    document.getElementById('slide4-text')
+  ];
   const dots = document.querySelectorAll('.dot');
   let interval;
-  
+
   function showSlide(index) {
-    videos.forEach((v, i) => { v.style.opacity = i === index ? '1' : '0'; if (i === index) v.play(); else v.pause(); });
-    slideTexts.forEach((t, i) => { if (t) t.classList.toggle('active-slide-text', i === index); });
-    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    videos.forEach((video, i) => {
+      video.style.opacity = i === index ? '1' : '0';
+      if (i === index) video.play(); else video.pause();
+    });
+    slideTexts.forEach((text, i) => {
+      if (text) text.classList.toggle('active-slide-text', i === index);
+    });
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     currentSlide = index;
   }
-  function nextSlide() { showSlide((currentSlide + 1) % videos.length); }
-  if (dots.length) dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); clearInterval(interval); interval = setInterval(nextSlide, 7000); }));
+
+  function nextSlide() {
+    showSlide((currentSlide + 1) % videos.length);
+  }
+
+  if (dots.length) {
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        showSlide(i);
+        clearInterval(interval);
+        interval = setInterval(nextSlide, 7000);
+      });
+    });
+  }
+
   interval = setInterval(nextSlide, 7000);
 
-  // PAGE SWITCHING
+  // Page switching logic
   const pages = {
-    home: document.getElementById('home-page'), about: document.getElementById('about-page'), divisions: document.getElementById('divisions-page'),
-    services: document.getElementById('services-page'), contact: document.getElementById('contact-page'), partner: document.getElementById('partner-page'),
-    invest: document.getElementById('invest-page'), 'investment-banking': document.getElementById('investment-banking-page'),
-    'pe-vc': document.getElementById('pe-vc-page'), 'real-estate': document.getElementById('real-estate-page'),
-    'education': document.getElementById('education-page'), reports: document.getElementById('reports-page')
+    home: document.getElementById('home-page'),
+    about: document.getElementById('about-page'),
+    divisions: document.getElementById('divisions-page'),
+    services: document.getElementById('services-page'),
+    contact: document.getElementById('contact-page'),
+    partner: document.getElementById('partner-page'),
+    invest: document.getElementById('invest-page'),
+    'capital-partners': document.getElementById('capital-partners-page'),
+    'afrileap': document.getElementById('afrileap-page'),
+    'africarbon': document.getElementById('africarbon-page'),
+    'esg': document.getElementById('esg-page'),
+    'reports': document.getElementById('reports-page'),
+    'ai-advisory': document.getElementById('ai-advisory-page'),
+    'basiwel': document.getElementById('basiwel-page')
   };
+
   const transitionEl = document.getElementById('pageTransition');
   const footerBtns = document.querySelectorAll('.mobile-nav-item');
+  const scrollTop = document.getElementById('scrollTop');
   let current = 'home';
+
+  function updateActive(pId) {
+    footerBtns.forEach(btn => {
+      if (btn.getAttribute('data-page') === pId) {
+        btn.classList.add('active-footer');
+      } else {
+        btn.classList.remove('active-footer');
+      }
+    });
+  }
 
   function switchPage(pId) {
     if (current === pId || !pages[pId]) return;
     transitionEl.classList.add('active');
     setTimeout(() => {
-      Object.values(pages).forEach(p => { if (p) p.classList.remove('active'); });
+      Object.values(pages).forEach(p => {
+        if (p) p.classList.remove('active');
+      });
       pages[pId].classList.add('active');
       current = pId;
-      footerBtns.forEach(btn => { if (btn.getAttribute('data-page') === pId) btn.classList.add('active-footer'); else btn.classList.remove('active-footer'); });
+      updateActive(pId);
       window.scrollTo(0, 0);
-      setTimeout(() => transitionEl.classList.remove('active'), 100);
+      setTimeout(() => {
+        transitionEl.classList.remove('active');
+      }, 100);
     }, 300);
   }
 
+  // All navigation triggers
   document.querySelectorAll('[data-page]').forEach(trigger => {
-    trigger.addEventListener('click', function(e) { e.preventDefault(); const pid = this.getAttribute('data-page'); if (pid && pages[pid]) switchPage(pid); });
+    trigger.removeEventListener('click', trigger._clickHandler);
+    const handler = function(e) {
+      e.preventDefault();
+      const pageId = this.getAttribute('data-page');
+      if (pageId && pages[pageId]) switchPage(pageId);
+    };
+    trigger._clickHandler = handler;
+    trigger.addEventListener('click', handler);
   });
-  document.querySelectorAll('.service-card[data-division]').forEach(c => {
-    c.addEventListener('click', function() { const id = this.getAttribute('data-division'); if(id && pages[id]) switchPage(id); });
+
+  // Entity links click handler
+  document.querySelectorAll('.entity-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const pageId = this.getAttribute('data-page');
+      if (pageId && pages[pageId]) switchPage(pageId);
+    });
   });
+
+  // Back buttons handler
   document.querySelectorAll('.btn-back').forEach(b => {
-    b.addEventListener('click', function() { const t = this.getAttribute('data-back'); if(t && pages[t]) switchPage(t); });
+    b.addEventListener('click', function(e) {
+      e.preventDefault();
+      const t = this.getAttribute('data-back');
+      if (t && pages[t]) switchPage(t);
+    });
   });
 
-  // SCROLL TOP
-  const scrollTop = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => { if (scrollTop) scrollTop.classList.toggle('visible', window.scrollY > 300); });
-  if (scrollTop) scrollTop.addEventListener('click', () => window.scrollTo(0, 0));
-
-  // HELPERS
-  function showToast(msg) { let toast = document.querySelector('.toast'); if (!toast) { toast = document.createElement('div'); toast.className = 'toast'; document.body.appendChild(toast); } toast.textContent = msg; toast.style.display = 'block'; setTimeout(() => toast.style.display = 'none', 2000); }
-  function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, function(m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
-  function stripHtml(html) { if (!html) return ''; const temp = document.createElement('div'); temp.innerHTML = html; return temp.textContent || temp.innerText || ''; }
-
-  // ADMIN PASSWORD
-  const ADMIN_PASSWORD = 'Admin2026!';
-  const adminLoginBtn = document.getElementById('adminLoginBtn');
-  const passwordModal = document.createElement('div'); passwordModal.className = 'modal'; passwordModal.id = 'passwordModal'; passwordModal.innerHTML = `<div class="modal-content"><span class="modal-close-pwd">&times;</span><h3>Admin Access</h3><input type="password" id="adminPassword" placeholder="Enter password"><button id="verifyPasswordBtn" class="btn btn-primary" style="margin-top: 15px;">Verify</button><p id="pwdError" style="color:red;display:none;margin-top:10px;">Incorrect password</p></div>`;
-  document.body.appendChild(passwordModal);
-  const adminPanel = document.getElementById('adminPanel');
-  if (adminLoginBtn) adminLoginBtn.addEventListener('click', () => passwordModal.style.display = 'flex');
-  document.querySelector('.modal-close-pwd')?.addEventListener('click', () => passwordModal.style.display = 'none');
-  document.getElementById('verifyPasswordBtn')?.addEventListener('click', () => { if (document.getElementById('adminPassword').value === ADMIN_PASSWORD) { adminPanel.style.display = 'block'; passwordModal.style.display = 'none'; showToast('Admin access granted'); } else { document.getElementById('pwdError').style.display = 'block'; } });
-
-  // QUILL EDITORS
-  let reportTitleQuill, reportSummaryQuill, insightTitleQuill, insightSummaryQuill;
-  function initQuillEditors() {
-    if (document.getElementById('reportTitleEditor') && !reportTitleQuill) { reportTitleQuill = new Quill('#reportTitleEditor', { theme: 'snow', modules: { toolbar: [['bold', 'italic', 'underline']] } }); reportTitleQuill.on('text-change', () => document.getElementById('reportTitle').value = reportTitleQuill.root.innerHTML); }
-    if (document.getElementById('reportSummaryEditor') && !reportSummaryQuill) { reportSummaryQuill = new Quill('#reportSummaryEditor', { theme: 'snow', modules: { toolbar: [['bold', 'italic', 'underline'], ['clean']] } }); reportSummaryQuill.on('text-change', () => document.getElementById('reportSummary').value = reportSummaryQuill.root.innerHTML); }
-    if (document.getElementById('insightTitleEditor') && !insightTitleQuill) { insightTitleQuill = new Quill('#insightTitleEditor', { theme: 'snow', modules: { toolbar: [['bold', 'italic', 'underline']] } }); insightTitleQuill.on('text-change', () => document.getElementById('insightTitle').value = insightTitleQuill.root.innerHTML); }
-    if (document.getElementById('insightSummaryEditor') && !insightSummaryQuill) { insightSummaryQuill = new Quill('#insightSummaryEditor', { theme: 'snow', modules: { toolbar: [['bold', 'italic', 'underline'], ['clean']] } }); insightSummaryQuill.on('text-change', () => document.getElementById('insightSummary').value = insightSummaryQuill.root.innerHTML); }
+  window.addEventListener('scroll', () => {
+    if (scrollTop) scrollTop.classList.toggle('visible', window.scrollY > 300);
+  });
+  if (scrollTop) {
+    scrollTop.addEventListener('click', () => window.scrollTo(0, 0));
   }
 
-  // CAROUSEL
-  const track = document.querySelector('.carousel-track');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
-  const dotsContainer = document.querySelector('.carousel-dots-services');
-  let carouselIndex = 0;
-  const totalCards = 3;
-  function updateCarousel() { if (track && track.children[0]) { const cardWidth = track.children[0].offsetWidth + 24; track.style.transform = `translateX(-${carouselIndex * cardWidth}px)`; } }
-  function updateDots() { if (dotsContainer) { dotsContainer.innerHTML = ''; for (let i = 0; i < totalCards; i++) { const dot = document.createElement('div'); dot.classList.add('dot-service'); if (i === carouselIndex) dot.classList.add('active'); dot.addEventListener('click', () => { carouselIndex = i; updateCarousel(); updateDots(); }); dotsContainer.appendChild(dot); } } }
-  prevBtn?.addEventListener('click', () => { carouselIndex = (carouselIndex > 0) ? carouselIndex - 1 : totalCards - 1; updateCarousel(); updateDots(); });
-  nextBtn?.addEventListener('click', () => { carouselIndex = (carouselIndex < totalCards - 1) ? carouselIndex + 1 : 0; updateCarousel(); updateDots(); });
-  setTimeout(() => { updateCarousel(); updateDots(); }, 100);
-
-  // STORAGE KEYS
-  const STORAGE_REPORTS = 'mlewis_reports';
-  const STORAGE_INSIGHTS = 'mlewis_insights';
-
-  function loadSavedReports() { const saved = localStorage.getItem(STORAGE_REPORTS); if (saved) { const reports = JSON.parse(saved); reports.forEach(report => addReportToGrid(report, false)); } }
-  function loadSavedInsights() { const saved = localStorage.getItem(STORAGE_INSIGHTS); if (saved) { const insights = JSON.parse(saved); insights.forEach(insight => addInsightToGrid(insight, false)); } }
-  function saveReports() { const reports = []; document.querySelectorAll('#reportsGrid .report-card').forEach(el => { reports.push({ id: el.getAttribute('data-report-id'), image: el.querySelector('.report-image img')?.src || '', title: el.querySelector('.report-title')?.innerHTML || '', summary: el.querySelector('.report-summary')?.innerHTML || '', date: el.querySelector('.report-date')?.innerText || '', readTime: el.querySelector('.report-read-time')?.innerText || '', link: el.querySelector('.report-link')?.getAttribute('href') || '#' }); }); localStorage.setItem(STORAGE_REPORTS, JSON.stringify(reports)); }
-  function saveInsights() { const insights = []; document.querySelectorAll('#insightsGrid .insight-card').forEach(el => { insights.push({ id: el.getAttribute('data-insight-id'), image: el.querySelector('.insight-image img')?.src || '', category: el.querySelector('.insight-category')?.innerText || '', title: el.querySelector('.insight-title')?.innerHTML || '', summary: el.querySelector('.insight-summary')?.innerHTML || '', link: el.querySelector('.insight-actions a')?.getAttribute('href') || '#' }); }); localStorage.setItem(STORAGE_INSIGHTS, JSON.stringify(insights)); }
-
-  function addReportToGrid(reportData, saveToStorage = true) {
-    const reportsGrid = document.getElementById('reportsGrid'); if (!reportsGrid) return;
-    const newReport = document.createElement('div'); newReport.className = 'report-card'; newReport.setAttribute('data-report-id', reportData.id || Date.now().toString());
-    newReport.innerHTML = `<div class="report-image"><img src="${reportData.image}" alt="Report"></div><div class="report-title">${reportData.title}</div><div class="report-summary">${reportData.summary}</div><div class="report-meta"><span class="report-date">${escapeHtml(reportData.date)}</span><span class="report-read-time">${escapeHtml(reportData.readTime)}</span></div><div class="report-actions"><a href="${reportData.link}" class="report-link" target="_blank">Download PDF →</a><button class="share-btn" data-title="${escapeHtml(stripHtml(reportData.title))}" data-summary="${escapeHtml(stripHtml(reportData.summary).substring(0, 200))}">📤 Share</button></div>`;
-    reportsGrid.appendChild(newReport); if (saveToStorage) saveReports();
-  }
-
-  function addInsightToGrid(insightData, saveToStorage = true) {
-    const insightsGrid = document.getElementById('insightsGrid'); if (!insightsGrid) return;
-    const newInsight = document.createElement('div'); newInsight.className = 'insight-card'; newInsight.setAttribute('data-insight-id', insightData.id || Date.now().toString());
-    newInsight.innerHTML = `<div class="insight-image"><img src="${insightData.image}" alt="Insight"></div><span class="insight-category">${escapeHtml(insightData.category)}</span><div class="insight-title">${insightData.title}</div><div class="insight-summary">${insightData.summary}</div><div class="insight-actions"><a href="${insightData.link}" target="_blank">Read More →</a><button class="share-insight-btn" data-title="${escapeHtml(stripHtml(insightData.title))}" data-summary="${escapeHtml(stripHtml(insightData.summary).substring(0, 200))}">📤 Share</button></div>`;
-    insightsGrid.appendChild(newInsight); if (saveToStorage) saveInsights();
-  }
-
-  function shareToLinkedIn(title, summary) { const url = encodeURIComponent(window.location.href); const text = encodeURIComponent(`${title}: ${summary.substring(0, 200)}`); window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&summary=${text}`, '_blank'); }
-  function shareToTwitter(title, summary) { const url = encodeURIComponent(window.location.href); const text = encodeURIComponent(`${title} - ${summary.substring(0, 200)}`); window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank'); }
-  function showShareOptions(title, summary) { const platform = confirm('Share to LinkedIn? OK for LinkedIn, Cancel for Twitter.'); if (platform) shareToLinkedIn(title, summary); else shareToTwitter(title, summary); }
-
-  function attachShareButtons() {
-    document.querySelectorAll('.share-btn, .share-insight-btn').forEach(btn => { btn.removeEventListener('click', btn._listener); btn._listener = (e) => { e.stopPropagation(); showShareOptions(btn.getAttribute('data-title'), btn.getAttribute('data-summary')); }; btn.addEventListener('click', btn._listener); });
-  }
-
-  document.getElementById('subscribeBtn')?.addEventListener('click', () => { const email = document.getElementById('newsletterEmail')?.value; if (email && email.includes('@')) { showToast(`Thanks! ${email} added to our mailing list.`); document.getElementById('newsletterEmail').value = ''; } else showToast('Please enter a valid email.'); });
-
-  const newReportBtn = document.getElementById('newReportBtn'); const newInsightBtn = document.getElementById('newInsightBtn');
-  const reportModal = document.createElement('div'); reportModal.className = 'modal'; reportModal.id = 'publishModal'; reportModal.innerHTML = `<div class="modal-content"><span class="modal-close">&times;</span><h3>Publish New Report</h3><form id="reportForm"><div class="form-group"><label>Image</label><input type="file" id="reportImageFile" accept="image/*"></div><div class="form-group"><label>Title</label><div id="reportTitleEditor" style="height:100px;"></div><input type="hidden" id="reportTitle"></div><div class="form-group"><label>Summary</label><div id="reportSummaryEditor" style="height:150px;"></div><input type="hidden" id="reportSummary"></div><div class="form-group"><label>Date</label><input type="text" id="reportDate" placeholder="March 2026"></div><div class="form-group"><label>Read Time</label><input type="text" id="reportReadTime" placeholder="5 min read"></div><div class="form-group"><label>PDF Link</label><input type="url" id="reportLink"></div><button type="submit" class="btn btn-primary">Publish</button></form></div>`;
-  document.body.appendChild(reportModal);
-  const insightModal = document.createElement('div'); insightModal.className = 'modal'; insightModal.id = 'publishInsightModal'; insightModal.innerHTML = `<div class="modal-content"><span class="modal-close-insight">&times;</span><h3>Publish New Insight</h3><form id="insightForm"><div class="form-group"><label>Image</label><input type="file" id="insightImageFile" accept="image/*"></div><div class="form-group"><label>Category</label><select id="insightCategory"><option>Articles</option><option>Market Commentary</option><option>Investor Insights</option></select></div><div class="form-group"><label>Title</label><div id="insightTitleEditor" style="height:100px;"></div><input type="hidden" id="insightTitle"></div><div class="form-group"><label>Summary</label><div id="insightSummaryEditor" style="height:150px;"></div><input type="hidden" id="insightSummary"></div><div class="form-group"><label>Link</label><input type="url" id="insightLink"></div><button type="submit" class="btn btn-primary">Publish</button></form></div>`;
-  document.body.appendChild(insightModal);
-
-  if (newReportBtn) newReportBtn.addEventListener('click', () => { initQuillEditors(); reportModal.style.display = 'flex'; });
-  if (newInsightBtn) newInsightBtn.addEventListener('click', () => { initQuillEditors(); insightModal.style.display = 'flex'; });
-  document.querySelectorAll('.modal-close, .modal-close-insight').forEach(c => c?.addEventListener('click', function() { this.closest('.modal').style.display = 'none'; }));
-
-  let currentReportImage = '', currentInsightImage = '';
-  document.getElementById('reportImageFile')?.addEventListener('change', (e) => { const f = e.target.files[0]; if (f) { const r = new FileReader(); r.onload = (ev) => { currentReportImage = ev.target.result; }; r.readAsDataURL(f); } });
-  document.getElementById('insightImageFile')?.addEventListener('change', (e) => { const f = e.target.files[0]; if (f) { const r = new FileReader(); r.onload = (ev) => { currentInsightImage = ev.target.result; }; r.readAsDataURL(f); } });
-
-  document.getElementById('reportForm')?.addEventListener('submit', (e) => { e.preventDefault(); addReportToGrid({ id: Date.now().toString(), image: currentReportImage, title: document.getElementById('reportTitle').value, summary: document.getElementById('reportSummary').value, date: document.getElementById('reportDate').value || new Date().toLocaleDateString(), readTime: document.getElementById('reportReadTime').value || '5 min read', link: document.getElementById('reportLink').value || '#' }); reportModal.style.display = 'none'; showToast('Report published'); });
-  document.getElementById('insightForm')?.addEventListener('submit', (e) => { e.preventDefault(); addInsightToGrid({ id: Date.now().toString(), image: currentInsightImage, category: document.getElementById('insightCategory').value, title: document.getElementById('insightTitle').value, summary: document.getElementById('insightSummary').value, link: document.getElementById('insightLink').value || '#' }); insightModal.style.display = 'none'; showToast('Insight published'); });
-
-  loadSavedReports(); loadSavedInsights(); attachShareButtons(); initQuillEditors();
+  updateActive('home');
 </script>
+
 </body>
 </html>
