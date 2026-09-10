@@ -2560,24 +2560,24 @@ We invest where strategic capital, operating expertise and connectivity can stre
 
   interval = setInterval(nextSlide, 7000);
 
-  // Page switching logic
-  const pages = {
-    home: document.getElementById('home-page'),
-    about: document.getElementById('about-page'),
-    divisions: document.getElementById('divisions-page'),
-    services: document.getElementById('services-page'),
-    contact: document.getElementById('contact-page'),
-    partner: document.getElementById('partner-page'),
-    invest: document.getElementById('invest-page'),
-    'capital-partners': document.getElementById('capital-partners-page'),
-    'afrileap': document.getElementById('afrileap-page'),
-    'africarbon': document.getElementById('africarbon-page'),
-    'esg': document.getElementById('esg-page'),
-    'reports': document.getElementById('reports-page'),
-    'ai-advisory': document.getElementById('ai-advisory-page'),
-    'basiwel': document.getElementById('basiwel-page'),
-    'basiwel-how': document.getElementById('basiwel-how-page')
-
+ // Page switching logic
+const pages = {
+  home: document.getElementById('home-page'),
+  about: document.getElementById('about-page'),
+  divisions: document.getElementById('divisions-page'),
+  services: document.getElementById('services-page'),
+  contact: document.getElementById('contact-page'),
+  partner: document.getElementById('partner-page'),
+  invest: document.getElementById('invest-page'),
+  'capital-partners': document.getElementById('capital-partners-page'),
+  'afrileap': document.getElementById('afrileap-page'),
+  'africarbon': document.getElementById('africarbon-page'),
+  'esg': document.getElementById('esg-page'),
+  'reports': document.getElementById('reports-page'),
+  'ai-advisory': document.getElementById('ai-advisory-page'),
+  'basiwel': document.getElementById('basiwel-page'),
+  'basiwel-how': document.getElementById('basiwel-how-page')
+};
   const transitionEl = document.getElementById('pageTransition');
   const footerBtns = document.querySelectorAll('.mobile-nav-item');
   const scrollTop = document.getElementById('scrollTop');
