@@ -646,6 +646,88 @@
         bottom: 80px;
       }
     }
+    /* FLOATING WHATSAPP BUTTON */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 999;
+  background: #25D366;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  animation: whatsapp-pulse 2s infinite;
+}
+
+.floating-whatsapp:hover {
+  background: #20BA5A;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+  color: white;
+}
+
+.floating-whatsapp svg {
+  flex-shrink: 0;
+}
+
+.floating-whatsapp-text {
+  white-space: nowrap;
+}
+
+/* Pulse animation */
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 900px) {
+  .floating-whatsapp {
+    bottom: 95px;
+    right: 15px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile - Icon only, no text */
+@media (max-width: 600px) {
+  .floating-whatsapp {
+    bottom: 90px;
+    right: 12px;
+    padding: 14px;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    justify-content: center;
+  }
+  .floating-whatsapp-text {
+    display: none;
+  }
+}
+
+/* Desktop - Position above scroll-top */
+@media (min-width: 901px) {
+  .floating-whatsapp {
+    bottom: 100px;
+    right: 20px;
+  }
+  }
   </style>
 </head>
 <body>
@@ -791,6 +873,125 @@
       </div>
     </div>
 
+    <!-- ENGAGEMENT & PRICING SECTION -->
+<div class="detail-section" style="padding: 60px 0; background: #f8f9fa;">
+  <div class="container">
+    
+    <!-- HEADLINE -->
+    <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 50px;">
+      <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); color: #07152d; margin-bottom: 15px;">"We build, finance and scale African growth-ready companies."</h2>
+      <p style="color: #4a5568; font-size: 1.05rem; line-height: 1.7;">Wherever you are in your journey, you can engage us at any stage.</p>
+    </div>
+
+    <!-- HOW YOU CAN ENGAGE US -->
+    <div style="max-width: 900px; margin: 0 auto; margin-bottom: 60px;">
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #07152d; text-align: center; margin-bottom: 30px;">How You Can Engage Us</h3>
+      <p style="text-align: center; color: #4a5568; margin-bottom: 35px;">Enter at any stage of the journey:</p>
+      
+      <!-- Journey Path -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
+        
+        <div style="background: white; border-radius: 40px; padding: 14px 35px; box-shadow: 0 3px 12px rgba(0,0,0,0.06); border-left: 4px solid #c59b53;">
+          <span style="color: #07152d; font-weight: 600; font-size: 1rem;">Strategy</span>
+        </div>
+        <div style="font-size: 1.5rem; color: #c59b53; line-height: 1; margin: 8px 0;">↓</div>
+        
+        <div style="background: white; border-radius: 40px; padding: 14px 35px; box-shadow: 0 3px 12px rgba(0,0,0,0.06); border-left: 4px solid #c59b53;">
+          <span style="color: #07152d; font-weight: 600; font-size: 1rem;">Business Design</span>
+        </div>
+        <div style="font-size: 1.5rem; color: #c59b53; line-height: 1; margin: 8px 0;">↓</div>
+        
+        <div style="background: white; border-radius: 40px; padding: 14px 35px; box-shadow: 0 3px 12px rgba(0,0,0,0.06); border-left: 4px solid #c59b53;">
+          <span style="color: #07152d; font-weight: 600; font-size: 1rem;">Financial Structuring</span>
+        </div>
+        <div style="font-size: 1.5rem; color: #c59b53; line-height: 1; margin: 8px 0;">↓</div>
+        
+        <div style="background: white; border-radius: 40px; padding: 14px 35px; box-shadow: 0 3px 12px rgba(0,0,0,0.06); border-left: 4px solid #c59b53;">
+          <span style="color: #07152d; font-weight: 600; font-size: 1rem;">Investment Readiness</span>
+        </div>
+        <div style="font-size: 1.5rem; color: #c59b53; line-height: 1; margin: 8px 0;">↓</div>
+        
+        <div style="background: linear-gradient(135deg, #07152d, #0d2348); border-radius: 40px; padding: 14px 35px; box-shadow: 0 5px 18px rgba(7,21,45,0.2);">
+          <span style="color: white; font-weight: 600; font-size: 1rem;">Capital</span>
+        </div>
+        <div style="font-size: 1.5rem; color: #c59b53; line-height: 1; margin: 8px 0;">↓</div>
+        
+        <div style="background: white; border-radius: 40px; padding: 14px 35px; box-shadow: 0 3px 12px rgba(0,0,0,0.06); border-left: 4px solid #c59b53;">
+          <span style="color: #07152d; font-weight: 600; font-size: 1rem;">Growth</span>
+        </div>
+        <div style="font-size: 1.5rem; color: #c59b53; line-height: 1; margin: 8px 0;">↓</div>
+        
+        <div style="background: white; border-radius: 40px; padding: 14px 35px; box-shadow: 0 3px 12px rgba(0,0,0,0.06); border-left: 4px solid #c59b53;">
+          <span style="color: #07152d; font-weight: 600; font-size: 1rem;">Regional Expansion</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- WHAT WE CHARGE -->
+    <div style="max-width: 900px; margin: 0 auto; margin-bottom: 60px;">
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #07152d; text-align: center; margin-bottom: 30px;">What We Charge</h3>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid #c59b53;">
+          <h4 style="color: #07152d; font-size: 1.15rem; margin-bottom: 12px;">Fixed-Fee Mandate</h4>
+          <p style="color: #4a5568; line-height: 1.7; font-size: 0.95rem; margin-bottom: 10px;">A transparent engagement fee based on the scope and depth of work required.</p>
+          <p style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #c59b53;">$750 – $5,000</p>
+          <p style="color: #8a9bb5; font-size: 0.85rem; margin-top: 5px;">Depending on scope and depth</p>
+        </div>
+        
+        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid #07152d;">
+          <h4 style="color: #07152d; font-size: 1.15rem; margin-bottom: 12px;">Fixed + Success Fee</h4>
+          <p style="color: #4a5568; line-height: 1.7; font-size: 0.95rem; margin-bottom: 10px;">A combined structure aligning our interests with your outcomes.</p>
+          <p style="color: #07152d; font-weight: 600; font-size: 1rem;">Fixed fee + success fee or investment participation component, structured appropriately.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PACKAGES TABLE -->
+    <div style="max-width: 900px; margin: 0 auto; margin-bottom: 30px;">
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #07152d; text-align: center; margin-bottom: 30px;">Our Packages</h3>
+      
+      <div style="overflow-x: auto; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+        <table style="width: 100%; border-collapse: collapse; background: white; min-width: 500px;">
+          <thead>
+            <tr style="background: #07152d; color: white;">
+              <th style="padding: 18px 25px; text-align: left; font-weight: 600; font-size: 0.95rem;">Service</th>
+              <th style="padding: 18px 25px; text-align: left; font-weight: 600; font-size: 0.95rem;">What Clients Get</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 18px 25px; font-weight: 600; color: #07152d;">Diagnostic</td>
+              <td style="padding: 18px 25px; color: #4a5568; line-height: 1.6;">Business + financial + market assessment</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+              <td style="padding: 18px 25px; font-weight: 600; color: #07152d;">Investment Readiness</td>
+              <td style="padding: 18px 25px; color: #4a5568; line-height: 1.6;">Full strategy, model, deck, capital plan</td>
+            </tr>
+            <tr>
+              <td style="padding: 18px 25px; font-weight: 600; color: #07152d;">Build &amp; Scale</td>
+              <td style="padding: 18px 25px; color: #4a5568; line-height: 1.6;">Ongoing strategic advisory + capital raising + expansion</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PRICING NOTE -->
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="background: white; border-radius: 16px; padding: 25px; border-left: 4px solid #c59b53; box-shadow: 0 3px 12px rgba(0,0,0,0.04);">
+        <p style="color: #4a5568; line-height: 1.8; font-size: 0.95rem; margin: 0;"><strong style="color: #07152d;">Note:</strong> The exact pricing depends heavily on the business team's credibility, workload, and country market understanding — including the client's funding size and ability to pay.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="max-width: 600px; margin: 40px auto 0; text-align: center;">
+      <a href="#" class="btn btn-primary" data-page="contact">Start the Conversation →</a>
+    </div>
+
+  </div>
+</div>
     <!-- OUR APPROACH -->
     <div class="detail-section">
       <div class="container">
@@ -1753,7 +1954,17 @@
   <button class="mobile-nav-item" data-page="services"><span>◎</span><span>Services</span></button>
   <button class="mobile-nav-item" data-page="contact"><span>✉</span><span>Contact</span></button>
 </div>
-
+  <!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/260771196634?text=Hello%20M.%20Lewis%20Group%2C%20I%27d%20like%20to%20discuss%20a%20potential%20engagement." 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="floating-whatsapp"
+   aria-label="Chat with us on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+  <span class="floating-whatsapp-text">Chat with us</span>
+</a>
 <script>
   // Video Carousel with dynamic text switching
   let currentSlide = 0;
@@ -1883,6 +2094,7 @@
   }
 
   updateActive('home');
+
 </script>
 
 </body>
