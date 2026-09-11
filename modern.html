@@ -728,158 +728,7 @@
     right: 20px;
   }
   }
-    /* OUR BUSINESSES CAROUSEL */
-.biz-track {
-  display: flex;
-  gap: 28px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 10px 5px 30px;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.biz-track::-webkit-scrollbar { display: none; }
 
-.biz-card {
-  flex: 0 0 calc(33.333% - 19px);
-  min-width: 320px;
-  scroll-snap-align: start;
-  background: white;
-  border-radius: 24px;
-  padding: 40px 34px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-  border-top: 5px solid #c59b53;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-.biz-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-}
-
-.biz-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #07152d;
-  letter-spacing: -0.5px;
-  margin-bottom: 6px;
-}
-
-.biz-sublabel {
-  color: #8a9bb5;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-.biz-role {
-  color: #c59b53;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.biz-description {
-  color: #4a5568;
-  font-size: 0.92rem;
-  line-height: 1.75;
-  margin-bottom: 22px;
-}
-
-.biz-activities-label {
-  color: #07152d;
-  font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.5;
-  margin-bottom: 14px;
-  font-style: italic;
-}
-
-.biz-activities {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.biz-activities li {
-  color: #4a5568;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  padding: 5px 0 5px 22px;
-  position: relative;
-}
-.biz-activities li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: #c59b53;
-  font-weight: bold;
-}
-
-.biz-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: white;
-  border: 1px solid rgba(0,0,0,0.08);
-  color: #07152d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-}
-.biz-arrow:hover {
-  background: #07152d;
-  color: white;
-  border-color: #07152d;
-  transform: translateY(-50%) scale(1.08);
-}
-.biz-arrow-left { left: -22px; }
-.biz-arrow-right { right: -22px; }
-
-.biz-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-.biz-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(7,21,45,0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.biz-dot.active {
-  background: #c59b53;
-  width: 28px;
-  border-radius: 10px;
-}
-
-@media (max-width: 1024px) {
-  .biz-card { flex: 0 0 calc(50% - 14px); }
-}
-@media (max-width: 640px) {
-  .biz-card { flex: 0 0 85%; min-width: 280px; padding: 32px 26px; }
-  .biz-brand { font-size: 1.25rem; }
-  .biz-arrow { width: 40px; height: 40px; }
-  .biz-arrow-left { left: -10px; }
-  .biz-arrow-right { right: -10px; }
-    }
   </style>
 </head>
 <body>
@@ -977,7 +826,7 @@
       </div>
     </div>
 
-       <!-- INTRODUCTION / WHO WE ARE -->
+   <!-- INTRODUCTION / WHO WE ARE -->
 <div class="detail-section">
   <div class="container">
     <div style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -993,83 +842,6 @@
   </div>
 </div>
 
-<!-- OUR BUSINESSES CAROUSEL SECTION -->
-<div class="detail-section" style="padding: 70px 0; background: #fafaf8; overflow: hidden;">
-  <div class="container">
-    
-    <div style="text-align: center; margin-bottom: 55px;">
-      <span style="color: #c59b53; text-transform: uppercase; letter-spacing: 3px; font-size: 12px; font-weight: 700;">Our Businesses</span>
-      <h3 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #07152d; margin-top: 14px;">A M. LEWIS GROUP Company</h3>
-      <p style="color: #4a5568; font-size: 1rem; max-width: 600px; margin: 15px auto 0;">Four integrated platforms working together across Africa's productive economy.</p>
-    </div>
-
-    <div class="biz-track">
-
-      <div class="biz-card">
-        <div class="biz-brand">M. LEWIS PARTNERS</div>
-        <div class="biz-sublabel">A M. LEWIS GROUP company</div>
-        <div class="biz-role">Boutique Investment Banking &amp; Corporate Finance Advisory</div>
-        <p class="biz-description">M. Lewis Partners is the boutique investment banking and corporate finance advisory business of M. LEWIS GROUP, advising businesses, entrepreneurs, investors and institutions on growth, capital raising transactions, capital and strategic financial decisions.</p>
-        <div class="biz-activities-label">With Investment Banking and Corporate Finance at its core, potential activities could eventually include:</div>
-        <ul class="biz-activities">
-          <li>Corporate finance</li>
-          <li>Strategic advisory</li>
-          <li>M&amp;A advisory</li>
-          <li>Capital raising</li>
-          <li>Financial modelling and valuation</li>
-          <li>Transaction structuring</li>
-          <li>Private capital advisory</li>
-        </ul>
-      </div>
-
-      <div class="biz-card">
-        <div class="biz-brand">M. LEWIS CAPITAL PARTNERS</div>
-        <div class="biz-sublabel">A M. LEWIS GROUP company</div>
-        <div class="biz-role">Family &amp; Private Capital</div>
-        <p class="biz-description">M. Lewis Capital Partners is the family-office and private equity–style investment platform of M. LEWIS GROUP, connecting family offices, private investors and investment opportunities across selected private-market opportunities.</p>
-        <div class="biz-activities-label">We're targeting family offices and private investors, and potentially focus on:</div>
-        <ul class="biz-activities">
-          <li>Private equity investments</li>
-          <li>Investment opportunities</li>
-          <li>Family-office relationships</li>
-          <li>Co-investments</li>
-        </ul>
-      </div>
-
-      <div class="biz-card">
-        <div class="biz-brand">BASIWEL VENTURES</div>
-        <div class="biz-sublabel">A M. LEWIS GROUP company</div>
-        <div class="biz-role">Venture Building &amp; Early-Stage Investment</div>
-        <p class="biz-description">Basiwel Ventures is the venture-building and early-stage investment platform of M. LEWIS GROUP, focused on building and backing high-potential businesses that can strengthen Africa's productive economy.</p>
-        <div class="biz-activities-label">We pursue two complementary pathways and focus on:</div>
-        <ul class="biz-activities">
-          <li>Venture creation</li>
-          <li>Venture building</li>
-          <li>Early-stage investment</li>
-          <li>Hands-on operating support</li>
-          <li>Market validation &amp; investor readiness</li>
-        </ul>
-      </div>
-
-      <div class="biz-card">
-        <div class="biz-brand">AFRILEAP CAPITAL</div>
-        <div class="biz-sublabel">A M. LEWIS GROUP company</div>
-        <div class="biz-role">African Private Investment Platform</div>
-        <p class="biz-description">AfriLeap Capital is the African private investment platform of M. LEWIS GROUP, deploying capital into exceptional African growth-ready businesses and building long-term value through private investment and ownership.</p>
-        <div class="biz-activities-label">Our activities and focus areas include:</div>
-        <ul class="biz-activities">
-          <li>Growth capital</li>
-          <li>Private equity transactions</li>
-          <li>Direct investments</li>
-          <li>Co-investments</li>
-          <li>Portfolio value creation</li>
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-</div>
 <!-- CONTINUATION: INVESTMENT PHILOSOPHY -->
 <div class="detail-section" style="padding: 60px 0 70px;">
   <div class="container">
@@ -3152,43 +2924,6 @@ const pages = {
 
   updateActive('home');
   
-(function() {
-  const bizTrack = document.getElementById('businessCarousel');
-  const bizDotsContainer = document.getElementById('businessDots');
-  if (!bizTrack || !bizDotsContainer) return;
-
-  function updateBizDots() {
-    const cards = bizTrack.querySelectorAll('.biz-card');
-    if (!cards.length) return;
-    const cardWidth = cards[0].offsetWidth + 28;
-    const index = Math.round(bizTrack.scrollLeft / cardWidth);
-    bizDotsContainer.innerHTML = '';
-    cards.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'biz-dot' + (i === index ? ' active' : '');
-      dot.addEventListener('click', () => {
-        bizTrack.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
-      });
-      bizDotsContainer.appendChild(dot);
-    });
-  }
-
-  window.scrollBusinesses = function(direction) {
-    const cards = bizTrack.querySelectorAll('.biz-card');
-    if (!cards.length) return;
-    const cardWidth = cards[0].offsetWidth + 28;
-    bizTrack.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-  };
-
-  bizTrack.addEventListener('scroll', () => {
-    clearTimeout(window._bizScrollTimer);
-    window._bizScrollTimer = setTimeout(updateBizDots, 100);
-  });
-
-  window.addEventListener('load', updateBizDots);
-  window.addEventListener('resize', updateBizDots);
-  updateBizDots();
-})();
 </script>
 
 </body>
