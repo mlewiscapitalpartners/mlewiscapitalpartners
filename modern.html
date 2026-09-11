@@ -1031,7 +1031,7 @@
             <li>Private capital advisory</li>
           </ul>
           <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(0,0,0,0.06);">
-            <a href="javascript:void(0)" onclick="event.stopPropagation(); switchPage('capital-partners');" class="btn btn-outline" style="padding: 11px 26px; font-size: 0.85rem;">Learn More →</a>
+            <a href="#" class="btn btn-outline" data-page="capital-partners" style="padding: 11px 26px; font-size: 0.85rem;">Learn More →</a>
           </div>
         </div>
 
@@ -1048,7 +1048,7 @@
             <li>Co-investments</li>
           </ul>
           <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(0,0,0,0.06);">
-            <a href="javascript:void(0)" onclick="event.stopPropagation(); switchPage('capital-partners');" class="btn btn-outline" style="padding: 11px 26px; font-size: 0.85rem;">Learn More →</a>
+            <a href="#" class="btn btn-outline" data-page="capital-partners" style="padding: 11px 26px; font-size: 0.85rem;">Learn More →</a>
           </div>
         </div>
 
@@ -1066,7 +1066,7 @@
             <li>Market validation &amp; investor readiness</li>
           </ul>
           <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(0,0,0,0.06);">
-            <a href="javascript:void(0)" onclick="event.stopPropagation(); switchPage('basiwel');" class="btn btn-outline" style="padding: 11px 26px; font-size: 0.85rem;">Learn More →</a>
+            <a href="#" class="btn btn-outline" data-page="basiwel" style="padding: 11px 26px; font-size: 0.85rem;">Learn More →</a>
           </div>
         </div>
 
@@ -1084,7 +1084,7 @@
             <li>Portfolio value creation</li>
           </ul>
           <div style="margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(0,0,0,0.06);">
-            <a href="javascript:void(0)" onclick="event.stopPropagation(); switchPage('afrileap');" class="btn btn-outline" style="padding: 11px 26px; font-size: 0.85rem;">Learn More →</a>
+            <a href="#" class="btn btn-outline" data-page="afrileap" style="padding: 11px 26px; font-size: 0.85rem;">Learn More →</a>
           </div>
         </div>
 
@@ -3177,23 +3177,16 @@ const pages = {
 
   updateActive('home');
   
-// ============================================
-// OUR BUSINESSES CAROUSEL — ISOLATED & SAFE
-// ============================================
 (function() {
   const bizTrack = document.getElementById('businessCarousel');
   const bizDotsContainer = document.getElementById('businessDots');
-
-  // Exit quietly if carousel is not on this page
   if (!bizTrack || !bizDotsContainer) return;
 
   function updateBizDots() {
     const cards = bizTrack.querySelectorAll('.biz-card');
     if (!cards.length) return;
-
     const cardWidth = cards[0].offsetWidth + 28;
     const index = Math.round(bizTrack.scrollLeft / cardWidth);
-
     bizDotsContainer.innerHTML = '';
     cards.forEach((_, i) => {
       const dot = document.createElement('div');
@@ -3205,28 +3198,20 @@ const pages = {
     });
   }
 
-  function scrollBusinesses(direction) {
+  window.scrollBusinesses = function(direction) {
     const cards = bizTrack.querySelectorAll('.biz-card');
     if (!cards.length) return;
-
     const cardWidth = cards[0].offsetWidth + 28;
     bizTrack.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-  }
+  };
 
-  // Expose globally so onclick="scrollBusinesses()" works
-  window.scrollBusinesses = scrollBusinesses;
-
-  // Update dots while scrolling
   bizTrack.addEventListener('scroll', () => {
     clearTimeout(window._bizScrollTimer);
     window._bizScrollTimer = setTimeout(updateBizDots, 100);
   });
 
-  // Initial dots and on resize
   window.addEventListener('load', updateBizDots);
   window.addEventListener('resize', updateBizDots);
-
-  // Also run immediately in case 'load' has already fired
   updateBizDots();
 })();
 </script>
