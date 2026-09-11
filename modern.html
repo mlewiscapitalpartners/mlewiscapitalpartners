@@ -3177,39 +3177,58 @@ const pages = {
 
   updateActive('home');
   
-const bizTrack = document.getElementById('businessCarousel');
-const bizDotsContainer = document.getElementById('businessDots');
+// ============================================
+// OUR BUSINESSES CAROUSEL — ISOLATED & SAFE
+// ============================================
+(function() {
+  const bizTrack = document.getElementById('businessCarousel');
+  const bizDotsContainer = document.getElementById('businessDots');
 
-function updateBizDots() {
-  const cards = bizTrack.querySelectorAll('.biz-card');
-  const cardWidth = cards[0].offsetWidth + 28;
-  const index = Math.round(bizTrack.scrollLeft / cardWidth);
-  
-  bizDotsContainer.innerHTML = '';
-  cards.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'biz-dot' + (i === index ? ' active' : '');
-    dot.onclick = () => {
-      bizTrack.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
-    };
-    bizDotsContainer.appendChild(dot);
+  // Exit quietly if carousel is not on this page
+  if (!bizTrack || !bizDotsContainer) return;
+
+  function updateBizDots() {
+    const cards = bizTrack.querySelectorAll('.biz-card');
+    if (!cards.length) return;
+
+    const cardWidth = cards[0].offsetWidth + 28;
+    const index = Math.round(bizTrack.scrollLeft / cardWidth);
+
+    bizDotsContainer.innerHTML = '';
+    cards.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'biz-dot' + (i === index ? ' active' : '');
+      dot.addEventListener('click', () => {
+        bizTrack.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+      });
+      bizDotsContainer.appendChild(dot);
+    });
+  }
+
+  function scrollBusinesses(direction) {
+    const cards = bizTrack.querySelectorAll('.biz-card');
+    if (!cards.length) return;
+
+    const cardWidth = cards[0].offsetWidth + 28;
+    bizTrack.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+  }
+
+  // Expose globally so onclick="scrollBusinesses()" works
+  window.scrollBusinesses = scrollBusinesses;
+
+  // Update dots while scrolling
+  bizTrack.addEventListener('scroll', () => {
+    clearTimeout(window._bizScrollTimer);
+    window._bizScrollTimer = setTimeout(updateBizDots, 100);
   });
-}
 
-function scrollBusinesses(direction) {
-  const cards = bizTrack.querySelectorAll('.biz-card');
-  const cardWidth = cards[0].offsetWidth + 28;
-  bizTrack.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-}
+  // Initial dots and on resize
+  window.addEventListener('load', updateBizDots);
+  window.addEventListener('resize', updateBizDots);
 
-bizTrack.addEventListener('scroll', () => {
-  clearTimeout(window._bizScrollTimer);
-  window._bizScrollTimer = setTimeout(updateBizDots, 100);
-});
-
-window.addEventListener('load', updateBizDots);
-window.addEventListener('resize', updateBizDots);
-
+  // Also run immediately in case 'load' has already fired
+  updateBizDots();
+})();
 </script>
 
 </body>
