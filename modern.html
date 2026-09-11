@@ -2614,7 +2614,6 @@
       </div>
     </div>
   </div>
-</div>
 
     <!-- THE MODEL -->
     <div class="detail-section" style="padding: 30px 0; border-top: 1px solid rgba(0,0,0,0.06);">
@@ -2713,6 +2712,7 @@
       </div>
     </div>
 
+  </div>
   </div>
   </div>
   <!-- HOW BASIWEL OPERATES PAGE -->
@@ -3169,6 +3169,44 @@ bizTrack.addEventListener('scroll', () => {
 
 window.addEventListener('load', updateBizDots);
 window.addEventListener('resize', updateBizDots);
+  // FORCE-HIDE every non-active .page AND any orphaned sections
+(function enforcePageIsolation() {
+  const pageIds = [
+    'home-page','about-page','divisions-page','services-page','contact-page',
+    'partner-page','invest-page','capital-partners-page','afrileap-page',
+    'africarbon-page','esg-page','reports-page','ai-advisory-page',
+    'basiwel-page','basiwel-how-page'
+  ];
+
+  // Mark every known page with a data attribute so we can control visibility
+  pageIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute('data-managed-page', 'true');
+  });
+
+  // Override the switchPage visibility rules
+  const style = document.createElement('style');
+  style.textContent = `
+    [data-managed-page] { display: none !important; }
+    [data-managed-page].active { display: block !important; }
+  `;
+  document.head.appendChild(style);
+
+  // Patch switchPage to ensure ONLY the target page has .active
+  const originalSwitch = window.switchPage;
+  if (typeof originalSwitch === 'function') {
+    window.switchPage = function(pId) {
+      document.querySelectorAll('[data-managed-page]').forEach(p => {
+        p.classList.remove('active');
+      });
+      const target = document.getElementById(pId + '-page');
+      if (target) target.classList.add('active');
+      if (typeof originalSwitch === 'function') {
+        try { originalSwitch.call(this, pId); } catch (e) {}
+      }
+    };
+  }
+})();
 </script>
 
 </body>
