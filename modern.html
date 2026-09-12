@@ -3006,22 +3006,41 @@
   <span class="floating-whatsapp-text">Chat with us</span>
 </a>
 <script>
-  // Video Carousel with dynamic text switching
+(function () {
+  'use strict';
+
+  /* =========================================================
+     0. SAFE ELEMENT LOOKUP HELPER
+     ========================================================= */
+  const $ = (id) => document.getElementById(id);
+
+  /* =========================================================
+     1. VIDEO CAROUSEL (Home hero)
+     ========================================================= */
   let currentSlide = 0;
-  const videos = [video1, video2, video3, video4];
+  let interval = null;
+
+  const videos = [
+    $('video1'), $('video2'), $('video3'), $('video4')
+  ].filter(Boolean);
+
   const slideTexts = [
-    document.getElementById('slide1-text'),
-    document.getElementById('slide2-text'),
-    document.getElementById('slide3-text'),
-    document.getElementById('slide4-text')
-  ];
+    $('slide1-text'), $('slide2-text'),
+    $('slide3-text'), $('slide4-text')
+  ].filter(Boolean);
+
   const dots = document.querySelectorAll('.dot');
-  let interval;
 
   function showSlide(index) {
+    if (!videos.length) return;
+    index = ((index % videos.length) + videos.length) % videos.length;
     videos.forEach((video, i) => {
+      if (!video) return;
       video.style.opacity = i === index ? '1' : '0';
-      if (i === index) video.play(); else video.pause();
+      try {
+        if (i === index) { video.play().catch(() => {}); }
+        else { video.pause(); }
+      } catch (e) {}
     });
     slideTexts.forEach((text, i) => {
       if (text) text.classList.toggle('active-slide-text', i === index);
@@ -3031,101 +3050,131 @@
   }
 
   function nextSlide() {
-    showSlide((currentSlide + 1) % videos.length);
+    showSlide(currentSlide + 1);
   }
 
-  if (dots.length) {
+  if (dots.length && videos.length) {
     dots.forEach((dot, i) => {
       dot.addEventListener('click', () => {
         showSlide(i);
-        clearInterval(interval);
+        if (interval) clearInterval(interval);
         interval = setInterval(nextSlide, 7000);
       });
     });
+    interval = setInterval(nextSlide, 7000);
   }
 
-  interval = setInterval(nextSlide, 7000);
+  /* =========================================================
+     2. PAGE SWITCHING LOGIC (self-healing)
+     ========================================================= */
+  const PAGE_IDS = [
+    'home', 'about', 'divisions', 'services', 'contact',
+    'partner', 'invest',
+    'capital-partners', 'afrileap', 'africarbon', 'esg',
+    'reports', 'ai-advisory',
+    'basiwel', 'basiwel-how'
+  ];
 
- // Page switching logic
-const pages = {
-  home: document.getElementById('home-page'),
-  about: document.getElementById('about-page'),
-  divisions: document.getElementById('divisions-page'),
-  services: document.getElementById('services-page'),
-  contact: document.getElementById('contact-page'),
-  partner: document.getElementById('partner-page'),
-  invest: document.getElementById('invest-page'),
-  'capital-partners': document.getElementById('capital-partners-page'),
-  'afrileap': document.getElementById('afrileap-page'),
-  'africarbon': document.getElementById('africarbon-page'),
-  'esg': document.getElementById('esg-page'),
-  'reports': document.getElementById('reports-page'),
-  'ai-advisory': document.getElementById('ai-advisory-page'),
-  'basiwel': document.getElementById('basiwel-page'),
-  'basiwel-how': document.getElementById('basiwel-how-page')
-};
-  const transitionEl = document.getElementById('pageTransition');
-  const footerBtns = document.querySelectorAll('.mobile-nav-item');
-  const scrollTop = document.getElementById('scrollTop');
+  const transitionEl = $('pageTransition');
+  const footerBtns  = document.querySelectorAll('.mobile-nav-item');
+  const scrollTop   = $('scrollTop');
   let current = 'home';
+
+  // Build the pages map FRESH on each call — no stale references
+  function getPages() {
+    const map = {};
+    PAGE_IDS.forEach(id => {
+      const el = $('' + id + '-page');
+      if (el) map[id] = el;
+    });
+    return map;
+  }
 
   function updateActive(pId) {
     footerBtns.forEach(btn => {
-      if (btn.getAttribute('data-page') === pId) {
-        btn.classList.add('active-footer');
-      } else {
-        btn.classList.remove('active-footer');
-      }
+      const match = btn.getAttribute('data-page') === pId;
+      btn.classList.toggle('active-footer', match);
     });
   }
 
+  function hardHideAllPages() {
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.remove('active');
+      p.style.display = 'none';
+      p.style.visibility = '';
+      p.style.opacity = '';
+    });
+  }
+
+  function hardShowPage(el) {
+    if (!el) return;
+    el.classList.add('active');
+    el.style.display = 'block';
+    el.style.visibility = 'visible';
+    el.style.opacity = '1';
+  }
+
   function switchPage(pId) {
-    if (current === pId || !pages[pId]) return;
-    transitionEl.classList.add('active');
+    const pages = getPages();
+    const target = pages[pId];
+
+    if (!target) {
+      console.warn('[M.Lewis] Page not found:', pId, '— expected id:', pId + '-page');
+      return;
+    }
+
+    if (current === pId) return;
+
+    if (transitionEl) transitionEl.classList.add('active');
+
     setTimeout(() => {
-      Object.values(pages).forEach(p => {
-        if (p) p.classList.remove('active');
-      });
-      pages[pId].classList.add('active');
+      // Hard hide every .page in the DOM (regardless of what we knew at load time)
+      hardHideAllPages();
+
+      // Hard show the target
+      hardShowPage(target);
+
       current = pId;
       updateActive(pId);
-      window.scrollTo(0, 0);
+
+      window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+
       setTimeout(() => {
-        transitionEl.classList.remove('active');
+        if (transitionEl) transitionEl.classList.remove('active');
       }, 100);
     }, 300);
   }
 
-  // All navigation triggers
-  document.querySelectorAll('[data-page]').forEach(trigger => {
-    trigger.removeEventListener('click', trigger._clickHandler);
-    const handler = function(e) {
+  // Expose globally so any inline handlers still work
+  window.switchPage = switchPage;
+
+  /* =========================================================
+     3. NAVIGATION TRIGGERS (delegated — works for future elements too)
+     ========================================================= */
+  document.addEventListener('click', function (e) {
+    // Back buttons
+    const backBtn = e.target.closest('.btn-back');
+    if (backBtn) {
       e.preventDefault();
-      const pageId = this.getAttribute('data-page');
-      if (pageId && pages[pageId]) switchPage(pageId);
-    };
-    trigger._clickHandler = handler;
-    trigger.addEventListener('click', handler);
+      const t = backBtn.getAttribute('data-back');
+      if (t) switchPage(t);
+      return;
+    }
+
+    // Any element with data-page (nav, hero, cards, entity links, etc.)
+    const trigger = e.target.closest('[data-page]');
+    if (trigger) {
+      e.preventDefault();
+      const pageId = trigger.getAttribute('data-page');
+      if (pageId && PAGE_IDS.includes(pageId)) {
+        switchPage(pageId);
+      }
+    }
   });
 
-  // Entity links click handler
-  document.querySelectorAll('.entity-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const pageId = this.getAttribute('data-page');
-      if (pageId && pages[pageId]) switchPage(pageId);
-    });
-  });
-
-  // Back buttons handler
-  document.querySelectorAll('.btn-back').forEach(b => {
-    b.addEventListener('click', function(e) {
-      e.preventDefault();
-      const t = this.getAttribute('data-back');
-      if (t && pages[t]) switchPage(t);
-    });
-  });
-
+  /* =========================================================
+     4. SCROLL TOP BUTTON
+     ========================================================= */
   window.addEventListener('scroll', () => {
     if (scrollTop) scrollTop.classList.toggle('visible', window.scrollY > 300);
   });
@@ -3133,77 +3182,70 @@ const pages = {
     scrollTop.addEventListener('click', () => window.scrollTo(0, 0));
   }
 
-  updateActive('home');
-  
-const bizTrack = document.getElementById('businessCarousel');
-const bizDotsContainer = document.getElementById('businessDots');
+  /* =========================================================
+     5. BUSINESS CAROUSEL
+     ========================================================= */
+  const bizTrack = $('businessCarousel');
+  const bizDotsContainer = $('businessDots');
 
-function updateBizDots() {
-  const cards = bizTrack.querySelectorAll('.biz-card');
-  const cardWidth = cards[0].offsetWidth + 28;
-  const index = Math.round(bizTrack.scrollLeft / cardWidth);
-  
-  bizDotsContainer.innerHTML = '';
-  cards.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'biz-dot' + (i === index ? ' active' : '');
-    dot.onclick = () => {
-      bizTrack.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
-    };
-    bizDotsContainer.appendChild(dot);
-  });
-}
+  function updateBizDots() {
+    if (!bizTrack || !bizDotsContainer) return;
+    const cards = bizTrack.querySelectorAll('.biz-card');
+    if (!cards.length) return;
+    const cardWidth = cards[0].offsetWidth + 28;
+    const index = Math.max(0, Math.round(bizTrack.scrollLeft / cardWidth));
 
-function scrollBusinesses(direction) {
-  const cards = bizTrack.querySelectorAll('.biz-card');
-  const cardWidth = cards[0].offsetWidth + 28;
-  bizTrack.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-}
-
-bizTrack.addEventListener('scroll', () => {
-  clearTimeout(window._bizScrollTimer);
-  window._bizScrollTimer = setTimeout(updateBizDots, 100);
-});
-
-window.addEventListener('load', updateBizDots);
-window.addEventListener('resize', updateBizDots);
-  // FORCE-HIDE every non-active .page AND any orphaned sections
-(function enforcePageIsolation() {
-  const pageIds = [
-    'home-page','about-page','divisions-page','services-page','contact-page',
-    'partner-page','invest-page','capital-partners-page','afrileap-page',
-    'africarbon-page','esg-page','reports-page','ai-advisory-page',
-    'basiwel-page','basiwel-how-page'
-  ];
-
-  // Mark every known page with a data attribute so we can control visibility
-  pageIds.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.setAttribute('data-managed-page', 'true');
-  });
-
-  // Override the switchPage visibility rules
-  const style = document.createElement('style');
-  style.textContent = `
-    [data-managed-page] { display: none !important; }
-    [data-managed-page].active { display: block !important; }
-  `;
-  document.head.appendChild(style);
-
-  // Patch switchPage to ensure ONLY the target page has .active
-  const originalSwitch = window.switchPage;
-  if (typeof originalSwitch === 'function') {
-    window.switchPage = function(pId) {
-      document.querySelectorAll('[data-managed-page]').forEach(p => {
-        p.classList.remove('active');
+    bizDotsContainer.innerHTML = '';
+    cards.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'biz-dot' + (i === index ? ' active' : '');
+      dot.addEventListener('click', () => {
+        bizTrack.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
       });
-      const target = document.getElementById(pId + '-page');
-      if (target) target.classList.add('active');
-      if (typeof originalSwitch === 'function') {
-        try { originalSwitch.call(this, pId); } catch (e) {}
-      }
-    };
+      bizDotsContainer.appendChild(dot);
+    });
   }
+
+  window.scrollBusinesses = function (direction) {
+    if (!bizTrack) return;
+    const cards = bizTrack.querySelectorAll('.biz-card');
+    if (!cards.length) return;
+    const cardWidth = cards[0].offsetWidth + 28;
+    bizTrack.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+  };
+
+  if (bizTrack) {
+    bizTrack.addEventListener('scroll', () => {
+      clearTimeout(window._bizScrollTimer);
+      window._bizScrollTimer = setTimeout(updateBizDots, 100);
+    });
+  }
+
+  /* =========================================================
+     6. INIT — runs on DOMContentLoaded AND load (belt & braces)
+     ========================================================= */
+  function init() {
+    // Ensure the initial page is properly shown
+    const initial = getPages()[current] || $('home-page') || document.querySelector('.page');
+    hardHideAllPages();
+    if (initial) hardShowPage(initial);
+    updateActive(current);
+
+    // Business dots
+    updateBizDots();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  window.addEventListener('load', function () {
+    init();
+    updateBizDots();
+  });
+  window.addEventListener('resize', updateBizDots);
+
 })();
 </script>
 
