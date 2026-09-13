@@ -163,71 +163,31 @@
       transform: translateY(-2px);
     }
 
-    /* Tablet - hide nav links, keep logo and CTAs */
     @media (max-width: 1024px) {
-      .nav-links {
-        gap: 16px;
-      }
-      .nav-links a {
-        font-size: 13px;
-      }
-      .logo h2 {
-        font-size: 20px;
-      }
-      .btn {
-        font-size: 11px;
-        padding: 6px 14px;
-      }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 13px; }
+      .logo h2 { font-size: 20px; }
+      .btn { font-size: 11px; padding: 6px 14px; }
     }
 
     @media (max-width: 820px) {
-      .nav-links {
-        display: none;
-      }
-      .cta-buttons {
-        margin-left: auto;
-      }
+      .nav-links { display: none; }
+      .cta-buttons { margin-left: auto; }
     }
 
-    /* Mobile - stack logo and CTAs */
     @media (max-width: 600px) {
-      .navbar {
-        padding: 8px 12px;
-        min-height: 60px;
-      }
-      .nav-wrapper {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .logo {
-        align-items: center;
-        width: 100%;
-      }
-      .logo h2 {
-        font-size: 18px;
-      }
-      .logo span {
-        font-size: 8px;
-      }
-      .cta-buttons {
-        width: 100%;
-        justify-content: center;
-        gap: 6px;
-      }
-      .btn {
-        font-size: 10px;
-        padding: 5px 12px;
-      }
+      .navbar { padding: 8px 12px; min-height: 60px; }
+      .nav-wrapper { flex-wrap: wrap; justify-content: center; }
+      .logo { align-items: center; width: 100%; }
+      .logo h2 { font-size: 18px; }
+      .logo span { font-size: 8px; }
+      .cta-buttons { width: 100%; justify-content: center; gap: 6px; }
+      .btn { font-size: 10px; padding: 5px 12px; }
     }
 
     @media (max-width: 400px) {
-      .logo h2 {
-        font-size: 16px;
-      }
-      .btn {
-        font-size: 9px;
-        padding: 4px 10px;
-      }
+      .logo h2 { font-size: 16px; }
+      .btn { font-size: 9px; padding: 4px 10px; }
     }
 
     /* =========================================================
@@ -253,7 +213,7 @@
     }
 
     /* =========================================================
-       HERO SECTION
+       HERO
        ========================================================= */
     .hero-section {
       position: relative;
@@ -332,13 +292,8 @@
       flex-wrap: wrap;
     }
 
-    .slide-text {
-      display: none;
-    }
-
-    .slide-text.active-slide-text {
-      display: block;
-    }
+    .slide-text { display: none; }
+    .slide-text.active-slide-text { display: block; }
 
     .carousel-dots {
       position: absolute;
@@ -404,7 +359,6 @@
       margin: 0 auto;
     }
 
-    /* Capability cards */
     .capability-card {
       background: white;
       padding: 35px 30px;
@@ -434,7 +388,6 @@
       line-height: 1.6;
     }
 
-    /* Entity links */
     .entity-link {
       color: #c59b53;
       font-weight: 600;
@@ -447,7 +400,6 @@
       text-decoration: underline;
     }
 
-    /* Partner grid */
     .partner-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -479,7 +431,6 @@
       line-height: 1.4;
     }
 
-    /* Action tags */
     .action-tags {
       display: flex;
       justify-content: center;
@@ -497,7 +448,6 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    /* Closing CTA */
     .closing-cta {
       text-align: center;
       max-width: 700px;
@@ -530,46 +480,24 @@
       flex-wrap: wrap;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
-      .hero-section {
-        height: 90vh;
-      }
-      .hero-headline {
-        font-size: 1.8rem;
-      }
-      .hero-subheadline {
-        font-size: 0.9rem;
-      }
-      .navbar-spacer {
-        height: 75px;
-      }
-      .capability-card {
-        padding: 25px 20px;
-      }
+      .hero-section { height: 90vh; }
+      .hero-headline { font-size: 1.8rem; }
+      .hero-subheadline { font-size: 0.9rem; }
+      .navbar-spacer { height: 75px; }
+      .capability-card { padding: 25px 20px; }
     }
 
     @media (max-width: 600px) {
-      .partner-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .action-tags {
-        gap: 10px;
-      }
-      .action-tag {
-        padding: 8px 16px;
-        font-size: 0.85rem;
-      }
-      .detail-section {
-        padding: 40px 0;
-      }
-      .section-header h2 {
-        font-size: 1.5rem;
-      }
+      .partner-grid { grid-template-columns: 1fr 1fr; }
+      .action-tags { gap: 10px; }
+      .action-tag { padding: 8px 16px; font-size: 0.85rem; }
+      .detail-section { padding: 40px 0; }
+      .section-header h2 { font-size: 1.5rem; }
     }
 
     /* =========================================================
-       PAGE TRANSITION OVERLAY
+       TRANSITIONS & FIXED ELEMENTS
        ========================================================= */
     .page-transition {
       position: fixed;
@@ -585,9 +513,6 @@
       transform: translateY(0);
     }
 
-    /* =========================================================
-       MOBILE FOOTER NAV
-       ========================================================= */
     .mobile-footer-nav {
       position: fixed;
       bottom: 0;
@@ -627,14 +552,9 @@
     }
 
     @media (min-width: 901px) {
-      .mobile-footer-nav {
-        display: none;
-      }
+      .mobile-footer-nav { display: none; }
     }
 
-    /* =========================================================
-       SCROLL TOP
-       ========================================================= */
     .scroll-top {
       position: fixed;
       bottom: 80px;
@@ -653,18 +573,14 @@
       z-index: 99;
     }
 
-    .scroll-top.visible {
-      opacity: 1;
-    }
+    .scroll-top.visible { opacity: 1; }
 
     @media (max-width: 900px) {
-      .scroll-top {
-        bottom: 80px;
-      }
+      .scroll-top { bottom: 80px; }
     }
 
     /* =========================================================
-       FLOATING WHATSAPP BUTTON
+       WHATSAPP BUTTON
        ========================================================= */
     .floating-whatsapp {
       position: fixed;
@@ -693,13 +609,8 @@
       color: white;
     }
 
-    .floating-whatsapp svg {
-      flex-shrink: 0;
-    }
-
-    .floating-whatsapp-text {
-      white-space: nowrap;
-    }
+    .floating-whatsapp svg { flex-shrink: 0; }
+    .floating-whatsapp-text { white-space: nowrap; }
 
     @keyframes whatsapp-pulse {
       0% {
@@ -732,20 +643,15 @@
         height: 56px;
         justify-content: center;
       }
-      .floating-whatsapp-text {
-        display: none;
-      }
+      .floating-whatsapp-text { display: none; }
     }
 
     @media (min-width: 901px) {
-      .floating-whatsapp {
-        bottom: 100px;
-        right: 20px;
-      }
+      .floating-whatsapp { bottom: 100px; right: 20px; }
     }
 
     /* =========================================================
-       OUR BUSINESSES CAROUSEL
+       BUSINESS CAROUSEL
        ========================================================= */
     .biz-track {
       display: flex;
@@ -758,9 +664,7 @@
       scrollbar-width: none;
     }
 
-    .biz-track::-webkit-scrollbar {
-      display: none;
-    }
+    .biz-track::-webkit-scrollbar { display: none; }
 
     .biz-card {
       flex: 0 0 calc(33.333% - 19px);
@@ -872,13 +776,8 @@
       transform: translateY(-50%) scale(1.08);
     }
 
-    .biz-arrow-left {
-      left: -22px;
-    }
-
-    .biz-arrow-right {
-      right: -22px;
-    }
+    .biz-arrow-left { left: -22px; }
+    .biz-arrow-right { right: -22px; }
 
     .biz-dots {
       display: flex;
@@ -903,30 +802,15 @@
     }
 
     @media (max-width: 1024px) {
-      .biz-card {
-        flex: 0 0 calc(50% - 14px);
-      }
+      .biz-card { flex: 0 0 calc(50% - 14px); }
     }
 
     @media (max-width: 640px) {
-      .biz-card {
-        flex: 0 0 85%;
-        min-width: 280px;
-        padding: 32px 26px;
-      }
-      .biz-brand {
-        font-size: 1.25rem;
-      }
-      .biz-arrow {
-        width: 40px;
-        height: 40px;
-      }
-      .biz-arrow-left {
-        left: -10px;
-      }
-      .biz-arrow-right {
-        right: -10px;
-      }
+      .biz-card { flex: 0 0 85%; min-width: 280px; padding: 32px 26px; }
+      .biz-brand { font-size: 1.25rem; }
+      .biz-arrow { width: 40px; height: 40px; }
+      .biz-arrow-left { left: -10px; }
+      .biz-arrow-right { right: -10px; }
     }
   </style>
 </head>
@@ -936,9 +820,8 @@
   <div class="nav-wrapper">
     <div class="logo">
       <h2>M. LEWIS GROUP</h2>
-      <span>Strategic Advisory & Private Capital Platform</span>
+      <span>Strategic Advisory &amp; Private Capital Platform</span>
     </div>
-
     <div class="nav-links">
       <a data-page="home">Home</a>
       <a data-page="about">About Us</a>
@@ -946,7 +829,6 @@
       <a data-page="services">Services</a>
       <a data-page="contact">Contact</a>
     </div>
-
     <div class="cta-buttons">
       <a class="btn btn-outline" data-page="partner">🤝 Partner with Us</a>
       <a class="btn btn-primary" data-page="invest">💰 Invest with Us</a>
@@ -962,7 +844,7 @@
   <div id="home-page" class="page active">
     <div class="navbar-spacer"></div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <div class="hero-section">
       <div class="video-carousel">
         <video id="video1" autoplay muted playsinline style="opacity: 1;">
@@ -991,7 +873,7 @@
         </div>
         <div id="slide2-text" class="slide-text">
           <div class="hero-headline">
-            Building, financing & scaling<br>
+            Building, financing &amp; scaling<br>
             <span class="gold">Africa's next economy.</span>
           </div>
         </div>
@@ -1046,7 +928,7 @@
       </div>
     </div>
 
-    <!-- OUR BUSINESSES CAROUSEL -->
+    <!-- BUSINESS CAROUSEL -->
     <div class="detail-section" style="padding: 70px 0; background: #fafaf8; overflow: hidden;">
       <div class="container">
 
@@ -1057,7 +939,6 @@
         </div>
 
         <div style="position: relative;">
-
           <button class="biz-arrow biz-arrow-left" onclick="scrollBusinesses(-1)" aria-label="Previous business">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
           </button>
@@ -1068,7 +949,7 @@
 
           <div id="businessCarousel" class="biz-track">
 
-            <!-- BUSINESS 1: M. LEWIS PARTNERS -->
+            <!-- BUSINESS 1 -->
             <div class="biz-card">
               <div class="biz-brand">M. LEWIS PARTNERS</div>
               <div class="biz-sublabel">A M. LEWIS GROUP company</div>
@@ -1091,7 +972,7 @@
               </div>
             </div>
 
-            <!-- BUSINESS 2: M. LEWIS CAPITAL PARTNERS -->
+            <!-- BUSINESS 2 -->
             <div class="biz-card">
               <div class="biz-brand">M. LEWIS CAPITAL PARTNERS</div>
               <div class="biz-sublabel">A M. LEWIS GROUP company</div>
@@ -1112,7 +993,7 @@
               </div>
             </div>
 
-            <!-- BUSINESS 3: BASIWEL VENTURES -->
+            <!-- BUSINESS 3 -->
             <div class="biz-card">
               <div class="biz-brand">BASIWEL VENTURES</div>
               <div class="biz-sublabel">A M. LEWIS GROUP company</div>
@@ -1133,7 +1014,7 @@
               </div>
             </div>
 
-            <!-- BUSINESS 4: AFRILEAP CAPITAL -->
+            <!-- BUSINESS 4 -->
             <div class="biz-card">
               <div class="biz-brand">AFRILEAP CAPITAL</div>
               <div class="biz-sublabel">A M. LEWIS GROUP company</div>
@@ -1196,6 +1077,7 @@
     <!-- OUR FOUR CAPABILITIES -->
     <div class="detail-section alt-bg">
       <div class="container">
+
         <div class="section-header">
           <span class="section-tag">Our Capabilities</span>
           <h2>Our Four Capabilities</h2>
@@ -1204,7 +1086,6 @@
 
         <!-- OUR CORE PROPOSITION -->
         <div style="max-width: 900px; margin: 0 auto;">
-
           <div style="text-align: center; margin-bottom: 40px;">
             <span class="section-tag">Our Core Proposition</span>
             <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #07152d; margin: 15px 0 10px;">We build businesses into growth-ready enterprises, finance their expansion, and scale their impact across Africa's productive economy.</h2>
@@ -1224,50 +1105,47 @@
               <a href="#" class="btn btn-outline" data-page="contact">Start an Enterprise Diagnostic</a>
             </div>
           </div>
-
         </div>
 
         <!-- OUR MODEL — FOUR CAPABILITIES -->
-        <div class="detail-section" style="padding: 60px 0 40px;">
-          <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 45px;">
-              <span class="section-tag">Our Model</span>
-              <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2rem); color: #07152d; margin: 20px 0 15px;">Our model combines four capabilities:</h2>
-              <p style="color: #4a5568; font-size: 1rem; max-width: 640px; margin: 0 auto;">Advice, relationships, capital and execution — working together across the lifecycle of every business we serve.</p>
+        <div style="max-width: 1100px; margin: 0 auto; padding: 60px 0 40px;">
+          <div class="section-header" style="text-align: center; margin-bottom: 45px;">
+            <span class="section-tag">Our Model</span>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2rem); color: #07152d; margin: 20px 0 15px;">Our model combines four capabilities:</h2>
+            <p style="color: #4a5568; font-size: 1rem; max-width: 640px; margin: 0 auto;">Advice, relationships, capital and execution — working together across the lifecycle of every business we serve.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px;">
+
+            <div style="background: white; border-radius: 20px; padding: 32px 26px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #c59b53;">
+              <div style="font-size: 2rem; margin-bottom: 15px;">🎯</div>
+              <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #07152d; margin-bottom: 12px; letter-spacing: 1px;">STRATEGIC ADVISORY</h3>
+              <p style="color: #4a5568; line-height: 1.7; font-size: 0.9rem; margin: 0;">We help businesses determine what to build, how to structure it, where to compete, how to scale and how to become investment-ready.</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto;">
-
-              <div style="background: white; border-radius: 20px; padding: 32px 26px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #c59b53; transition: transform 0.3s ease;">
-                <div style="font-size: 2rem; margin-bottom: 15px;">🎯</div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #07152d; margin-bottom: 12px; letter-spacing: 1px;">STRATEGIC ADVISORY</h3>
-                <p style="color: #4a5568; line-height: 1.7; font-size: 0.9rem; margin: 0;">We help businesses determine what to build, how to structure it, where to compete, how to scale and how to become investment-ready.</p>
-              </div>
-
-              <div style="background: white; border-radius: 20px; padding: 32px 26px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #c59b53; transition: transform 0.3s ease;">
-                <div style="font-size: 2rem; margin-bottom: 15px;">🏗️</div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #07152d; margin-bottom: 12px; letter-spacing: 1px;">ENTERPRISE BUILDING</h3>
-                <p style="color: #4a5568; line-height: 1.7; font-size: 0.9rem; margin: 0;">We build the commercial, financial and organisational architecture required to turn a promising business into an investment-grade enterprise.</p>
-              </div>
-
-              <div style="background: white; border-radius: 20px; padding: 32px 26px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #c59b53; transition: transform 0.3s ease;">
-                <div style="font-size: 2rem; margin-bottom: 15px;">💰</div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #07152d; margin-bottom: 12px; letter-spacing: 1px;">PRIVATE CAPITAL</h3>
-                <p style="color: #4a5568; line-height: 1.7; font-size: 0.9rem; margin: 0;">We provide or arrange capital for businesses and projects that demonstrate attractive commercial potential and strategic relevance.</p>
-              </div>
-
-              <div style="background: white; border-radius: 20px; padding: 32px 26px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #c59b53; transition: transform 0.3s ease;">
-                <div style="font-size: 2rem; margin-bottom: 15px;">🤝</div>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #07152d; margin-bottom: 12px; letter-spacing: 1px;">OPERATING PARTNERSHIPS</h3>
-                <p style="color: #4a5568; line-height: 1.7; font-size: 0.9rem; margin: 0;">Where appropriate, we work alongside founders and management teams beyond the investment decision — supporting execution, partnerships, expansion and value creation.</p>
-              </div>
-
+            <div style="background: white; border-radius: 20px; padding: 32px 26px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #c59b53;">
+              <div style="font-size: 2rem; margin-bottom: 15px;">🏗️</div>
+              <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #07152d; margin-bottom: 12px; letter-spacing: 1px;">ENTERPRISE BUILDING</h3>
+              <p style="color: #4a5568; line-height: 1.7; font-size: 0.9rem; margin: 0;">We build the commercial, financial and organisational architecture required to turn a promising business into an investment-grade enterprise.</p>
             </div>
+
+            <div style="background: white; border-radius: 20px; padding: 32px 26px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #c59b53;">
+              <div style="font-size: 2rem; margin-bottom: 15px;">💰</div>
+              <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #07152d; margin-bottom: 12px; letter-spacing: 1px;">PRIVATE CAPITAL</h3>
+              <p style="color: #4a5568; line-height: 1.7; font-size: 0.9rem; margin: 0;">We provide or arrange capital for businesses and projects that demonstrate attractive commercial potential and strategic relevance.</p>
+            </div>
+
+            <div style="background: white; border-radius: 20px; padding: 32px 26px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid #c59b53;">
+              <div style="font-size: 2rem; margin-bottom: 15px;">🤝</div>
+              <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #07152d; margin-bottom: 12px; letter-spacing: 1px;">OPERATING PARTNERSHIPS</h3>
+              <p style="color: #4a5568; line-height: 1.7; font-size: 0.9rem; margin: 0;">Where appropriate, we work alongside founders and management teams beyond the investment decision — supporting execution, partnerships, expansion and value creation.</p>
+            </div>
+
           </div>
         </div>
 
         <!-- THE COMBINATION IS IMPORTANT -->
-        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid #c59b53; margin-bottom: 30px;">
+        <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid #c59b53; margin-bottom: 30px; max-width: 1100px; margin-left: auto; margin-right: auto;">
           <h3 style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #07152d; margin-bottom: 15px; text-align: center;">The combination is important.</h3>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 25px; margin-bottom: 20px;">
@@ -1295,7 +1173,7 @@
         </div>
 
         <!-- THE FOUR CAPABILITY CARDS -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
           <div class="capability-card" style="text-align: center;">
             <div class="icon"></div>
             <h3>Strategic Advisory</h3>
@@ -1332,6 +1210,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -1453,7 +1332,7 @@
       <div class="container">
         <div style="max-width: 800px; margin: 0 auto;">
           <span class="section-tag">Our Approach</span>
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #07152d; margin: 20px 0 25px;">Strategy, Capital & Execution — Working Together</h2>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #07152d; margin: 20px 0 25px;">Strategy, Capital &amp; Execution — Working Together</h2>
           <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">We believe the best outcomes are created when strategy, capital and execution work together.</p>
           <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">That is why our role does not necessarily end when the advice is delivered.</p>
           <p style="font-size: 1.05rem; line-height: 1.8; color: #4a5568; margin-bottom: 20px;">We can help a business understand where it is going, prepare for the journey, structure the capital required to get there and connect it with the partners capable of accelerating its growth.</p>
@@ -1474,7 +1353,7 @@
         <div class="partner-grid">
           <div class="partner-card">
             <div class="icon">🧑‍💼</div>
-            <h4>Entrepreneurs & Founders</h4>
+            <h4>Entrepreneurs &amp; Founders</h4>
             <p>Building high-growth businesses into growth-ready enterprises</p>
           </div>
           <div class="partner-card">
@@ -1508,7 +1387,6 @@
           <a href="#" class="btn btn-primary" data-page="partner">Partner With Us →</a>
           <a href="#" class="btn btn-outline" data-page="invest">Invest with Us →</a>
         </div>
-
       </div>
     </div>
 
@@ -1578,7 +1456,7 @@
             <span style="color: #c59b53; font-size: 0.8rem; letter-spacing: 1px;">ABOUT US</span>
           </div>
           <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: white; margin-bottom: 15px;">M. LEWIS GROUP</h1>
-          <p style="font-size: 1.2rem; color: #c59b53; margin-bottom: 20px;">Strategic Advisory & Private Capital Platform</p>
+          <p style="font-size: 1.2rem; color: #c59b53; margin-bottom: 20px;">Strategic Advisory &amp; Private Capital Platform</p>
           <p style="font-size: 1rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">Originating, advising, connecting, and coordinating at the intersection of business, strategy and capital.</p>
         </div>
       </div>
@@ -1600,7 +1478,7 @@
           <div style="background: #f8f9fa; border-radius: 24px; padding: 40px;">
             <div style="background: linear-gradient(135deg, #07152d, #0d2348); border-radius: 16px; padding: 20px; color: white; margin-bottom: 20px; display: inline-block; min-width: 300px;">
               <h3 style="font-size: 1.3rem; margin: 0;">M. LEWIS GROUP</h3>
-              <p style="font-size: 0.8rem; opacity: 0.8; margin: 5px 0 0 0;">Strategic Advisory & Private Capital Platform</p>
+              <p style="font-size: 0.8rem; opacity: 0.8; margin: 5px 0 0 0;">Strategic Advisory &amp; Private Capital Platform</p>
             </div>
 
             <div style="font-size: 2rem; color: #c59b53; margin: 10px 0;">↓</div>
@@ -1608,7 +1486,7 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
               <div style="background: white; border-radius: 16px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid #c59b53;">
                 <h4 style="font-size: 1.1rem; color: #07152d; margin-bottom: 5px;">M. Lewis Capital Partners</h4>
-                <p style="font-size: 0.85rem; color: #c59b53; font-weight: 600; margin-bottom: 10px;">Family Capital & Private Investment Platform</p>
+                <p style="font-size: 0.85rem; color: #c59b53; font-weight: 600; margin-bottom: 10px;">Family Capital &amp; Private Investment Platform</p>
                 <p style="font-size: 0.85rem; color: #4a5568; line-height: 1.5;">Serves capital owners — families, family offices, HNW individuals, and private investors.</p>
               </div>
 
@@ -1637,11 +1515,11 @@
               <span style="background: #07152d; color: white; font-weight: 700; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</span>
               <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #07152d; margin: 0;">M. Lewis Group</h3>
             </div>
-            <p style="color: #c59b53; font-weight: 600; margin-bottom: 10px; padding-left: 51px;">Strategic Advisory & Private Capital Platform</p>
+            <p style="color: #c59b53; font-weight: 600; margin-bottom: 10px; padding-left: 51px;">Strategic Advisory &amp; Private Capital Platform</p>
             <p style="color: #4a5568; line-height: 1.7; padding-left: 51px;"><strong>Role:</strong> Originate, advise, connect, and coordinate. It is the umbrella brand where broader philosophy lives and strategic advisory sits.</p>
             <div style="padding-left: 51px; margin-top: 10px;">
               <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px;"><strong>Works with:</strong> Business owners, entrepreneurs, corporates, investors, families, capital providers, strategic partners</p>
-              <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.6;"><strong>Activities include:</strong> Corporate strategy, growth strategy, M&A advisory, capital strategy, business transformation, strategic partnerships, capital introductions, private capital advisory, investment origination</p>
+              <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.6;"><strong>Activities include:</strong> Corporate strategy, growth strategy, M&amp;A advisory, capital strategy, business transformation, strategic partnerships, capital introductions, private capital advisory, investment origination</p>
             </div>
           </div>
 
@@ -1662,7 +1540,7 @@
               <span style="background: #07152d; color: white; font-weight: 700; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</span>
               <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #07152d; margin: 0;">M. Lewis Capital Partners</h3>
             </div>
-            <p style="color: #c59b53; font-weight: 600; margin-bottom: 10px; padding-left: 51px;">Family Capital & Private Investment Platform</p>
+            <p style="color: #c59b53; font-weight: 600; margin-bottom: 10px; padding-left: 51px;">Family Capital &amp; Private Investment Platform</p>
             <p style="color: #4a5568; line-height: 1.7; padding-left: 51px;"><strong>Role:</strong> Represent and serve capital owners — entrepreneurial families, family offices, HNW individuals, business-owning families, and private investors.</p>
             <div style="padding-left: 51px; margin-top: 10px;">
               <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.6;"><strong>Services include:</strong> Family capital advisory, investment opportunities, co-investment access, direct investment opportunities, strategic investment advice, family-business advisory, succession/ownership strategy, portfolio coordination, private-market opportunities</p>
@@ -1873,7 +1751,7 @@
         <div style="max-width: 900px; margin: 0 auto; text-align: center;">
           <p style="color: #4a5568; line-height: 1.8; font-size: 1.05rem;">M. Lewis Group operates through three distinct but connected platforms, each serving a specific role in the ecosystem:</p>
           <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 25px;">
-            <span style="background: #f8f9fa; padding: 10px 24px; border-radius: 30px; font-size: 0.9rem; color: #07152d; font-weight: 600;">M. Lewis Group — Strategy & Advisory</span>
+            <span style="background: #f8f9fa; padding: 10px 24px; border-radius: 30px; font-size: 0.9rem; color: #07152d; font-weight: 600;">M. Lewis Group — Strategy &amp; Advisory</span>
             <span style="background: #f8f9fa; padding: 10px 24px; border-radius: 30px; font-size: 0.9rem; color: #07152d; font-weight: 600;">M. Lewis Capital Partners — Family Capital</span>
             <span style="background: #f8f9fa; padding: 10px 24px; border-radius: 30px; font-size: 0.9rem; color: #07152d; font-weight: 600;">AfriLeap Capital — Investment Platform</span>
           </div>
@@ -1886,12 +1764,12 @@
             <span style="background: #07152d; color: white; font-weight: 700; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</span>
             <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #07152d; margin: 0;">M. Lewis Group</h2>
           </div>
-          <p style="color: #c59b53; font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">Strategic Advisory & Private Capital Platform</p>
+          <p style="color: #c59b53; font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">Strategic Advisory &amp; Private Capital Platform</p>
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
             <div style="background: #f8f9fa; border-radius: 16px; padding: 25px;">
               <h4 style="color: #07152d; font-size: 1.1rem; margin-bottom: 12px;">🎯 Who We Serve</h4>
-              <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.6; margin-bottom: 12px;"><strong>Primary clients:</strong> Business owners, companies & entrepreneurs</p>
+              <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.6; margin-bottom: 12px;"><strong>Primary clients:</strong> Business owners, companies &amp; entrepreneurs</p>
               <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.6;"><strong>Core client:</strong> Founder-led, family-owned and privately held African businesses that need strategic advice, growth support, transactions or capital.</p>
             </div>
             <div style="background: #f8f9fa; border-radius: 16px; padding: 25px;">
@@ -1914,7 +1792,7 @@
             <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;">
               <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 30px; font-size: 0.75rem; color: #07152d;">Corporate strategy</span>
               <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 30px; font-size: 0.75rem; color: #07152d;">Growth strategy</span>
-              <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 30px; font-size: 0.75rem; color: #07152d;">M&A advisory</span>
+              <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 30px; font-size: 0.75rem; color: #07152d;">M&amp;A advisory</span>
               <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 30px; font-size: 0.75rem; color: #07152d;">Capital strategy</span>
               <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 30px; font-size: 0.75rem; color: #07152d;">Business transformation</span>
               <span style="background: #f0f0f0; padding: 4px 14px; border-radius: 30px; font-size: 0.75rem; color: #07152d;">Strategic partnerships</span>
@@ -1931,7 +1809,7 @@
             <span style="background: #07152d; color: white; font-weight: 700; font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</span>
             <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #07152d; margin: 0;">M. Lewis Capital Partners</h2>
           </div>
-          <p style="color: #c59b53; font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">Family Capital & Private Investment Platform</p>
+          <p style="color: #c59b53; font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">Family Capital &amp; Private Investment Platform</p>
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
             <div style="background: #f8f9fa; border-radius: 16px; padding: 25px;">
@@ -1996,7 +1874,7 @@
               <h4 style="color: #07152d; font-size: 1rem; margin-bottom: 12px;">📈 Investment Opportunities</h4>
               <ul style="color: #4a5568; font-size: 0.8rem; line-height: 1.6; padding-left: 18px;">
                 <li>African businesses</li>
-                <li>Founders & management teams</li>
+                <li>Founders &amp; management teams</li>
                 <li>Companies seeking growth capital</li>
                 <li>Acquisition targets</li>
                 <li>JV partners</li>
@@ -2010,7 +1888,7 @@
                 <li>Industry executives</li>
                 <li>Operating partners</li>
                 <li>Corporate partners</li>
-                <li>M&A partners</li>
+                <li>M&amp;A partners</li>
                 <li>Other PE firms</li>
                 <li>Financial institutions</li>
               </ul>
@@ -2040,18 +1918,18 @@
               <tbody>
                 <tr style="border-bottom: 1px solid #e2e8f0;">
                   <td style="padding: 15px 20px;"><strong>M. Lewis Group</strong></td>
-                  <td style="padding: 15px 20px; color: #4a5568;">Business owners, companies & entrepreneurs</td>
-                  <td style="padding: 15px 20px; color: #4a5568;">Expertise, strategy, execution & access</td>
+                  <td style="padding: 15px 20px; color: #4a5568;">Business owners, companies &amp; entrepreneurs</td>
+                  <td style="padding: 15px 20px; color: #4a5568;">Expertise, strategy, execution &amp; access</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e2e8f0;">
                   <td style="padding: 15px 20px;"><strong>M. Lewis Capital Partners</strong></td>
-                  <td style="padding: 15px 20px; color: #4a5568;">Families & private capital owners</td>
-                  <td style="padding: 15px 20px; color: #4a5568;">Trust, access, capital intelligence & opportunities</td>
+                  <td style="padding: 15px 20px; color: #4a5568;">Families &amp; private capital owners</td>
+                  <td style="padding: 15px 20px; color: #4a5568;">Trust, access, capital intelligence &amp; opportunities</td>
                 </tr>
                 <tr>
                   <td style="padding: 15px 20px;"><strong>AfriLeap Capital</strong></td>
-                  <td style="padding: 15px 20px; color: #4a5568;">Capital partners & investment opportunities</td>
-                  <td style="padding: 15px 20px; color: #4a5568;">Investment platform & ownership</td>
+                  <td style="padding: 15px 20px; color: #4a5568;">Capital partners &amp; investment opportunities</td>
+                  <td style="padding: 15px 20px; color: #4a5568;">Investment platform &amp; ownership</td>
                 </tr>
               </tbody>
             </table>
@@ -2231,7 +2109,7 @@
                 <option value="venture-advisory">Venture Advisory</option>
                 <option value="corporate-finance">Corporate Finance Advisory</option>
                 <option value="capital-partners">Capital Partners</option>
-                <option value="private-equity">Private Equity & Investment</option>
+                <option value="private-equity">Private Equity &amp; Investment</option>
                 <option value="partnership">Partnership / Co-investment</option>
                 <option value="other">Other Enquiry</option>
               </select>
@@ -3051,9 +2929,7 @@
     currentSlide = index;
   }
 
-  function nextSlide() {
-    showSlide(currentSlide + 1);
-  }
+  function nextSlide() { showSlide(currentSlide + 1); }
 
   if (dots.length && videos.length) {
     dots.forEach((dot, i) => {
