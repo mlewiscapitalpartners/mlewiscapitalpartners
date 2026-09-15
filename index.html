@@ -50,10 +50,49 @@
       gap: 10px; max-width: 1200px; margin: 0 auto; flex-wrap: nowrap;
     }
 
-    .logo { display: flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; min-width: 0; }
-    .logo h2 { font-size: 22px; font-weight: 800; color: #07152d; letter-spacing: -0.5px; line-height: 1.1; margin: 0; white-space: nowrap; }
-    .logo span { font-size: 9px; color: #7d8698; letter-spacing: 1.2px; text-transform: uppercase; white-space: nowrap; }
+        .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      min-width: 0;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
 
+    .logo-img {
+      height: 42px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .logo h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #07152d;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      font-size: 9px;
+      color: #7d8698;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
     .nav-links { display: flex; gap: 24px; align-items: center; flex-wrap: nowrap; }
     .nav-links a { font-size: 14px; font-weight: 500; color: #24314f; transition: 0.3s ease; cursor: pointer; white-space: nowrap; }
     .nav-links a:hover { color: #c59b53; }
@@ -360,10 +399,13 @@
 
 <nav class="navbar">
   <div class="nav-wrapper">
-    <div class="logo">
-      <h2>M. LEWIS GROUP</h2>
-      <span>Strategic Advisory &amp; Private Capital Platform</span>
-    </div>
+    <a class="logo" data-page="home" aria-label="M. Lewis Group — Home">
+      <img src="mlewisgroup.png" alt="M. Lewis Group" class="logo-img">
+      <div class="logo-text">
+        <h2>M. LEWIS GROUP</h2>
+        <span>Strategic Advisory &amp; Private Capital Platform</span>
+      </div>
+    </a>
     <div class="nav-links">
       <a data-page="home">Home</a>
       <a data-page="about">About Us</a>
