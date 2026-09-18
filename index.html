@@ -1536,7 +1536,7 @@
         </div>
       </div>
 
-              <!-- =========================================================
+                  <!-- =========================================================
          TEAM SECTION
          ========================================================= -->
     <div class="detail-section" style="padding: 90px 0 70px;">
@@ -1545,7 +1545,7 @@
         <!-- SECTION HEADER -->
         <div style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: 70px;">
           <span class="section-tag">Our Team</span>
-          <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: #07152d; margin: 18px 0 24px; line-height: 1.25; letter-spacing: -0.5px;">THE PEOPLE BEHIND THE PLATFORM</h2>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: #07152d; margin: 18px 0 24px; line-height: 1.25; letter-spacing: -0.5px;">The People Behind the Platform</h2>
           <p style="color: #4a5568; font-size: 1.05rem; line-height: 1.9; margin-bottom: 16px;">
             M. LEWIS GROUP's team combines institutional platform expertise spanning venture-building, strategic advisory, corporate finance, investment banking, and private capital, with local market intelligence.
           </p>
@@ -1558,19 +1558,26 @@
         <div style="max-width: 1000px; margin: 0 auto;">
           <div style="background: white; border-radius: 24px; box-shadow: 0 10px 40px rgba(7,21,45,0.08); overflow: hidden; border-top: 5px solid #c59b53;">
 
-            <!-- HEADER ROW (shield photo, name, title, toggle) -->
+            <!-- HEADER ROW (photo, name, title, toggle) -->
             <div style="display: flex; align-items: flex-start; gap: 32px; padding: 42px 44px; flex-wrap: wrap;">
 
-              <!-- SHIELD PROFILE PHOTO (brand colours) -->
-              <div class="shield-wrap" style="flex-shrink: 0;">
-                <div class="shield-border">
-                  <img
-                    class="shield-photo"
-                    src="cropped-1713948169242.jpg"
-                    alt="Mwaba Lewis — Group Managing Partner, M. Lewis Group"
-                    onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 240%22><rect width=%22200%22 height=%22240%22 fill=%22%23c59b53%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Playfair Display, serif%22 font-size=%2272%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>ML</text></svg>';"
-                  >
-                </div>
+              <!-- CIRCULAR PROFILE PHOTO -->
+              <div style="flex-shrink: 0;">
+                <img
+                  src="cropped-1713948169242.jpg"
+                  alt="Mwaba Lewis — Group Managing Partner, M. Lewis Group"
+                  style="
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center top;
+                    display: block;
+                    border: 4px solid #ffffff;
+                    box-shadow: 0 8px 24px rgba(197,155,83,0.28), 0 0 0 1px rgba(197,155,83,0.15);
+                  "
+                  onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 130 130%22><rect width=%22130%22 height=%22130%22 fill=%22%23d3a15a%22/><text x=%2250%25%22 y=%2255%25%22 font-family=%22Playfair Display, serif%22 font-size=%2248%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>ML</text></svg>';"
+                >
               </div>
 
               <!-- Name + Titles -->
@@ -1578,9 +1585,9 @@
                 <h3 style="font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2rem); color: #07152d; margin: 0 0 14px; line-height: 1.2;">Mwaba Lewis</h3>
 
                 <div style="display: flex; flex-direction: column; gap: 8px;">
-                  <p style="color: #c59b53; font-size: 0.88rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin: 0;">Group Managing Partner, M. LEWIS GROUP</p>
-                  <p style="color: #c59b53; font-size: 0.88rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin: 0;">Chief Executive Officer, AfriLeap Capital</p>
-                  <p style="color: #c59b53; font-size: 0.88rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin: 0;">Group Head — Investment Banking &amp; Corporate Advisory, M. Lewis Partners</p>
+                  <p style="color: #c59b53; font-size: 0.88rem; font-weight: 700; letter-spacing: 1.2px; margin: 0;">Group Managing Partner, M. LEWIS GROUP</p>
+                  <p style="color: #c59b53; font-size: 0.88rem; font-weight: 700; letter-spacing: 1.2px; margin: 0;">Chief Executive Officer, AfriLeap Capital</p>
+                  <p style="color: #c59b53; font-size: 0.88rem; font-weight: 700; letter-spacing: 1.2px; margin: 0;">Group Head — Investment Banking &amp; Corporate Advisory, M. Lewis Partners</p>
                 </div>
               </div>
 
@@ -1650,89 +1657,6 @@
 
       </div>
     </div>
-
-    <!-- SHIELD PHOTO STYLES -->
-    <style>
-      /* Shield wrapper — holds the gold outer ring */
-      .shield-wrap {
-        position: relative;
-        width: 140px;
-        height: 168px;
-      }
-
-      /* Outer shield = gold border layer */
-      .shield-border {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #d3a15a 0%, #c59b53 50%, #b7863f 100%);
-        clip-path: polygon(
-          50% 0%,
-          100% 12%,
-          100% 62%,
-          50% 100%,
-          0% 62%,
-          0% 12%
-        );
-        padding: 5px;
-        box-sizing: border-box;
-        box-shadow: 0 10px 26px rgba(197, 155, 83, 0.28);
-      }
-
-      /* Inner shield = navy backing that shows behind the photo (creates the gold outline effect) */
-      .shield-border::before {
-        content: "";
-        position: absolute;
-        inset: 5px;
-        background: #07152d;
-        clip-path: polygon(
-          50% 0%,
-          100% 12%,
-          100% 62%,
-          50% 100%,
-          0% 62%,
-          0% 12%
-        );
-        z-index: 0;
-      }
-
-      /* The photo itself, clipped into a shield and inset slightly to reveal gold + navy rings */
-      .shield-photo {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-        display: block;
-        clip-path: polygon(
-          50% 0%,
-          100% 12%,
-          100% 62%,
-          50% 100%,
-          0% 62%,
-          0% 12%
-        );
-        z-index: 1;
-        background: #f0f0f0;
-      }
-
-      /* Subtle shine sweep across the shield on hover */
-      .shield-wrap:hover .shield-border {
-        box-shadow: 0 14px 32px rgba(197, 155, 83, 0.4);
-        transform: translateY(-2px);
-      }
-      .shield-border {
-        transition: transform 0.35s ease, box-shadow 0.35s ease;
-      }
-
-      /* Mobile — scale the shield down slightly */
-      @media (max-width: 600px) {
-        .shield-wrap {
-          width: 120px;
-          height: 144px;
-        }
-      }
-    </style>
 
     <!-- TEAM TOGGLE SCRIPT -->
     <script>
