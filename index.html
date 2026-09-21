@@ -881,29 +881,44 @@
       </div>
     </div>
 
-    <!-- PROCESS FLOW -->
-<div style="display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 4px; margin: 0 auto 70px; width: 100%; max-width: 100%; overflow: hidden; box-sizing: border-box; padding: 0 10px;">
+    <!-- PROCESS FLOW (scrollable, hidden scrollbar) -->
+<div style="
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto 70px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  padding: 0 10px 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+">
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2px; padding: 6px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Originate</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.75rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Originate</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2px; padding: 6px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Build</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.75rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Build</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2px; padding: 6px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Advise</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.75rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Advise</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2px; padding: 6px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Finance</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.75rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Finance</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2px; padding: 6px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Invest</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.75rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Invest</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2px; padding: 6px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Scale</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.75rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Scale</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #c59b53; color: #ffffff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2px; padding: 6px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Realize</span>
-
+  <span style="background: #c59b53; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Realize</span>
 </div>
 
     <!-- THE 7 STEPS GRID -->
@@ -999,23 +1014,42 @@
       </p>
     </div>
 
-    <!-- PROCESS FLOW -->
-<div style="display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 6px; margin: 0 auto 70px; width: 100%; max-width: 100%; overflow: hidden; box-sizing: border-box; padding: 0 10px;">
+    <!-- PROCESS FLOW (scrollable, hidden scrollbar) -->
+<div style="
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto 70px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  padding: 0 10px 4px;
+  scrollbar-width: none;           /* Firefox */
+  -ms-overflow-style: none;        /* IE / Edge */
+  -webkit-overflow-scrolling: touch; /* Smooth iOS scroll */
+">
+  <style>
+    /* Hide scrollbar (Chrome / Safari / Edge) */
+    #process-flow-scroll::-webkit-scrollbar { display: none; height: 0; }
+  </style>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3px; padding: 7px 12px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Build</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.85rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Build</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3px; padding: 7px 12px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Advise</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.85rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Advise</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3px; padding: 7px 12px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Finance</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.85rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Finance</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #07152d; color: #ffffff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3px; padding: 7px 12px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Invest</span>
-  <span style="color: #c59b53; font-weight: bold; font-size: 0.85rem; line-height: 1; flex-shrink: 0;">→</span>
+  <span style="background: #07152d; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Invest</span>
+  <span style="color: #c59b53; font-weight: bold; font-size: 0.9rem; line-height: 1; flex-shrink: 0;">→</span>
 
-  <span style="background: #c59b53; color: #ffffff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3px; padding: 7px 12px; border-radius: 999px; white-space: nowrap; flex-shrink: 1; min-width: 0;">Scale</span>
-
+  <span style="background: #c59b53; color: #ffffff; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Scale</span>
 </div>
 
     <!-- CAPABILITIES SECTION -->
